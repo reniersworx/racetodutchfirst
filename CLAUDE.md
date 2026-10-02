@@ -1,7 +1,8 @@
 # Race to Dutch First: notes for agents
 
 A public, static site that follows Dutch WoW guilds racing to be the first to reach
-Cutting Edge (the CE boss on Mythic) in the current raid tier. **All UI text is Dutch.**
+Cutting Edge (the CE boss on Mythic) in the current raid tier. **The UI is Dutch by default**,
+with an English translation behind the NL | EN switch (see *Languages*).
 Live at https://racetodutchfirst.bmiest.be/ (GitHub Pages, custom domain set in the
 repo's Pages settings, DNS at Cloudflare as DNS-only).
 
@@ -21,14 +22,19 @@ tests/
   fixtures/raiderio/         real responses, recorded 2026-10-02 (rosters emptied)
   fixtures/wcl/              real WCL report pages, recorded 2026-10-02 (no token in them)
   test_wcl.py                the WCL merge
+  test_site.py               frontend contracts: same keys in nl + en, no innerHTML, no inline style
   fixtures/api/              older single responses from the first version (unused but kept)
+scripts/og-image.sh          headless Chrome: site/og.html → site/og.png (run by site.yml)
 site/                        static, no build step, no framework, no CDN scripts
-  index.html                 sections in order: De race, Klassement, Voortgang, Per boss, Huidige boss, footer
+  index.html                 sections in order: De race, Klassement, Laatste kills, Voortgang, Per boss, Huidige boss, footer
+  i18n.js                    NL + EN strings and the global `i18n` (loaded before app.js)
   app.js                     loads data/race.json, draws everything (inline SVG)
+  og.html, og.css, og.js     the 1200x630 share image page; scripts/og-image.sh screenshots it to og.png
+  og.png                     committed fallback share image; CI replaces it in the Pages artifact
   style.css                  the page
   tokens.css                 copied UNCHANGED from Bmiest/bmiest_wow_streaming_theme css/tokens.css
   data/race.json             sample data; CI regenerates it into the Pages artifact only
-.github/workflows/site.yml   raid evenings every 30 min, else every 2 h, + main pushes + manual: fetch, deploy
+.github/workflows/site.yml   raid evenings every 30 min, else every 2 h, + main pushes + manual: fetch, share image, deploy
 .github/workflows/test.yml   PRs and main: ruff, pytest, node --check
 ```
 
@@ -127,7 +133,30 @@ that kill (reclears after it don't count); the lowest best %. **Never "WCL wins"
   (higher = more HP gone) from its css/banner.css; dark `.tile`s, pills and the header
   from bmiest_wowaudit_wishlist_updater site/style.css. Late data is gold, not red.
 - Charts draw at the container's measured width and redraw on resize (ResizeObserver).
-  It must work at 360 px: the per-boss table scrolls sideways with a sticky boss column.
+  It must work at 360 px: below 600 px the per-boss table is replaced by one card per boss
+  (`#bossCards`, same `bossCell()` markup in a `div`).
+- "Nu aan het raiden" (`liveState`) is derived in the browser: the last pull on the current
+  boss or the latest kill within 60 min of `generatedAt`, *and* race.json itself under 60 min
+  old; otherwise "Raidde om 21:57" for 12 h. Badges repaint every 30 s without new data.
+- Voortgang starts in the week of the first Mythic kill (weeks counted from `tier.start`, so
+  ticks stay on the reset), not at the tier start.
+- Huidige boss pull charts mark a new raid night where two pulls are more than 6 h apart.
+
+## Languages
+
+`i18n.js` holds every UI string in Dutch and English. Order: `?lang=nl|en`, then the
+visitor's earlier choice (localStorage `lang`), then Dutch; the browser language is ignored on
+purpose. The switch redraws the page (render() runs again) and dispatches `race:lang` on
+`document` with `{ detail: { lang } }`.
+
+- New UI text: add the key to **both** `nl` and `en` (test_site.py fails otherwise), use
+  `tr('key', { vars })` in app.js, `data-i18n="key"` for static text in index.html.
+- Other scripts register their own strings with `i18n.add({ nl: {...}, en: {...} })` and read
+  `i18n.lang`, `i18n.t()`, `i18n.tn()` (plural via `key_one` / `key_other`), `i18n.num()`.
+  `day()` / `dayTime()` in app.js follow the active locale (nl-NL / en-GB).
+- Game names (guilds, raids, bosses) are never translated. og.png stays Dutch.
+- The app.js helpers `h()`, `$()`, `day()`, `dayTime()`, `colour()`, `setGuild()` and
+  `raiderioUrl()` are globals other scripts use: keep their names and signatures.
 
 ## Changing the tier
 

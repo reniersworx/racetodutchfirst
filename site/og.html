@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
+<meta name="robots" content="noindex">
+<title>Race to Dutch First: share image</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="og.css">
+</head>
+<body>
+<!-- 1200 x 630: the og:image. scripts/og-image.sh screenshots this page into og.png. -->
+<main class="og">
+  <header class="og__top">
+    <div class="og__brand">
+      <span class="og__flag"><svg viewBox="0 0 18 18" aria-hidden="true">
+        <path d="M4 16V2.5M4 3h9l-2 3 2 3H4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg></span>
+      <span class="og__brandname">Race to Dutch First</span>
+    </div>
+    <span class="og__url">racetodutchfirst.bmiest.be</span>
+  </header>
+  <h1 id="ogTitle" class="og__title">Wie haalt als eerste Cutting Edge?</h1>
+  <ol id="ogRows" class="og__rows"></ol>
+  <footer class="og__foot">
+    <span id="ogCe" class="og__pill og__pill--gold"></span>
+    <span id="ogUpdated" class="og__updated"></span>
+  </footer>
+</main>
+<script src="og.js"></script>
+</body>
+</html>
