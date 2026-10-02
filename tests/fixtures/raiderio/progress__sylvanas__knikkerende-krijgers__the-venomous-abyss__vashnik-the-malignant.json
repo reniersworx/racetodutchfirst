@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 1327250,
+  "name": "Knikkerende Krijgers",
+  "displayName": "Knikkerende Krijgers",
+  "faction": "alliance",
+  "realm": {
+   "id": 716,
+   "connectedRealmId": 265,
+   "wowRealmId": 628,
+   "wowConnectedRealmId": 1597,
+   "name": "Sylvanas",
+   "altName": null,
+   "slug": "sylvanas",
+   "altSlug": "sylvanas",
+   "locale": "en_GB",
+   "isConnected": true,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/sylvanas/Knikkerende%20Krijgers",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16915,
+  "difficulty": "mythic",
+  "name": "The Venomous Abyss",
+  "short_name": "VA",
+  "wowInstanceId": 3004,
+  "slug": "the-venomous-abyss",
+  "icon_url": "/images/wow/icons/large/8039569.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197165,
+  "wowEncounterId": 3455,
+  "name": "Vashnik the Malignant",
+  "slug": "vashnik-the-malignant",
+  "ordinal": 3,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_121_raid_achievement_alchemist.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2882.png"
+ },
+ "overallProgress": {
+  "summary": "4/8 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 8,
+  "defeatedBosses": 4,
+  "normalBossesKilled": 8,
+  "heroicBossesKilled": 8,
+  "mythicBossesKilled": 4
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 454293,
+ "boss_percent": 0,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "0%",
+ "pullCount": 7,
+ "pullStartedAt": "2026-09-27T18:27:48.033Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}

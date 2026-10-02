@@ -1,0 +1,81 @@
+{
+ "guild": {
+  "id": 47949,
+  "name": "Lelijkerds",
+  "displayName": "Lelijkerds",
+  "faction": "horde",
+  "realm": {
+   "id": 579,
+   "connectedRealmId": 308,
+   "wowRealmId": 506,
+   "wowConnectedRealmId": 1403,
+   "name": "Draenor",
+   "altName": null,
+   "slug": "draenor",
+   "altSlug": "draenor",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/draenor/Lelijkerds",
+  "logo": "https://cdn.raiderio.net/images/site/horde_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16671,
+  "difficulty": "mythic",
+  "name": "The Tidebound Grotto",
+  "short_name": "TG",
+  "wowInstanceId": 2987,
+  "slug": "the-tidebound-grotto",
+  "icon_url": "/images/wow/icons/large/achievement_boss_elitenagamale.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197188,
+  "wowEncounterId": 3379,
+  "name": "Nymrissa Wavecaller",
+  "slug": "nymrissa-wavecaller",
+  "ordinal": 0,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/achievement_boss_elitenagamale.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2849.png"
+ },
+ "overallProgress": {
+  "summary": "0/1 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 1,
+  "defeatedBosses": 0,
+  "normalBossesKilled": 1,
+  "heroicBossesKilled": 1,
+  "mythicBossesKilled": 0
+ },
+ "bestPercent": null,
+ "bestAttemptDurationMs": null,
+ "pullCount": 0,
+ "pullStartedAt": null,
+ "isDefeated": false,
+ "error": null,
+ "widgetVersion": 0
+}

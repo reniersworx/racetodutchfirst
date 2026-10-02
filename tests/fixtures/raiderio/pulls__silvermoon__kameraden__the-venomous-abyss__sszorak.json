@@ -1,0 +1,1065 @@
+{
+ "guild": {
+  "id": 2320417,
+  "name": "Kameraden",
+  "displayName": "Kameraden",
+  "faction": "alliance",
+  "realm": {
+   "id": 704,
+   "connectedRealmId": 355,
+   "wowRealmId": 549,
+   "wowConnectedRealmId": 3391,
+   "name": "Silvermoon",
+   "altName": null,
+   "slug": "silvermoon",
+   "altSlug": "silvermoon",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/silvermoon/Kameraden",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16915,
+  "difficulty": "mythic",
+  "name": "The Venomous Abyss",
+  "short_name": "VA",
+  "wowInstanceId": 3004,
+  "slug": "the-venomous-abyss",
+  "icon_url": "/images/wow/icons/large/8039569.jpg",
+  "expansion_id": 11
+ },
+ "guildPrivacy": {
+  "raidPulls": true,
+  "raidPercents": true,
+  "raidComps": true,
+  "wereRaidPullsRestricted": false,
+  "wereRaidPercentsRestricted": false,
+  "wereRaidCompsRestricted": false,
+  "shareRaidUntil": null
+ },
+ "boss": {
+  "encounterId": 197167,
+  "wowEncounterId": 3420,
+  "name": "Sszorak",
+  "slug": "sszorak",
+  "ordinal": 4,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_121_raid_achievement_brute.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2871.png"
+ },
+ "count": 41,
+ "pulls": [
+  {
+   "details": {
+    "id": 4036951,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": true,
+    "num_members": 20,
+    "num_deaths": 0,
+    "duration_ms": 10,
+    "pull_started_at": "2026-09-28T19:02:34.992Z",
+    "pull_ended_at": "2026-09-28T19:02:35.002Z",
+    "encounter_health": {
+     "overall_percent": 1,
+     "boss_percent": 1,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "100%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4036951"
+   }
+  },
+  {
+   "details": {
+    "id": 4041698,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 46369,
+    "pull_started_at": "2026-09-28T19:15:41.480Z",
+    "pull_ended_at": "2026-09-28T19:16:27.908Z",
+    "encounter_health": {
+     "overall_percent": 0.834348,
+     "boss_percent": 0.834348,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "83.43%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4041698"
+   }
+  },
+  {
+   "details": {
+    "id": 4042594,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 96010,
+    "pull_started_at": "2026-09-28T19:18:10.352Z",
+    "pull_ended_at": "2026-09-28T19:19:46.292Z",
+    "encounter_health": {
+     "overall_percent": 0.757948,
+     "boss_percent": 0.757948,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "75.79%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4042594"
+   }
+  },
+  {
+   "details": {
+    "id": 4043460,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 17,
+    "duration_ms": 63018,
+    "pull_started_at": "2026-09-28T19:21:46.502Z",
+    "pull_ended_at": "2026-09-28T19:22:49.448Z",
+    "encounter_health": {
+     "overall_percent": 0.823642,
+     "boss_percent": 0.823642,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "82.36%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4043460"
+   }
+  },
+  {
+   "details": {
+    "id": 4044490,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 84205,
+    "pull_started_at": "2026-09-28T19:25:27.020Z",
+    "pull_ended_at": "2026-09-28T19:26:51.302Z",
+    "encounter_health": {
+     "overall_percent": 0.76454,
+     "boss_percent": 0.76454,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "76.45%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4044490"
+   }
+  },
+  {
+   "details": {
+    "id": 4045068,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 45151,
+    "pull_started_at": "2026-09-28T19:28:22.097Z",
+    "pull_ended_at": "2026-09-28T19:29:07.289Z",
+    "encounter_health": {
+     "overall_percent": 0.833231,
+     "boss_percent": 0.833231,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "83.32%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4045068"
+   }
+  },
+  {
+   "details": {
+    "id": 4045825,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 95663,
+    "pull_started_at": "2026-09-28T19:31:02.407Z",
+    "pull_ended_at": "2026-09-28T19:32:38.113Z",
+    "encounter_health": {
+     "overall_percent": 0.7531,
+     "boss_percent": 0.7531,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "75.31%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4045825"
+   }
+  },
+  {
+   "details": {
+    "id": 4048197,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 69194,
+    "pull_started_at": "2026-09-28T19:44:32.715Z",
+    "pull_ended_at": "2026-09-28T19:45:41.909Z",
+    "encounter_health": {
+     "overall_percent": 0.801866,
+     "boss_percent": 0.801866,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "80.19%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4048197"
+   }
+  },
+  {
+   "details": {
+    "id": 4048821,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 108870,
+    "pull_started_at": "2026-09-28T19:47:05.189Z",
+    "pull_ended_at": "2026-09-28T19:48:54.059Z",
+    "encounter_health": {
+     "overall_percent": 0.726019,
+     "boss_percent": 0.726019,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "72.6%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4048821"
+   }
+  },
+  {
+   "details": {
+    "id": 4049865,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 84759,
+    "pull_started_at": "2026-09-28T19:52:49.070Z",
+    "pull_ended_at": "2026-09-28T19:54:13.955Z",
+    "encounter_health": {
+     "overall_percent": 0.738359,
+     "boss_percent": 0.738359,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "73.84%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4049865"
+   }
+  },
+  {
+   "details": {
+    "id": 4050648,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 71668,
+    "pull_started_at": "2026-09-28T19:57:10.007Z",
+    "pull_ended_at": "2026-09-28T19:58:21.853Z",
+    "encounter_health": {
+     "overall_percent": 0.810015,
+     "boss_percent": 0.810015,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "81%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4050648"
+   }
+  },
+  {
+   "details": {
+    "id": 4051529,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 17,
+    "duration_ms": 107784,
+    "pull_started_at": "2026-09-28T20:02:07.239Z",
+    "pull_ended_at": "2026-09-28T20:03:54.964Z",
+    "encounter_health": {
+     "overall_percent": 0.740047,
+     "boss_percent": 0.740047,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "74%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4051529"
+   }
+  },
+  {
+   "details": {
+    "id": 4052065,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 172266,
+    "pull_started_at": "2026-09-28T20:06:15.811Z",
+    "pull_ended_at": "2026-09-28T20:09:08.122Z",
+    "encounter_health": {
+     "overall_percent": 0.588027,
+     "boss_percent": 0.588027,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "58.8%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4052065"
+   }
+  },
+  {
+   "details": {
+    "id": 4052538,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 87361,
+    "pull_started_at": "2026-09-28T20:13:11.193Z",
+    "pull_ended_at": "2026-09-28T20:14:38.566Z",
+    "encounter_health": {
+     "overall_percent": 0.765445,
+     "boss_percent": 0.765445,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "76.54%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4052538"
+   }
+  },
+  {
+   "details": {
+    "id": 4052814,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 113574,
+    "pull_started_at": "2026-09-28T20:15:52.034Z",
+    "pull_ended_at": "2026-09-28T20:17:45.608Z",
+    "encounter_health": {
+     "overall_percent": 0.74178,
+     "boss_percent": 0.74178,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "74.18%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4052814"
+   }
+  },
+  {
+   "details": {
+    "id": 4053177,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 102362,
+    "pull_started_at": "2026-09-28T20:20:01.837Z",
+    "pull_ended_at": "2026-09-28T20:21:44.219Z",
+    "encounter_health": {
+     "overall_percent": 0.746841,
+     "boss_percent": 0.746841,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "74.68%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4053177"
+   }
+  },
+  {
+   "details": {
+    "id": 4053625,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 163023,
+    "pull_started_at": "2026-09-28T20:24:19.971Z",
+    "pull_ended_at": "2026-09-28T20:27:02.991Z",
+    "encounter_health": {
+     "overall_percent": 0.573691,
+     "boss_percent": 0.573691,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "57.37%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4053625"
+   }
+  },
+  {
+   "details": {
+    "id": 4054027,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 21,
+    "duration_ms": 90341,
+    "pull_started_at": "2026-09-28T20:29:04.733Z",
+    "pull_ended_at": "2026-09-28T20:30:35.028Z",
+    "encounter_health": {
+     "overall_percent": 0.745702,
+     "boss_percent": 0.745702,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "74.57%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4054027"
+   }
+  },
+  {
+   "details": {
+    "id": 4054423,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 158727,
+    "pull_started_at": "2026-09-28T20:31:45.993Z",
+    "pull_ended_at": "2026-09-28T20:34:24.720Z",
+    "encounter_health": {
+     "overall_percent": 0.602704,
+     "boss_percent": 0.602704,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "60.27%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4054423"
+   }
+  },
+  {
+   "details": {
+    "id": 4054860,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 109899,
+    "pull_started_at": "2026-09-28T20:37:15.066Z",
+    "pull_ended_at": "2026-09-28T20:39:05.023Z",
+    "encounter_health": {
+     "overall_percent": 0.690395,
+     "boss_percent": 0.690395,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "69.04%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4054860"
+   }
+  },
+  {
+   "details": {
+    "id": 4055024,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 46088,
+    "pull_started_at": "2026-09-28T20:40:22.116Z",
+    "pull_ended_at": "2026-09-28T20:41:08.204Z",
+    "encounter_health": {
+     "overall_percent": 0.838075,
+     "boss_percent": 0.838075,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "83.81%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4055024"
+   }
+  },
+  {
+   "details": {
+    "id": 4055411,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 166100,
+    "pull_started_at": "2026-09-28T20:42:40.898Z",
+    "pull_ended_at": "2026-09-28T20:45:26.882Z",
+    "encounter_health": {
+     "overall_percent": 0.600807,
+     "boss_percent": 0.600807,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "60.08%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4055411"
+   }
+  },
+  {
+   "details": {
+    "id": 4055673,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 143155,
+    "pull_started_at": "2026-09-28T20:46:40.308Z",
+    "pull_ended_at": "2026-09-28T20:49:03.545Z",
+    "encounter_health": {
+     "overall_percent": 0.68783,
+     "boss_percent": 0.68783,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "68.78%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4055673"
+   }
+  },
+  {
+   "details": {
+    "id": 4056108,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 22,
+    "duration_ms": 163724,
+    "pull_started_at": "2026-09-28T20:50:06.887Z",
+    "pull_ended_at": "2026-09-28T20:52:50.611Z",
+    "encounter_health": {
+     "overall_percent": 0.593568,
+     "boss_percent": 0.593568,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "59.36%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4056108"
+   }
+  },
+  {
+   "details": {
+    "id": 4056663,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 248609,
+    "pull_started_at": "2026-09-28T20:55:11.547Z",
+    "pull_ended_at": "2026-09-28T20:59:22.228Z",
+    "encounter_health": {
+     "overall_percent": 0.437328,
+     "boss_percent": 0.437328,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "43.73%",
+     "npcs": []
+    },
+    "period": 1082,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4056663"
+   }
+  },
+  {
+   "details": {
+    "id": 4358786,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 17,
+    "duration_ms": 10873,
+    "pull_started_at": "2026-10-01T19:54:53.842Z",
+    "pull_ended_at": "2026-10-01T19:55:04.845Z",
+    "encounter_health": {
+     "overall_percent": 0.999943,
+     "boss_percent": 0.999943,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "99.99%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4358786"
+   }
+  },
+  {
+   "details": {
+    "id": 4360722,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 18,
+    "duration_ms": 141613,
+    "pull_started_at": "2026-10-01T20:03:13.045Z",
+    "pull_ended_at": "2026-10-01T20:05:34.758Z",
+    "encounter_health": {
+     "overall_percent": 0.656415,
+     "boss_percent": 0.656415,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "65.64%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4360722"
+   }
+  },
+  {
+   "details": {
+    "id": 4361108,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 82999,
+    "pull_started_at": "2026-10-01T20:07:29.978Z",
+    "pull_ended_at": "2026-10-01T20:08:52.897Z",
+    "encounter_health": {
+     "overall_percent": 0.787277,
+     "boss_percent": 0.787277,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "78.73%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4361108"
+   }
+  },
+  {
+   "details": {
+    "id": 4361537,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 18,
+    "duration_ms": 91030,
+    "pull_started_at": "2026-10-01T20:11:03.799Z",
+    "pull_ended_at": "2026-10-01T20:12:34.851Z",
+    "encounter_health": {
+     "overall_percent": 0.744176,
+     "boss_percent": 0.744176,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "74.42%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4361537"
+   }
+  },
+  {
+   "details": {
+    "id": 4362494,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 29459,
+    "pull_started_at": "2026-10-01T20:19:21.166Z",
+    "pull_ended_at": "2026-10-01T20:19:50.709Z",
+    "encounter_health": {
+     "overall_percent": 0.999549,
+     "boss_percent": 0.999549,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "99.95%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4362494"
+   }
+  },
+  {
+   "details": {
+    "id": 4362830,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 67823,
+    "pull_started_at": "2026-10-01T20:21:12.579Z",
+    "pull_ended_at": "2026-10-01T20:22:20.486Z",
+    "encounter_health": {
+     "overall_percent": 0.797141,
+     "boss_percent": 0.797141,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "79.71%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4362830"
+   }
+  },
+  {
+   "details": {
+    "id": 4363298,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 21,
+    "duration_ms": 144011,
+    "pull_started_at": "2026-10-01T20:23:42.677Z",
+    "pull_ended_at": "2026-10-01T20:26:06.688Z",
+    "encounter_health": {
+     "overall_percent": 0.667459,
+     "boss_percent": 0.667459,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "66.75%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4363298"
+   }
+  },
+  {
+   "details": {
+    "id": 4363773,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 17,
+    "duration_ms": 126095,
+    "pull_started_at": "2026-10-01T20:27:13.298Z",
+    "pull_ended_at": "2026-10-01T20:29:19.407Z",
+    "encounter_health": {
+     "overall_percent": 0.709515,
+     "boss_percent": 0.709515,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "70.95%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4363773"
+   }
+  },
+  {
+   "details": {
+    "id": 4364387,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 81644,
+    "pull_started_at": "2026-10-01T20:30:23.249Z",
+    "pull_ended_at": "2026-10-01T20:31:44.783Z",
+    "encounter_health": {
+     "overall_percent": 0.757702,
+     "boss_percent": 0.757702,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "75.77%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4364387"
+   }
+  },
+  {
+   "details": {
+    "id": 4365071,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 146553,
+    "pull_started_at": "2026-10-01T20:33:08.626Z",
+    "pull_ended_at": "2026-10-01T20:35:35.201Z",
+    "encounter_health": {
+     "overall_percent": 0.612203,
+     "boss_percent": 0.612203,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "61.22%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4365071"
+   }
+  },
+  {
+   "details": {
+    "id": 4365581,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 18,
+    "duration_ms": 63700,
+    "pull_started_at": "2026-10-01T20:36:56.021Z",
+    "pull_ended_at": "2026-10-01T20:37:59.744Z",
+    "encounter_health": {
+     "overall_percent": 0.805262,
+     "boss_percent": 0.805262,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "80.53%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4365581"
+   }
+  },
+  {
+   "details": {
+    "id": 4366341,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 20,
+    "duration_ms": 112647,
+    "pull_started_at": "2026-10-01T20:39:04.031Z",
+    "pull_ended_at": "2026-10-01T20:40:56.791Z",
+    "encounter_health": {
+     "overall_percent": 0.712074,
+     "boss_percent": 0.712074,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "71.21%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4366341"
+   }
+  },
+  {
+   "details": {
+    "id": 4367331,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 114779,
+    "pull_started_at": "2026-10-01T20:42:15.533Z",
+    "pull_ended_at": "2026-10-01T20:44:10.381Z",
+    "encounter_health": {
+     "overall_percent": 0.702576,
+     "boss_percent": 0.702576,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "70.26%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4367331"
+   }
+  },
+  {
+   "details": {
+    "id": 4368350,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 130469,
+    "pull_started_at": "2026-10-01T20:45:49.499Z",
+    "pull_ended_at": "2026-10-01T20:47:59.968Z",
+    "encounter_health": {
+     "overall_percent": 0.671916,
+     "boss_percent": 0.671916,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "67.19%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4368350"
+   }
+  },
+  {
+   "details": {
+    "id": 4369627,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 18,
+    "duration_ms": 133687,
+    "pull_started_at": "2026-10-01T20:49:41.721Z",
+    "pull_ended_at": "2026-10-01T20:51:55.450Z",
+    "encounter_health": {
+     "overall_percent": 0.673093,
+     "boss_percent": 0.673093,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "67.31%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4369627"
+   }
+  },
+  {
+   "details": {
+    "id": 4370699,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 80406,
+    "pull_started_at": "2026-10-01T20:53:04.429Z",
+    "pull_ended_at": "2026-10-01T20:54:24.672Z",
+    "encounter_health": {
+     "overall_percent": 0.782986,
+     "boss_percent": 0.782986,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "78.3%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4370699"
+   }
+  },
+  {
+   "details": {
+    "id": 4372092,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": false,
+    "num_members": 20,
+    "num_deaths": 19,
+    "duration_ms": 85253,
+    "pull_started_at": "2026-10-01T20:56:50.901Z",
+    "pull_ended_at": "2026-10-01T20:58:16.226Z",
+    "encounter_health": {
+     "overall_percent": 0.735729,
+     "boss_percent": 0.735729,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "73.57%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4372092"
+   }
+  },
+  {
+   "details": {
+    "id": 4372515,
+    "status": "finished",
+    "is_success": false,
+    "is_reset": true,
+    "num_members": 12,
+    "num_deaths": 0,
+    "duration_ms": 1201,
+    "pull_started_at": "2026-10-01T20:58:47.685Z",
+    "pull_ended_at": "2026-10-01T20:58:48.886Z",
+    "encounter_health": {
+     "overall_percent": 1,
+     "boss_percent": 1,
+     "phase": null,
+     "phase_label": null,
+     "progress_display": "100%",
+     "npcs": []
+    },
+    "period": 1083,
+    "raidcomp_url": "https://raider.io/api/v1/live-tracking/raidcomps?raid=the-venomous-abyss&id=4372515"
+   }
+  }
+ ],
+ "error": null,
+ "widgetVersion": 0
+}

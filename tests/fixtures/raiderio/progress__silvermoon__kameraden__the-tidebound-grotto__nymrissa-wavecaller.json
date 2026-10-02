@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 2320417,
+  "name": "Kameraden",
+  "displayName": "Kameraden",
+  "faction": "alliance",
+  "realm": {
+   "id": 704,
+   "connectedRealmId": 355,
+   "wowRealmId": 549,
+   "wowConnectedRealmId": 3391,
+   "name": "Silvermoon",
+   "altName": null,
+   "slug": "silvermoon",
+   "altSlug": "silvermoon",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/silvermoon/Kameraden",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16671,
+  "difficulty": "mythic",
+  "name": "The Tidebound Grotto",
+  "short_name": "TG",
+  "wowInstanceId": 2987,
+  "slug": "the-tidebound-grotto",
+  "icon_url": "/images/wow/icons/large/achievement_boss_elitenagamale.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197188,
+  "wowEncounterId": 3379,
+  "name": "Nymrissa Wavecaller",
+  "slug": "nymrissa-wavecaller",
+  "ordinal": 0,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/achievement_boss_elitenagamale.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2849.png"
+ },
+ "overallProgress": {
+  "summary": "1/1 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 1,
+  "defeatedBosses": 1,
+  "normalBossesKilled": 1,
+  "heroicBossesKilled": 1,
+  "mythicBossesKilled": 1
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 440646,
+ "boss_percent": 0,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "0%",
+ "pullCount": 7,
+ "pullStartedAt": "2026-09-28T18:38:38.652Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}

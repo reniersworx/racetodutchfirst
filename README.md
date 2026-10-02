@@ -1,41 +1,30 @@
 # Race to Dutch First
 
-Een website die de race volgt tussen Nederlandse World of Warcraft-gilden om als eerste **Cutting Edge** te halen: de laatste Mythic-boss van de huidige raid-tier. Het voelt aan als een race — met grafieken en kaarten, niet alleen een tabel.
+Welke Nederlandse World of Warcraft-guild haalt als eerste **Cutting Edge**, de laatste Mythic-boss van de huidige raid tier? Deze site volgt de race: een racebaan per guild, het klassement, de voortgang door de tijd, een overzicht per boss en hoe dicht iedereen bij zijn huidige boss zit.
 
-## Wat je ziet
+Live op <https://racetodutchfirst.bmiest.be/>. De data komt van [Raider.IO](https://raider.io) en wordt elk half uur ververst.
 
-- **De race:** een baan per gilde met posities en boss-marks.
-- **Klassement:** kaarten per gilde met Mythic/Heroic voortgang.
-- **Voortgang:** lijngrafiek over tijd (Mythic kills).
-- **Per boss:** raster van bosses × gilden, met eerste kill in goud.
-- **Huidige boss:** hoe dicht bij de volgende kill is elk gilde?
-- Footer met \"Bijgewerkt … minuten geleden\" en bronvermelding.
+## Een guild toevoegen
 
-## Bronnen
-
-Data van [Raider.IO](https://raider.io) (openbare API, geen sleutel nodig). Warcraft Logs is optioneel.
+Zet een `[[guilds]]`-blok in [`guilds.toml`](guilds.toml) (naam, realm, kleur) en open een pull request. Na de merge staat de guild er bij de volgende verversing bij.
 
 ## Lokaal draaien
 
 ```bash
 uv sync
-uv run python -m racetodutchfirst   # haalt data op → site/data/race.json
-# open site/index.html in een browser
+uv run python -m racetodutchfirst          # haalt de data op → site/data/race.json
+uv run python -m http.server 8000 --directory site
+# open http://localhost:8000
 ```
+
+Rechtstreeks `site/index.html` openen werkt niet: de browser laadt `data/race.json` niet via `file://`.
 
 ## Testen
 
 ```bash
-uv run pytest tests/ -v
+uv run pytest
+uv run ruff check src tests
+node --check site/app.js
 ```
 
-## Structuur
-
-- `guilds.toml` — gilden, realms, kleuren, tier-configuratie
-- `src/racetodutchfirst/__main__.py` — haalt Raider.IO-data op en schrijft `race.json`
-- `site/` — HTML, CSS, JS (geen framework, geen build-step)
-- `tests/` — pytest met fixtures (geen netwerk in tests)
-
-## Ontwikkelen
-
-Zie [CLAUDE.md](CLAUDE.md) voor gedetailleerde instructies.
+De tests draaien op opgenomen Raider.IO-antwoorden in `tests/fixtures/`, zonder netwerk.

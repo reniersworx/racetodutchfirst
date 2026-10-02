@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
 <title>Race to Dutch First</title>
+<meta name="description" content="Welke Nederlandse World of Warcraft-guild haalt als eerste Cutting Edge? De race naar de laatste Mythic-boss, live gevolgd.">
+<meta name="theme-color" content="#0a0b0d">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -12,101 +14,66 @@
 
 <div class="page">
 
-  <!-- Header -->
   <header class="dash-header">
-    <div class="rib rib--sm brand-rib" style="--acc:var(--jade)">
+    <div class="rib brand-rib">
       <div class="rib__bar"><div class="rib__in">
         <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
-          <circle cx="9" cy="9" r="3" fill="currentColor"></circle>
-          <path d="M4.2 4.2a6.8 6.8 0 0 0 0 9.6M13.8 4.2a6.8 6.8 0 0 1 0 9.6"
-                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          <path d="M4 16V2.5M4 3h9l-2 3 2 3H4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg></span>
         <span class="rib__val">Race to Dutch First</span>
       </div></div>
     </div>
-    <h1 id="pageTitle">Race to Dutch First</h1>
-    <p class="lead">Welke Nederlandse guild bereikt als eerste Cutting Edge? De race wordt hier live gevolgd.</p>
+
+    <h1>Wie haalt als eerste Cutting Edge?</h1>
+    <p class="lead">De race tussen Nederlandse guilds naar de laatste Mythic-boss van de huidige raid tier, live gevolgd via Raider.IO.</p>
+    <div id="tierPills" class="status-line"></div>
   </header>
 
-  <!-- Section 1: De race -->
-  <section class="view" aria-label="De race">
-    <div class="rib rib--sm" style="--acc:var(--jade)">
-      <div class="rib__bar"><div class="rib__in">
-        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
-          <path d="M2 9h14M12 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg></span>
-        <span class="rib__val">De race</span>
-      </div></div>
-    </div>
-    <div id="raceTrack" class="race-track"></div>
+  <div id="globalError" class="error-capsule" role="alert" hidden></div>
+
+  <section id="winnerBanner" class="winner" aria-live="polite" hidden></section>
+
+  <section class="view" aria-labelledby="raceHeading">
+    <h2 id="raceHeading" class="view__title">De race</h2>
+    <p class="section-caption">Elke guild rijdt op zijn eigen baan: één stap per Mythic-kill, plus het deel van de huidige boss dat al weg is. Een beste pull op 27% telt als 0,73. De finish ligt bij de Cutting Edge-boss.</p>
+    <div id="raceTrack" class="chart race-chart"></div>
   </section>
 
-  <!-- Section 2: Klassement -->
-  <section class="view" aria-label="Klassement">
-    <div class="rib rib--sm" style="--acc:var(--jade)">
-      <div class="rib__bar"><div class="rib__in">
-        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
-          <rect x="3" y="6" width="3" height="10" rx="1" fill="currentColor"></rect>
-          <rect x="7.5" y="3" width="3" height="13" rx="1" fill="currentColor"></rect>
-          <rect x="12" y="8" width="3" height="8" rx="1" fill="currentColor"></rect>
-        </svg></span>
-        <span class="rib__val">Klassement</span>
-      </div></div>
-    </div>
-    <div id="klassementGrid" class="tiles-grid"></div>
+  <section class="view" aria-labelledby="standingsHeading">
+    <h2 id="standingsHeading" class="view__title">Klassement</h2>
+    <p class="section-caption">Eerst het meeste Mythic-kills, dan de laagste beste % op de huidige boss, dan wie zijn laatste kill het eerst had, dan het meeste Heroic-kills.</p>
+    <ol id="standings" class="tiles-grid standings"></ol>
   </section>
 
-  <!-- Section 3: Voortgang -->
-  <section class="view" aria-label="Voortgang">
-    <div class="rib rib--sm" style="--acc:var(--jade)">
-      <div class="rib__bar"><div class="rib__in">
-        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
-          <polyline points="2,14 5,9 8,11 12,5 16,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-        </svg></span>
-        <span class="rib__val">Voortgang</span>
-      </div></div>
-    </div>
-    <p class="section-caption">Mythische overwinningen in de tijd, per guild.</p>
-    <div id="timelineChart" class="timeline-chart"></div>
+  <section class="view" aria-labelledby="timelineHeading">
+    <h2 id="timelineHeading" class="view__title">Voortgang</h2>
+    <p class="section-caption">Mythic-kills door de tijd, vanaf de start van de tier. Elke trede is een kill.</p>
+    <div id="timeline" class="chart timeline-chart"></div>
+    <ul id="timelineLegend" class="legend"></ul>
+    <details class="as-table">
+      <summary>Toon als tabel</summary>
+      <div class="table-wrap"><table id="timelineTable" class="data-table"></table></div>
+    </details>
   </section>
 
-  <!-- Section 4: Per boss -->
-  <section class="view" aria-label="Per boss">
-    <div class="rib rib--sm" style="--acc:var(--jade)">
-      <div class="rib__bar"><div class="rib__in">
-        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
-          <rect x="2" y="2" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-          <line x1="6" y1="2" x2="6" y2="16" stroke="currentColor" stroke-width="1"></line>
-          <line x1="12" y1="2" x2="12" y2="16" stroke="currentColor" stroke-width="1"></line>
-          <line x1="2" y1="7" x2="16" y2="7" stroke="currentColor" stroke-width="1"></line>
-          <line x1="2" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="1"></line>
-        </svg></span>
-        <span class="rib__val">Per boss</span>
-      </div></div>
+  <section class="view" aria-labelledby="bossHeading">
+    <h2 id="bossHeading" class="view__title">Per boss</h2>
+    <p class="section-caption">Een verslagen boss toont de datum en het aantal pulls; goud is de eerste kill van alle guilds hier. Een balk is de beste pull: hoeveel van de boss er al af was. Grijs is nog niet geprobeerd.</p>
+    <div class="table-wrap table-wrap--scroll" tabindex="0" role="region" aria-labelledby="bossHeading">
+      <table id="bossTable" class="boss-table"></table>
     </div>
-    <p class="section-caption">Overzicht per boss: datum, aantal pulls en voortgang op de huidige boss.</p>
-    <div id="bossGrid" class="boss-grid"></div>
   </section>
 
-  <!-- Section 5: Huidige boss -->
-  <section class="view" aria-label="Huidige boss">
-    <div class="rib rib--sm" style="--acc:var(--jade)">
-      <div class="rib__bar"><div class="rib__in">
-        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
-          <circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-          <polyline points="9,3 9,9 13,11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-        </svg></span>
-        <span class="rib__val">Huidige boss</span>
-      </div></div>
-    </div>
-    <p class="section-caption">Hoe dicht bij de kill? De beste %-curve per guild op de huidige Venomous Abyss-boss.</p>
-    <div id="curvesGrid" class="curves-grid"></div>
+  <section class="view" aria-labelledby="currentHeading">
+    <h2 id="currentHeading" class="view__title">Huidige boss</h2>
+    <p class="section-caption">Hoe dicht zitten ze erbij? Elke staaf is een pull: hoe hoger, hoe meer van de boss eraf. De lijn is de beste pull tot dan toe, de stippellijn bovenaan de kill.</p>
+    <div id="currentBoss" class="curves-grid"></div>
   </section>
 
-  <!-- Footer -->
   <footer class="site-footer">
-    <p id="updatedText" class="site-footer__updated"></p>
-    <p>Data van <a href="https://raider.io" target="_blank" rel="noopener">Raider.IO</a>. Alle gegevens worden gebruikt volgens de Raider.IO Acceptable Use Policy.</p>
+    <p id="updated" class="updated">Data laden…</p>
+    <p>Bron: <a href="https://raider.io" rel="noopener">Raider.IO</a>: guildprofielen, kills en live tracking. Pulls en beste % zijn wat Raider.IO live volgt; een pull die daar ontbreekt, ontbreekt hier ook. <span id="wclNote"></span></p>
+    <p><a href="https://github.com/reniersworx/racetodutchfirst" rel="noopener">Broncode op GitHub</a></p>
   </footer>
 
 </div>

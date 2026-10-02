@@ -1,0 +1,81 @@
+{
+ "guild": {
+  "id": 2320417,
+  "name": "Kameraden",
+  "displayName": "Kameraden",
+  "faction": "alliance",
+  "realm": {
+   "id": 704,
+   "connectedRealmId": 355,
+   "wowRealmId": 549,
+   "wowConnectedRealmId": 3391,
+   "name": "Silvermoon",
+   "altName": null,
+   "slug": "silvermoon",
+   "altSlug": "silvermoon",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/silvermoon/Kameraden",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16915,
+  "difficulty": "mythic",
+  "name": "The Venomous Abyss",
+  "short_name": "VA",
+  "wowInstanceId": 3004,
+  "slug": "the-venomous-abyss",
+  "icon_url": "/images/wow/icons/large/8039569.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197169,
+  "wowEncounterId": 3429,
+  "name": "The Coiled Altar",
+  "slug": "the-coiled-altar",
+  "ordinal": 6,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_121_raid_achievement_zuljinmalacrass.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2883.png"
+ },
+ "overallProgress": {
+  "summary": "4/8 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 8,
+  "defeatedBosses": 4,
+  "normalBossesKilled": 8,
+  "heroicBossesKilled": 8,
+  "mythicBossesKilled": 4
+ },
+ "bestPercent": null,
+ "bestAttemptDurationMs": null,
+ "pullCount": 0,
+ "pullStartedAt": null,
+ "isDefeated": false,
+ "error": null,
+ "widgetVersion": 0
+}

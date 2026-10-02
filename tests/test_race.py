@@ -1,254 +1,314 @@
-"""Tests for race position, ranking, and data handling.
+"""Race position, ranking, winner and the Raider.IO traps, on recorded real responses."""
 
-Uses fixtures from real Raider.IO responses – no network in tests.
-"""
+from __future__ import annotations
 
 import json
-from pathlib import Path
+from datetime import UTC, datetime
 
+import httpx
 import pytest
 
-# Paths
-FIXTURES = Path(__file__).parent / "fixtures"
-BASE = Path(__file__).parent.parent  # project root
+from racetodutchfirst import __main__ as cli
+from racetodutchfirst.config import ConfigError, parse_config
+from racetodutchfirst.race import (
+    build_race,
+    fetch_guild,
+    find_winner,
+    first_kills,
+    race_position,
+    rank_guilds,
+)
+from racetodutchfirst.raiderio import REQUEST_DELAY, FetchError, RaiderIO
+from tests.conftest import ROOT, FixtureHTTP, Response, guild
+
+NOW = datetime(2026, 10, 2, 21, 5, tzinfo=UTC)
 
 
-def _load_fixture(name: str) -> dict:
-    with open(FIXTURES / name) as f:
-        return json.load(f)
+# -- race position ----------------------------------------------------------
+
+def test_position_example_from_the_brief():
+    assert race_position(5, {"bestPercent": 27.0}) == 5.73
 
 
-class TestRacePosition:
-    """Race position = Mythic kills (both raids) + progress on current VA boss.
-
-    Progress on current VA boss = (100 - bestPercent) / 100.
-    If the CE boss is defeated, progress = 1.0.
-    """
-
-    def test_position_with_progress(self):
-        """Guild with 5 VA mythic + 1 TG mythic + 27% current VA = 6.73."""
-        data = _load_fixture("api/kelderklasse_profile.json")
-        va_prog = data["raid_progression"]["the-venomous-abyss"]
-        tg_prog = data["raid_progression"]["the-tidebound-grotto"]
-        total_mythic = va_prog["mythic_bosses_killed"] + tg_prog["mythic_bosses_killed"]
-
-        best_percent = 27.02  # from boss-progress fixture
-        progress = (100 - best_percent) / 100
-        expected = total_mythic + progress
-        assert round(expected, 4) == pytest.approx(6.73, abs=0.01)
-
-    def test_position_ce_defeated(self):
-        """If CE boss is defeated, progress = 1.0 (fully killed)."""
-        # Simulate: guild has killed all VA bosses + TG boss
-        total_mythic = 9 + 1  # all bosses
-        expected = total_mythic + 1.0  # +1 for the CE kill
-        assert expected == 11.0
-
-    def test_position_no_current_boss(self):
-        """Guild that hasn't pulled the current VA boss yet."""
-        best_percent = 100.0  # no progress
-        progress = (100 - best_percent) / 100
-        assert progress == 0.0
-
-    def test_position_from_generated_data(self):
-        """The generated race.json has consistent positions."""
-        with open(BASE / "site" / "data" / "race.json") as f:
-            data = json.load(f)
-        for guild in data["guilds"]:
-            va = guild["progression"]["the-venomous-abyss"]
-            tg = guild["progression"]["the-tidebound-grotto"]
-            total_mythic = va["mythic_bosses_killed"] + tg["mythic_bosses_killed"]
-            cb = guild["current_boss"]
-            if cb.get("isDefeated"):
-                progress = 1.0
-            elif cb.get("pullCount", 0) > 0 and cb.get("boss"):
-                progress = (100 - cb["bestPercent"]) / 100
-            else:
-                progress = 0.0
-            expected = round(total_mythic + progress, 4)
-            assert guild["race_position"] == pytest.approx(expected, abs=0.001), (
-                f"Position mismatch for {guild['name']}: "
-                f"expected {expected}, got {guild['race_position']}"
-            )
+def test_position_without_pulls_is_just_the_kills():
+    assert race_position(5, {"bestPercent": None}) == 5.0
+    assert race_position(9, None) == 9.0
 
 
-class TestRanking:
-    """Ranking rules:
-    1. Most Mythic kills (descending)
-    2. Lowest best % on current VA boss (ascending)
-    3. Latest kill first (earlier defeatedAt wins)
-    4. Most Heroic kills (descending)
-    """
-
-    def _make_guild(self, name, va_mythic, tg_mythic, va_heroic, tg_heroic,
-                    best_pct=100.0, latest_kill="2026-09-01T00:00:00Z"):
-        return {
-            "name": name,
-            "progression": {
-                "the-venomous-abyss": {
-                    "mythic_bosses_killed": va_mythic,
-                    "heroic_bosses_killed": va_heroic,
-                },
-                "the-tidebound-grotto": {
-                    "mythic_bosses_killed": tg_mythic,
-                    "heroic_bosses_killed": tg_heroic,
-                },
-            },
-            "current_boss": {"bestPercent": best_pct, "boss": "test", "isDefeated": False},
-            "boss_kill_dates": [{"defeatedAt": latest_kill}],
-        }
-
-    def test_most_mythic_wins(self):
-        guilds = [
-            self._make_guild("A", 5, 0, 3, 0),
-            self._make_guild("B", 4, 0, 2, 0),
-        ]
-        from racetodutchfirst.__main__ import rank_guilds
-        ranked = rank_guilds(guilds)
-        assert ranked[0]["name"] == "A"
-        assert ranked[1]["name"] == "B"
-
-    def test_best_percent_breaks_tie(self):
-        guilds = [
-            self._make_guild("A", 4, 0, 2, 0, best_pct=66.96),
-            self._make_guild("B", 4, 0, 2, 0, best_pct=43.73),
-        ]
-        from racetodutchfirst.__main__ import rank_guilds
-        ranked = rank_guilds(guilds)
-        assert ranked[0]["name"] == "B"  # lower % = closer to kill
-
-    def test_latest_kill_breaks_tie(self):
-        guilds = [
-            self._make_guild("A", 4, 0, 2, 0, latest_kill="2026-09-01T00:00:00Z"),
-            self._make_guild("B", 4, 0, 2, 0, latest_kill="2026-09-05T00:00:00Z"),
-        ]
-        from racetodutchfirst.__main__ import rank_guilds
-        ranked = rank_guilds(guilds)
-        assert ranked[0]["name"] == "A"  # earlier latest kill wins
-
-    def test_heroic_breaks_tie(self):
-        guilds = [
-            self._make_guild("A", 4, 0, 3, 0),
-            self._make_guild("B", 4, 0, 2, 0),
-        ]
-        from racetodutchfirst.__main__ import rank_guilds
-        ranked = rank_guilds(guilds)
-        assert ranked[0]["name"] == "A"
-
-    def test_generated_data_ranking(self):
-        """The ranking in race.json is consistent with the rules."""
-        with open(BASE / "site" / "data" / "race.json") as f:
-            data = json.load(f)
-        guilds = data["guilds"]
-        # Check ranks are sequential and match order
-        for i, g in enumerate(guilds):
-            assert g["rank"] == i + 1, f"Guild {g['name']} has wrong rank"
-
-    def test_ce_defeated_wins(self):
-        """A guild that defeated the CE boss ranks above all others."""
-        guilds = [
-            self._make_guild("Winner", 9, 1, 5, 0, best_pct=0.0),
-            self._make_guild("Loser", 8, 1, 4, 0, best_pct=50.0),
-        ]
-        from racetodutchfirst.__main__ import rank_guilds
-        ranked = rank_guilds(guilds)
-        assert ranked[0]["name"] == "Winner"
+def test_position_fraction_is_clamped():
+    assert race_position(2, {"bestPercent": 0.0}) == 3.0
+    assert race_position(2, {"bestPercent": 120.0}) == 2.0
 
 
-class TestEmptyKillResponse:
-    """The {} response means the guild hasn't killed this boss."""
-
-    def test_empty_kill_means_not_killed(self):
-        kill_data = _load_fixture("api/empty_kill.json")
-        # Empty dict or no 'kill' key means not killed
-        assert kill_data == {}, f"Expected empty dict, got {kill_data}"
-
-    def test_non_empty_has_kill_info(self):
-        kill_data = _load_fixture("api/kelderklasse_kill_nekzali.json")
-        assert "kill" in kill_data
-        assert "defeatedAt" in kill_data["kill"]
-        assert "pulledAt" in kill_data["kill"]
-        assert "durationMs" in kill_data["kill"]
+def test_kelderklasse_position_from_fixtures(rio, config):
+    g = fetch_guild(rio, guild(config, "Kelderklasse"), config.tier)
+    assert g["mythicKills"] == 6  # 5/8 Venomous Abyss + 1/1 Tidebound Grotto
+    assert g["current"]["slug"] == "the-twin-fangs"
+    assert g["current"]["bestPercent"] == 27.02
+    assert g["racePosition"] == pytest.approx(6.7298)
 
 
-class TestBossProgressResponse:
-    """Test parsing of boss-progress responses."""
+# -- the live-data traps ----------------------------------------------------
 
-    def test_current_boss_has_progress(self):
-        prog = _load_fixture("api/kelderklasse_boss_progress.json")
-        assert "boss" in prog
-        assert "slug" in prog["boss"]
-        assert "bestPercent" in prog
-        assert "pullCount" in prog
-        assert "isDefeated" in prog
-
-    def test_defeated_boss(self):
-        prog = _load_fixture("api/kelderklasse_defeated_boss.json")
-        # nekzali is already defeated by Kelderklasse
-        assert prog.get("isDefeated", False) is True
+def test_latest_boss_already_dead_is_not_counted_twice(rio, config):
+    # RoyalTeam: boss=latest answers The Lost Explorers with isDefeated=true.
+    # The old fetcher took that as the current boss and gave 3.0 for 2 kills.
+    g = fetch_guild(rio, guild(config, "RoyalTeam"), config.tier)
+    assert g["mythicKills"] == 2
+    assert g["current"]["slug"] == "entombed-sentinels"  # skipped, still alive
+    assert g["racePosition"] == 2.0
 
 
-class TestBossPullsResponse:
-    """Test parsing of boss-pulls responses."""
-
-    def test_pulls_have_required_fields(self):
-        pulls_data = _load_fixture("api/kelderklasse_boss_pulls_the-twin-fangs.json")
-        pulls = pulls_data.get("pulls", [])
-        assert len(pulls) > 0, "Expected at least one pull in fixture"
-        for pull in pulls:
-            details = pull.get("details", {})
-            assert "pull_started_at" in details or "started_at" in details
-            assert "is_success" in details
+def test_kill_order_is_not_linear(rio, config):
+    g = fetch_guild(rio, guild(config, "RoyalTeam"), config.tier)
+    states = {b["slug"]: b["state"] for b in g["bosses"]}
+    assert states["nekzali-the-soulcoiler"] == "killed"
+    assert states["entombed-sentinels"] == "untouched"
+    assert states["the-lost-explorers"] == "killed"
 
 
-class TestGeneratedDataStructure:
-    """Test that the generated race.json has the expected structure."""
+def test_boss_kill_beats_live_tracking(rio, config):
+    # Lelijkerds killed The Lost Explorers on 24/9; live tracking still says 8.57%.
+    g = fetch_guild(rio, guild(config, "Lelijkerds"), config.tier)
+    lost = next(b for b in g["bosses"] if b["slug"] == "the-lost-explorers")
+    assert lost["state"] == "killed"
+    assert lost["defeatedAt"].startswith("2026-09-24")
+    assert lost["bestPercent"] is None
+    assert g["current"]["slug"] == "entombed-sentinels"
+    assert g["racePosition"] == pytest.approx(2.9765)
 
-    def test_generated_at_present(self):
-        with open(BASE / "site" / "data" / "race.json") as f:
-            data = json.load(f)
-        assert "generatedAt" in data
-        assert "guilds" in data
-        assert "tier" in data
 
-    def test_all_five_guilds_present(self):
-        with open(BASE / "site" / "data" / "race.json") as f:
-            data = json.load(f)
-        names = {g["name"] for g in data["guilds"]}
-        expected = {"Kelderklasse", "Kameraden", "Knikkerende Krijgers",
-                     "Lelijkerds", "RoyalTeam"}
-        assert names == expected, f"Missing guilds: {expected - names}"
+def test_empty_kill_response_means_not_killed(rio, http, config):
+    # With Sszorak answering {} the prober looks further for the fifth kill, finds none.
+    for boss in ("sszorak", "the-twin-fangs", "the-coiled-altar", "ulatek"):
+        http.overrides[f"kill__draenor__kelderklasse__the-venomous-abyss__{boss}.json"] = {}
+    g = fetch_guild(rio, guild(config, "Kelderklasse"), config.tier)
+    sszorak = next(b for b in g["bosses"] if b["slug"] == "sszorak")
+    assert sszorak["state"] != "killed"
+    assert sszorak["defeatedAt"] is None
 
-    def test_guild_has_required_fields(self):
-        with open(BASE / "site" / "data" / "race.json") as f:
-            data = json.load(f)
-        for g in data["guilds"]:
-            assert "name" in g
-            assert "realm" in g
-            assert "colour" in g
-            assert "rankings" in g
-            assert "progression" in g
-            assert "current_boss" in g
-            assert "race_position" in g
-            assert "boss_kill_dates" in g
-            assert "boss_pulls" in g
 
-    def test_tier_structure(self):
-        with open(BASE / "site" / "data" / "race.json") as f:
-            data = json.load(f)
-        tier = data["tier"]
-        raid_slugs = [r["slug"] for r in tier["raids"]]
-        assert "the-venomous-abyss" in raid_slugs
-        assert "the-tidebound-grotto" in raid_slugs
-        assert tier["ce_boss"] == "ulatek"
+def test_recorded_empty_kill_fixture_is_empty():
+    path = ROOT / "tests/fixtures/raiderio/kill__draenor__lelijkerds__the-venomous-abyss__entombed-sentinels.json"
+    assert json.loads(path.read_text()) == {}
 
-    def test_progression_has_both_raids(self):
-        with open(BASE / "site" / "data" / "race.json") as f:
-            data = json.load(f)
-        for g in data["guilds"]:
-            assert "the-venomous-abyss" in g["progression"]
-            assert "the-tidebound-grotto" in g["progression"]
-            va = g["progression"]["the-venomous-abyss"]
-            assert "mythic_bosses_killed" in va
-            assert "heroic_bosses_killed" in va
-            assert "total_bosses" in va
+
+def test_resets_are_not_pulls(rio, config):
+    # Kameraden's Sszorak list has 43 entries, two of them resets; pullCount is 41.
+    g = fetch_guild(rio, guild(config, "Kameraden"), config.tier)
+    assert g["current"]["slug"] == "sszorak"
+    assert len(g["current"]["pulls"]) == g["current"]["pullCount"] == 41
+
+
+def test_kill_endpoint_only_for_raids_with_kills(rio, http, config):
+    fetch_guild(rio, guild(config, "Lelijkerds"), config.tier)  # 0/1 Mythic Tidebound Grotto
+    kills = [u for u in http.urls if "/guilds/boss-kill" in u]
+    assert kills and not any("the-tidebound-grotto" in u for u in kills)
+
+
+def test_killed_bosses_probed_first(rio, http, config):
+    # Kelderklasse killed the first five in order: exactly five boss-kill calls in VA.
+    fetch_guild(rio, guild(config, "Kelderklasse"), config.tier)
+    va = [u for u in http.urls if "/guilds/boss-kill" in u and "the-venomous-abyss" in u]
+    assert len(va) == 5
+
+
+def test_guild_names_are_url_encoded(rio, http, config):
+    fetch_guild(rio, guild(config, "Knikkerende Krijgers"), config.tier)
+    assert all("Knikkerende%20Krijgers" in u and "realm=sylvanas" in u for u in http.urls)
+
+
+# -- ranking ----------------------------------------------------------------
+
+def _g(name, kills, best=None, latest=None, heroic=0):
+    return {"name": name, "mythicKills": kills, "heroicKills": heroic,
+            "latestKillAt": latest, "current": {"bestPercent": best}}
+
+
+def _order(guilds):
+    return [g["name"] for g in rank_guilds(guilds)]
+
+
+def test_rank_most_mythic_kills_first():
+    assert _order([_g("A", 4, 1.0), _g("B", 5, 90.0)]) == ["B", "A"]
+
+
+def test_rank_lowest_best_percent_next():
+    assert _order([_g("A", 5, 40.0), _g("B", 5, 27.0)]) == ["B", "A"]
+
+
+def test_rank_no_pull_does_not_beat_real_progress():
+    assert _order([_g("A", 5, None), _g("B", 5, 99.5)]) == ["B", "A"]
+
+
+def test_rank_earliest_latest_kill_next():
+    # A: kills on 1 and 20 Sep; B: 2 and 10 Sep. B reached the same count first.
+    a = _g("A", 2, 50.0, latest="2026-09-20T20:00:00Z")
+    b = _g("B", 2, 50.0, latest="2026-09-10T20:00:00Z")
+    assert _order([a, b]) == ["B", "A"]
+
+
+def test_rank_most_heroic_kills_last():
+    assert _order([_g("A", 0, None, heroic=3), _g("B", 0, None, heroic=8)]) == ["B", "A"]
+
+
+def test_rank_numbers_are_assigned():
+    ranked = rank_guilds([_g("A", 1), _g("B", 2)])
+    assert [(g["name"], g["rank"]) for g in ranked] == [("B", 1), ("A", 2)]
+
+
+# -- winner and first kills -------------------------------------------------
+
+def test_no_winner_without_ce_kill():
+    assert find_winner([{"name": "A", "ceKilledAt": None}]) is None
+
+
+def test_winner_is_first_ce_kill_not_rank_one():
+    guilds = [
+        {"name": "Ranked first", "ceKilledAt": "2026-10-20T21:00:00Z"},
+        {"name": "Killed first", "ceKilledAt": "2026-10-12T22:30:00Z"},
+    ]
+    assert find_winner(guilds) == {"guild": "Killed first", "defeatedAt": "2026-10-12T22:30:00Z"}
+
+
+def test_ce_kill_is_read_from_the_configured_boss(rio, http, config):
+    http.overrides["profile__draenor__kelderklasse.json"] = _with_mythic(
+        "profile__draenor__kelderklasse.json", 8)
+    http.overrides["kill__draenor__kelderklasse__the-venomous-abyss__ulatek.json"] = {
+        "kill": {"defeatedAt": "2026-10-14T21:12:00.000Z"}, "roster": []}
+    for boss in ("the-twin-fangs", "the-coiled-altar"):
+        http.overrides[f"kill__draenor__kelderklasse__the-venomous-abyss__{boss}.json"] = {
+            "kill": {"defeatedAt": "2026-10-08T21:00:00.000Z"}, "roster": []}
+    g = fetch_guild(rio, guild(config, "Kelderklasse"), config.tier)
+    assert g["ceKilledAt"] == "2026-10-14T21:12:00.000Z"
+    assert g["current"] is None and g["racePosition"] == 9.0
+    assert find_winner([g]) == {"guild": "Kelderklasse", "defeatedAt": "2026-10-14T21:12:00.000Z"}
+
+
+def _with_mythic(fixture, va_kills):
+    data = json.loads((ROOT / "tests/fixtures/raiderio" / fixture).read_text())
+    data["raid_progression"]["the-venomous-abyss"]["mythic_bosses_killed"] = va_kills
+    return data
+
+
+def test_first_kill_per_boss():
+    guilds = [
+        {"name": "A", "bosses": [{"raid": "r", "slug": "x", "defeatedAt": "2026-09-05T20:00:00Z"}]},
+        {"name": "B", "bosses": [{"raid": "r", "slug": "x", "defeatedAt": "2026-09-03T20:00:00Z"}]},
+    ]
+    assert first_kills(guilds)["r/x"]["guild"] == "B"
+
+
+# -- the whole run on the recorded data ---------------------------------------
+
+def test_full_run_on_fixtures(rio, config):
+    race = build_race(rio, config, NOW, log=lambda _m: None)
+    assert [g["name"] for g in race["guilds"]] == [
+        "Kelderklasse", "Kameraden", "Knikkerende Krijgers", "Lelijkerds", "RoyalTeam"]
+    assert [g["rank"] for g in race["guilds"]] == [1, 2, 3, 4, 5]
+    assert race["generatedAt"] == "2026-10-02T21:05:00Z"
+    assert race["winner"] is None
+    assert race["tier"]["totalBosses"] == 9
+    assert race["tier"]["ceBoss"] == {"raid": "the-venomous-abyss", "slug": "ulatek", "name": "Ula'tek"}
+    va = race["tier"]["raids"][0]["bosses"]
+    assert va[0]["firstKill"]["guild"] == "Kelderklasse"
+    assert va[-1]["firstKill"] is None
+
+
+def test_committed_sample_follows_the_ranking_rules():
+    race = json.loads((ROOT / "site/data/race.json").read_text())
+    assert len(race["guilds"]) == 5
+    datetime.fromisoformat(race["generatedAt"])
+    names = [g["name"] for g in race["guilds"]]
+    assert _order(json.loads(json.dumps(race["guilds"]))) == names
+    assert [g["rank"] for g in race["guilds"]] == list(range(1, 6))
+    for g in race["guilds"]:
+        assert g["mythicKills"] == sum(r["mythic"] for r in g["raids"].values())
+        assert race_position(g["mythicKills"], g["current"]) == g["racePosition"]
+
+
+# -- pacing and failures ----------------------------------------------------
+
+def test_every_request_is_paced(rio, sleeps, config):
+    fetch_guild(rio, guild(config, "Kameraden"), config.tier)
+    assert rio.requests == len(sleeps) > 10
+    assert all(s >= REQUEST_DELAY for s in sleeps)
+
+
+class Flaky:
+    def __init__(self, *statuses):
+        self.statuses = list(statuses)
+
+    def get(self, url):
+        status = self.statuses.pop(0)
+        if status == "timeout":
+            raise httpx.ReadTimeout("slow")
+        return Response(status, {"ok": True})
+
+
+def test_retries_on_server_errors_then_succeeds():
+    sleeps = []
+    rio = RaiderIO(Flaky(502, "timeout", 200), sleep=sleeps.append)
+    assert rio.get("guilds/profile", {}) == {"ok": True}
+    assert len(sleeps) == 3 and sleeps[1] > REQUEST_DELAY
+
+
+def test_gives_up_after_retries():
+    with pytest.raises(FetchError, match="HTTP 503"):
+        RaiderIO(Flaky(503, 503, 503), sleep=lambda _s: None).get("guilds/profile", {})
+
+
+def test_client_errors_fail_at_once():
+    with pytest.raises(FetchError, match="HTTP 400"):
+        RaiderIO(Flaky(400), sleep=lambda _s: None).get("guilds/profile", {})
+
+
+def test_failed_run_keeps_the_old_data(tmp_path, monkeypatch):
+    out = tmp_path / "race.json"
+    out.write_text('{"old": true}')
+
+    class Down(FixtureHTTP):
+        def get(self, url):
+            return Response(500)
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    monkeypatch.setattr(cli, "http_client", Down)
+    monkeypatch.setattr("racetodutchfirst.raiderio.time.sleep", lambda _s: None)
+    assert cli.main(["--output", str(out)]) == 1
+    assert out.read_text() == '{"old": true}'
+
+
+# -- config -----------------------------------------------------------------
+
+BASE_CFG = {
+    "guilds": [{"name": "A", "realm": "Draenor", "colour": "#123456"}],
+    "tier": {"start": "2026-08-19", "raids": [
+        {"slug": "r", "bosses": [{"slug": "one"}, {"slug": "two"}]}]},
+}
+
+
+def test_ce_boss_defaults_to_last_boss_of_first_raid():
+    assert parse_config(BASE_CFG).tier.ce_boss == "two"
+
+
+def test_unknown_ce_boss_is_rejected():
+    cfg = {**BASE_CFG, "tier": {**BASE_CFG["tier"], "ce_boss": {"raid": "r", "boss": "nope"}}}
+    with pytest.raises(ConfigError):
+        parse_config(cfg)
+
+
+def test_colour_must_be_hex():
+    cfg = {**BASE_CFG, "guilds": [{"name": "A", "realm": "Draenor", "colour": "red;x"}]}
+    with pytest.raises(ConfigError):
+        parse_config(cfg)
+
+
+def test_realm_slug():
+    g = parse_config({**BASE_CFG, "guilds": [
+        {"name": "A", "realm": "Argent Dawn", "colour": "#123456"}]}).guilds[0]
+    assert g.realm_slug == "argent-dawn"

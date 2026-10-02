@@ -1,18 +1,29 @@
 [project]
 name = "racetodutchfirst"
 version = "0.1.0"
-description = "Race to Dutch First – a website tracking Dutch WoW guilds racing to Cutting Edge."
+description = "Race to Dutch First: follows the race between Dutch WoW guilds to Cutting Edge."
 requires-python = ">=3.12"
 dependencies = [
-    "httpx",
-    "tomli",
+    "httpx>=0.27",
 ]
 
-[project.optional-dependencies]
-dev = ["pytest", "ruff"]
+[project.scripts]
+racetodutchfirst = "racetodutchfirst.__main__:main"
 
-[tool.uv]
-dev-dependencies = ["pytest", "ruff"]
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/racetodutchfirst"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
