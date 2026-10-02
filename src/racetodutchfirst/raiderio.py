@@ -105,6 +105,18 @@ def http_client(timeout: float = 30.0) -> httpx.Client:
 
 # -- fixtures: record real responses once, replay them in tests -----------
 
+def _trim_member(member: dict) -> dict:
+    c = member.get("character") or {}
+    pick = {
+        "name": c.get("name"),
+        "realm": {k: (c.get("realm") or {}).get(k) for k in ("name", "slug")},
+        "region": {"slug": (c.get("region") or {}).get("slug")},
+        "class": {k: (c.get("class") or {}).get(k) for k in ("name", "slug")},
+        "spec": {k: (c.get("spec") or {}).get(k) for k in ("name", "slug", "role")},
+    }
+    return {"character": pick}
+
+
 _ENDPOINTS = {
     "guilds/profile": "profile",
     "guilds/boss-kill": "kill",
@@ -127,8 +139,8 @@ def fixture_name(url: str) -> str:
 class RecordingHTTP:
     """Wraps a real client and saves every 200 response under fixture_name(url).
 
-    boss-kill rosters (full character profiles, ~400 KB per kill) are emptied:
-    nothing reads them, and they'd make the fixtures 30 MB."""
+    boss-kill rosters are full character profiles with gear (~400 KB per kill);
+    only the fields race.compact_roster() reads are kept, or the fixtures get 30 MB."""
 
     def __init__(self, inner: HTTPLike, directory: Path) -> None:
         self._inner = inner
@@ -140,7 +152,7 @@ class RecordingHTTP:
         if resp.status_code == 200:
             data = resp.json()
             if isinstance(data, dict) and data.get("roster"):
-                data = {**data, "roster": []}
+                data = {**data, "roster": [_trim_member(m) for m in data["roster"]]}
             path = self._dir / fixture_name(url)
             path.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
         return resp

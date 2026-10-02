@@ -19,8 +19,10 @@ Traps found in the live data (2026-10-02), each covered by a test:
 
 from __future__ import annotations
 
+import re
 import sys
 from datetime import UTC, datetime
+from urllib.parse import quote
 
 from .config import Boss, Config, Guild, Tier
 from .raiderio import RaiderIO
@@ -76,13 +78,40 @@ def _find_kills(rio: RaiderIO, guild: Guild, bosses: tuple[Boss, ...], live: dic
         if len(kills) >= expected:
             break
         boss = bosses[i]
-        kill = rio.boss_kill(guild, boss.raid, boss.slug).get("kill") or {}
+        resp = rio.boss_kill(guild, boss.raid, boss.slug)
+        kill = resp.get("kill") or {}
         if kill.get("defeatedAt"):
-            kills[boss.slug] = kill
+            kills[boss.slug] = {**kill, "_roster": compact_roster(resp.get("roster"))}
     if len(kills) != expected:
         _warn(f"{guild.name}: profiel zegt {expected} kills in {bosses[0].raid}, "
               f"boss-kill vond er {len(kills)}")
     return kills
+
+
+_ROLE_ORDER = {"tank": 0, "healer": 1, "dps": 2}
+_SLUG = re.compile(r"^[a-z0-9-]+$")
+
+
+def compact_roster(roster: object) -> list[dict]:
+    """The boss-kill roster as name/realm/class/spec/role, tanks first, then healers."""
+    out = []
+    for m in roster if isinstance(roster, list) else []:
+        c = (m or {}).get("character") or {}
+        name = c.get("name")
+        if not isinstance(name, str) or not name:
+            continue
+        realm, region = c.get("realm") or {}, (c.get("region") or {}).get("slug") or "eu"
+        slug = realm.get("slug") if isinstance(realm.get("slug"), str) else ""
+        spec = c.get("spec") or {}
+        out.append({
+            "name": name, "realm": realm.get("name") or slug, "realmSlug": slug,
+            "class": (c.get("class") or {}).get("name"), "spec": spec.get("name"),
+            "role": spec.get("role") if spec.get("role") in _ROLE_ORDER else "dps",
+            "url": (f"https://raider.io/characters/{region}/{slug}/{quote(name)}"
+                    if _SLUG.match(slug) and _SLUG.match(region) else None),
+        })
+    out.sort(key=lambda r: (_ROLE_ORDER[r["role"]], r["name"].casefold()))
+    return out
 
 
 def _pick_current(tier: Tier, states: dict[str, dict], latest: dict) -> Boss | None:
@@ -213,6 +242,7 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier, wcl_fights: list[dict] 
                 "defeatedAt": kill["defeatedAt"] if kill else None,
                 "pullCount": lv["pullCount"] or None,
                 "pullSource": "raiderio" if lv["pullCount"] else None,
+                "_roster": kill["_roster"] if kill else None,
                 "bestPercent": None if kill else lv["bestPercent"],
             }
 
@@ -241,8 +271,12 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier, wcl_fights: list[dict] 
             "bestPercent": st["bestPercent"], "pullCount": st["pullCount"] or 0,
             "pullSource": st["pullSource"], "pulls": pulls,
         }
-    for st in states.values():
+    rosters = {}
+    for key, st in states.items():
         st.pop("_wcl", None)
+        roster = st.pop("_roster", None)
+        if st["defeatedAt"]:
+            rosters[key] = roster  # None: the kill is known (e.g. from WCL) but not who was in it
 
     mythic_kills = sum(r["mythic"] for r in raids.values())
     kill_times = [s["defeatedAt"] for s in states.values() if s["defeatedAt"]]
@@ -266,6 +300,7 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier, wcl_fights: list[dict] 
         "raids": raids,
         "bosses": [states[b.key] for r in tier.raids for b in r.bosses],
         "current": current,
+        "_rosters": rosters,  # build_race turns these into hallOfFame, then drops them
     }
 
 
@@ -327,6 +362,48 @@ def wcl_fights_for(wcl: WarcraftLogs, guild: Guild, tier: Tier) -> tuple[int | N
         return guild.wcl_id, []
 
 
+def hall_of_fame(guilds: list[dict], tier: Tier) -> dict:
+    """Per killed boss every guild's kill team, first kill first; and every raider in one.
+
+    The first team of a boss is the race's first kill (the first Dutch guild). Raiders
+    are characters (an alt on another realm counts apart), ranked by race-first kills,
+    then by kills with their guild, then name."""
+    bosses, raiders = [], {}
+    for raid in tier.raids:
+        for b in raid.bosses:
+            teams = []
+            for g in guilds:
+                st = next(x for x in g["bosses"] if x["raid"] == b.raid and x["slug"] == b.slug)
+                if st["defeatedAt"]:
+                    roster = (g.get("_rosters") or {}).get(b.key)
+                    teams.append({"guild": g["name"], "colour": g["colour"],
+                                  "defeatedAt": st["defeatedAt"], "pullCount": st["pullCount"],
+                                  "rosterKnown": roster is not None, "roster": roster or []})
+            if not teams:
+                continue
+            teams.sort(key=lambda t: _ts(t["defeatedAt"]))
+            name = next(x["name"] for x in guilds[0]["bosses"] if x["slug"] == b.slug)
+            bosses.append({"raid": b.raid, "slug": b.slug, "name": name, "teams": teams})
+            for place, team in enumerate(teams):
+                for m in team["roster"]:
+                    key = (m["realmSlug"], m["name"].casefold())
+                    r = raiders.setdefault(key, {
+                        "name": m["name"], "realm": m["realm"], "class": m["class"],
+                        "url": m["url"], "guild": team["guild"], "colour": team["colour"],
+                        "firsts": 0, "kills": 0, "bosses": [], "_last": team["defeatedAt"],
+                    })
+                    r["kills"] += 1
+                    r["firsts"] += place == 0
+                    r["bosses"].append({"slug": b.slug, "name": name, "first": place == 0})
+                    if _ts(team["defeatedAt"]) >= _ts(r["_last"]):  # a guild switch: latest wins
+                        r.update(guild=team["guild"], colour=team["colour"],
+                                 _last=team["defeatedAt"])
+    ranked = sorted(raiders.values(), key=lambda r: (-r["firsts"], -r["kills"], r["name"].casefold()))
+    for r in ranked:
+        r.pop("_last")
+    return {"bosses": bosses, "raiders": ranked}
+
+
 def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
                wcl: WarcraftLogs | None = None) -> dict:
     guilds = []
@@ -336,6 +413,9 @@ def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
         guilds.append(fetch_guild(rio, guild, config.tier, wcl_fights=fights, wcl_id=gid))
     ranked = rank_guilds(guilds)
     firsts = first_kills(ranked)
+    fame = hall_of_fame(ranked, config.tier)
+    for g in ranked:
+        g.pop("_rosters", None)
     tier = config.tier
     names = {f"{b['raid']}/{b['slug']}": b["name"] for g in ranked for b in g["bosses"]}
     ce_key = f"{tier.ce_raid}/{tier.ce_boss}"
@@ -357,4 +437,5 @@ def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
         },
         "winner": find_winner(ranked),
         "guilds": ranked,
+        "hallOfFame": fame,
     }
