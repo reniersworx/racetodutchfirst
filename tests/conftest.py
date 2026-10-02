@@ -66,3 +66,27 @@ def rio(http, sleeps):
 
 def guild(config, name):
     return next(g for g in config.guilds if g.name == name)
+
+
+WCL_FIXTURES = Path(__file__).parent / "fixtures" / "wcl"
+
+
+class FixtureWCL:
+    """Warcraft Logs transport: a fake token, then recorded GraphQL answers."""
+
+    def __init__(self, status: int = 200) -> None:
+        self.status = status
+        self.bodies: list[dict] = []
+
+    def post(self, url: str, **kwargs) -> Response:
+        from racetodutchfirst.wcl import TOKEN_URL, fixture_name
+
+        if self.status != 200:
+            return Response(self.status)
+        if url == TOKEN_URL:
+            return Response(200, {"access_token": "test-token", "expires_in": 60})
+        self.bodies.append(kwargs["json"])
+        path = WCL_FIXTURES / fixture_name(kwargs["json"])
+        if not path.exists():
+            raise AssertionError(f"WCL query without a fixture: {path.name}")
+        return Response(200, json.loads(path.read_text()))

@@ -2,7 +2,7 @@
 
 Welke Nederlandse World of Warcraft-guild haalt als eerste **Cutting Edge**, de laatste Mythic-boss van de huidige raid tier? Deze site volgt de race: een racebaan per guild, het klassement, de voortgang door de tijd, een overzicht per boss en hoe dicht iedereen bij zijn huidige boss zit.
 
-Live op <https://racetodutchfirst.bmiest.be/>. De data komt van [Raider.IO](https://raider.io) en wordt elk half uur ververst.
+Live op <https://racetodutchfirst.bmiest.be/>. De data komt van [Raider.IO](https://raider.io), aangevuld met [Warcraft Logs](https://www.warcraftlogs.com), en wordt op raidavonden elk half uur ververst, anders om de 2 uur.
 
 ## Een guild toevoegen
 

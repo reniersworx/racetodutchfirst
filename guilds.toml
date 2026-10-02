@@ -4,37 +4,45 @@
 # realm is the realm's display name; the Raider.IO slug is derived from it
 # (lower case, spaces to dashes). colour is the guild's fixed colour in every
 # chart: keep it clear of jade (#3fd9a4) and gold (#d8b263), which the site
-# uses for the leader, first kills and the winner.
+# uses for the leader, first kills and the winner. wcl_id (optional) is the
+# number in the guild's warcraftlogs.com URL; without it the fetcher looks the
+# guild up by name.
 
 [[guilds]]
 name = "Kelderklasse"
 realm = "Draenor"
 colour = "#5aa9ff"
+wcl_id = 797151
 
 [[guilds]]
 name = "Kameraden"
 realm = "Silvermoon"
 colour = "#ff8a3d"
+wcl_id = 809530
 
 [[guilds]]
 name = "Knikkerende Krijgers"
 realm = "Sylvanas"
 colour = "#e5484d"
+wcl_id = 575269
 
 [[guilds]]
 name = "Lelijkerds"
 realm = "Draenor"
 colour = "#b48cff"
+wcl_id = 30714
 
 [[guilds]]
 name = "RoyalTeam"
 realm = "Silvermoon"
 colour = "#f472b6"
+wcl_id = 665432
 
 # The current tier (EU since 2026-08-19): 8 + 1 = 9 bosses.
 # The first raid is the main one: the fractional race position comes from the
 # guild's current boss there. Boss names here are a fallback; the site uses
-# Raider.IO's names.
+# Raider.IO's names. encounter is the Blizzard encounter ID: Warcraft Logs'
+# encounterID and Raider.IO's wowEncounterId.
 [tier]
 start = "2026-08-19"
 
@@ -45,21 +53,23 @@ ce_boss = { raid = "the-venomous-abyss", boss = "ulatek" }
 [[tier.raids]]
 slug = "the-venomous-abyss"
 name = "The Venomous Abyss"
+# Warcraft Logs zone. It also lists Nymrissa (Tidebound Grotto), matched by
+# encounter ID, and an unknown "Kith'ix" (3513) that isn't in this tier.
 warcraft_logs_zone = 53
 bosses = [
-  { slug = "nekzali-the-soulcoiler", name = "Nek'zali the Soulcoiler" },
-  { slug = "entombed-sentinels", name = "Entombed Sentinels" },
-  { slug = "the-lost-explorers", name = "The Lost Explorers" },
-  { slug = "vashnik-the-malignant", name = "Vashnik the Malignant" },
-  { slug = "sszorak", name = "Sszorak" },
-  { slug = "the-twin-fangs", name = "The Twin Fangs" },
-  { slug = "the-coiled-altar", name = "The Coiled Altar" },
-  { slug = "ulatek", name = "Ula'tek" },
+  { slug = "nekzali-the-soulcoiler", name = "Nek'zali the Soulcoiler", encounter = 3470 },
+  { slug = "entombed-sentinels", name = "Entombed Sentinels", encounter = 3445 },
+  { slug = "the-lost-explorers", name = "The Lost Explorers", encounter = 3497 },
+  { slug = "vashnik-the-malignant", name = "Vashnik the Malignant", encounter = 3455 },
+  { slug = "sszorak", name = "Sszorak", encounter = 3420 },
+  { slug = "the-twin-fangs", name = "The Twin Fangs", encounter = 3421 },
+  { slug = "the-coiled-altar", name = "The Coiled Altar", encounter = 3429 },
+  { slug = "ulatek", name = "Ula'tek", encounter = 3492 },
 ]
 
 [[tier.raids]]
 slug = "the-tidebound-grotto"
 name = "The Tidebound Grotto"
 bosses = [
-  { slug = "nymrissa-wavecaller", name = "Nymrissa Wavecaller" },
+  { slug = "nymrissa-wavecaller", name = "Nymrissa Wavecaller", encounter = 3379 },
 ]

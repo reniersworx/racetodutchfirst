@@ -119,6 +119,7 @@ a:hover { text-decoration-color: var(--jade); }
 .tile__boss { font-size: 15px; font-weight: 600; color: var(--paper); }
 .tile__detail { font-size: 13px; color: var(--paper-dim); }
 .tile__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--ink-300); }
+.tile__links { display: inline-flex; gap: 12px; }
 .tile__foot strong { color: var(--paper); font-family: var(--f-mono); font-weight: 500; }
 
 .meter { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 10px; }

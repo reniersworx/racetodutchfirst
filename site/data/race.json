@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-10-02T21:20:36Z",
+ "generatedAt": "2026-10-02T21:46:37Z",
  "sources": {
   "raiderio": true,
-  "warcraftlogs": false
+  "warcraftlogs": true
  },
  "tier": {
   "start": "2026-08-19",
@@ -46,7 +46,7 @@
       "name": "Vashnik the Malignant",
       "firstKill": {
        "guild": "Kelderklasse",
-       "defeatedAt": "2026-09-16T20:48:09.699Z"
+       "defeatedAt": "2026-09-16T20:47:54.898Z"
       }
      },
      {
@@ -98,11 +98,16 @@
    "region": "EU",
    "colour": "#5aa9ff",
    "profileUrl": "https://raider.io/guilds/eu/draenor/Kelderklasse",
+   "wclUrl": "https://www.warcraftlogs.com/guild/id/797151",
+   "sources": [
+    "raiderio",
+    "warcraftlogs"
+   ],
    "mythicKills": 6,
    "heroicKills": 9,
    "totalBosses": 9,
-   "worldRank": 1036,
-   "racePosition": 6.7298,
+   "worldRank": 1037,
+   "racePosition": 6.73,
    "latestKillAt": "2026-09-27T18:44:52.256Z",
    "ceKilledAt": null,
    "raids": {
@@ -111,8 +116,8 @@
      "heroic": 8,
      "total": 8,
      "summary": "5/8 M",
-     "worldRank": 1036,
-     "regionRank": 528,
+     "worldRank": 1037,
+     "regionRank": 529,
      "realmRank": 41
     },
     "the-tidebound-grotto": {
@@ -133,6 +138,7 @@
      "state": "killed",
      "defeatedAt": "2026-09-06T19:50:54.150Z",
      "pullCount": 1,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -141,7 +147,8 @@
      "name": "Entombed Sentinels",
      "state": "killed",
      "defeatedAt": "2026-09-13T19:55:31.718Z",
-     "pullCount": 18,
+     "pullCount": 19,
+     "pullSource": "warcraftlogs",
      "bestPercent": null
     },
     {
@@ -151,6 +158,7 @@
      "state": "killed",
      "defeatedAt": "2026-09-06T20:53:52.038Z",
      "pullCount": 8,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -158,8 +166,9 @@
      "slug": "vashnik-the-malignant",
      "name": "Vashnik the Malignant",
      "state": "killed",
-     "defeatedAt": "2026-09-16T20:48:09.699Z",
-     "pullCount": 19,
+     "defeatedAt": "2026-09-16T20:47:54.898Z",
+     "pullCount": 21,
+     "pullSource": "warcraftlogs",
      "bestPercent": null
     },
     {
@@ -168,7 +177,8 @@
      "name": "Sszorak",
      "state": "killed",
      "defeatedAt": "2026-09-27T18:44:52.256Z",
-     "pullCount": 81,
+     "pullCount": 82,
+     "pullSource": "warcraftlogs",
      "bestPercent": null
     },
     {
@@ -178,7 +188,8 @@
      "state": "progress",
      "defeatedAt": null,
      "pullCount": 41,
-     "bestPercent": 27.02
+     "pullSource": "raiderio",
+     "bestPercent": 27.0
     },
     {
      "raid": "the-venomous-abyss",
@@ -187,6 +198,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -196,6 +208,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -205,6 +218,7 @@
      "state": "killed",
      "defeatedAt": "2026-09-09T19:25:08.012Z",
      "pullCount": 6,
+     "pullSource": "raiderio",
      "bestPercent": null
     }
    ],
@@ -212,8 +226,9 @@
     "raid": "the-venomous-abyss",
     "slug": "the-twin-fangs",
     "name": "The Twin Fangs",
-    "bestPercent": 27.02,
+    "bestPercent": 27.0,
     "pullCount": 41,
+    "pullSource": "raiderio",
     "pulls": [
      {
       "at": "2026-09-27T20:22:42.586Z",
@@ -471,12 +486,17 @@
    "region": "EU",
    "colour": "#ff8a3d",
    "profileUrl": "https://raider.io/guilds/eu/silvermoon/Kameraden",
+   "wclUrl": "https://www.warcraftlogs.com/guild/id/809530",
+   "sources": [
+    "raiderio",
+    "warcraftlogs"
+   ],
    "mythicKills": 5,
    "heroicKills": 9,
    "totalBosses": 9,
    "worldRank": 1715,
    "racePosition": 5.5627,
-   "latestKillAt": "2026-09-28T18:45:59.216Z",
+   "latestKillAt": "2026-09-28T18:45:57.772Z",
    "ceKilledAt": null,
    "raids": {
     "the-venomous-abyss": {
@@ -493,7 +513,7 @@
      "heroic": 1,
      "total": 1,
      "summary": "1/1 M",
-     "worldRank": 2573,
+     "worldRank": 2574,
      "regionRank": 1104,
      "realmRank": 53
     }
@@ -504,8 +524,9 @@
      "slug": "nekzali-the-soulcoiler",
      "name": "Nek'zali the Soulcoiler",
      "state": "killed",
-     "defeatedAt": "2026-09-10T19:57:52.064Z",
-     "pullCount": 9,
+     "defeatedAt": "2026-09-10T19:57:50.693Z",
+     "pullCount": 12,
+     "pullSource": "warcraftlogs",
      "bestPercent": null
     },
     {
@@ -514,7 +535,8 @@
      "name": "Entombed Sentinels",
      "state": "killed",
      "defeatedAt": "2026-09-21T19:26:45.813Z",
-     "pullCount": 47,
+     "pullCount": 48,
+     "pullSource": "warcraftlogs",
      "bestPercent": null
     },
     {
@@ -522,8 +544,9 @@
      "slug": "the-lost-explorers",
      "name": "The Lost Explorers",
      "state": "killed",
-     "defeatedAt": "2026-09-14T18:23:45.420Z",
+     "defeatedAt": "2026-09-14T18:23:45.028Z",
      "pullCount": 15,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -531,8 +554,9 @@
      "slug": "vashnik-the-malignant",
      "name": "Vashnik the Malignant",
      "state": "killed",
-     "defeatedAt": "2026-09-24T20:19:28.850Z",
-     "pullCount": null,
+     "defeatedAt": "2026-09-24T20:19:28.560Z",
+     "pullCount": 4,
+     "pullSource": "warcraftlogs",
      "bestPercent": null
     },
     {
@@ -542,6 +566,7 @@
      "state": "progress",
      "defeatedAt": null,
      "pullCount": 41,
+     "pullSource": "raiderio",
      "bestPercent": 43.73
     },
     {
@@ -551,6 +576,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -560,6 +586,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -569,6 +596,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -576,8 +604,9 @@
      "slug": "nymrissa-wavecaller",
      "name": "Nymrissa Wavecaller",
      "state": "killed",
-     "defeatedAt": "2026-09-28T18:45:59.216Z",
+     "defeatedAt": "2026-09-28T18:45:57.772Z",
      "pullCount": 7,
+     "pullSource": "raiderio",
      "bestPercent": null
     }
    ],
@@ -587,6 +616,7 @@
     "name": "Sszorak",
     "bestPercent": 43.73,
     "pullCount": 41,
+    "pullSource": "raiderio",
     "pulls": [
      {
       "at": "2026-09-28T19:15:41.480Z",
@@ -844,11 +874,16 @@
    "region": "EU",
    "colour": "#e5484d",
    "profileUrl": "https://raider.io/guilds/eu/sylvanas/Knikkerende%20Krijgers",
+   "wclUrl": "https://www.warcraftlogs.com/guild/id/575269",
+   "sources": [
+    "raiderio",
+    "warcraftlogs"
+   ],
    "mythicKills": 4,
    "heroicKills": 9,
    "totalBosses": 9,
    "worldRank": 1970,
-   "racePosition": 4.3304,
+   "racePosition": 4.3305,
    "latestKillAt": "2026-09-27T18:35:22.350Z",
    "ceKilledAt": null,
    "raids": {
@@ -866,7 +901,7 @@
      "heroic": 1,
      "total": 1,
      "summary": "1/1 H",
-     "worldRank": 3132,
+     "worldRank": 3133,
      "regionRank": 1389,
      "realmRank": 15
     }
@@ -877,8 +912,9 @@
      "slug": "nekzali-the-soulcoiler",
      "name": "Nek'zali the Soulcoiler",
      "state": "killed",
-     "defeatedAt": "2026-09-16T19:17:00.664Z",
+     "defeatedAt": "2026-09-16T19:17:00.557Z",
      "pullCount": 1,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -888,6 +924,7 @@
      "state": "killed",
      "defeatedAt": "2026-09-20T20:23:41.892Z",
      "pullCount": 23,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -895,8 +932,9 @@
      "slug": "the-lost-explorers",
      "name": "The Lost Explorers",
      "state": "killed",
-     "defeatedAt": "2026-09-16T20:29:58.834Z",
+     "defeatedAt": "2026-09-16T20:29:58.804Z",
      "pullCount": 10,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -905,7 +943,8 @@
      "name": "Vashnik the Malignant",
      "state": "killed",
      "defeatedAt": "2026-09-27T18:35:22.350Z",
-     "pullCount": 7,
+     "pullCount": 8,
+     "pullSource": "warcraftlogs",
      "bestPercent": null
     },
     {
@@ -915,7 +954,8 @@
      "state": "progress",
      "defeatedAt": null,
      "pullCount": 24,
-     "bestPercent": 66.96
+     "pullSource": "raiderio",
+     "bestPercent": 66.95
     },
     {
      "raid": "the-venomous-abyss",
@@ -924,6 +964,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -933,6 +974,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -942,6 +984,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -951,6 +994,7 @@
      "state": "progress",
      "defeatedAt": null,
      "pullCount": 11,
+     "pullSource": "raiderio",
      "bestPercent": 58.36
     }
    ],
@@ -958,8 +1002,9 @@
     "raid": "the-venomous-abyss",
     "slug": "sszorak",
     "name": "Sszorak",
-    "bestPercent": 66.96,
+    "bestPercent": 66.95,
     "pullCount": 24,
+    "pullSource": "raiderio",
     "pulls": [
      {
       "at": "2026-09-23T20:22:09.607Z",
@@ -1115,6 +1160,11 @@
    "region": "EU",
    "colour": "#b48cff",
    "profileUrl": "https://raider.io/guilds/eu/draenor/Lelijkerds",
+   "wclUrl": "https://www.warcraftlogs.com/guild/id/30714",
+   "sources": [
+    "raiderio",
+    "warcraftlogs"
+   ],
    "mythicKills": 2,
    "heroicKills": 9,
    "totalBosses": 9,
@@ -1150,6 +1200,7 @@
      "state": "killed",
      "defeatedAt": "2026-09-21T19:03:33.571Z",
      "pullCount": 2,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -1159,6 +1210,7 @@
      "state": "progress",
      "defeatedAt": null,
      "pullCount": 48,
+     "pullSource": "raiderio",
      "bestPercent": 2.35
     },
     {
@@ -1168,6 +1220,7 @@
      "state": "killed",
      "defeatedAt": "2026-09-24T20:06:31.567Z",
      "pullCount": 19,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -1177,6 +1230,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1186,6 +1240,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1195,6 +1250,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1204,6 +1260,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1213,6 +1270,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1222,6 +1280,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     }
    ],
@@ -1231,6 +1290,7 @@
     "name": "Entombed Sentinels",
     "bestPercent": 2.35,
     "pullCount": 48,
+    "pullSource": "raiderio",
     "pulls": [
      {
       "at": "2026-09-24T20:18:06.981Z",
@@ -1530,6 +1590,10 @@
    "region": "EU",
    "colour": "#f472b6",
    "profileUrl": "https://raider.io/guilds/eu/silvermoon/RoyalTeam",
+   "wclUrl": "https://www.warcraftlogs.com/guild/id/665432",
+   "sources": [
+    "raiderio"
+   ],
    "mythicKills": 2,
    "heroicKills": 9,
    "totalBosses": 9,
@@ -1565,6 +1629,7 @@
      "state": "killed",
      "defeatedAt": "2026-09-14T18:15:00.056Z",
      "pullCount": 1,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -1574,6 +1639,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1583,6 +1649,7 @@
      "state": "killed",
      "defeatedAt": "2026-10-01T20:30:30.871Z",
      "pullCount": 70,
+     "pullSource": "raiderio",
      "bestPercent": null
     },
     {
@@ -1592,6 +1659,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1601,6 +1669,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1610,6 +1679,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1619,6 +1689,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1628,6 +1699,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     },
     {
@@ -1637,6 +1709,7 @@
      "state": "untouched",
      "defeatedAt": null,
      "pullCount": null,
+     "pullSource": null,
      "bestPercent": null
     }
    ],
@@ -1646,6 +1719,7 @@
     "name": "Entombed Sentinels",
     "bestPercent": null,
     "pullCount": 0,
+    "pullSource": null,
     "pulls": []
    },
    "rank": 5
