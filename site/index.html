@@ -21,6 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="halloffame.css">
 </head>
 <body>
 
@@ -95,6 +96,18 @@
     <div id="currentBoss" class="curves-grid"></div>
   </section>
 
+  <section id="hallOfFame" class="view" aria-labelledby="hofHeading" hidden>
+    <h2 id="hofHeading" class="view__title" data-i18n="hof.h">Hall of fame</h2>
+    <p class="section-caption" data-i18n="hof.cap">Per verslagen boss het team van elke guild, in de volgorde van hun kill. Bovenaan staat het team van de eerste Nederlandse kill; de andere guilds klap je open. Een naam linkt naar Raider.IO.</p>
+    <div id="hofBosses" class="hof-grid"></div>
+    <h3 id="hofRaidersHeading" class="hof-subtitle" data-i18n="hof.raiders.h">Raiders</h3>
+    <p class="section-caption" data-i18n="hof.raiders.cap">Eerst wie het vaakst bij de eerste kill van de race was, dan wie de meeste bosses mee versloeg met zijn guild. Het zijn characters, geen spelers: een alt telt apart.</p>
+    <div class="table-wrap hof-table-wrap" tabindex="0" role="region" aria-labelledby="hofRaidersHeading">
+      <table id="hofRaiders" class="data-table hof-table"></table>
+    </div>
+    <div id="hofMore" class="hof-more"></div>
+  </section>
+
   <footer class="site-footer">
     <p id="updated" class="updated" data-i18n="footer.loading">Data laden…</p>
     <p><span data-i18n="footer.src1">Bronnen:</span> <a href="https://raider.io" rel="noopener">Raider.IO</a> <span data-i18n="footer.src2">(guildprofielen, kills en live tracking) en</span> <a href="https://www.warcraftlogs.com" rel="noopener">Warcraft Logs</a> <span data-i18n="footer.src3">(gelogde fights).</span> <span id="wclNote"></span> <span data-i18n="footer.src4">Een pull die nergens gevolgd of gelogd werd, ontbreekt hier ook.</span></p>
@@ -105,5 +118,6 @@
 
 <script src="i18n.js"></script>
 <script src="app.js"></script>
+<script src="halloffame.js"></script>
 </body>
 </html>

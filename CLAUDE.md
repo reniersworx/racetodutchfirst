@@ -119,6 +119,17 @@ that kill (reclears after it don't count); the lowest best %. **Never "WCL wins"
 - Cost: ~120 of 3600 points/hour per run for 5 guilds (measured 2026-10-02). Pulls
   come from WCL for the current-boss curve only when WCL saw more than Raider.IO.
 
+## Hall of fame
+
+`race.hall_of_fame()` turns the `boss-kill` rosters (already fetched for kill dates, so no
+extra requests) into `race.json`'s `hallOfFame`: per killed boss each guild's team in kill
+order (the first is the race's first kill), and every raider ranked by race-first kills,
+then kills with their guild. Raiders are characters keyed by realm + name: an alt counts
+apart; after a guild switch the latest kill's guild wins. A kill known only from WCL has
+`rosterKnown: false`. `site/halloffame.js` + `halloffame.css` draw it, on app.js's
+`race:data` event *and* from app.js's global `race` at load (race.json can arrive before
+halloffame.js does). Fixture rosters are trimmed by `RecordingHTTP` to the used fields.
+
 ## Frontend rules
 
 - Build DOM with `h()` / `s()` and `textContent`. **No `innerHTML`**: guild and boss names

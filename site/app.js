@@ -684,6 +684,8 @@ function render(data) {
   renderCurrent(data);
   $('#wclNote').textContent = data.sources && data.sources.warcraftlogs ? tr('wcl.on') : tr('wcl.off');
   renderUpdated();
+  // Other scripts draw their own sections from the same data (halloffame.js).
+  document.dispatchEvent(new CustomEvent('race:data', { detail: data }));
 }
 
 let loadError = null;
