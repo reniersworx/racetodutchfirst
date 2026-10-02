@@ -3,12 +3,15 @@ name: Race site
 # Fetches fresh race data and deploys site/ to GitHub Pages, in one run.
 # No data branch and no write token: the data only lives in the Pages artifact.
 # If Raider.IO fails, the fetcher exits 1, nothing deploys, and the live site keeps
-# its last good data (its "Bijgewerkt" line turns gold once it's over 90 min old).
+# its last good data (its "Bijgewerkt" line turns gold once it's over 150 min old).
 # Only schedule, manual and main-push triggers: never pull_request here.
 on:
   schedule:
-    # Every 30 minutes, off the hour (GitHub delays :00 runs the most).
-    - cron: "7,37 * * * *"
+    # Raid evenings (17-23 UTC = 19-01 h in summer, 18-00 h in winter): every 30 min.
+    # The rest of the day nothing changes, so every 2 h. Off the hour, since GitHub
+    # delays :00 runs the most. ~23 runs a day, ~80 Raider.IO requests each.
+    - cron: "7,37 17-23 * * *"
+    - cron: "7 0-16/2 * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -36,7 +39,7 @@ jobs:
 
       - name: Fetch race data
         env:
-          # Optional; the site works on Raider.IO alone. Warcraft Logs isn't built in yet.
+          # Optional: without them (or when WCL fails) the site runs on Raider.IO alone.
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
         run: uv run --no-sync python -m racetodutchfirst

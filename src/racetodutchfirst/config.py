@@ -20,6 +20,7 @@ class Guild:
     realm: str
     colour: str
     region: str = "eu"
+    wcl_id: int | None = None
 
     @property
     def realm_slug(self) -> str:
@@ -32,6 +33,7 @@ class Boss:
     raid: str
     slug: str
     name: str
+    encounter: int | None = None  # Blizzard encounter ID (= WCL encounterID)
 
     @property
     def key(self) -> str:
@@ -43,6 +45,7 @@ class Raid:
     slug: str
     name: str
     bosses: tuple[Boss, ...]
+    wcl_zone: int | None = None
 
 
 @dataclass(frozen=True)
@@ -56,6 +59,10 @@ class Tier:
     def main_raid(self) -> Raid:
         """The raid whose current boss sets the fractional race position."""
         return self.raids[0]
+
+    @property
+    def wcl_zones(self) -> tuple[int, ...]:
+        return tuple(dict.fromkeys(r.wcl_zone for r in self.raids if r.wcl_zone))
 
     @property
     def total_bosses(self) -> int:
@@ -86,7 +93,7 @@ def parse_config(data: dict) -> Config:
         try:
             guild = Guild(
                 name=g["name"], realm=g["realm"], colour=g["colour"],
-                region=g.get("region", "eu").lower(),
+                region=g.get("region", "eu").lower(), wcl_id=g.get("wcl_id"),
             )
         except KeyError as exc:
             raise ConfigError(f"guild entry {g!r} is missing {exc}") from exc
@@ -103,12 +110,14 @@ def parse_config(data: dict) -> Config:
     raids = []
     for r in t.get("raids", []):
         bosses = tuple(
-            Boss(raid=r["slug"], slug=b["slug"], name=b.get("name") or _title(b["slug"]))
+            Boss(raid=r["slug"], slug=b["slug"], name=b.get("name") or _title(b["slug"]),
+                 encounter=b.get("encounter"))
             for b in r.get("bosses", [])
         )
         if not bosses:
             raise ConfigError(f"raid {r['slug']} has no bosses")
-        raids.append(Raid(slug=r["slug"], name=r.get("name") or _title(r["slug"]), bosses=bosses))
+        raids.append(Raid(slug=r["slug"], name=r.get("name") or _title(r["slug"]), bosses=bosses,
+                          wcl_zone=r.get("warcraft_logs_zone")))
     if not raids:
         raise ConfigError("tier.raids is empty")
 

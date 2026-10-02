@@ -12,12 +12,15 @@ guilds.toml                  guilds (name, realm, colour) + tier (raids, bosses 
 src/racetodutchfirst/
   config.py                  loads and validates guilds.toml
   raiderio.py                the 4 Raider.IO endpoints; pacing, retries, fixture recording
+  wcl.py                     Warcraft Logs v2 (optional): token, reports+fights query, dedupe
   race.py                    responses → per-guild state, race position, ranking, winner
   __main__.py                CLI: writes site/data/race.json (atomically; never on failure)
 tests/
   conftest.py                FixtureHTTP: replays tests/fixtures/raiderio/*.json, no network
   test_race.py
   fixtures/raiderio/         real responses, recorded 2026-10-02 (rosters emptied)
+  fixtures/wcl/              real WCL report pages, recorded 2026-10-02 (no token in them)
+  test_wcl.py                the WCL merge
   fixtures/api/              older single responses from the first version (unused but kept)
 site/                        static, no build step, no framework, no CDN scripts
   index.html                 sections in order: De race, Klassement, Voortgang, Per boss, Huidige boss, footer
@@ -25,7 +28,7 @@ site/                        static, no build step, no framework, no CDN scripts
   style.css                  the page
   tokens.css                 copied UNCHANGED from Bmiest/bmiest_wow_streaming_theme css/tokens.css
   data/race.json             sample data; CI regenerates it into the Pages artifact only
-.github/workflows/site.yml   every 30 min + main pushes + manual: fetch, then deploy Pages
+.github/workflows/site.yml   raid evenings every 30 min, else every 2 h, + main pushes + manual: fetch, deploy
 .github/workflows/test.yml   PRs and main: ruff, pytest, node --check
 ```
 
@@ -34,6 +37,7 @@ site/                        static, no build step, no framework, no CDN scripts
 ```bash
 uv sync
 uv run python -m racetodutchfirst                                # live fetch → site/data/race.json (~80 requests, ~40 s)
+# with WCL_CLIENT_ID / WCL_CLIENT_SECRET in the environment it adds Warcraft Logs (~6 requests)
 uv run python -m racetodutchfirst --record tests/fixtures/raiderio  # re-record fixtures (then fix test expectations)
 uv run pytest
 uv run ruff check src tests
@@ -84,14 +88,30 @@ Found in the live data (each has a test):
 - World rank 0 means unranked (shown as "–").
 - Raider.IO goes down regularly (500/502/504). Check with a plain curl before "fixing" code.
 
-## Warcraft Logs
+## Warcraft Logs (optional)
 
-Not built in. The workflow passes `WCL_CLIENT_ID` / `WCL_CLIENT_SECRET` from Actions secrets
-if they exist; the fetcher only prints that WCL is skipped. If you add it: read only the
-header comments of `js/wcl.js` and `js/progress.js` in Bmiest/bmiest_wow_streaming_theme
-(query, point costs, use `fightPercentage` not `bossPercentage`; Nymrissa sits in zone 53's
-encounter list although it's its own raid; count pulls up to the *first* kill). The site
-must keep working on Raider.IO alone, and no secret may ever be committed.
+On when `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET` are set (Actions secrets in CI; a client
+made for this site on warcraftlogs.com/api/clients). Without them, or when WCL fails, the
+run goes on with Raider.IO alone and the footer says so. The secret only mints a token
+inside the run; never commit it, never put a token in the page.
+
+What it does (logic ported from the overlay's `js/wcl.js`, header comments there):
+one query per guild, `reports(guildID, zoneID: 53, startTime: tier start)` with
+`fights(difficulty: 5)`, 40 reports a page. `fightPercentage`, not `bossPercentage`
+(phase-relative). Fights map to bosses by `encounter` in guilds.toml (Blizzard encounter
+ID = WCL encounterID = Raider.IO wowEncounterId); zone 53 also holds Nymrissa (her own
+raid) and an unknown Kith'ix (3513), ignored. Guild IDs are `wcl_id` in guilds.toml.
+
+Merge, per boss (`race.merge_wcl`): earliest kill of both sources; the most pulls up to
+that kill (reclears after it don't count); the lowest best %. **Never "WCL wins":**
+- **Duplicate reports.** Several members log the same night; Kameraden had 107 of 259
+  fights twice. Copies start within 5 s; the next real pull is 80 s+ later.
+  `wcl.dedupe` merges fights of one encounter within 10 s from different reports.
+- **Logs are incomplete.** Lelijkerds' first logged Mythic kills are a week after the
+  real ones; RoyalTeam logs no Mythic at all. Raider.IO stays the base.
+- WCL gives 2 decimals; the same pull can read 27.00 there and 27.02 on Raider.IO.
+- Cost: ~120 of 3600 points/hour per run for 5 guilds (measured 2026-10-02). Pulls
+  come from WCL for the current-boss curve only when WCL saw more than Raider.IO.
 
 ## Frontend rules
 

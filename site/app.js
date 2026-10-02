@@ -10,7 +10,7 @@
 
 const DATA_URL = 'data/race.json';
 const REFRESH_MS = 5 * 60 * 1000;
-const STALE_MIN = 90; // the fetcher runs every 30 minutes
+const STALE_MIN = 150; // the fetcher runs every 30 min on raid evenings, else every 2 h
 const SVGNS = 'http://www.w3.org/2000/svg';
 
 let race = null;
@@ -57,6 +57,7 @@ function dayTime(iso) {
 }
 function pulls(n) { return n === 1 ? '1 pull' : `${num(n)} pulls`; }
 function raiderioUrl(u) { return typeof u === 'string' && u.startsWith('https://raider.io/') ? u : null; }
+function wclUrl(u) { return typeof u === 'string' && u.startsWith('https://www.warcraftlogs.com/') ? u : null; }
 
 function leaderName(data) { return data.winner ? data.winner.guild : (data.guilds[0] || {}).name; }
 
@@ -253,6 +254,7 @@ function renderStandings(data) {
   const total = data.tier.totalBosses;
   const items = data.guilds.map(g => {
     const url = raiderioUrl(g.profileUrl);
+    const logs = wclUrl(g.wclUrl);
     const rank = g.worldRank ? `#${num(g.worldRank)}` : '–';
     return setGuild(h('li', { class: `tile${g.name === lead ? ' tile--lead' : ''}` },
       h('div', { class: 'tile__head' },
@@ -265,7 +267,9 @@ function renderStandings(data) {
       h('div', {}, h('p', { class: 'tile__label', text: 'Huidige boss' }), ...currentLines(g, data)),
       h('div', { class: 'tile__foot' },
         h('span', {}, 'Wereldrang ', h('strong', { text: rank })),
-        url ? h('a', { href: url, rel: 'noopener', text: 'Raider.IO' }) : null)), g);
+        h('span', { class: 'tile__links' },
+          url ? h('a', { href: url, rel: 'noopener', text: 'Raider.IO' }) : null,
+          logs ? h('a', { href: logs, rel: 'noopener', text: 'Logs' }) : null))), g);
   });
   $('#standings').replaceChildren(...items);
 }
@@ -441,11 +445,14 @@ function renderCurrent(data) {
   const raidName = slug => (data.tier.raids.find(r => r.slug === slug) || {}).name || slug;
   const cards = data.guilds.map(g => {
     const cur = g.current;
-    const url = raiderioUrl(g.profileUrl);
+    // The source tag names where this card's pulls come from, and links there.
+    const fromLogs = cur && cur.pullSource === 'warcraftlogs';
+    const url = fromLogs ? wclUrl(g.wclUrl) : raiderioUrl(g.profileUrl);
+    const label = fromLogs ? 'warcraftlogs' : 'raider.io';
     const inner = h('div', { class: 'rcard__in curve' });
     const wrap = setGuild(h('article', { class: 'rcard-wrap' },
       h('span', { class: 'rcard__cap', text: g.name }),
-      url ? h('a', { class: 'rcard__src', href: url, rel: 'noopener', text: 'raider.io' }) : h('span', { class: 'rcard__src', text: 'raider.io' }),
+      url ? h('a', { class: 'rcard__src', href: url, rel: 'noopener', text: label }) : h('span', { class: 'rcard__src', text: label }),
       h('div', { class: 'rcard' }, inner)), g);
     wrap.style.setProperty('--acc', colour(g.colour));
 
@@ -460,7 +467,7 @@ function renderCurrent(data) {
         h('p', { class: 'boss__nm', text: cur.name }),
         h('span', { class: `boss__tag ${tried ? 'prog' : ''}`, text: tried ? 'Progressie' : 'Nog niet' })));
     if (!tried) {
-      inner.append(h('p', { class: 'muted-note', text: 'Raider.IO heeft nog geen pull op deze boss gezien.' }));
+      inner.append(h('p', { class: 'muted-note', text: 'Nog geen pull op deze boss gezien.' }));
       return wrap;
     }
     inner.append(h('div', { class: 'boss__stat' },
@@ -491,7 +498,7 @@ function renderUpdated() {
   el.title = dayTime(race.generatedAt);
   const late = min > STALE_MIN;
   el.classList.toggle('updated--late', late);
-  if (late) el.append(' · normaal elk half uur ververst');
+  if (late) el.append(' · normaal minstens om de 2 uur ververst');
 }
 
 /* ---- load ------------------------------------------------------------------------------------- */
@@ -514,7 +521,8 @@ function render(data) {
   renderBossTable(data);
   renderCurrent(data);
   $('#wclNote').textContent = data.sources && data.sources.warcraftlogs
-    ? 'Ook Warcraft Logs.' : 'Warcraft Logs wordt (nog) niet gebruikt.';
+    ? 'Aangevuld met Warcraft Logs: per boss telt de vroegste kill, het hoogste aantal pulls en de laagste beste %.'
+    : 'Warcraft Logs was bij deze verversing niet beschikbaar.';
   renderUpdated();
 }
 

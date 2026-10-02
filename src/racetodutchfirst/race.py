@@ -9,6 +9,10 @@ Traps found in the live data (2026-10-02), each covered by a test:
   but boss-progress still says isDefeated=false at 8.57%. boss-kill decides what
   is dead; live tracking only gives pull counts and best %.
 - boss-kill answers {} (HTTP 200) for a boss that isn't killed.
+- Warcraft Logs (optional) sees pulls live tracking misses (Kameraden: 64 pulls on
+  Sszorak vs 41), but only what a guild logs: Lelijkerds' first logged Mythic kills
+  are a week after their real ones. So per boss: earliest kill, most pulls up to
+  that kill, lowest best %. Never "WCL wins".
 - boss-pulls lists resets (is_reset, ~0 s long) that pullCount doesn't count.
 - The profile also lists older raids (tier-mn-1, sporefall): read only our slugs.
 """
@@ -16,10 +20,11 @@ Traps found in the live data (2026-10-02), each covered by a test:
 from __future__ import annotations
 
 import sys
-from datetime import datetime
+from datetime import UTC, datetime
 
 from .config import Boss, Config, Guild, Tier
 from .raiderio import RaiderIO
+from .wcl import WarcraftLogs, WCLError
 
 NO_PROGRESS = 100.0  # best % used for ranking when a guild has no pull on its current boss
 
@@ -119,6 +124,48 @@ def _pulls(resp: dict) -> list[dict]:
     return out
 
 
+def _iso(ms: float) -> str:
+    return datetime.fromtimestamp(ms / 1000, UTC).isoformat(timespec="milliseconds").replace(
+        "+00:00", "Z")
+
+
+def merge_wcl(states: dict[str, dict], tier: Tier, fights: list[dict]) -> None:
+    """Fold Warcraft Logs fights into the Raider.IO boss states, per boss."""
+    by_enc: dict[int, list[dict]] = {}
+    for f in sorted(fights, key=lambda f: f["start"]):
+        by_enc.setdefault(f["encounter"], []).append(f)
+    for raid in tier.raids:
+        for b in raid.bosses:
+            fs = by_enc.get(b.encounter) if b.encounter else None
+            if not fs:
+                continue
+            st = states[b.key]
+            rio_ms = _ts(st["defeatedAt"]).timestamp() * 1000 if st["defeatedAt"] else None
+            wcl_kill = next((f for f in fs if f["kill"]), None)
+            kill_ms = min(t for t in (rio_ms, wcl_kill and wcl_kill["end"]) if t) if (
+                rio_ms or wcl_kill) else None
+            # Up to and including the first kill: a reclear isn't progress.
+            before = [f for f in fs if kill_ms is None or f["start"] < kill_ms]
+            st["_wcl"] = before
+            if len(before) > (st["pullCount"] or 0):
+                st["pullCount"], st["pullSource"] = len(before), "warcraftlogs"
+            if kill_ms is not None:
+                if rio_ms is None or (wcl_kill and wcl_kill["end"] < rio_ms):
+                    st["defeatedAt"] = _iso(wcl_kill["end"])
+                st["state"], st["bestPercent"] = "killed", None
+                continue
+            tried = [f["percent"] for f in before if not f["kill"] and f["percent"] is not None]
+            options = [p for p in (st["bestPercent"], min(tried) if tried else None) if p is not None]
+            st["bestPercent"] = min(options) if options else None
+            if st["pullCount"]:
+                st["state"] = "progress"
+
+
+def _wcl_pulls(fights: list[dict]) -> list[dict]:
+    return [{"at": _iso(f["start"]), "percent": f["percent"], "success": f["kill"],
+             "durationMs": max(0, int(f["end"] - f["start"]))} for f in fights]
+
+
 def race_position(mythic_kills: int, current: dict | None) -> float:
     """Kills plus the fraction of the current boss already gone: 5 kills, best 27% → 5.73."""
     best = current.get("bestPercent") if current else None
@@ -126,7 +173,8 @@ def race_position(mythic_kills: int, current: dict | None) -> float:
     return round(mythic_kills + min(max(fraction, 0.0), 1.0), 4)
 
 
-def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier) -> dict:
+def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier, wcl_fights: list[dict] | None = None,
+                wcl_id: int | None = None) -> dict:
     profile = rio.profile(guild)
     progression = profile.get("raid_progression") or {}
     rankings = profile.get("raid_rankings") or {}
@@ -164,8 +212,15 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier) -> dict:
                 "raid": b.raid, "slug": b.slug, "name": lv["name"] or b.name, "state": state,
                 "defeatedAt": kill["defeatedAt"] if kill else None,
                 "pullCount": lv["pullCount"] or None,
+                "pullSource": "raiderio" if lv["pullCount"] else None,
                 "bestPercent": None if kill else lv["bestPercent"],
             }
+
+    if wcl_fights:
+        merge_wcl(states, tier, wcl_fights)
+        for raid in tier.raids:
+            killed = sum(states[b.key]["state"] == "killed" for b in raid.bosses)
+            raids[raid.slug]["mythic"] = max(raids[raid.slug]["mythic"], killed)
 
     main = tier.main_raid
     latest: dict = {}
@@ -175,11 +230,19 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier) -> dict:
     current = None
     if current_boss:
         st = states[current_boss.key]
+        if st["pullSource"] == "warcraftlogs":
+            pulls = _wcl_pulls(st["_wcl"])
+        elif st["pullCount"]:
+            pulls = _pulls(rio.boss_pulls(guild, st["raid"], st["slug"]))
+        else:
+            pulls = []
         current = {
             "raid": st["raid"], "slug": st["slug"], "name": st["name"],
             "bestPercent": st["bestPercent"], "pullCount": st["pullCount"] or 0,
-            "pulls": _pulls(rio.boss_pulls(guild, st["raid"], st["slug"])) if st["pullCount"] else [],
+            "pullSource": st["pullSource"], "pulls": pulls,
         }
+    for st in states.values():
+        st.pop("_wcl", None)
 
     mythic_kills = sum(r["mythic"] for r in raids.values())
     kill_times = [s["defeatedAt"] for s in states.values() if s["defeatedAt"]]
@@ -191,6 +254,8 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier) -> dict:
         "region": guild.region.upper(),
         "colour": guild.colour,
         "profileUrl": url if isinstance(url, str) and url.startswith("https://raider.io/") else None,
+        "wclUrl": f"https://www.warcraftlogs.com/guild/id/{wcl_id}" if wcl_id else None,
+        "sources": ["raiderio"] + (["warcraftlogs"] if wcl_fights else []),
         "mythicKills": mythic_kills,
         "heroicKills": sum(r["heroic"] for r in raids.values()),
         "totalBosses": tier.total_bosses,
@@ -246,11 +311,29 @@ def first_kills(guilds: list[dict]) -> dict[str, dict]:
     return firsts
 
 
-def build_race(rio: RaiderIO, config: Config, now: datetime, log=print) -> dict:
+def wcl_fights_for(wcl: WarcraftLogs, guild: Guild, tier: Tier) -> tuple[int | None, list[dict]]:
+    """(guild id, Mythic fights) from Warcraft Logs; a failure is only a warning."""
+    try:
+        gid = guild.wcl_id or wcl.guild_id(guild)
+        if not gid:
+            _warn(f"{guild.name}: niet gevonden op Warcraft Logs")
+            return None, []
+        fights = []
+        for zone in tier.wcl_zones:
+            fights += wcl.mythic_fights(gid, zone, tier.start)
+        return gid, fights
+    except WCLError as exc:
+        _warn(f"{guild.name}: Warcraft Logs overgeslagen ({exc})")
+        return guild.wcl_id, []
+
+
+def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
+               wcl: WarcraftLogs | None = None) -> dict:
     guilds = []
     for i, guild in enumerate(config.guilds, start=1):
         log(f"[{i}/{len(config.guilds)}] {guild.name} ({guild.realm})")
-        guilds.append(fetch_guild(rio, guild, config.tier))
+        gid, fights = wcl_fights_for(wcl, guild, config.tier) if wcl else (guild.wcl_id, [])
+        guilds.append(fetch_guild(rio, guild, config.tier, wcl_fights=fights, wcl_id=gid))
     ranked = rank_guilds(guilds)
     firsts = first_kills(ranked)
     tier = config.tier
@@ -258,7 +341,8 @@ def build_race(rio: RaiderIO, config: Config, now: datetime, log=print) -> dict:
     ce_key = f"{tier.ce_raid}/{tier.ce_boss}"
     return {
         "generatedAt": now.isoformat(timespec="seconds").replace("+00:00", "Z"),
-        "sources": {"raiderio": True, "warcraftlogs": False},
+        "sources": {"raiderio": True,
+                    "warcraftlogs": any("warcraftlogs" in g["sources"] for g in ranked)},
         "tier": {
             "start": tier.start,
             "totalBosses": tier.total_bosses,

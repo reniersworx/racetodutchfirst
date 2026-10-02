@@ -16,6 +16,7 @@ from pathlib import Path
 from .config import ConfigError, load_config
 from .race import build_race
 from .raiderio import FetchError, RaiderIO, RecordingHTTP, http_client
+from .wcl import RecordingTransport, WarcraftLogs
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -41,22 +42,26 @@ def main(argv: list[str] | None = None) -> int:
         print(f"guilds.toml: {exc}", file=sys.stderr)
         return 1
 
-    if os.environ.get("WCL_CLIENT_ID") and os.environ.get("WCL_CLIENT_SECRET"):
-        print("Warcraft Logs: credentials gezet, maar nog niet ingebouwd; alleen Raider.IO.")
-    else:
+    wcl_id, wcl_secret = os.environ.get("WCL_CLIENT_ID"), os.environ.get("WCL_CLIENT_SECRET")
+    if not (wcl_id and wcl_secret):
         print("Warcraft Logs: overgeslagen (WCL_CLIENT_ID/WCL_CLIENT_SECRET niet gezet).")
 
     with http_client() as client:
         http = RecordingHTTP(client, args.record) if args.record else client
         rio = RaiderIO(http)
+        wcl = None
+        if wcl_id and wcl_secret:
+            transport = RecordingTransport(client, args.record) if args.record else client
+            wcl = WarcraftLogs(transport, wcl_id, wcl_secret)
         try:
-            race = build_race(rio, config, datetime.now(UTC))
+            race = build_race(rio, config, datetime.now(UTC), wcl=wcl)
         except FetchError as exc:
             print(f"Raider.IO: {exc}. {args.output} blijft ongewijzigd.", file=sys.stderr)
             return 1
 
     write_atomic(args.output, race)
-    print(f"{rio.requests} requests; geschreven: {args.output}")
+    extra = f" + {wcl.requests} Warcraft Logs" if wcl else ""
+    print(f"{rio.requests} Raider.IO-requests{extra}; geschreven: {args.output}")
     for g in race["guilds"]:
         cur = g["current"]
         if not cur:
@@ -64,7 +69,8 @@ def main(argv: list[str] | None = None) -> int:
         elif cur["bestPercent"] is None:
             where = f"{cur['name']}, nog geen pulls"
         else:
-            where = f"{cur['name']} {cur['bestPercent']}% ({cur['pullCount']} pulls)"
+            where = (f"{cur['name']} {cur['bestPercent']}% "
+                     f"({cur['pullCount']} pulls, {cur['pullSource']})")
         print(f"  #{g['rank']} {g['name']}: {g['mythicKills']}/{g['totalBosses']} M, "
               f"positie {g['racePosition']:.2f}, {where}")
     if race["winner"]:
