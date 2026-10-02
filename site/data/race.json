@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T21:46:37Z",
+ "generatedAt": "2026-10-02T22:09:50Z",
  "sources": {
   "raiderio": true,
   "warcraftlogs": true
@@ -1724,5 +1724,7460 @@
    },
    "rank": 5
   }
- ]
+ ],
+ "hallOfFame": {
+  "bosses": [
+   {
+    "raid": "the-venomous-abyss",
+    "slug": "nekzali-the-soulcoiler",
+    "name": "Nek'zali the Soulcoiler",
+    "teams": [
+     {
+      "guild": "Kelderklasse",
+      "colour": "#5aa9ff",
+      "defeatedAt": "2026-09-06T19:50:54.150Z",
+      "pullCount": 1,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Bossii",
+        "realm": "Magtheridon",
+        "realmSlug": "magtheridon",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/magtheridon/Bossii"
+       },
+       {
+        "name": "Jáckblack",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/J%C3%A1ckblack"
+       },
+       {
+        "name": "Fnminimi",
+        "realm": "Outland",
+        "realmSlug": "outland",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/outland/Fnminimi"
+       },
+       {
+        "name": "Shiftheal",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shiftheal"
+       },
+       {
+        "name": "Thirive",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Discipline",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Thirive"
+       },
+       {
+        "name": "Wvoker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wvoker"
+       },
+       {
+        "name": "Amphroxia",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Amphroxia"
+       },
+       {
+        "name": "Axoatlmage",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Axoatlmage"
+       },
+       {
+        "name": "Boelíe",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Boel%C3%ADe"
+       },
+       {
+        "name": "Hamtaro",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Hamtaro"
+       },
+       {
+        "name": "Hell-282223855",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Hell-282223855"
+       },
+       {
+        "name": "Jhaetra",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Jhaetra"
+       },
+       {
+        "name": "Kirc",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Kirc"
+       },
+       {
+        "name": "Nocteirah",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nocteirah"
+       },
+       {
+        "name": "Sluipens",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sluipens"
+       },
+       {
+        "name": "Verkouden",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Verkouden"
+       },
+       {
+        "name": "Vinlocky",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Vinlocky"
+       },
+       {
+        "name": "Víchenzo",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/V%C3%ADchenzo"
+       },
+       {
+        "name": "Woenseldk",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Woenseldk"
+       },
+       {
+        "name": "Wombat",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wombat"
+       }
+      ]
+     },
+     {
+      "guild": "Kameraden",
+      "colour": "#ff8a3d",
+      "defeatedAt": "2026-09-10T19:57:50.693Z",
+      "pullCount": 12,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Brymus",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Brymus"
+       },
+       {
+        "name": "Diekae",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Diekae"
+       },
+       {
+        "name": "Crithappèns",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Crithapp%C3%A8ns"
+       },
+       {
+        "name": "Dahdraenei",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Dahdraenei"
+       },
+       {
+        "name": "Offspek",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Offspek"
+       },
+       {
+        "name": "Seedyp",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Seedyp"
+       },
+       {
+        "name": "Smekbeer",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/kazzak/Smekbeer"
+       },
+       {
+        "name": "Bramillius",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Bramillius"
+       },
+       {
+        "name": "Daddybird",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Daddybird"
+       },
+       {
+        "name": "Diigii",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Diigii"
+       },
+       {
+        "name": "Fará",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Far%C3%A1"
+       },
+       {
+        "name": "Joess",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Joess"
+       },
+       {
+        "name": "Killerdwarfi",
+        "realm": "Nagrand",
+        "realmSlug": "nagrand",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/nagrand/Killerdwarfi"
+       },
+       {
+        "name": "Klappie",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Klappie"
+       },
+       {
+        "name": "Onkilock",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Onkilock"
+       },
+       {
+        "name": "Owogodl",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Owogodl"
+       },
+       {
+        "name": "Sankerktan",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sankerktan"
+       },
+       {
+        "name": "Tinitover",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Tinitover"
+       },
+       {
+        "name": "Xecdh",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Xecdh"
+       },
+       {
+        "name": "Zyraian",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Zyraian"
+       }
+      ]
+     },
+     {
+      "guild": "RoyalTeam",
+      "colour": "#f472b6",
+      "defeatedAt": "2026-09-14T18:15:00.056Z",
+      "pullCount": 1,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Eleonorá",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Eleonor%C3%A1"
+       },
+       {
+        "name": "Nakinakí",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Nakinak%C3%AD"
+       },
+       {
+        "name": "Kyrnax",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Kyrnax"
+       },
+       {
+        "name": "Laforgéz",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Laforg%C3%A9z"
+       },
+       {
+        "name": "Sláàf",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Monk",
+        "spec": "Mistweaver",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Sl%C3%A1%C3%A0f"
+       },
+       {
+        "name": "Ørphås",
+        "realm": "Burning Blade",
+        "realmSlug": "burning-blade",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/burning-blade/%C3%98rph%C3%A5s"
+       },
+       {
+        "name": "Amazinn",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Amazinn"
+       },
+       {
+        "name": "Bannedbanana",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Bannedbanana"
+       },
+       {
+        "name": "Bigmonka",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Bigmonka"
+       },
+       {
+        "name": "Blesivoker",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Evoker",
+        "spec": "Augmentation",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Blesivoker"
+       },
+       {
+        "name": "Chaoslocked",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Affliction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Chaoslocked"
+       },
+       {
+        "name": "Chimmret",
+        "realm": "Magtheridon",
+        "realmSlug": "magtheridon",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/magtheridon/Chimmret"
+       },
+       {
+        "name": "Eliphas",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Eliphas"
+       },
+       {
+        "name": "Floapy",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Floapy"
+       },
+       {
+        "name": "Mussha",
+        "realm": "Turalyon",
+        "realmSlug": "turalyon",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/turalyon/Mussha"
+       },
+       {
+        "name": "Pallás",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Pall%C3%A1s"
+       },
+       {
+        "name": "Volkydh",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Volkydh"
+       },
+       {
+        "name": "Waunawizard",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Waunawizard"
+       },
+       {
+        "name": "Zaev",
+        "realm": "Dentarg",
+        "realmSlug": "dentarg",
+        "class": "Priest",
+        "spec": "Shadow",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/dentarg/Zaev"
+       },
+       {
+        "name": "Zaladima",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Zaladima"
+       }
+      ]
+     },
+     {
+      "guild": "Knikkerende Krijgers",
+      "colour": "#e5484d",
+      "defeatedAt": "2026-09-16T19:17:00.557Z",
+      "pullCount": 1,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Kaeladin",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/auchindoun/Kaeladin"
+       },
+       {
+        "name": "Sterf",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/ravencrest/Sterf"
+       },
+       {
+        "name": "Bellinator",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Bellinator"
+       },
+       {
+        "name": "Kuntax",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/sylvanas/Kuntax"
+       },
+       {
+        "name": "Xiro",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/sylvanas/Xiro"
+       },
+       {
+        "name": "Élmo",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/auchindoun/%C3%89lmo"
+       },
+       {
+        "name": "Aimbotter",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Aimbotter"
+       },
+       {
+        "name": "Bamiebal",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Bamiebal"
+       },
+       {
+        "name": "Calaelen",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Hunter",
+        "spec": "Survival",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Calaelen"
+       },
+       {
+        "name": "Deadlysav-308481143",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Deadlysav-308481143"
+       },
+       {
+        "name": "Gaintrain",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Gaintrain"
+       },
+       {
+        "name": "Mulgar",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Mulgar"
+       },
+       {
+        "name": "Noxicore",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Mage",
+        "spec": "Frost",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Noxicore"
+       },
+       {
+        "name": "Pausie",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Shadow",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Pausie"
+       },
+       {
+        "name": "Qarlana",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Qarlana"
+       },
+       {
+        "name": "Rubzy",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Rubzy"
+       },
+       {
+        "name": "Salysa",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Salysa"
+       },
+       {
+        "name": "Shemmy",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Shemmy"
+       },
+       {
+        "name": "Syllidon",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Syllidon"
+       },
+       {
+        "name": "Xlbrian",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Xlbrian"
+       }
+      ]
+     },
+     {
+      "guild": "Lelijkerds",
+      "colour": "#b48cff",
+      "defeatedAt": "2026-09-21T19:03:33.571Z",
+      "pullCount": 2,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Aerad",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/ragnaros/Aerad"
+       },
+       {
+        "name": "Bevrorenziel",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Bevrorenziel"
+       },
+       {
+        "name": "Cloudborné",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Cloudborn%C3%A9"
+       },
+       {
+        "name": "Kégarra",
+        "realm": "Stormreaver",
+        "realmSlug": "stormreaver",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormreaver/K%C3%A9garra"
+       },
+       {
+        "name": "Myrmidøn",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Myrmid%C3%B8n"
+       },
+       {
+        "name": "Naihqthyr",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Naihqthyr"
+       },
+       {
+        "name": "Baarzdk",
+        "realm": "Turalyon",
+        "realmSlug": "turalyon",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/turalyon/Baarzdk"
+       },
+       {
+        "name": "Bhauzy",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Bhauzy"
+       },
+       {
+        "name": "Dagame",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Frost",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Dagame"
+       },
+       {
+        "name": "Deathnatsu",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Deathnatsu"
+       },
+       {
+        "name": "Demonisch",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Demonisch"
+       },
+       {
+        "name": "Dutchblade",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Dutchblade"
+       },
+       {
+        "name": "Eshalda",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Eshalda"
+       },
+       {
+        "name": "Nckerino",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Priest",
+        "spec": "Shadow",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Nckerino"
+       },
+       {
+        "name": "Nieki",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nieki"
+       },
+       {
+        "name": "Oríani",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Or%C3%ADani"
+       },
+       {
+        "name": "Vehiron",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Vehiron"
+       },
+       {
+        "name": "Zivione",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Zivione"
+       },
+       {
+        "name": "Zoef",
+        "realm": "Lightning's Blade",
+        "realmSlug": "lightnings-blade",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/lightnings-blade/Zoef"
+       },
+       {
+        "name": "Zydell",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Zydell"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "raid": "the-venomous-abyss",
+    "slug": "entombed-sentinels",
+    "name": "Entombed Sentinels",
+    "teams": [
+     {
+      "guild": "Kelderklasse",
+      "colour": "#5aa9ff",
+      "defeatedAt": "2026-09-13T19:55:31.718Z",
+      "pullCount": 19,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Bossii",
+        "realm": "Magtheridon",
+        "realmSlug": "magtheridon",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/magtheridon/Bossii"
+       },
+       {
+        "name": "Jáckblack",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/J%C3%A1ckblack"
+       },
+       {
+        "name": "Fnminimi",
+        "realm": "Outland",
+        "realmSlug": "outland",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/outland/Fnminimi"
+       },
+       {
+        "name": "Shiftheal",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shiftheal"
+       },
+       {
+        "name": "Thirive",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Discipline",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Thirive"
+       },
+       {
+        "name": "Wvoker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wvoker"
+       },
+       {
+        "name": "Amphroxia",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Amphroxia"
+       },
+       {
+        "name": "Axoatlmage",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Axoatlmage"
+       },
+       {
+        "name": "Boelíe",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Boel%C3%ADe"
+       },
+       {
+        "name": "Hamtaro",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Hamtaro"
+       },
+       {
+        "name": "Hell",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Hell"
+       },
+       {
+        "name": "Jhaetra",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Jhaetra"
+       },
+       {
+        "name": "Kirc",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Kirc"
+       },
+       {
+        "name": "Nocteirah",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nocteirah"
+       },
+       {
+        "name": "Sluipens",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sluipens"
+       },
+       {
+        "name": "Verkouden",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Verkouden"
+       },
+       {
+        "name": "Víchenzo",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/V%C3%ADchenzo"
+       },
+       {
+        "name": "Woenseldk",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Woenseldk"
+       },
+       {
+        "name": "Wombat",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wombat"
+       },
+       {
+        "name": "Yotadruid",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Yotadruid"
+       }
+      ]
+     },
+     {
+      "guild": "Knikkerende Krijgers",
+      "colour": "#e5484d",
+      "defeatedAt": "2026-09-20T20:23:41.892Z",
+      "pullCount": 23,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Kaeladin",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/auchindoun/Kaeladin"
+       },
+       {
+        "name": "Sterf",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/ravencrest/Sterf"
+       },
+       {
+        "name": "Bellinator",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Bellinator"
+       },
+       {
+        "name": "Uncleharry",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/argent-dawn/Uncleharry"
+       },
+       {
+        "name": "Xiro",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/sylvanas/Xiro"
+       },
+       {
+        "name": "Élmo",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/auchindoun/%C3%89lmo"
+       },
+       {
+        "name": "Aimbotter",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Aimbotter"
+       },
+       {
+        "name": "Bamiebal",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Bamiebal"
+       },
+       {
+        "name": "Calaelen",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Hunter",
+        "spec": "Survival",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Calaelen"
+       },
+       {
+        "name": "Gaintrain",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Gaintrain"
+       },
+       {
+        "name": "Mulgar",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Mulgar"
+       },
+       {
+        "name": "Noxicore",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Mage",
+        "spec": "Frost",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Noxicore"
+       },
+       {
+        "name": "Qarlana",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Qarlana"
+       },
+       {
+        "name": "Rubzy",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Rubzy"
+       },
+       {
+        "name": "Salysa",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Salysa"
+       },
+       {
+        "name": "Shemmy",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Shemmy"
+       },
+       {
+        "name": "Spyro",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Evoker",
+        "spec": "Devastation",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Spyro"
+       },
+       {
+        "name": "Syllidon",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Syllidon"
+       },
+       {
+        "name": "Wipeface",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Warlock",
+        "spec": "Destruction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Wipeface"
+       },
+       {
+        "name": "Xlbrian",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Xlbrian"
+       }
+      ]
+     },
+     {
+      "guild": "Kameraden",
+      "colour": "#ff8a3d",
+      "defeatedAt": "2026-09-21T19:26:45.813Z",
+      "pullCount": 48,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Brymus",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Brymus"
+       },
+       {
+        "name": "Filay",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Filay"
+       },
+       {
+        "name": "Dahdraenei",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Dahdraenei"
+       },
+       {
+        "name": "Offspek",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Offspek"
+       },
+       {
+        "name": "Palmôep",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Palm%C3%B4ep"
+       },
+       {
+        "name": "Smekbeer",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/kazzak/Smekbeer"
+       },
+       {
+        "name": "Bigmonka",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Bigmonka"
+       },
+       {
+        "name": "Diekae",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Diekae"
+       },
+       {
+        "name": "Diigii",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Diigii"
+       },
+       {
+        "name": "Joess",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Joess"
+       },
+       {
+        "name": "Karthame",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warlock",
+        "spec": "Destruction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Karthame"
+       },
+       {
+        "name": "Killerdwarfi",
+        "realm": "Nagrand",
+        "realmSlug": "nagrand",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/nagrand/Killerdwarfi"
+       },
+       {
+        "name": "Klappie",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Klappie"
+       },
+       {
+        "name": "Onkilock",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Onkilock"
+       },
+       {
+        "name": "Owogodl",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Owogodl"
+       },
+       {
+        "name": "Parelsuiker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Parelsuiker"
+       },
+       {
+        "name": "Sankerktan",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sankerktan"
+       },
+       {
+        "name": "Stoicaldruid",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Druid",
+        "spec": "Feral",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Stoicaldruid"
+       },
+       {
+        "name": "Xecdh",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Xecdh"
+       },
+       {
+        "name": "Zyraian",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Zyraian"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "raid": "the-venomous-abyss",
+    "slug": "the-lost-explorers",
+    "name": "The Lost Explorers",
+    "teams": [
+     {
+      "guild": "Kelderklasse",
+      "colour": "#5aa9ff",
+      "defeatedAt": "2026-09-06T20:53:52.038Z",
+      "pullCount": 8,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Bossii",
+        "realm": "Magtheridon",
+        "realmSlug": "magtheridon",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/magtheridon/Bossii"
+       },
+       {
+        "name": "Jáckblack",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/J%C3%A1ckblack"
+       },
+       {
+        "name": "Fnminimi",
+        "realm": "Outland",
+        "realmSlug": "outland",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/outland/Fnminimi"
+       },
+       {
+        "name": "Shiftheal",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shiftheal"
+       },
+       {
+        "name": "Thirive",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Discipline",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Thirive"
+       },
+       {
+        "name": "Wvoker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wvoker"
+       },
+       {
+        "name": "Amphroxia",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Amphroxia"
+       },
+       {
+        "name": "Axoatlmage",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Axoatlmage"
+       },
+       {
+        "name": "Boelíe",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Boel%C3%ADe"
+       },
+       {
+        "name": "Hamtaro",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Hamtaro"
+       },
+       {
+        "name": "Hell-282223855",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Warlock",
+        "spec": "Destruction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Hell-282223855"
+       },
+       {
+        "name": "Jhaetra",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Jhaetra"
+       },
+       {
+        "name": "Kirc",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Kirc"
+       },
+       {
+        "name": "Nocteirah",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nocteirah"
+       },
+       {
+        "name": "Sluipens",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sluipens"
+       },
+       {
+        "name": "Verkouden",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Verkouden"
+       },
+       {
+        "name": "Vinlocky",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Vinlocky"
+       },
+       {
+        "name": "Víchenzo",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/V%C3%ADchenzo"
+       },
+       {
+        "name": "Woenseldk",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Woenseldk"
+       },
+       {
+        "name": "Wombat",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wombat"
+       }
+      ]
+     },
+     {
+      "guild": "Kameraden",
+      "colour": "#ff8a3d",
+      "defeatedAt": "2026-09-14T18:23:45.028Z",
+      "pullCount": 15,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Brymus",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Brymus"
+       },
+       {
+        "name": "Filay",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Filay"
+       },
+       {
+        "name": "Crithappèns",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Crithapp%C3%A8ns"
+       },
+       {
+        "name": "Dahdraenei",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Dahdraenei"
+       },
+       {
+        "name": "Offspek",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Offspek"
+       },
+       {
+        "name": "Seedyp",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Seedyp"
+       },
+       {
+        "name": "Bramillius",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Bramillius"
+       },
+       {
+        "name": "Dhaezuna",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Demon Hunter",
+        "spec": "Devourer",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Dhaezuna"
+       },
+       {
+        "name": "Diekae",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Diekae"
+       },
+       {
+        "name": "Diigii",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Diigii"
+       },
+       {
+        "name": "Joess",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Joess"
+       },
+       {
+        "name": "Killerdwarfi",
+        "realm": "Nagrand",
+        "realmSlug": "nagrand",
+        "class": "Warlock",
+        "spec": "Destruction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/nagrand/Killerdwarfi"
+       },
+       {
+        "name": "Klappie",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Klappie"
+       },
+       {
+        "name": "Onkilock",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Onkilock"
+       },
+       {
+        "name": "Owogodl",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Owogodl"
+       },
+       {
+        "name": "Sankerktan",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sankerktan"
+       },
+       {
+        "name": "Stoicaldruid",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Druid",
+        "spec": "Feral",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Stoicaldruid"
+       },
+       {
+        "name": "Tinitover",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Tinitover"
+       },
+       {
+        "name": "Xecdh",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Xecdh"
+       },
+       {
+        "name": "Zyraian",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Destruction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Zyraian"
+       }
+      ]
+     },
+     {
+      "guild": "Knikkerende Krijgers",
+      "colour": "#e5484d",
+      "defeatedAt": "2026-09-16T20:29:58.804Z",
+      "pullCount": 10,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Kaeladin",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/auchindoun/Kaeladin"
+       },
+       {
+        "name": "Sterf",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/ravencrest/Sterf"
+       },
+       {
+        "name": "Bellinator",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Bellinator"
+       },
+       {
+        "name": "Kuntax",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/sylvanas/Kuntax"
+       },
+       {
+        "name": "Xiro",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/sylvanas/Xiro"
+       },
+       {
+        "name": "Élmo",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/auchindoun/%C3%89lmo"
+       },
+       {
+        "name": "Aimbotter",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Aimbotter"
+       },
+       {
+        "name": "Bamiebal",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Bamiebal"
+       },
+       {
+        "name": "Calaelen",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Hunter",
+        "spec": "Survival",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Calaelen"
+       },
+       {
+        "name": "Deadlysav-308481143",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Deadlysav-308481143"
+       },
+       {
+        "name": "Gaintrain",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Gaintrain"
+       },
+       {
+        "name": "Mulgar",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Mulgar"
+       },
+       {
+        "name": "Noxicore",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Mage",
+        "spec": "Frost",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Noxicore"
+       },
+       {
+        "name": "Pausie",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Shadow",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Pausie"
+       },
+       {
+        "name": "Qarlana",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Qarlana"
+       },
+       {
+        "name": "Rubzy",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Rubzy"
+       },
+       {
+        "name": "Salysa",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Salysa"
+       },
+       {
+        "name": "Shemmy",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Shemmy"
+       },
+       {
+        "name": "Syllidon",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Syllidon"
+       },
+       {
+        "name": "Xlbrian",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Xlbrian"
+       }
+      ]
+     },
+     {
+      "guild": "Lelijkerds",
+      "colour": "#b48cff",
+      "defeatedAt": "2026-09-24T20:06:31.567Z",
+      "pullCount": 19,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Aerad",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/ragnaros/Aerad"
+       },
+       {
+        "name": "Bevrorenziel",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Bevrorenziel"
+       },
+       {
+        "name": "Cloudborné",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Cloudborn%C3%A9"
+       },
+       {
+        "name": "Kégarra",
+        "realm": "Stormreaver",
+        "realmSlug": "stormreaver",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormreaver/K%C3%A9garra"
+       },
+       {
+        "name": "Myrmidøn",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Myrmid%C3%B8n"
+       },
+       {
+        "name": "Naihqthyr",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Naihqthyr"
+       },
+       {
+        "name": "Anarionn",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Anarionn"
+       },
+       {
+        "name": "Baarzdk",
+        "realm": "Turalyon",
+        "realmSlug": "turalyon",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/turalyon/Baarzdk"
+       },
+       {
+        "name": "Bhauzy",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Bhauzy"
+       },
+       {
+        "name": "Demonisch",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Demonisch"
+       },
+       {
+        "name": "Dutchblade",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Dutchblade"
+       },
+       {
+        "name": "Eshalda",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Eshalda"
+       },
+       {
+        "name": "Kiekebustje",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Kiekebustje"
+       },
+       {
+        "name": "Nckerino",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Priest",
+        "spec": "Shadow",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Nckerino"
+       },
+       {
+        "name": "Nieki",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nieki"
+       },
+       {
+        "name": "Oríani",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Or%C3%ADani"
+       },
+       {
+        "name": "Ragnablood",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Ragnablood"
+       },
+       {
+        "name": "Vehiron",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Vehiron"
+       },
+       {
+        "name": "Zivione",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Zivione"
+       },
+       {
+        "name": "Zydell",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Zydell"
+       }
+      ]
+     },
+     {
+      "guild": "RoyalTeam",
+      "colour": "#f472b6",
+      "defeatedAt": "2026-10-01T20:30:30.871Z",
+      "pullCount": 70,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Bloodling",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/stormscale/Bloodling"
+       },
+       {
+        "name": "Festard",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Demon Hunter",
+        "spec": "Vengeance",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Festard"
+       },
+       {
+        "name": "Celísa",
+        "realm": "Ghostlands",
+        "realmSlug": "ghostlands",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ghostlands/Cel%C3%ADsa"
+       },
+       {
+        "name": "Dokterduim",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/silvermoon/Dokterduim"
+       },
+       {
+        "name": "Mugabete",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Mugabete"
+       },
+       {
+        "name": "Neliz",
+        "realm": "The Maelstrom",
+        "realmSlug": "the-maelstrom",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/the-maelstrom/Neliz"
+       },
+       {
+        "name": "Behindubro",
+        "realm": "Darkspear",
+        "realmSlug": "darkspear",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/darkspear/Behindubro"
+       },
+       {
+        "name": "Bhast",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Bhast"
+       },
+       {
+        "name": "Deathzetha",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Frost",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Deathzetha"
+       },
+       {
+        "name": "Drambush",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Drambush"
+       },
+       {
+        "name": "Kaspaaslap",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Kaspaaslap"
+       },
+       {
+        "name": "Liàe",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Li%C3%A0e"
+       },
+       {
+        "name": "Lockverdomme",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Lockverdomme"
+       },
+       {
+        "name": "Luxodon",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Luxodon"
+       },
+       {
+        "name": "Nogula",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Destruction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Nogula"
+       },
+       {
+        "name": "Noppens",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Demon Hunter",
+        "spec": "Devourer",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Noppens"
+       },
+       {
+        "name": "Sweethunt",
+        "realm": "Turalyon",
+        "realmSlug": "turalyon",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/turalyon/Sweethunt"
+       },
+       {
+        "name": "Treantsetter",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Treantsetter"
+       },
+       {
+        "name": "Ulmandir",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Ulmandir"
+       },
+       {
+        "name": "Voidstrider",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Demon Hunter",
+        "spec": "Devourer",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Voidstrider"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "raid": "the-venomous-abyss",
+    "slug": "vashnik-the-malignant",
+    "name": "Vashnik the Malignant",
+    "teams": [
+     {
+      "guild": "Kelderklasse",
+      "colour": "#5aa9ff",
+      "defeatedAt": "2026-09-16T20:47:54.898Z",
+      "pullCount": 21,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Bossii",
+        "realm": "Magtheridon",
+        "realmSlug": "magtheridon",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/magtheridon/Bossii"
+       },
+       {
+        "name": "Jáckblack",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/J%C3%A1ckblack"
+       },
+       {
+        "name": "Fnminimi",
+        "realm": "Outland",
+        "realmSlug": "outland",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/outland/Fnminimi"
+       },
+       {
+        "name": "Nieuwemain",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Nieuwemain"
+       },
+       {
+        "name": "Shiftheal",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shiftheal"
+       },
+       {
+        "name": "Thirive",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Discipline",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Thirive"
+       },
+       {
+        "name": "Wvoker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wvoker"
+       },
+       {
+        "name": "Amphroxia",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Amphroxia"
+       },
+       {
+        "name": "Asaki",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Asaki"
+       },
+       {
+        "name": "Axoatlmage",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Axoatlmage"
+       },
+       {
+        "name": "Boelíe",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Boel%C3%ADe"
+       },
+       {
+        "name": "Hamtaro",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Hamtaro"
+       },
+       {
+        "name": "Herrmaus",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Herrmaus"
+       },
+       {
+        "name": "Jhaetra",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Jhaetra"
+       },
+       {
+        "name": "Kirc",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Kirc"
+       },
+       {
+        "name": "Nocteirah",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nocteirah"
+       },
+       {
+        "name": "Vinlocky",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Vinlocky"
+       },
+       {
+        "name": "Víchenzo",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/V%C3%ADchenzo"
+       },
+       {
+        "name": "Woenseldk",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Woenseldk"
+       },
+       {
+        "name": "Wombat",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wombat"
+       }
+      ]
+     },
+     {
+      "guild": "Kameraden",
+      "colour": "#ff8a3d",
+      "defeatedAt": "2026-09-24T20:19:28.560Z",
+      "pullCount": 4,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Brymus",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Brymus"
+       },
+       {
+        "name": "Filay",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Filay"
+       },
+       {
+        "name": "Dahdraenei",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Dahdraenei"
+       },
+       {
+        "name": "Offspek",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Offspek"
+       },
+       {
+        "name": "Palmôep",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Palm%C3%B4ep"
+       },
+       {
+        "name": "Seeddie",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Seeddie"
+       },
+       {
+        "name": "Shifthappèns",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shifthapp%C3%A8ns"
+       },
+       {
+        "name": "Bigmonka",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Bigmonka"
+       },
+       {
+        "name": "Bramillius",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Bramillius"
+       },
+       {
+        "name": "Dhaezuna",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Demon Hunter",
+        "spec": "Devourer",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Dhaezuna"
+       },
+       {
+        "name": "Diekae",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Diekae"
+       },
+       {
+        "name": "Diigii",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Diigii"
+       },
+       {
+        "name": "Joess",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Joess"
+       },
+       {
+        "name": "Klappie",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Klappie"
+       },
+       {
+        "name": "Onkilock",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Onkilock"
+       },
+       {
+        "name": "Parelsuiker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Parelsuiker"
+       },
+       {
+        "name": "Sankerktan",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sankerktan"
+       },
+       {
+        "name": "Stoical",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Stoical"
+       },
+       {
+        "name": "Xecdh",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Xecdh"
+       },
+       {
+        "name": "Zyraian",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Zyraian"
+       }
+      ]
+     },
+     {
+      "guild": "Knikkerende Krijgers",
+      "colour": "#e5484d",
+      "defeatedAt": "2026-09-27T18:35:22.350Z",
+      "pullCount": 8,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Kaeladin",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/auchindoun/Kaeladin"
+       },
+       {
+        "name": "Salysa",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Demon Hunter",
+        "spec": "Vengeance",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/sylvanas/Salysa"
+       },
+       {
+        "name": "Bellinator",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Bellinator"
+       },
+       {
+        "name": "Kuntax",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/sylvanas/Kuntax"
+       },
+       {
+        "name": "Uncleharry",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/argent-dawn/Uncleharry"
+       },
+       {
+        "name": "Xiro",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/sylvanas/Xiro"
+       },
+       {
+        "name": "Élmo",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/auchindoun/%C3%89lmo"
+       },
+       {
+        "name": "Calaelen",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Hunter",
+        "spec": "Survival",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Calaelen"
+       },
+       {
+        "name": "Deadlysav-308481143",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Deadlysav-308481143"
+       },
+       {
+        "name": "Gaintrain",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Gaintrain"
+       },
+       {
+        "name": "Illazaria",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Devourer",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Illazaria"
+       },
+       {
+        "name": "Lenkie",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Lenkie"
+       },
+       {
+        "name": "Mulgar",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Mulgar"
+       },
+       {
+        "name": "Noxicore",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Mage",
+        "spec": "Frost",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Noxicore"
+       },
+       {
+        "name": "Píét",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/P%C3%AD%C3%A9t"
+       },
+       {
+        "name": "Qarlana",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Qarlana"
+       },
+       {
+        "name": "Rubzy",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Rubzy"
+       },
+       {
+        "name": "Spyro",
+        "realm": "Auchindoun",
+        "realmSlug": "auchindoun",
+        "class": "Evoker",
+        "spec": "Devastation",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/auchindoun/Spyro"
+       },
+       {
+        "name": "Syllidon",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Syllidon"
+       },
+       {
+        "name": "Xlbrian",
+        "realm": "Sylvanas",
+        "realmSlug": "sylvanas",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/sylvanas/Xlbrian"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "raid": "the-venomous-abyss",
+    "slug": "sszorak",
+    "name": "Sszorak",
+    "teams": [
+     {
+      "guild": "Kelderklasse",
+      "colour": "#5aa9ff",
+      "defeatedAt": "2026-09-27T18:44:52.256Z",
+      "pullCount": 82,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Bossii",
+        "realm": "Magtheridon",
+        "realmSlug": "magtheridon",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/magtheridon/Bossii"
+       },
+       {
+        "name": "Unóx",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Un%C3%B3x"
+       },
+       {
+        "name": "Fnminimi",
+        "realm": "Outland",
+        "realmSlug": "outland",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/outland/Fnminimi"
+       },
+       {
+        "name": "Shiftheal",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shiftheal"
+       },
+       {
+        "name": "Thirive",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Discipline",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Thirive"
+       },
+       {
+        "name": "Wdruid",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wdruid"
+       },
+       {
+        "name": "Amphroxia",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Amphroxia"
+       },
+       {
+        "name": "Axoatlmage",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Axoatlmage"
+       },
+       {
+        "name": "Boelíe",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Boel%C3%ADe"
+       },
+       {
+        "name": "Hamtaro",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Hamtaro"
+       },
+       {
+        "name": "Hell",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Warlock",
+        "spec": "Affliction",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Hell"
+       },
+       {
+        "name": "Jhaetra",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Jhaetra"
+       },
+       {
+        "name": "Kirc",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Kirc"
+       },
+       {
+        "name": "Nocteirah",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Devourer",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nocteirah"
+       },
+       {
+        "name": "Sluipens",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sluipens"
+       },
+       {
+        "name": "Verkouden",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Verkouden"
+       },
+       {
+        "name": "Vinlocky",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Vinlocky"
+       },
+       {
+        "name": "Víchenzo",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/V%C3%ADchenzo"
+       },
+       {
+        "name": "Woenseldk",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Woenseldk"
+       },
+       {
+        "name": "Wombat",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wombat"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "raid": "the-tidebound-grotto",
+    "slug": "nymrissa-wavecaller",
+    "name": "Nymrissa Wavecaller",
+    "teams": [
+     {
+      "guild": "Kelderklasse",
+      "colour": "#5aa9ff",
+      "defeatedAt": "2026-09-09T19:25:08.012Z",
+      "pullCount": 6,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Bossii",
+        "realm": "Magtheridon",
+        "realmSlug": "magtheridon",
+        "class": "Paladin",
+        "spec": "Protection",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/magtheridon/Bossii"
+       },
+       {
+        "name": "Jáckblack",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/J%C3%A1ckblack"
+       },
+       {
+        "name": "Verkouden",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Verkouden"
+       },
+       {
+        "name": "Fnminimi",
+        "realm": "Outland",
+        "realmSlug": "outland",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/outland/Fnminimi"
+       },
+       {
+        "name": "Nieuwemain",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Nieuwemain"
+       },
+       {
+        "name": "Shiftheal",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shiftheal"
+       },
+       {
+        "name": "Thirive",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Priest",
+        "spec": "Discipline",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Thirive"
+       },
+       {
+        "name": "Wvoker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wvoker"
+       },
+       {
+        "name": "Amphroxia",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Amphroxia"
+       },
+       {
+        "name": "Asaki",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Asaki"
+       },
+       {
+        "name": "Axoatlmage",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Axoatlmage"
+       },
+       {
+        "name": "Boelíe",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Boel%C3%ADe"
+       },
+       {
+        "name": "Chauffie",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Chauffie"
+       },
+       {
+        "name": "Hamtaro",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Hunter",
+        "spec": "Beast Mastery",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Hamtaro"
+       },
+       {
+        "name": "Hell-282223855",
+        "realm": "Twisting Nether",
+        "realmSlug": "twisting-nether",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/twisting-nether/Hell-282223855"
+       },
+       {
+        "name": "Herrmaus",
+        "realm": "Ravencrest",
+        "realmSlug": "ravencrest",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ravencrest/Herrmaus"
+       },
+       {
+        "name": "Jhaetra",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Jhaetra"
+       },
+       {
+        "name": "Kirc",
+        "realm": "Argent Dawn",
+        "realmSlug": "argent-dawn",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/argent-dawn/Kirc"
+       },
+       {
+        "name": "Nocteirah",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Nocteirah"
+       },
+       {
+        "name": "Sluipens",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Subtlety",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sluipens"
+       },
+       {
+        "name": "Vinlocky",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Vinlocky"
+       },
+       {
+        "name": "Víchenzo",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/V%C3%ADchenzo"
+       },
+       {
+        "name": "Woenseldk",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Death Knight",
+        "spec": "Unholy",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Woenseldk"
+       },
+       {
+        "name": "Wombat",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Hunter",
+        "spec": "Marksmanship",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Wombat"
+       },
+       {
+        "name": "Yotadruid",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Druid",
+        "spec": "Balance",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Yotadruid"
+       }
+      ]
+     },
+     {
+      "guild": "Kameraden",
+      "colour": "#ff8a3d",
+      "defeatedAt": "2026-09-28T18:45:57.772Z",
+      "pullCount": 7,
+      "rosterKnown": true,
+      "roster": [
+       {
+        "name": "Brymus",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Brewmaster",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/draenor/Brymus"
+       },
+       {
+        "name": "Diekae",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Diekae"
+       },
+       {
+        "name": "Filay",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Death Knight",
+        "spec": "Blood",
+        "role": "tank",
+        "url": "https://raider.io/characters/eu/silvermoon/Filay"
+       },
+       {
+        "name": "Dahdraenei",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Paladin",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Dahdraenei"
+       },
+       {
+        "name": "Offspek",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Priest",
+        "spec": "Holy",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/stormscale/Offspek"
+       },
+       {
+        "name": "Palmôep",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Shaman",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Palm%C3%B4ep"
+       },
+       {
+        "name": "Seeddie",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Evoker",
+        "spec": "Preservation",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/draenor/Seeddie"
+       },
+       {
+        "name": "Shifthappèns",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Druid",
+        "spec": "Restoration",
+        "role": "healer",
+        "url": "https://raider.io/characters/eu/ragnaros/Shifthapp%C3%A8ns"
+       },
+       {
+        "name": "Bigmonka",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Bigmonka"
+       },
+       {
+        "name": "Bramillius",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Monk",
+        "spec": "Windwalker",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Bramillius"
+       },
+       {
+        "name": "Dhaezuna",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Demon Hunter",
+        "spec": "Devourer",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Dhaezuna"
+       },
+       {
+        "name": "Diigii",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Diigii"
+       },
+       {
+        "name": "Joess",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Paladin",
+        "spec": "Retribution",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Joess"
+       },
+       {
+        "name": "Karthame",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Karthame"
+       },
+       {
+        "name": "Klappie",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Klappie"
+       },
+       {
+        "name": "Ocemwewe",
+        "realm": "Ragnaros",
+        "realmSlug": "ragnaros",
+        "class": "Shaman",
+        "spec": "Enhancement",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/ragnaros/Ocemwewe"
+       },
+       {
+        "name": "Onkilock",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Onkilock"
+       },
+       {
+        "name": "Owogodl",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warrior",
+        "spec": "Arms",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Owogodl"
+       },
+       {
+        "name": "Parelsuiker",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Shaman",
+        "spec": "Elemental",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Parelsuiker"
+       },
+       {
+        "name": "Potatwoppy",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Potatwoppy"
+       },
+       {
+        "name": "Sankerktan",
+        "realm": "Kazzak",
+        "realmSlug": "kazzak",
+        "class": "Rogue",
+        "spec": "Assassination",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/kazzak/Sankerktan"
+       },
+       {
+        "name": "Stoicaldruid",
+        "realm": "Stormscale",
+        "realmSlug": "stormscale",
+        "class": "Druid",
+        "spec": "Feral",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/stormscale/Stoicaldruid"
+       },
+       {
+        "name": "Tinitover",
+        "realm": "Tarren Mill",
+        "realmSlug": "tarren-mill",
+        "class": "Mage",
+        "spec": "Arcane",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/tarren-mill/Tinitover"
+       },
+       {
+        "name": "Xecdh",
+        "realm": "Draenor",
+        "realmSlug": "draenor",
+        "class": "Demon Hunter",
+        "spec": "Havoc",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/draenor/Xecdh"
+       },
+       {
+        "name": "Zyraian",
+        "realm": "Silvermoon",
+        "realmSlug": "silvermoon",
+        "class": "Warlock",
+        "spec": "Demonology",
+        "role": "dps",
+        "url": "https://raider.io/characters/eu/silvermoon/Zyraian"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "raiders": [
+   {
+    "name": "Amphroxia",
+    "realm": "Draenor",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/draenor/Amphroxia",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Axoatlmage",
+    "realm": "Draenor",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/draenor/Axoatlmage",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Boelíe",
+    "realm": "Tarren Mill",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/tarren-mill/Boel%C3%ADe",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Bossii",
+    "realm": "Magtheridon",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/magtheridon/Bossii",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Fnminimi",
+    "realm": "Outland",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/outland/Fnminimi",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Hamtaro",
+    "realm": "Silvermoon",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/silvermoon/Hamtaro",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Jhaetra",
+    "realm": "Draenor",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/draenor/Jhaetra",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Kirc",
+    "realm": "Argent Dawn",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/argent-dawn/Kirc",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Nocteirah",
+    "realm": "Draenor",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Nocteirah",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Shiftheal",
+    "realm": "Ragnaros",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/ragnaros/Shiftheal",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Thirive",
+    "realm": "Draenor",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/draenor/Thirive",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Víchenzo",
+    "realm": "Draenor",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/draenor/V%C3%ADchenzo",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Woenseldk",
+    "realm": "Draenor",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/draenor/Woenseldk",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Wombat",
+    "realm": "Tarren Mill",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/tarren-mill/Wombat",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 6,
+    "kills": 6,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Jáckblack",
+    "realm": "Silvermoon",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/silvermoon/J%C3%A1ckblack",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 5,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Sluipens",
+    "realm": "Kazzak",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/kazzak/Sluipens",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 5,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Verkouden",
+    "realm": "Draenor",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/draenor/Verkouden",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 5,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Vinlocky",
+    "realm": "Silvermoon",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/silvermoon/Vinlocky",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 5,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Wvoker",
+    "realm": "Tarren Mill",
+    "class": "Evoker",
+    "url": "https://raider.io/characters/eu/tarren-mill/Wvoker",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 5,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Hell-282223855",
+    "realm": "Twisting Nether",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/twisting-nether/Hell-282223855",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 3,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": true
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Asaki",
+    "realm": "Argent Dawn",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/argent-dawn/Asaki",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 2,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Hell",
+    "realm": "Twisting Nether",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/twisting-nether/Hell",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 2,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Herrmaus",
+    "realm": "Ravencrest",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/ravencrest/Herrmaus",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 2,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Nieuwemain",
+    "realm": "Draenor",
+    "class": "Evoker",
+    "url": "https://raider.io/characters/eu/draenor/Nieuwemain",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 2,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Yotadruid",
+    "realm": "Kazzak",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/kazzak/Yotadruid",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 2,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": true
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Chauffie",
+    "realm": "Silvermoon",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/silvermoon/Chauffie",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 1,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Unóx",
+    "realm": "Silvermoon",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/silvermoon/Un%C3%B3x",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 1,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Wdruid",
+    "realm": "Tarren Mill",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/tarren-mill/Wdruid",
+    "guild": "Kelderklasse",
+    "colour": "#5aa9ff",
+    "firsts": 1,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "sszorak",
+      "name": "Sszorak",
+      "first": true
+     }
+    ]
+   },
+   {
+    "name": "Brymus",
+    "realm": "Draenor",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/draenor/Brymus",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Dahdraenei",
+    "realm": "Draenor",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/draenor/Dahdraenei",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Diekae",
+    "realm": "Silvermoon",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/silvermoon/Diekae",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Diigii",
+    "realm": "Stormscale",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/stormscale/Diigii",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Joess",
+    "realm": "Silvermoon",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/silvermoon/Joess",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Klappie",
+    "realm": "Tarren Mill",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/tarren-mill/Klappie",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Offspek",
+    "realm": "Stormscale",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/stormscale/Offspek",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Onkilock",
+    "realm": "Tarren Mill",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/tarren-mill/Onkilock",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Sankerktan",
+    "realm": "Kazzak",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/kazzak/Sankerktan",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Xecdh",
+    "realm": "Draenor",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Xecdh",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Zyraian",
+    "realm": "Silvermoon",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/silvermoon/Zyraian",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 5,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bellinator",
+    "realm": "Tarren Mill",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/tarren-mill/Bellinator",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bigmonka",
+    "realm": "Draenor",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/draenor/Bigmonka",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bramillius",
+    "realm": "Silvermoon",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/silvermoon/Bramillius",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Calaelen",
+    "realm": "Ravencrest",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/ravencrest/Calaelen",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Filay",
+    "realm": "Silvermoon",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/silvermoon/Filay",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Gaintrain",
+    "realm": "Auchindoun",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/auchindoun/Gaintrain",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Kaeladin",
+    "realm": "Auchindoun",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/auchindoun/Kaeladin",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Mulgar",
+    "realm": "Twisting Nether",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/twisting-nether/Mulgar",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Noxicore",
+    "realm": "Sylvanas",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/sylvanas/Noxicore",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Owogodl",
+    "realm": "Silvermoon",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/silvermoon/Owogodl",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Qarlana",
+    "realm": "Ragnaros",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/ragnaros/Qarlana",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Rubzy",
+    "realm": "Tarren Mill",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/tarren-mill/Rubzy",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Salysa",
+    "realm": "Sylvanas",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/sylvanas/Salysa",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Syllidon",
+    "realm": "Twisting Nether",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/twisting-nether/Syllidon",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Xiro",
+    "realm": "Sylvanas",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/sylvanas/Xiro",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Xlbrian",
+    "realm": "Sylvanas",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/sylvanas/Xlbrian",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Élmo",
+    "realm": "Auchindoun",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/auchindoun/%C3%89lmo",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 4,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Aimbotter",
+    "realm": "Twisting Nether",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/twisting-nether/Aimbotter",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bamiebal",
+    "realm": "Sylvanas",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/sylvanas/Bamiebal",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Deadlysav-308481143",
+    "realm": "Draenor",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Deadlysav-308481143",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Dhaezuna",
+    "realm": "Tarren Mill",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/tarren-mill/Dhaezuna",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Killerdwarfi",
+    "realm": "Nagrand",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/nagrand/Killerdwarfi",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Kuntax",
+    "realm": "Sylvanas",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/sylvanas/Kuntax",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Palmôep",
+    "realm": "Draenor",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/draenor/Palm%C3%B4ep",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Parelsuiker",
+    "realm": "Tarren Mill",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/tarren-mill/Parelsuiker",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Shemmy",
+    "realm": "Auchindoun",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/auchindoun/Shemmy",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Sterf",
+    "realm": "Ravencrest",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/ravencrest/Sterf",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Stoicaldruid",
+    "realm": "Stormscale",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/stormscale/Stoicaldruid",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Tinitover",
+    "realm": "Tarren Mill",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/tarren-mill/Tinitover",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 3,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Aerad",
+    "realm": "Ragnaros",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/ragnaros/Aerad",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Baarzdk",
+    "realm": "Turalyon",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/turalyon/Baarzdk",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bevrorenziel",
+    "realm": "Draenor",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/draenor/Bevrorenziel",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bhauzy",
+    "realm": "Silvermoon",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/silvermoon/Bhauzy",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Cloudborné",
+    "realm": "Draenor",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/draenor/Cloudborn%C3%A9",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Crithappèns",
+    "realm": "Ragnaros",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/ragnaros/Crithapp%C3%A8ns",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Demonisch",
+    "realm": "Draenor",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/draenor/Demonisch",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Dutchblade",
+    "realm": "Draenor",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Dutchblade",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Eshalda",
+    "realm": "Ragnaros",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/ragnaros/Eshalda",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Karthame",
+    "realm": "Draenor",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/draenor/Karthame",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Kégarra",
+    "realm": "Stormreaver",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/stormreaver/K%C3%A9garra",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Myrmidøn",
+    "realm": "Stormscale",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/stormscale/Myrmid%C3%B8n",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Naihqthyr",
+    "realm": "Draenor",
+    "class": "Evoker",
+    "url": "https://raider.io/characters/eu/draenor/Naihqthyr",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Nckerino",
+    "realm": "Tarren Mill",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/tarren-mill/Nckerino",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Nieki",
+    "realm": "Draenor",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/draenor/Nieki",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Oríani",
+    "realm": "Draenor",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Or%C3%ADani",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Pausie",
+    "realm": "Draenor",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/draenor/Pausie",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Seeddie",
+    "realm": "Draenor",
+    "class": "Evoker",
+    "url": "https://raider.io/characters/eu/draenor/Seeddie",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Seedyp",
+    "realm": "Stormscale",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/stormscale/Seedyp",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Shifthappèns",
+    "realm": "Ragnaros",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/ragnaros/Shifthapp%C3%A8ns",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     },
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Smekbeer",
+    "realm": "Kazzak",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/kazzak/Smekbeer",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Spyro",
+    "realm": "Auchindoun",
+    "class": "Evoker",
+    "url": "https://raider.io/characters/eu/auchindoun/Spyro",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Uncleharry",
+    "realm": "Argent Dawn",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/argent-dawn/Uncleharry",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     },
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Vehiron",
+    "realm": "Draenor",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Vehiron",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Zivione",
+    "realm": "Ravencrest",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/ravencrest/Zivione",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Zydell",
+    "realm": "Stormscale",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/stormscale/Zydell",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 2,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     },
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Amazinn",
+    "realm": "Draenor",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/draenor/Amazinn",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Anarionn",
+    "realm": "Draenor",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/draenor/Anarionn",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bannedbanana",
+    "realm": "Silvermoon",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/silvermoon/Bannedbanana",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Behindubro",
+    "realm": "Darkspear",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/darkspear/Behindubro",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bhast",
+    "realm": "Stormscale",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/stormscale/Bhast",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Blesivoker",
+    "realm": "Silvermoon",
+    "class": "Evoker",
+    "url": "https://raider.io/characters/eu/silvermoon/Blesivoker",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Bloodling",
+    "realm": "Stormscale",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/stormscale/Bloodling",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Celísa",
+    "realm": "Ghostlands",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/ghostlands/Cel%C3%ADsa",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Chaoslocked",
+    "realm": "Silvermoon",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/silvermoon/Chaoslocked",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Chimmret",
+    "realm": "Magtheridon",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/magtheridon/Chimmret",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Daddybird",
+    "realm": "Silvermoon",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/silvermoon/Daddybird",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Dagame",
+    "realm": "Draenor",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/draenor/Dagame",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Deathnatsu",
+    "realm": "Ragnaros",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/ragnaros/Deathnatsu",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Deathzetha",
+    "realm": "Draenor",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/draenor/Deathzetha",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Dokterduim",
+    "realm": "Silvermoon",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/silvermoon/Dokterduim",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Drambush",
+    "realm": "Silvermoon",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/silvermoon/Drambush",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Eleonorá",
+    "realm": "Silvermoon",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/silvermoon/Eleonor%C3%A1",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Eliphas",
+    "realm": "Silvermoon",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/silvermoon/Eliphas",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Fará",
+    "realm": "Silvermoon",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/silvermoon/Far%C3%A1",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Festard",
+    "realm": "Silvermoon",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/silvermoon/Festard",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Floapy",
+    "realm": "Tarren Mill",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/tarren-mill/Floapy",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Illazaria",
+    "realm": "Draenor",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Illazaria",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Kaspaaslap",
+    "realm": "Draenor",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/draenor/Kaspaaslap",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Kiekebustje",
+    "realm": "Tarren Mill",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/tarren-mill/Kiekebustje",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Kyrnax",
+    "realm": "Draenor",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/draenor/Kyrnax",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Laforgéz",
+    "realm": "Tarren Mill",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/tarren-mill/Laforg%C3%A9z",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Lenkie",
+    "realm": "Sylvanas",
+    "class": "Rogue",
+    "url": "https://raider.io/characters/eu/sylvanas/Lenkie",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Liàe",
+    "realm": "Ravencrest",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/ravencrest/Li%C3%A0e",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Lockverdomme",
+    "realm": "Silvermoon",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/silvermoon/Lockverdomme",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Luxodon",
+    "realm": "Stormscale",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/stormscale/Luxodon",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Mugabete",
+    "realm": "Stormscale",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/stormscale/Mugabete",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Mussha",
+    "realm": "Turalyon",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/turalyon/Mussha",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Nakinakí",
+    "realm": "Silvermoon",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/silvermoon/Nakinak%C3%AD",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Neliz",
+    "realm": "The Maelstrom",
+    "class": "Paladin",
+    "url": "https://raider.io/characters/eu/the-maelstrom/Neliz",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Nogula",
+    "realm": "Silvermoon",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/silvermoon/Nogula",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Noppens",
+    "realm": "Silvermoon",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/silvermoon/Noppens",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Ocemwewe",
+    "realm": "Ragnaros",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/ragnaros/Ocemwewe",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Pallás",
+    "realm": "Tarren Mill",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/tarren-mill/Pall%C3%A1s",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Potatwoppy",
+    "realm": "Draenor",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/draenor/Potatwoppy",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nymrissa-wavecaller",
+      "name": "Nymrissa Wavecaller",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Píét",
+    "realm": "Draenor",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/draenor/P%C3%AD%C3%A9t",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Ragnablood",
+    "realm": "Draenor",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/draenor/Ragnablood",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Sláàf",
+    "realm": "Tarren Mill",
+    "class": "Monk",
+    "url": "https://raider.io/characters/eu/tarren-mill/Sl%C3%A1%C3%A0f",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Stoical",
+    "realm": "Tarren Mill",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/tarren-mill/Stoical",
+    "guild": "Kameraden",
+    "colour": "#ff8a3d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "vashnik-the-malignant",
+      "name": "Vashnik the Malignant",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Sweethunt",
+    "realm": "Turalyon",
+    "class": "Hunter",
+    "url": "https://raider.io/characters/eu/turalyon/Sweethunt",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Treantsetter",
+    "realm": "Silvermoon",
+    "class": "Druid",
+    "url": "https://raider.io/characters/eu/silvermoon/Treantsetter",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Ulmandir",
+    "realm": "Silvermoon",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/silvermoon/Ulmandir",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Voidstrider",
+    "realm": "Ragnaros",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/ragnaros/Voidstrider",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "the-lost-explorers",
+      "name": "The Lost Explorers",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Volkydh",
+    "realm": "Silvermoon",
+    "class": "Demon Hunter",
+    "url": "https://raider.io/characters/eu/silvermoon/Volkydh",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Waunawizard",
+    "realm": "Tarren Mill",
+    "class": "Mage",
+    "url": "https://raider.io/characters/eu/tarren-mill/Waunawizard",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Wipeface",
+    "realm": "Ragnaros",
+    "class": "Warlock",
+    "url": "https://raider.io/characters/eu/ragnaros/Wipeface",
+    "guild": "Knikkerende Krijgers",
+    "colour": "#e5484d",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "entombed-sentinels",
+      "name": "Entombed Sentinels",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Zaev",
+    "realm": "Dentarg",
+    "class": "Priest",
+    "url": "https://raider.io/characters/eu/dentarg/Zaev",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Zaladima",
+    "realm": "Silvermoon",
+    "class": "Death Knight",
+    "url": "https://raider.io/characters/eu/silvermoon/Zaladima",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Zoef",
+    "realm": "Lightning's Blade",
+    "class": "Warrior",
+    "url": "https://raider.io/characters/eu/lightnings-blade/Zoef",
+    "guild": "Lelijkerds",
+    "colour": "#b48cff",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   },
+   {
+    "name": "Ørphås",
+    "realm": "Burning Blade",
+    "class": "Shaman",
+    "url": "https://raider.io/characters/eu/burning-blade/%C3%98rph%C3%A5s",
+    "guild": "RoyalTeam",
+    "colour": "#f472b6",
+    "firsts": 0,
+    "kills": 1,
+    "bosses": [
+     {
+      "slug": "nekzali-the-soulcoiler",
+      "name": "Nek'zali the Soulcoiler",
+      "first": false
+     }
+    ]
+   }
+  ]
+ }
 }

@@ -1,0 +1,70 @@
+/* Hall of fame (halloffame.js). Same language as style.css: square dark tiles with
+   the guild colour on the left edge, gold for the race's first kills. Colours and
+   fonts only from tokens.css; a guild's colour arrives as --guild. */
+
+.hof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+
+.hof-boss {
+  background: var(--ink-800); border: 1px solid var(--ink-700); border-left: 3px solid var(--guild, var(--gold));
+  padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
+}
+.hof-boss__top { display: flex; align-items: baseline; gap: 4px; }
+.hof-boss__name { font-size: 19px; font-weight: 600; line-height: 1.15; color: var(--paper); }
+.hof-boss__label {
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
+}
+
+.hof-team__head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.hof-team__guild { font-size: 15px; font-weight: 600; color: var(--paper); }
+.hof-team__when { font-family: var(--f-mono); font-size: 13px; color: var(--paper-dim); }
+.hof-team__pulls { font-size: 12px; color: var(--ink-300); }
+
+.hof-roster { display: flex; flex-direction: column; gap: 8px; }
+.hof-role__label {
+  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-300);
+  margin-bottom: 4px;
+}
+.hof-members { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 3px 12px; }
+.hof-member { display: flex; align-items: baseline; gap: 6px; min-width: 0; font-size: 14px; }
+.hof-member a, .hof-member > span:first-child {
+  color: var(--paper); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hof-member a:hover { color: var(--jade); text-decoration: underline; }
+.hof-member__spec { font-size: 11px; color: var(--ink-300); white-space: nowrap; }
+
+.hof-others { border-top: 1px solid var(--ink-700); padding-top: 10px; font-size: 14px; }
+.hof-others summary { cursor: pointer; color: var(--jade); width: max-content; }
+.hof-others[open] summary { margin-bottom: 12px; }
+.hof-team { display: flex; flex-direction: column; gap: 8px; padding: 10px 0 12px; border-bottom: 1px solid var(--ink-750); }
+.hof-team:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.hof-subtitle {
+  margin-top: 30px; margin-bottom: 6px;
+  font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-200);
+}
+/* Its own wrapper: style.css hides .table-wrap--scroll on phones (the boss table
+   becomes cards there); this table just scrolls sideways instead. */
+.hof-table-wrap { overflow-x: auto; border: 1px solid var(--ink-700); background: var(--ink-850); }
+.hof-table { width: 100%; font-size: 14px; }
+.hof-table th, .hof-table td { white-space: nowrap; padding: 8px 14px; }
+.hof-table thead th { font-size: 12px; color: var(--ink-200); background: var(--ink-850); }
+.hof-table tbody tr:hover { background: var(--ink-800); }
+.hof-table tbody th { min-width: 0; font-weight: 600; }
+.hof-table tbody th a { color: var(--paper); text-decoration: none; }
+.hof-table tbody th a:hover { color: var(--jade); text-decoration: underline; }
+.hof-realm { margin-left: 8px; font-size: 12px; font-weight: 400; color: var(--ink-300); }
+.hof-table .dot { margin-right: 4px; }
+.hof-num { font-family: var(--f-mono); text-align: right; }
+.hof-firsts { color: var(--ink-300); }
+.hof-row--first .hof-firsts { color: var(--gold); }
+.hof-more { margin-top: 12px; }
+.hof-more button { border: 0; font: inherit; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+
+@media (max-width: 720px) {
+  .hof-table th, .hof-table td { padding: 7px 10px; }
+  .hof-realm { display: block; margin-left: 0; }
+}
+@media (max-width: 400px) {
+  .hof-grid { grid-template-columns: minmax(0, 1fr); }
+  .hof-members { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
