@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:;">
+<title>Race to Dutch First</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="dash-header">
+    <div class="rib rib--sm brand-rib" style="--acc:var(--jade)">
+      <div class="rib__bar"><div class="rib__in">
+        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
+          <circle cx="9" cy="9" r="3" fill="currentColor"></circle>
+          <path d="M4.2 4.2a6.8 6.8 0 0 0 0 9.6M13.8 4.2a6.8 6.8 0 0 1 0 9.6"
+                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg></span>
+        <span class="rib__val">Race to Dutch First</span>
+      </div></div>
+    </div>
+    <h1 id="pageTitle">Race to Dutch First</h1>
+    <p class="lead">Welke Nederlandse guild bereikt als eerste Cutting Edge? De race wordt hier live gevolgd.</p>
+  </header>
+
+  <!-- Section 1: De race -->
+  <section class="view" aria-label="De race">
+    <div class="rib rib--sm" style="--acc:var(--jade)">
+      <div class="rib__bar"><div class="rib__in">
+        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 9h14M12 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg></span>
+        <span class="rib__val">De race</span>
+      </div></div>
+    </div>
+    <div id="raceTrack" class="race-track"></div>
+  </section>
+
+  <!-- Section 2: Klassement -->
+  <section class="view" aria-label="Klassement">
+    <div class="rib rib--sm" style="--acc:var(--jade)">
+      <div class="rib__bar"><div class="rib__in">
+        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
+          <rect x="3" y="6" width="3" height="10" rx="1" fill="currentColor"></rect>
+          <rect x="7.5" y="3" width="3" height="13" rx="1" fill="currentColor"></rect>
+          <rect x="12" y="8" width="3" height="8" rx="1" fill="currentColor"></rect>
+        </svg></span>
+        <span class="rib__val">Klassement</span>
+      </div></div>
+    </div>
+    <div id="klassementGrid" class="tiles-grid"></div>
+  </section>
+
+  <!-- Section 3: Voortgang -->
+  <section class="view" aria-label="Voortgang">
+    <div class="rib rib--sm" style="--acc:var(--jade)">
+      <div class="rib__bar"><div class="rib__in">
+        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
+          <polyline points="2,14 5,9 8,11 12,5 16,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg></span>
+        <span class="rib__val">Voortgang</span>
+      </div></div>
+    </div>
+    <p class="section-caption">Mythische overwinningen in de tijd, per guild.</p>
+    <div id="timelineChart" class="timeline-chart"></div>
+  </section>
+
+  <!-- Section 4: Per boss -->
+  <section class="view" aria-label="Per boss">
+    <div class="rib rib--sm" style="--acc:var(--jade)">
+      <div class="rib__bar"><div class="rib__in">
+        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
+          <rect x="2" y="2" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+          <line x1="6" y1="2" x2="6" y2="16" stroke="currentColor" stroke-width="1"></line>
+          <line x1="12" y1="2" x2="12" y2="16" stroke="currentColor" stroke-width="1"></line>
+          <line x1="2" y1="7" x2="16" y2="7" stroke="currentColor" stroke-width="1"></line>
+          <line x1="2" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="1"></line>
+        </svg></span>
+        <span class="rib__val">Per boss</span>
+      </div></div>
+    </div>
+    <p class="section-caption">Overzicht per boss: datum, aantal pulls en voortgang op de huidige boss.</p>
+    <div id="bossGrid" class="boss-grid"></div>
+  </section>
+
+  <!-- Section 5: Huidige boss -->
+  <section class="view" aria-label="Huidige boss">
+    <div class="rib rib--sm" style="--acc:var(--jade)">
+      <div class="rib__bar"><div class="rib__in">
+        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
+          <circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+          <polyline points="9,3 9,9 13,11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        </svg></span>
+        <span class="rib__val">Huidige boss</span>
+      </div></div>
+    </div>
+    <p class="section-caption">Hoe dicht bij de kill? De beste %-curve per guild op de huidige Venomous Abyss-boss.</p>
+    <div id="curvesGrid" class="curves-grid"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p id="updatedText" class="site-footer__updated"></p>
+    <p>Data van <a href="https://raider.io" target="_blank" rel="noopener">Raider.IO</a>. Alle gegevens worden gebruikt volgens de Raider.IO Acceptable Use Policy.</p>
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

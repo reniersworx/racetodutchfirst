@@ -1,0 +1,64 @@
+# Guilds racing to be the first fully Dutch guild to reach Cutting Edge.
+# More guilds can be added here; the site picks them up automatically.
+
+[[guilds]]
+name = "Kelderklasse"
+realm = "Draenor"
+colour = "#4a90d9"
+
+[[guilds]]
+name = "Kameraden"
+realm = "Silvermoon"
+colour = "#e8a735"
+
+[[guilds]]
+name = "Knikkerende Krijgers"
+realm = "Sylvanas"
+colour = "#d94a4a"
+
+[[guilds]]
+name = "Lelijkerds"
+realm = "Draenor"
+colour = "#4ad98a"
+
+[[guilds]]
+name = "RoyalTeam"
+realm = "Silvermoon"
+colour = "#9b4ad9"
+
+# The current raid tier.
+[tier]
+ce_boss = "ulatek"
+start_date = "2026-08-19"
+
+# Raids in order; the last boss of the last raid is Cutting Edge by default,
+# but you can override it with ce_boss below.
+[[tier.raids]]
+slug = "the-venomous-abyss"
+name = "The Venomous Abyss"
+warcraft_logs_zone = 53
+total_bosses = 9
+[[tier.raids.bosses]]
+slug = "nekzali-the-soulcoiler"
+[[tier.raids.bosses]]
+slug = "entombed-sentinels"
+[[tier.raids.bosses]]
+slug = "the-lost-explorers"
+[[tier.raids.bosses]]
+slug = "vashnik-the-malignant"
+[[tier.raids.bosses]]
+slug = "sszorak"
+[[tier.raids.bosses]]
+slug = "the-twin-fangs"
+[[tier.raids.bosses]]
+slug = "the-coiled-altar"
+[[tier.raids.bosses]]
+slug = "ulatek"
+
+[[tier.raids]]
+slug = "the-tidebound-grotto"
+name = "The Tidebound Grotto"
+total_bosses = 1
+[[tier.raids.bosses]]
+slug = "nymrissa-wavecaller"
+
