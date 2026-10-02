@@ -1,0 +1,18 @@
+[project]
+name = "racetodutchfirst"
+version = "0.1.0"
+description = "Race to Dutch First – a website tracking Dutch WoW guilds racing to Cutting Edge."
+requires-python = ">=3.12"
+dependencies = [
+    "httpx",
+    "tomli",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.uv]
+dev-dependencies = ["pytest", "ruff"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

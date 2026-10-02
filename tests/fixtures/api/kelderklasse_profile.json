@@ -1,0 +1,109 @@
+{
+  "name": "Kelderklasse",
+  "displayName": null,
+  "faction": "horde",
+  "region": "eu",
+  "realm": "Draenor",
+  "last_crawled_at": "2026-09-29T17:01:14.000Z",
+  "profile_url": "https://raider.io/guilds/eu/draenor/Kelderklasse",
+  "raid_rankings": {
+    "tier-mn-1": {
+      "normal": {
+        "world": 15647,
+        "region": 6914,
+        "realm": 322
+      },
+      "heroic": {
+        "world": 13589,
+        "region": 5980,
+        "realm": 317
+      },
+      "mythic": {
+        "world": 1621,
+        "region": 758,
+        "realm": 58
+      }
+    },
+    "sporefall": {
+      "normal": {
+        "world": 0,
+        "region": 0,
+        "realm": 0
+      },
+      "heroic": {
+        "world": 3029,
+        "region": 712,
+        "realm": 37
+      },
+      "mythic": {
+        "world": 1052,
+        "region": 323,
+        "realm": 21
+      }
+    },
+    "the-tidebound-grotto": {
+      "normal": {
+        "world": 1624,
+        "region": 720,
+        "realm": 44
+      },
+      "heroic": {
+        "world": 325,
+        "region": 175,
+        "realm": 13
+      },
+      "mythic": {
+        "world": 1096,
+        "region": 520,
+        "realm": 41
+      }
+    },
+    "the-venomous-abyss": {
+      "normal": {
+        "world": 6609,
+        "region": 2772,
+        "realm": 187
+      },
+      "heroic": {
+        "world": 1872,
+        "region": 833,
+        "realm": 57
+      },
+      "mythic": {
+        "world": 1035,
+        "region": 527,
+        "realm": 41
+      }
+    }
+  },
+  "raid_progression": {
+    "tier-mn-1": {
+      "summary": "9/9 M",
+      "total_bosses": 9,
+      "normal_bosses_killed": 7,
+      "heroic_bosses_killed": 8,
+      "mythic_bosses_killed": 9
+    },
+    "sporefall": {
+      "summary": "1/1 M",
+      "total_bosses": 1,
+      "normal_bosses_killed": 0,
+      "heroic_bosses_killed": 1,
+      "mythic_bosses_killed": 1
+    },
+    "the-tidebound-grotto": {
+      "summary": "1/1 M",
+      "total_bosses": 1,
+      "normal_bosses_killed": 1,
+      "heroic_bosses_killed": 1,
+      "mythic_bosses_killed": 1
+    },
+    "the-venomous-abyss": {
+      "summary": "5/8 M",
+      "total_bosses": 8,
+      "normal_bosses_killed": 8,
+      "heroic_bosses_killed": 8,
+      "mythic_bosses_killed": 5
+    }
+  }
+}

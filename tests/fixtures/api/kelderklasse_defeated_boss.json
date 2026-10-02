@@ -1,0 +1,86 @@
+{
+  "guild": {
+    "id": 2118172,
+    "name": "Kelderklasse",
+    "displayName": "Kelderklasse",
+    "faction": "horde",
+    "realm": {
+      "id": 579,
+      "connectedRealmId": 308,
+      "wowRealmId": 506,
+      "wowConnectedRealmId": 1403,
+      "name": "Draenor",
+      "altName": null,
+      "slug": "draenor",
+      "altSlug": "draenor",
+      "locale": "en_GB",
+      "isConnected": false,
+      "realmType": "live"
+    },
+    "region": {
+      "name": "Europe",
+      "slug": "eu",
+      "short_name": "EU"
+    },
+    "subregion": {
+      "name": "Europe - English",
+      "slug": "eu-english",
+      "short_name": "EU EN",
+      "regions": [
+        {
+          "name": "Europe",
+          "slug": "eu",
+          "short_name": "EU"
+        }
+      ]
+    },
+    "path": "/guilds/eu/draenor/Kelderklasse",
+    "logo": "https://cdn.raiderio.net/images/site/horde_icon4.png",
+    "color": "#93009f",
+    "isDefaultLogo": true
+  },
+  "guildPrivacy": {
+    "shareRaidUntil": null
+  },
+  "raid": {
+    "type": "raid",
+    "id": 16915,
+    "difficulty": "mythic",
+    "name": "The Venomous Abyss",
+    "short_name": "VA",
+    "wowInstanceId": 3004,
+    "slug": "the-venomous-abyss",
+    "icon_url": "/images/wow/icons/large/8039569.jpg",
+    "expansion_id": 11
+  },
+  "boss": {
+    "encounterId": 197163,
+    "wowEncounterId": 3470,
+    "name": "Nek'zali the Soulcoiler",
+    "slug": "nekzali-the-soulcoiler",
+    "ordinal": 0,
+    "wingId": 0,
+    "iconUrl": "/images/wow/icons/large/inv_121_raid_achievement_priestess.jpg",
+    "portraitUrl": "/images/wow/encounter-journal/2888.png"
+  },
+  "overallProgress": {
+    "summary": "5/8 Mythic",
+    "difficulty": "mythic",
+    "totalBosses": 8,
+    "defeatedBosses": 5,
+    "normalBossesKilled": 8,
+    "heroicBossesKilled": 8,
+    "mythicBossesKilled": 5
+  },
+  "bestPercent": 0,
+  "bestAttemptDurationMs": 437549,
+  "boss_percent": 0,
+  "phase": null,
+  "phase_label": null,
+  "progress_display": "0%",
+  "pullCount": 1,
+  "pullStartedAt": "2026-09-06T19:43:36.655Z",
+  "isDefeated": true,
+  "error": null,
+  "widgetVersion": 0
+}
