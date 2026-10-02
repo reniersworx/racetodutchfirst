@@ -1,0 +1,109 @@
+{
+ "name": "Kameraden",
+ "displayName": null,
+ "faction": "alliance",
+ "region": "eu",
+ "realm": "Silvermoon",
+ "last_crawled_at": "2026-10-01T17:36:10.000Z",
+ "profile_url": "https://raider.io/guilds/eu/silvermoon/Kameraden",
+ "raid_rankings": {
+  "tier-mn-1": {
+   "normal": {
+    "world": 9438,
+    "region": 4089,
+    "realm": 226
+   },
+   "heroic": {
+    "world": 2181,
+    "region": 1058,
+    "realm": 50
+   },
+   "mythic": {
+    "world": 1557,
+    "region": 736,
+    "realm": 25
+   }
+  },
+  "sporefall": {
+   "normal": {
+    "world": 0,
+    "region": 0,
+    "realm": 0
+   },
+   "heroic": {
+    "world": 3440,
+    "region": 1123,
+    "realm": 71
+   },
+   "mythic": {
+    "world": 1117,
+    "region": 388,
+    "realm": 16
+   }
+  },
+  "the-tidebound-grotto": {
+   "normal": {
+    "world": 3335,
+    "region": 1476,
+    "realm": 84
+   },
+   "heroic": {
+    "world": 3612,
+    "region": 1677,
+    "realm": 98
+   },
+   "mythic": {
+    "world": 2573,
+    "region": 1104,
+    "realm": 53
+   }
+  },
+  "the-venomous-abyss": {
+   "normal": {
+    "world": 2079,
+    "region": 981,
+    "realm": 58
+   },
+   "heroic": {
+    "world": 2686,
+    "region": 1122,
+    "realm": 61
+   },
+   "mythic": {
+    "world": 1715,
+    "region": 839,
+    "realm": 39
+   }
+  }
+ },
+ "raid_progression": {
+  "tier-mn-1": {
+   "summary": "9/9 M",
+   "total_bosses": 9,
+   "normal_bosses_killed": 9,
+   "heroic_bosses_killed": 9,
+   "mythic_bosses_killed": 9
+  },
+  "sporefall": {
+   "summary": "1/1 M",
+   "total_bosses": 1,
+   "normal_bosses_killed": 0,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 1
+  },
+  "the-tidebound-grotto": {
+   "summary": "1/1 M",
+   "total_bosses": 1,
+   "normal_bosses_killed": 1,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 1
+  },
+  "the-venomous-abyss": {
+   "summary": "4/8 M",
+   "total_bosses": 8,
+   "normal_bosses_killed": 8,
+   "heroic_bosses_killed": 8,
+   "mythic_bosses_killed": 4
+  }
+ }
+}

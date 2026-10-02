@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 1327250,
+  "name": "Knikkerende Krijgers",
+  "displayName": "Knikkerende Krijgers",
+  "faction": "alliance",
+  "realm": {
+   "id": 716,
+   "connectedRealmId": 265,
+   "wowRealmId": 628,
+   "wowConnectedRealmId": 1597,
+   "name": "Sylvanas",
+   "altName": null,
+   "slug": "sylvanas",
+   "altSlug": "sylvanas",
+   "locale": "en_GB",
+   "isConnected": true,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/sylvanas/Knikkerende%20Krijgers",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16915,
+  "difficulty": "mythic",
+  "name": "The Venomous Abyss",
+  "short_name": "VA",
+  "wowInstanceId": 3004,
+  "slug": "the-venomous-abyss",
+  "icon_url": "/images/wow/icons/large/8039569.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197167,
+  "wowEncounterId": 3420,
+  "name": "Sszorak",
+  "slug": "sszorak",
+  "ordinal": 4,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_121_raid_achievement_brute.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2871.png"
+ },
+ "overallProgress": {
+  "summary": "4/8 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 8,
+  "defeatedBosses": 4,
+  "normalBossesKilled": 8,
+  "heroicBossesKilled": 8,
+  "mythicBossesKilled": 4
+ },
+ "bestPercent": 66.96,
+ "bestAttemptDurationMs": 160746,
+ "boss_percent": 0.669597,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "66.96%",
+ "pullCount": 24,
+ "pullStartedAt": "2026-09-27T20:29:49.427Z",
+ "isDefeated": false,
+ "error": null,
+ "widgetVersion": 0
+}

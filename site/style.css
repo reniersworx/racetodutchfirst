@@ -1,303 +1,267 @@
-/* Race to Dutch First — custom styles */
+/* =====================================================================
+   Race to Dutch First
+   The dashboard language of bmiest_wowaudit_wishlist_updater/site/style.css:
+   a ribbon brand mark, square dark tiles, flat slanted pills. Colours, fonts
+   and radii come only from tokens.css (copied unchanged from the overlay);
+   a guild's own colour arrives from race.json as --guild on its element.
+   tokens.css sets body{overflow:hidden} for a fixed OBS canvas: undone here.
+   ===================================================================== */
 
 html { background: var(--ink-900); }
-body {
-  overflow: auto;
-  background: var(--ink-900);
-  min-height: 100vh;
-}
+body { overflow: auto; background: var(--ink-900); min-height: 100vh; }
 
-a { color: var(--jade); text-decoration-color: rgba(63, 217, 214, .4); text-underline-offset: 3px; }
+a { color: var(--jade); text-decoration-color: var(--jade-ghost); text-underline-offset: 3px; }
 a:hover { text-decoration-color: var(--jade); }
 :focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; }
+[hidden] { display: none !important; }
 
 .page {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 40px 24px 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  max-width: 1320px; margin: 0 auto; padding: 40px 24px 96px;
+  display: flex; flex-direction: column; gap: 40px;
 }
 
-/* ---- ribbon (page brand mark) ---------------------------------------- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---- ribbon (brand mark) -------------------------------------------- */
 .rib { display: flex; flex-direction: column; flex: 0 0 auto; min-width: 0; }
 .rib__bar {
-  height: var(--rib-h, 34px);
-  padding: 1px;
-  background: var(--ink-600);
+  height: var(--rib-h, 34px); padding: 1px; background: var(--ink-600);
   clip-path: polygon(0 0, 100% 0, calc(100% - var(--rib-cut, 11px)) 100%, 0 100%);
 }
 .rib__in {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  background: var(--ink-800);
+  height: 100%; display: flex; align-items: center; background: var(--ink-800);
   clip-path: polygon(0 0, 100% 0, calc(100% - var(--rib-cut, 11px) + 1px) 100%, 0 100%);
   padding-right: calc(var(--rib-cut, 11px) + 12px);
 }
 .rib__acc {
-  flex: 0 0 var(--rib-h, 34px);
-  width: var(--rib-h, 34px);
-  height: 100%;
-  background: var(--acc, var(--jade));
-  color: var(--ink-900);
+  flex: 0 0 var(--rib-h, 34px); width: var(--rib-h, 34px); height: 100%;
+  background: var(--acc, var(--jade)); color: var(--ink-900);
   clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-  display: grid;
-  place-items: center;
+  display: grid; place-items: center;
 }
 .rib__acc svg { width: 15px; height: 15px; }
-.rib__val {
-  padding-left: 13px;
-  font-size: 16px;
-  font-weight: 600;
-  white-space: nowrap;
-}
+.rib__val { padding-left: 13px; font-size: 16px; font-weight: 600; white-space: nowrap; }
 .brand-rib { margin-bottom: 26px; align-self: flex-start; }
 
-/* ---- angled "rcard" panel --------------------------------------------- */
-.rcard-wrap { position: relative; display: flex; flex-direction: column; min-width: 0; padding-top: 12px; margin-top: 12px; }
-.rcard-wrap:first-child { margin-top: 0; }
-.rcard__cap {
-  position: absolute; top: 0; left: 22px; z-index: 2;
-  height: 22px; display: flex; align-items: center; padding: 0 12px;
-  background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px;
-  font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ink-300); white-space: nowrap;
+/* ---- header ---------------------------------------------------------- */
+.dash-header { display: flex; flex-direction: column; padding-bottom: 24px; border-bottom: 1px solid var(--ink-700); }
+.dash-header h1 {
+  font-size: clamp(34px, 5.6vw, 60px); font-weight: 600; line-height: 1.04;
+  letter-spacing: -.032em; color: var(--paper);
 }
+.lead { margin-top: 20px; max-width: 64ch; font-size: 20px; font-weight: 300; line-height: 1.55; color: var(--paper-dim); }
+.status-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 18px; }
+
+/* ---- pills ------------------------------------------------------------ */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 15px 6px 11px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap;
+  background: var(--ink-750); color: var(--ink-200);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+.pill--jade { background: var(--jade-ghost); color: var(--jade); }
+.pill--gold { background: var(--ink-750); color: var(--gold); }
+
+/* ---- sections --------------------------------------------------------- */
+.view { min-width: 0; }
+.view__title {
+  font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink-200); margin-bottom: 6px;
+}
+.section-caption { font-size: 14px; line-height: 1.5; color: var(--ink-300); max-width: 72ch; margin-bottom: 18px; }
+.chart { width: 100%; min-width: 0; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.muted-note { color: var(--ink-300); font-size: 14px; }
+
+.error-capsule {
+  display: flex; align-items: center; gap: 10px; padding: 12px 16px; font-size: 14px;
+  background: var(--ink-800); border: 1px solid var(--rose); color: var(--paper);
+}
+
+/* ---- winner banner ---------------------------------------------------- */
+.winner {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 22px;
+  padding: 26px 30px; background: var(--ink-800); border: 1px solid var(--gold); border-left-width: 6px;
+}
+.winner__icon { width: 64px; height: 64px; color: var(--gold); }
+.winner__label { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.winner__name { font-size: clamp(30px, 5vw, 52px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; color: var(--paper); }
+.winner__text { margin-top: 6px; font-size: 16px; color: var(--paper-dim); }
+
+/* ---- race track (SVG) --------------------------------------------------- */
+.race-chart text, .timeline-chart text, .curve__plot text { font-family: var(--f-display); }
+.svg-axis { fill: var(--ink-300); font-size: 11px; font-family: var(--f-mono) !important; }
+.svg-name { fill: var(--paper); font-size: 14px; font-weight: 600; }
+.svg-value { fill: var(--paper-dim); font-size: 13px; font-family: var(--f-mono) !important; }
+.svg-tag { font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+.svg-grid { stroke: var(--ink-700); stroke-width: 1; }
+.svg-track { fill: var(--ink-750); }
+.svg-tick { stroke: var(--ink-500); stroke-width: 1; }
+.svg-lane-lead { fill: var(--ink-800); stroke: var(--gold); stroke-width: 1; }
+.svg-finish-label { fill: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+
+/* ---- standings tiles ---------------------------------------------------- */
+.tiles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; list-style: none; }
+.tile {
+  background: var(--ink-800); border: 1px solid var(--ink-700); border-left: 3px solid var(--guild, var(--jade));
+  padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.tile--lead { border-color: var(--gold); border-left-color: var(--guild, var(--gold)); }
+.tile__head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; }
+.tile__rank { font-family: var(--f-mono); font-size: 30px; font-weight: 700; color: var(--ink-200); line-height: 1; }
+.tile--lead .tile__rank { color: var(--gold); }
+.tile__name { font-size: 18px; font-weight: 600; color: var(--paper); overflow-wrap: anywhere; }
+.tile__realm { font-size: 13px; color: var(--ink-300); }
+.tile__label { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
+.tile__boss { font-size: 15px; font-weight: 600; color: var(--paper); }
+.tile__detail { font-size: 13px; color: var(--paper-dim); }
+.tile__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--ink-300); }
+.tile__foot strong { color: var(--paper); font-family: var(--f-mono); font-weight: 500; }
+
+.meter { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 10px; }
+.meter__track { height: 8px; background: var(--ink-700); position: relative; overflow: hidden; }
+.meter__fill { position: absolute; inset: 0 auto 0 0; width: var(--fill, 0%); background: var(--guild, var(--jade)); }
+.meter--heroic .meter__fill { background: var(--ink-400); }
+.meter__value { font-family: var(--f-mono); font-size: 13px; color: var(--paper); min-width: 3ch; text-align: right; }
+
+/* ---- legend + tables ------------------------------------------------------ */
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; margin-top: 14px; font-size: 14px; color: var(--paper-dim); }
+.legend li { display: inline-flex; align-items: center; gap: 8px; }
+.swatch { width: 14px; height: 4px; background: var(--guild, var(--jade)); flex: 0 0 14px; }
+.dot { width: 9px; height: 9px; border-radius: var(--r-pill); background: var(--guild, var(--jade)); flex: 0 0 9px; display: inline-block; }
+
+.as-table { margin-top: 14px; font-size: 14px; color: var(--paper-dim); }
+.as-table summary { cursor: pointer; color: var(--jade); width: max-content; }
+.as-table[open] summary { margin-bottom: 10px; }
+.table-wrap { max-width: 100%; }
+.table-wrap--scroll { overflow-x: auto; border: 1px solid var(--ink-700); background: var(--ink-850); }
+.data-table { border-collapse: collapse; font-size: 13px; }
+.data-table th, .data-table td { text-align: left; padding: 6px 14px 6px 0; border-bottom: 1px solid var(--ink-700); vertical-align: top; }
+.data-table th { color: var(--ink-200); font-weight: 600; }
+
+/* ---- per-boss table ---------------------------------------------------------- */
+.boss-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: max-content; font-size: 13px; }
+.boss-table th, .boss-table td { padding: 10px 12px; border-bottom: 1px solid var(--ink-700); text-align: left; vertical-align: middle; }
+.boss-table thead th { position: sticky; top: 0; background: var(--ink-850); font-size: 13px; font-weight: 600; color: var(--paper); white-space: nowrap; }
+.boss-table thead th .dot { margin-right: 7px; }
+.boss-table tbody th {
+  position: sticky; left: 0; z-index: 1; background: var(--ink-850);
+  font-weight: 600; color: var(--paper); min-width: 150px; max-width: 190px;
+  border-right: 1px solid var(--ink-700);
+}
+.boss-table thead th:first-child { position: sticky; left: 0; z-index: 2; border-right: 1px solid var(--ink-700); }
+.boss-table .raid-row th {
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--ink-200); background: var(--ink-800);
+}
+.boss-table td { min-width: 118px; }
+.cell { display: flex; flex-direction: column; gap: 3px; }
+.cell__main { font-family: var(--f-mono); color: var(--paper); }
+.cell__sub { font-size: 12px; color: var(--ink-300); }
+.cell--killed .cell__main::before { content: "✓ "; color: var(--jade); }
+.cell--first { box-shadow: inset 3px 0 0 var(--gold); }
+.cell--first .cell__main { color: var(--gold); }
+.cell--first .cell__main::before { content: "★ "; color: var(--gold); }
+.cell--progress .meter__track { width: 100%; min-width: 80px; }
+.cell--current { box-shadow: inset 3px 0 0 var(--guild, var(--jade)); background: var(--ink-800); }
+.cell--untouched { color: var(--ink-500); }
+.ce-tag { margin-left: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--gold); }
+
+/* ---- current-boss cards: the overlay's angled rcard + boss card ----------
+   css/ribbon.css (.rcard*, caption tags on the top edge) and css/banner.css
+   (.boss__*): same shapes, same type scale, sized up a little for a page.
+   The source tag links back to Raider.IO, as their Acceptable Use asks. */
+.curves-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px 16px; }
+.rcard-wrap { position: relative; display: flex; flex-direction: column; min-width: 0; padding-top: 11px; }
+.rcard__cap, .rcard__src {
+  position: absolute; top: 0; z-index: 3; height: 22px; display: flex; align-items: center; padding: 0 12px;
+  background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px; white-space: nowrap;
+}
+.rcard__cap { left: 22px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acc, var(--ink-300)); }
+.rcard__src { right: 22px; border-color: var(--ink-750); font-size: 10px; font-weight: 600; letter-spacing: .12em; color: var(--ink-300); text-decoration: none; }
+a.rcard__src:hover { color: var(--jade); }
 .rcard {
-  padding: 1px; background: var(--ink-700);
+  flex: 1; padding: 1px; background: var(--ink-700);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
 }
 .rcard__in {
-  background: var(--ink-800);
+  height: 100%; background: var(--ink-800); padding: 22px 20px 26px;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 21px), calc(100% - 21px) 100%, 0 100%);
-  padding: 26px 26px 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  min-width: 0;
+  display: flex; flex-direction: column; gap: 8px; min-width: 0;
 }
+.boss__over { font-size: 10px; font-weight: 600; color: var(--ink-300); letter-spacing: .14em; text-transform: uppercase; }
+.boss__top { display: flex; align-items: flex-start; gap: 10px; }
+.boss__nm { font-size: 21px; font-weight: 600; line-height: 1.14; letter-spacing: -.012em; flex: 1; min-width: 0; color: var(--paper); }
+.boss__tag {
+  font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; flex: 0 0 auto; margin-top: 4px;
+  background: var(--ink-750); color: var(--ink-200);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+}
+.boss__tag.prog { background: var(--ink-750); color: var(--gold); }
+.boss__stat { display: flex; align-items: flex-end; gap: 22px; margin-top: 6px; }
+.boss__v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 24px; font-weight: 500; line-height: 1; color: var(--paper); }
+.boss__v.gold { color: var(--gold); }
+.boss__l { font-size: 9px; font-weight: 600; color: var(--ink-300); margin-top: 6px; letter-spacing: .14em; text-transform: uppercase; }
+.curve__plot { margin-top: 8px; min-height: 150px; }
+/* pull bars: higher = more boss HP gone, as in the overlay's .spark */
+.svg-bar { fill: var(--ink-500); }
+.svg-bar--best { fill: var(--paper-dim); }
+.svg-bar--kill { fill: var(--jade); }
+.svg-kill { stroke: var(--jade); stroke-width: 1; stroke-dasharray: 4 4; }
 
-/* ---- section titles -------------------------------------------------- */
-.view__title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--paper);
-  margin-bottom: 4px;
+/* ---- race lanes: an overlay ribbon per guild, then its track ------------------ */
+.race-chart { display: flex; flex-direction: column; gap: 10px; }
+.lane { display: grid; grid-template-columns: minmax(220px, 310px) minmax(0, 1fr); gap: 16px; align-items: end; }
+.lane__label { min-width: 0; }
+.lane__track { min-width: 0; padding-bottom: 0; }
+.lane .rib { --rib-h: 36px; --rib-cut: 11px; }
+.lane .rib__acc { color: var(--ink-900); font-weight: 700; font-size: 15px; }
+.lane .rib__val { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.lane__pos { padding-left: 12px; font-size: 14px; color: var(--paper-dim); }
+.rib__cap {
+  align-self: flex-start; margin-left: 14px; margin-bottom: -6px; position: relative; z-index: 2;
+  height: 20px; display: flex; align-items: center; padding: 0 10px;
+  background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-300); white-space: nowrap;
 }
-.section-caption {
-  font-size: 14px;
-  color: var(--ink-300);
-  margin-bottom: 16px;
-}
+.rib__cap--gold { color: var(--gold); border-color: var(--gold); }
+.rib--lead .rib__bar { background: var(--gold); }
+.rib--lead .rib__val { color: var(--paper); }
+.lane--axis .lane__track { align-self: end; }
+.svg-chk-light { fill: var(--paper-dim); }
+.svg-chk-dark { fill: var(--ink-900); }
+.svg-marker { stroke: var(--ink-900); stroke-width: 2; }
+.svg-marker--lead { stroke: var(--gold); stroke-width: 2.5; }
+.svg-step { stroke-linecap: round; }
 
-/* ---- De race: track -------------------------------------------------- */
-.race-track { display: flex; flex-direction: column; gap: 8px; }
-.race-lane {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 6px 0;
-}
-.race-lane__name {
-  flex: 0 0 auto;
-  min-width: 140px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--paper);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.race-lane__track {
-  flex: 1;
-  position: relative;
-  height: 24px;
-  background: var(--ink-700);
-  border-radius: 3px;
-}
-.race-lane__marker {
-  position: absolute;
-  top: -4px;
-  width: 4px;
-  height: 32px;
-  border-radius: 2px;
-  transform: translateX(-50%);
-}
-.race-lane__marker--leader {
-  box-shadow: 0 0 8px var(--gold);
-  z-index: 1;
-}
-.race-boss-marks {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-}
-.race-boss-mark {
-  position: absolute;
-  top: -2px;
-  width: 2px;
-  height: 28px;
-  background: var(--ink-500);
-  transform: translateX(-50%);
-}
-.race-boss-mark--ce {
-  background: var(--gold);
-  height: 32px;
-  top: -4px;
-}
-.race-boss-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 4px;
-  font-size: 10px;
-  color: var(--ink-400);
-}
-.race-legend {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  font-size: 12px;
-  color: var(--ink-300);
-  margin-top: 8px;
-}
-.race-legend__item { display: flex; align-items: center; gap: 6px; }
-.race-legend__dot { width: 10px; height: 10px; border-radius: 2px; }
-
-/* ---- Klassement: guild cards ------------------------------------------ */
-.tiles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 16px;
-}
-.tile { min-width: 0; }
-.tile__rank {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink-400);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-.tile__name {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--paper);
-}
-.tile__realm {
-  font-size: 13px;
-  color: var(--ink-300);
-}
-.tile__bars { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
-.bar-row { display: flex; align-items: center; gap: 10px; }
-.bar-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--ink-400);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  flex: 0 0 auto;
-  min-width: 60px;
-}
-.bar-track {
-  flex: 1;
-  height: 12px;
-  background: var(--ink-700);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width .3s ease;
-}
-.bar-fill--mythic { background: var(--jade); }
-.bar-fill--heroic { background: var(--gold); }
-.bar-value {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--paper-dim);
-  flex: 0 0 auto;
-  font-family: var(--f-mono);
-}
-.tile__boss-info {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--ink-700);
-  font-size: 13px;
-  color: var(--ink-300);
-}
-.tile__boss-info strong { color: var(--paper); }
-.tile__world-rank {
-  margin-top: 8px;
-  font-size: 12px;
-  color: var(--ink-400);
-  font-family: var(--f-mono);
-}
-
-/* ---- Voortgang: timeline chart --------------------------------------- */
-.timeline-chart { width: 100%; overflow-x: auto; }
-.timeline-chart svg { min-width: 600px; }
-
-/* ---- Per boss grid --------------------------------------------------- */
-.boss-grid { display: grid; gap: 1px; background: var(--ink-700); border-radius: 4px; overflow: hidden; }
-.boss-cell {
-  padding: 8px 12px;
-  background: var(--ink-800);
-  font-size: 13px;
-  color: var(--paper-dim);
-  min-height: 36px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.boss-cell--header { background: var(--ink-750); font-weight: 700; color: var(--paper); }
-.boss-cell--killed { color: var(--paper); }
-.boss-cell--first-kill { color: var(--gold); font-weight: 600; }
-.boss-cell--current .boss-cell__bar { height: 8px; background: var(--ink-700); border-radius: 2px; overflow: hidden; margin-top: 4px; }
-.boss-cell--current .boss-cell__fill { height: 100%; background: var(--jade); border-radius: 2px; }
-.boss-cell--dim { opacity: .35; }
-.boss-cell__date { font-size: 11px; color: var(--ink-400); font-family: var(--f-mono); }
-.boss-cell__pulls { font-size: 11px; color: var(--ink-400); }
-
-/* ---- Huidige boss: best-% curve -------------------------------------- */
-.curves-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.curve-card { min-width: 0; }
-.curve-card__title { font-size: 14px; font-weight: 600; color: var(--paper); margin-bottom: 8px; }
-.curve-chart svg { width: 100%; }
-
-/* ---- Footer ---------------------------------------------------------- */
+/* ---- footer ------------------------------------------------------------------- */
 .site-footer {
-  text-align: center;
-  padding-top: 24px;
-  border-top: 1px solid var(--ink-700);
-  font-size: 13px;
-  color: var(--ink-400);
+  border-top: 1px solid var(--ink-700); padding-top: 22px;
+  display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--ink-300); max-width: 90ch;
 }
-.site-footer a { color: var(--paper-dim); }
-.site-footer__updated { margin-bottom: 8px; }
+.updated { font-size: 15px; color: var(--paper-dim); }
+/* Late data is gold, not red: nothing is broken, the data just hasn't caught up
+   (the overlay's .rcard__at.is-late). */
+.updated--late { color: var(--gold); }
 
-/* ---- Responsive ------------------------------------------------------ */
+/* ---- responsive ------------------------------------------------------------------ */
 @media (max-width: 720px) {
-  .page { padding: 28px 16px 72px; gap: 24px; }
-  .rcard__in { padding: 20px 16px 16px; }
-  .tiles-grid { grid-template-columns: 1fr; }
-  .curves-grid { grid-template-columns: 1fr; }
-  .race-lane__name { min-width: 100px; font-size: 12px; }
+  .page { padding: 28px 16px 72px; gap: 32px; }
+  .lane { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .lane--axis .lane__label { display: none; }
+  .lead { font-size: 17px; }
+  .winner { grid-template-columns: minmax(0, 1fr); padding: 20px; gap: 12px; }
+  .winner__icon { width: 44px; height: 44px; }
 }
-
 @media (max-width: 400px) {
   .page { padding: 22px 12px 64px; }
   .rib__val { font-size: 14px; }
-  .tile__name { font-size: 18px; }
+  .tiles-grid, .curves-grid { grid-template-columns: minmax(0, 1fr); }
+  .boss-table tbody th { min-width: 118px; }
 }
-
-/* ---- motion --------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .001ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }

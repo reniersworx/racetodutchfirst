@@ -1,0 +1,81 @@
+{
+ "guild": {
+  "id": 47949,
+  "name": "Lelijkerds",
+  "displayName": "Lelijkerds",
+  "faction": "horde",
+  "realm": {
+   "id": 579,
+   "connectedRealmId": 308,
+   "wowRealmId": 506,
+   "wowConnectedRealmId": 1403,
+   "name": "Draenor",
+   "altName": null,
+   "slug": "draenor",
+   "altSlug": "draenor",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/draenor/Lelijkerds",
+  "logo": "https://cdn.raiderio.net/images/site/horde_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16915,
+  "difficulty": "mythic",
+  "name": "The Venomous Abyss",
+  "short_name": "VA",
+  "wowInstanceId": 3004,
+  "slug": "the-venomous-abyss",
+  "icon_url": "/images/wow/icons/large/8039569.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197167,
+  "wowEncounterId": 3420,
+  "name": "Sszorak",
+  "slug": "sszorak",
+  "ordinal": 4,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_121_raid_achievement_brute.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2871.png"
+ },
+ "overallProgress": {
+  "summary": "2/8 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 8,
+  "defeatedBosses": 2,
+  "normalBossesKilled": 8,
+  "heroicBossesKilled": 8,
+  "mythicBossesKilled": 2
+ },
+ "bestPercent": null,
+ "bestAttemptDurationMs": null,
+ "pullCount": 0,
+ "pullStartedAt": null,
+ "isDefeated": false,
+ "error": null,
+ "widgetVersion": 0
+}

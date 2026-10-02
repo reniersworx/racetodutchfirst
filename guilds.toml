@@ -1,64 +1,65 @@
-# Guilds racing to be the first fully Dutch guild to reach Cutting Edge.
-# More guilds can be added here; the site picks them up automatically.
+# Race to Dutch First: who races, and through what.
+#
+# Add a guild with a [[guilds]] block: the site picks it up on the next run.
+# realm is the realm's display name; the Raider.IO slug is derived from it
+# (lower case, spaces to dashes). colour is the guild's fixed colour in every
+# chart: keep it clear of jade (#3fd9a4) and gold (#d8b263), which the site
+# uses for the leader, first kills and the winner.
 
 [[guilds]]
 name = "Kelderklasse"
 realm = "Draenor"
-colour = "#4a90d9"
+colour = "#5aa9ff"
 
 [[guilds]]
 name = "Kameraden"
 realm = "Silvermoon"
-colour = "#e8a735"
+colour = "#ff8a3d"
 
 [[guilds]]
 name = "Knikkerende Krijgers"
 realm = "Sylvanas"
-colour = "#d94a4a"
+colour = "#e5484d"
 
 [[guilds]]
 name = "Lelijkerds"
 realm = "Draenor"
-colour = "#4ad98a"
+colour = "#b48cff"
 
 [[guilds]]
 name = "RoyalTeam"
 realm = "Silvermoon"
-colour = "#9b4ad9"
+colour = "#f472b6"
 
-# The current raid tier.
+# The current tier (EU since 2026-08-19): 8 + 1 = 9 bosses.
+# The first raid is the main one: the fractional race position comes from the
+# guild's current boss there. Boss names here are a fallback; the site uses
+# Raider.IO's names.
 [tier]
-ce_boss = "ulatek"
-start_date = "2026-08-19"
+start = "2026-08-19"
 
-# Raids in order; the last boss of the last raid is Cutting Edge by default,
-# but you can override it with ce_boss below.
+# Cutting Edge: the first guild to kill this boss on Mythic wins. The operator
+# confirms which boss this is; it defaults to the last boss of the first raid.
+ce_boss = { raid = "the-venomous-abyss", boss = "ulatek" }
+
 [[tier.raids]]
 slug = "the-venomous-abyss"
 name = "The Venomous Abyss"
 warcraft_logs_zone = 53
-total_bosses = 9
-[[tier.raids.bosses]]
-slug = "nekzali-the-soulcoiler"
-[[tier.raids.bosses]]
-slug = "entombed-sentinels"
-[[tier.raids.bosses]]
-slug = "the-lost-explorers"
-[[tier.raids.bosses]]
-slug = "vashnik-the-malignant"
-[[tier.raids.bosses]]
-slug = "sszorak"
-[[tier.raids.bosses]]
-slug = "the-twin-fangs"
-[[tier.raids.bosses]]
-slug = "the-coiled-altar"
-[[tier.raids.bosses]]
-slug = "ulatek"
+bosses = [
+  { slug = "nekzali-the-soulcoiler", name = "Nek'zali the Soulcoiler" },
+  { slug = "entombed-sentinels", name = "Entombed Sentinels" },
+  { slug = "the-lost-explorers", name = "The Lost Explorers" },
+  { slug = "vashnik-the-malignant", name = "Vashnik the Malignant" },
+  { slug = "sszorak", name = "Sszorak" },
+  { slug = "the-twin-fangs", name = "The Twin Fangs" },
+  { slug = "the-coiled-altar", name = "The Coiled Altar" },
+  { slug = "ulatek", name = "Ula'tek" },
+]
 
 [[tier.raids]]
 slug = "the-tidebound-grotto"
 name = "The Tidebound Grotto"
-total_bosses = 1
-[[tier.raids.bosses]]
-slug = "nymrissa-wavecaller"
-
+bosses = [
+  { slug = "nymrissa-wavecaller", name = "Nymrissa Wavecaller" },
+]

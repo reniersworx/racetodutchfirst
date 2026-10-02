@@ -1,0 +1,109 @@
+{
+ "name": "Lelijkerds",
+ "displayName": null,
+ "faction": "horde",
+ "region": "eu",
+ "realm": "Draenor",
+ "last_crawled_at": "2026-09-28T14:17:35.000Z",
+ "profile_url": "https://raider.io/guilds/eu/draenor/Lelijkerds",
+ "raid_rankings": {
+  "tier-mn-1": {
+   "normal": {
+    "world": 4924,
+    "region": 1980,
+    "realm": 105
+   },
+   "heroic": {
+    "world": 5216,
+    "region": 2509,
+    "realm": 159
+   },
+   "mythic": {
+    "world": 2844,
+    "region": 1332,
+    "realm": 104
+   }
+  },
+  "sporefall": {
+   "normal": {
+    "world": 0,
+    "region": 0,
+    "realm": 0
+   },
+   "heroic": {
+    "world": 11327,
+    "region": 4474,
+    "realm": 242
+   },
+   "mythic": {
+    "world": 5083,
+    "region": 2074,
+    "realm": 148
+   }
+  },
+  "the-tidebound-grotto": {
+   "normal": {
+    "world": 1328,
+    "region": 424,
+    "realm": 27
+   },
+   "heroic": {
+    "world": 2735,
+    "region": 1256,
+    "realm": 92
+   },
+   "mythic": {
+    "world": 0,
+    "region": 0,
+    "realm": 0
+   }
+  },
+  "the-venomous-abyss": {
+   "normal": {
+    "world": 2126,
+    "region": 1028,
+    "realm": 80
+   },
+   "heroic": {
+    "world": 4293,
+    "region": 1627,
+    "realm": 114
+   },
+   "mythic": {
+    "world": 2967,
+    "region": 1338,
+    "realm": 94
+   }
+  }
+ },
+ "raid_progression": {
+  "tier-mn-1": {
+   "summary": "8/9 M",
+   "total_bosses": 9,
+   "normal_bosses_killed": 9,
+   "heroic_bosses_killed": 9,
+   "mythic_bosses_killed": 8
+  },
+  "sporefall": {
+   "summary": "1/1 M",
+   "total_bosses": 1,
+   "normal_bosses_killed": 0,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 1
+  },
+  "the-tidebound-grotto": {
+   "summary": "1/1 H",
+   "total_bosses": 1,
+   "normal_bosses_killed": 1,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 0
+  },
+  "the-venomous-abyss": {
+   "summary": "2/8 M",
+   "total_bosses": 8,
+   "normal_bosses_killed": 8,
+   "heroic_bosses_killed": 8,
+   "mythic_bosses_killed": 2
+  }
+ }
+}

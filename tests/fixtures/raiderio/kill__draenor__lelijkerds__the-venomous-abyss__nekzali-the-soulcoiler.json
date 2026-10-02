@@ -1,0 +1,12 @@
+{
+ "kill": {
+  "pulledAt": "2026-09-21T18:55:49.025Z",
+  "defeatedAt": "2026-09-21T19:03:33.571Z",
+  "durationMs": 464617,
+  "isSuccess": true,
+  "itemLevelEquippedAvg": 322.875,
+  "itemLevelEquippedMax": 326.562,
+  "itemLevelEquippedMin": 320.188
+ },
+ "roster": []
+}

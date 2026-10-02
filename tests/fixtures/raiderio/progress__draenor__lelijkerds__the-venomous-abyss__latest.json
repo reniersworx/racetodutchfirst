@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 47949,
+  "name": "Lelijkerds",
+  "displayName": "Lelijkerds",
+  "faction": "horde",
+  "realm": {
+   "id": 579,
+   "connectedRealmId": 308,
+   "wowRealmId": 506,
+   "wowConnectedRealmId": 1403,
+   "name": "Draenor",
+   "altName": null,
+   "slug": "draenor",
+   "altSlug": "draenor",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/draenor/Lelijkerds",
+  "logo": "https://cdn.raiderio.net/images/site/horde_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16915,
+  "difficulty": "mythic",
+  "name": "The Venomous Abyss",
+  "short_name": "VA",
+  "wowInstanceId": 3004,
+  "slug": "the-venomous-abyss",
+  "icon_url": "/images/wow/icons/large/8039569.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197164,
+  "wowEncounterId": 3445,
+  "name": "Entombed Sentinels",
+  "slug": "entombed-sentinels",
+  "ordinal": 1,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_121_raid_achievement_golems.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2874.png"
+ },
+ "overallProgress": {
+  "summary": "2/8 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 8,
+  "defeatedBosses": 2,
+  "normalBossesKilled": 8,
+  "heroicBossesKilled": 8,
+  "mythicBossesKilled": 2
+ },
+ "bestPercent": 2.35,
+ "bestAttemptDurationMs": 426878,
+ "boss_percent": 0.0235075,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "2.35%",
+ "pullCount": 48,
+ "pullStartedAt": "2026-09-28T19:07:29.284Z",
+ "isDefeated": false,
+ "error": null,
+ "widgetVersion": 0
+}

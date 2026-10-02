@@ -1,0 +1,109 @@
+{
+ "name": "Knikkerende Krijgers",
+ "displayName": null,
+ "faction": "alliance",
+ "region": "eu",
+ "realm": "Sylvanas",
+ "last_crawled_at": "2026-10-01T10:14:52.000Z",
+ "profile_url": "https://raider.io/guilds/eu/sylvanas/Knikkerende%20Krijgers",
+ "raid_rankings": {
+  "tier-mn-1": {
+   "normal": {
+    "world": 7401,
+    "region": 3276,
+    "realm": 31
+   },
+   "heroic": {
+    "world": 8914,
+    "region": 4058,
+    "realm": 38
+   },
+   "mythic": {
+    "world": 2103,
+    "region": 932,
+    "realm": 9
+   }
+  },
+  "sporefall": {
+   "normal": {
+    "world": 3299,
+    "region": 1345,
+    "realm": 13
+   },
+   "heroic": {
+    "world": 3368,
+    "region": 1051,
+    "realm": 8
+   },
+   "mythic": {
+    "world": 1191,
+    "region": 462,
+    "realm": 2
+   }
+  },
+  "the-tidebound-grotto": {
+   "normal": {
+    "world": 4519,
+    "region": 1692,
+    "realm": 16
+   },
+   "heroic": {
+    "world": 1640,
+    "region": 689,
+    "realm": 7
+   },
+   "mythic": {
+    "world": 3132,
+    "region": 1389,
+    "realm": 15
+   }
+  },
+  "the-venomous-abyss": {
+   "normal": {
+    "world": 3363,
+    "region": 1321,
+    "realm": 12
+   },
+   "heroic": {
+    "world": 3103,
+    "region": 1230,
+    "realm": 13
+   },
+   "mythic": {
+    "world": 1970,
+    "region": 972,
+    "realm": 11
+   }
+  }
+ },
+ "raid_progression": {
+  "tier-mn-1": {
+   "summary": "9/9 M",
+   "total_bosses": 9,
+   "normal_bosses_killed": 9,
+   "heroic_bosses_killed": 9,
+   "mythic_bosses_killed": 9
+  },
+  "sporefall": {
+   "summary": "1/1 M",
+   "total_bosses": 1,
+   "normal_bosses_killed": 1,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 1
+  },
+  "the-tidebound-grotto": {
+   "summary": "1/1 H",
+   "total_bosses": 1,
+   "normal_bosses_killed": 1,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 0
+  },
+  "the-venomous-abyss": {
+   "summary": "4/8 M",
+   "total_bosses": 8,
+   "normal_bosses_killed": 8,
+   "heroic_bosses_killed": 8,
+   "mythic_bosses_killed": 4
+  }
+ }
+}

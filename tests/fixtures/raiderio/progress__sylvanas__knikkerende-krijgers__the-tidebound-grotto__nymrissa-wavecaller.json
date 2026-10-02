@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 1327250,
+  "name": "Knikkerende Krijgers",
+  "displayName": "Knikkerende Krijgers",
+  "faction": "alliance",
+  "realm": {
+   "id": 716,
+   "connectedRealmId": 265,
+   "wowRealmId": 628,
+   "wowConnectedRealmId": 1597,
+   "name": "Sylvanas",
+   "altName": null,
+   "slug": "sylvanas",
+   "altSlug": "sylvanas",
+   "locale": "en_GB",
+   "isConnected": true,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/sylvanas/Knikkerende%20Krijgers",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16671,
+  "difficulty": "mythic",
+  "name": "The Tidebound Grotto",
+  "short_name": "TG",
+  "wowInstanceId": 2987,
+  "slug": "the-tidebound-grotto",
+  "icon_url": "/images/wow/icons/large/achievement_boss_elitenagamale.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197188,
+  "wowEncounterId": 3379,
+  "name": "Nymrissa Wavecaller",
+  "slug": "nymrissa-wavecaller",
+  "ordinal": 0,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/achievement_boss_elitenagamale.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2849.png"
+ },
+ "overallProgress": {
+  "summary": "0/1 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 1,
+  "defeatedBosses": 0,
+  "normalBossesKilled": 1,
+  "heroicBossesKilled": 1,
+  "mythicBossesKilled": 0
+ },
+ "bestPercent": 58.36,
+ "bestAttemptDurationMs": 200970,
+ "boss_percent": 0.583649,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "58.36%",
+ "pullCount": 11,
+ "pullStartedAt": "2026-09-13T20:13:45.683Z",
+ "isDefeated": false,
+ "error": null,
+ "widgetVersion": 0
+}
