@@ -22,30 +22,37 @@
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="halloffame.css">
-<link rel="stylesheet" href="broadcast.css">
+<link rel="stylesheet" href="splash.css">
 </head>
 <body>
 
-<header class="bc">
-  <div class="bc__bug">
-    <span id="bugLive" class="bug__live" hidden><i aria-hidden="true"></i><span data-i18n="hero.live">Live</span></span>
-    <span class="bug__title">Race to Dutch First</span>
-    <span id="bugDay" class="bug__day mono"></span>
-    <p id="updated" class="bug__upd updated" data-i18n="footer.loading">Data laden…</p>
-    <div class="lang-switch" role="group" data-i18n-aria-label="lang.label" aria-label="Taal">
-      <button type="button" data-lang="nl" aria-pressed="true" lang="nl">NL</button>
-      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+<header class="sp">
+  <div class="sp__top">
+    <div class="rib brand-rib">
+      <div class="rib__bar"><div class="rib__in">
+        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M4 16V2.5M4 3h9l-2 3 2 3H4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg></span>
+        <span class="rib__val">Race to Dutch First</span>
+      </div></div>
+    </div>
+    <div class="sp__end">
+      <p id="updated" class="updated sp__upd" data-i18n="footer.loading">Data laden…</p>
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang.label" aria-label="Taal">
+        <button type="button" data-lang="nl" aria-pressed="true" lang="nl">NL</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
     </div>
   </div>
 
-  <div class="bc__stage">
-    <div id="heroArt" class="bc__art" aria-hidden="true" hidden></div>
-    <div class="bc__copy">
-      <h1 data-i18n="title">Wie haalt als eerste Cutting Edge?</h1>
-    </div>
-    <section class="bc__standings" aria-labelledby="ltHeading">
+  <div class="sp__stage">
+    <div id="heroArt" class="sp__art" aria-hidden="true" hidden></div>
+    <h1 class="sp__title"><span data-i18n="title.a">Wie haalt als eerste</span> <em data-i18n="title.b">Cutting Edge?</em></h1>
+    <p class="sp__lead" data-i18n="lead">De race tussen Nederlandse guilds naar de laatste Mythic-boss van de huidige raid tier, live gevolgd via Raider.IO en Warcraft Logs.</p>
+    <div id="tierPills" class="sp__tier"></div>
+    <section class="sp__board" aria-labelledby="ltHeading">
       <h2 id="ltHeading" class="visually-hidden" data-i18n="hero.standings">Klassement</h2>
-      <ol id="lowerThirds" class="lt-list"></ol>
+      <ol id="lowerThirds" class="board"></ol>
     </section>
   </div>
 

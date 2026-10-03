@@ -1,0 +1,110 @@
+/* =====================================================================
+   Splash hero (design language v2 for the race site), sketch A: the
+   overlay's language (tokens.css, ribbons, slanted pills, jade + gold)
+   grown into a poster. The leader's current boss is the backdrop with
+   nothing drawn on it, the question is the title, the board is a column
+   of overlay ribbons with a raid-frame bar per guild, and a jade ticker
+   (from sketch C) carries the latest kills. Guild colour = --guild/--acc.
+   Gold = the leader and the winner; jade = the race brand and live state.
+   ===================================================================== */
+
+.sp {
+  position: relative; overflow: hidden; border-bottom: 1px solid var(--ink-700);
+  background:
+    radial-gradient(60% 70% at 74% 42%, rgba(63, 217, 164, .22), transparent 70%),
+    radial-gradient(50% 60% at 96% 8%, rgba(150, 90, 255, .32), transparent 70%),
+    linear-gradient(160deg, #1b1030 0%, #0d1a1c 55%, var(--ink-900) 100%);
+}
+.sp::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 260px; pointer-events: none;
+  background: linear-gradient(transparent, var(--ink-900) 92%);
+}
+
+/* ---- top --------------------------------------------------------------- */
+.sp__top {
+  position: relative; z-index: 3; max-width: 1320px; margin: 0 auto; padding: 26px 24px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.sp__end { display: flex; align-items: center; gap: 14px; }
+.sp__upd { font-size: 13px; color: var(--ink-200); white-space: nowrap; }
+.sp__upd.updated--late { color: var(--rose); }
+
+/* ---- stage ----------------------------------------------------------------- */
+.sp__stage { position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; padding: 64px 24px 56px; }
+.sp__art {
+  position: absolute; z-index: -1; right: -60px; top: -60px; width: min(900px, 66%); aspect-ratio: 1;
+  display: flex; justify-content: center; align-items: center;
+}
+.sp__art img {
+  width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+}
+.sp__art--pair img { width: 58%; margin: 0 -8%; }
+.sp__title {
+  max-width: 12ch; font-size: clamp(44px, 6.6vw, 88px); font-weight: 800; line-height: .92;
+  letter-spacing: -.03em; text-transform: uppercase; color: var(--paper); text-wrap: balance;
+}
+.sp__title em { font-style: normal; color: var(--jade); }
+.sp__lead { margin-top: 20px; max-width: 40ch; font-size: 19px; line-height: 1.5; color: var(--paper-dim); }
+.sp__tier { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.sp__tier .pill { background: rgba(10, 11, 13, .72); }
+
+/* ---- the board ------------------------------------------------------------------ */
+.sp__board { margin-top: 48px; max-width: 1000px; }
+.board { list-style: none; display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 320px 96px minmax(0, 1fr); align-items: center; gap: 20px; }
+.row .rib__bar { --rib-h: 46px; }
+.row .rib__acc { font-size: 20px; font-weight: 800; }
+.row .rib__val { font-size: 18px; color: var(--paper); text-decoration: none; overflow: hidden; text-overflow: ellipsis; }
+.row a.rib__val:hover { color: var(--jade); }
+.row--lead .rib__bar { background: var(--gold); }
+.row__live { display: inline-flex; align-items: center; gap: 6px; margin-left: 10px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-300); white-space: nowrap; }
+.row__live.is-live { color: var(--jade); }
+.row__live .live-dot { width: 7px; height: 7px; flex-basis: 7px; background: var(--jade); }
+.row__kills { font-size: 32px; font-weight: 700; color: var(--paper); }
+.row__kills small { font-size: 16px; color: var(--ink-300); }
+.row--lead .row__kills { color: var(--gold); }
+.row__fight { display: grid; gap: 6px; min-width: 0; }
+.row__label { font-size: 14px; color: var(--paper-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row__hp {
+  display: block; height: 10px; background: rgba(255, 255, 255, .08);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+.row__hp i { display: block; height: 100%; width: var(--w, 0%); background: var(--guild, var(--jade)); }
+
+/* ---- ticker (from sketch C) ------------------------------------------------------------ */
+.ticker {
+  position: relative; z-index: 3; max-width: 1320px; margin: 0 auto 0; display: flex; align-items: stretch; height: 52px;
+  background: var(--ink-900); border: 1px solid var(--ink-700); border-top: 2px solid var(--jade);
+}
+.sp > .ticker { margin: 0 24px 28px; }
+@media (min-width: 1368px) { .sp > .ticker { margin: 0 auto 28px; } }
+.ticker__label {
+  flex: 0 0 auto; display: flex; align-items: center; padding: 0 20px;
+  background: var(--jade); color: var(--ink-900); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+}
+.ticker__list { list-style: none; display: flex; align-items: center; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.ticker__list::-webkit-scrollbar { display: none; }
+.tk { flex: 0 0 auto; padding: 0 26px; font-size: 15px; color: var(--paper-dim); white-space: nowrap; }
+.tk b { color: var(--paper); font-weight: 700; }
+.tk--empty { color: var(--ink-300); }
+
+/* ---- responsive ------------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .sp__top { padding: 16px 16px 0; flex-wrap: wrap; }
+  .sp__upd { font-size: 12px; }
+  .sp__stage { padding: 36px 16px 32px; }
+  .sp__art { width: 92%; right: -30%; top: -30px; opacity: .5; }
+  .sp__lead { font-size: 17px; }
+  .sp__board { margin-top: 32px; }
+  .row { grid-template-columns: minmax(0, 1fr) 64px; gap: 6px 12px; }
+  .row .rib__bar { --rib-h: 40px; }
+  .row__kills { font-size: 24px; text-align: right; }
+  .row__fight { grid-column: 1 / -1; margin-bottom: 8px; }
+  .sp > .ticker { margin: 0 16px 20px; }
+}
+@media (max-width: 480px) {
+  .sp__end { width: 100%; justify-content: space-between; }
+  .ticker__label { padding: 0 14px; font-size: 12px; }
+}

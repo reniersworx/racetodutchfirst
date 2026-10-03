@@ -153,6 +153,7 @@ function renderHeader(data) {
   const raids = tier.raids.map(r => `${r.name} ${r.bosses.length}`).join(' + ');
   $('#tierPills').replaceChildren(
     h('span', { class: 'pill', text: tr('pill.bosses', { n: tier.totalBosses }), title: raids }),
+    h('span', { class: 'pill pill--gold', text: tr('pill.ce', { boss: tier.ceBoss.name }) }),
     h('span', { class: 'pill', text: tr('pill.since', { date: day(tier.start) }) }),
   );
 }
@@ -184,9 +185,9 @@ function renderWinner(data) {
 
 /* ---- 1. Broadcast hero ------------------------------------------------------------- */
 
-/* The leader's current boss is the backdrop: its full-body render (Blizzard's render CDN,
- * via bossart.js from the overlay) and nothing else on it. Over it the classification as
- * broadcast lower-thirds; a scorebug says LIVE only while a guild is really raiding. */
+/* The splash: the leader's current boss as the backdrop (its full-body render from Blizzard's
+ * render CDN, via bossart.js from the overlay), the question as the title, and the board of
+ * overlay ribbons. Nothing is drawn on the boss itself. */
 function bossArtFor(name) {
   const art = window.BossArt;
   if (!art || !name) return [];
@@ -204,38 +205,40 @@ function renderHero(data) {
   const cur = g && g.current;
   const bossName = data.winner ? data.tier.ceBoss.name : cur ? cur.name : null;
 
-  // Scorebug: day of the race and an honest LIVE.
-  const days = Math.max(1, Math.floor((Date.parse(data.generatedAt) - Date.parse(data.tier.start)) / 86400000) + 1);
-  $('#bugDay').textContent = tr('hero.day', { n: days });
-  $('#bugLive').hidden = !data.guilds.some(x => liveState(x, data) === 'live');
-
   // The hero boss.
   const art = $('#heroArt');
   const srcs = bossArtFor(bossName);
   art.hidden = !srcs.length;
-  art.classList.toggle('bc__art--pair', srcs.length > 1);
+  art.classList.toggle('sp__art--pair', srcs.length > 1);
   art.replaceChildren(...srcs.map(src => h('img', { src, alt: '' })));
 
   if (!g) { $('#lowerThirds').replaceChildren(); return; }
 
-  // Lower-thirds: the classification with each guild's gap to the leader.
-  const leadPos = trackPosition(g, total);
+  // The board: each guild as an overlay ribbon, its kills, and a bar for how far it has
+  // brought the boss it is on (best pull), labelled like a raid frame.
   $('#lowerThirds').replaceChildren(...data.guilds.map(x => {
-    const pos = trackPosition(x, total);
     const isLead = x.name === lead;
     const c = x.current;
-    const sub = data.winner && data.winner.guild === x.name ? tr('tile.ce')
+    const won = data.winner && data.winner.guild === x.name;
+    const label = won ? tr('tile.ce')
       : !c ? tr('tile.done')
       : c.bestPercent === null ? `${c.name} · ${tr('tile.noPulls')}`
-      : `${c.name} · ${tr('hero.best', { pct: pct(c.bestPercent) })}`;
+      : `${c.name} · ${tr('tile.best', { pct: pct(c.bestPercent), pulls: pulls(c.pullCount) })}`;
+    const fill = h('i', {});
+    fill.style.setProperty('--w', `${won ? 100 : c && c.bestPercent !== null ? 100 - c.bestPercent : 0}%`);
     const url = raiderioUrl(x.profileUrl);
-    const name = url ? h('a', { href: url, rel: 'noopener', text: x.name }) : h('span', { text: x.name });
-    return setGuild(h('li', { class: `lt${isLead ? ' lt--lead' : ''}` },
-      h('span', { class: 'lt__rank', text: String(x.rank), 'aria-label': tr('tile.place', { n: x.rank }) }),
-      h('span', { class: 'lt__name' }, h('b', {}, name, liveBadge(x, 'lt__live')), h('span', { text: sub })),
-      h('span', { class: 'lt__kills mono', text: `${x.mythicKills}/${total}` }),
-      h('span', { class: `lt__gap mono${isLead ? ' lt__gap--lead' : ''}`,
-        text: isLead ? (data.winner ? tr('cap.winner') : tr('cap.lead')) : `+${num(leadPos - pos, 2)}` })), x);
+    const rib = h('div', { class: 'rib' },
+      h('div', { class: 'rib__bar' }, h('div', { class: 'rib__in' },
+        h('span', { class: 'rib__acc mono', text: String(x.rank), 'aria-label': tr('tile.place', { n: x.rank }) }),
+        url ? h('a', { class: 'rib__val', href: url, rel: 'noopener', text: x.name }) : h('span', { class: 'rib__val', text: x.name }),
+        liveBadge(x, 'row__live'))));
+    rib.style.setProperty('--acc', colour(x.colour));
+    return setGuild(h('li', { class: `row${isLead ? ' row--lead' : ''}` },
+      rib,
+      h('span', { class: 'row__kills mono' }, String(x.mythicKills), h('small', { text: `/${total}` })),
+      h('div', { class: 'row__fight' },
+        h('span', { class: 'row__label', text: label }),
+        h('span', { class: 'row__hp', role: 'img', 'aria-label': label }, fill))), x);
   }));
 }
 
@@ -253,24 +256,15 @@ function renderFeed(data) {
     .slice(0, FEED_SIZE);
   const list = $('#killFeed');
   if (!kills.length) {
-    list.replaceChildren(h('li', { class: 'muted-note', text: tr('feed.empty') }));
+    list.replaceChildren(h('li', { class: 'tk tk--empty', text: tr('feed.empty') }));
     return;
   }
-  list.replaceChildren(...kills.map(k => {
-    const first = isFirstKill(data, k, k.g);
-    const isCe = k.raid === data.tier.ceBoss.raid && k.slug === data.tier.ceBoss.slug;
-    return setGuild(h('li', { class: `feed__item${first ? ' feed__item--first' : ''}` },
-      h('time', { class: 'feed__when', datetime: k.iso, title: dayTime(k.iso) },
-        h('span', { class: 'feed__day', text: day(k.iso) }),
-        h('span', { class: 'feed__time', text: clock(k.iso) })),
-      h('div', { class: 'feed__what' },
-        h('p', { class: 'feed__boss' },
-          first ? h('span', { class: 'feed__star polka', title: tr('feed.first'), role: 'img', 'aria-label': tr('feed.first') }) : null,
-          k.name,
-          isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
-        h('p', { class: 'feed__guild' }, h('span', { class: 'dot', 'aria-hidden': 'true' }), k.g.name)),
-      h('span', { class: 'feed__pulls', text: k.pullCount ? pulls(k.pullCount) : '' })), k.g);
-  }));
+  // Ticker items: "Guild · boss · date", plus "first kill" for the race's first.
+  list.replaceChildren(...kills.map(k => h('li', { class: 'tk' },
+    h('b', { text: k.g.name }),
+    ` · ${k.name} · `,
+    h('time', { datetime: k.iso, title: dayTime(k.iso), text: day(k.iso) }),
+    isFirstKill(data, k, k.g) ? ` · ${tr('tk.first')}` : '')));
 }
 
 /* ---- 4. Voortgang ------------------------------------------------------------ */
