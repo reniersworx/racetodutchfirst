@@ -44,7 +44,6 @@ a:hover { text-decoration-color: var(--jade); }
 }
 .rib__acc svg { width: 15px; height: 15px; }
 .rib__val { padding-left: 13px; font-size: 16px; font-weight: 600; white-space: nowrap; }
-.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
 .brand-rib { align-self: flex-start; }
 
 /* NL | EN: two flat slanted buttons, the active one in jade like .pill--jade. */
@@ -59,13 +58,8 @@ a:hover { text-decoration-color: var(--jade); }
 .lang-switch button[aria-pressed="true"] { background: var(--jade-ghost); color: var(--jade); }
 
 /* ---- header ---------------------------------------------------------- */
-.dash-header { display: flex; flex-direction: column; padding-bottom: 24px; border-bottom: 1px solid var(--ink-700); }
-.dash-header h1 {
-  font-size: clamp(34px, 5.6vw, 60px); font-weight: 600; line-height: 1.04;
-  letter-spacing: -.032em; color: var(--paper);
-}
+
 .lead { margin-top: 20px; max-width: 64ch; font-size: 20px; font-weight: 300; line-height: 1.55; color: var(--paper-dim); }
-.status-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 18px; }
 
 /* ---- pills ------------------------------------------------------------ */
 .pill {
@@ -74,14 +68,19 @@ a:hover { text-decoration-color: var(--jade); }
   background: var(--ink-750); color: var(--ink-200);
   clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
 }
-.pill--jade { background: var(--jade-ghost); color: var(--jade); }
 .pill--gold { background: var(--ink-750); color: var(--gold); }
 
 /* ---- sections --------------------------------------------------------- */
 .view { min-width: 0; }
+/* Section heads in the poster's voice: Outfit 800 caps behind a slanted jade cap. */
 .view__title {
-  font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--ink-200); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+  font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; letter-spacing: -.01em; line-height: 1.05;
+  text-transform: uppercase; color: var(--paper);
+}
+.view__title::before {
+  content: ""; flex: 0 0 14px; width: 14px; height: .9em; background: var(--jade);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
 }
 .section-caption { font-size: 14px; line-height: 1.5; color: var(--ink-300); max-width: 72ch; margin-bottom: 18px; }
 .chart { width: 100%; min-width: 0; }
@@ -96,7 +95,7 @@ a:hover { text-decoration-color: var(--jade); }
 /* ---- winner banner ---------------------------------------------------- */
 .winner {
   display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 22px;
-  padding: 26px 30px; background: var(--ink-800); border: 1px solid var(--gold); border-left-width: 6px;
+  padding: 26px 30px; background: var(--ink-800); border: 2px solid var(--gold);
 }
 .winner__icon { width: 64px; height: 64px; color: var(--gold); }
 .winner__label { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
@@ -106,83 +105,27 @@ a:hover { text-decoration-color: var(--jade); }
 /* ---- race track (SVG) --------------------------------------------------- */
 .race-chart text, .timeline-chart text, .curve__plot text { font-family: var(--f-display); }
 .svg-axis { fill: var(--ink-300); font-size: 11px; font-family: var(--f-mono) !important; }
-.svg-name { fill: var(--paper); font-size: 14px; font-weight: 600; }
-.svg-value { fill: var(--paper-dim); font-size: 13px; font-family: var(--f-mono) !important; }
-.svg-tag { font-size: 10px; font-weight: 700; letter-spacing: .14em; }
 .svg-grid { stroke: var(--ink-700); stroke-width: 1; }
-.svg-track { fill: var(--ink-750); }
-.svg-tick { stroke: var(--ink-500); stroke-width: 1; }
-.svg-lane-lead { fill: var(--ink-800); stroke: var(--gold); stroke-width: 1; }
-.svg-finish-label { fill: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .12em; }
 
-/* ---- standings tiles ---------------------------------------------------- */
-.tiles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; list-style: none; }
-.tile {
-  background: var(--ink-800); border: 1px solid var(--ink-700); border-left: 3px solid var(--guild, var(--jade));
-  padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
-}
 @media (min-width: 1180px) {
   .standings { grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); }
 }
-.tile--lead { border-color: var(--gold); border-left-color: var(--guild, var(--gold)); }
-.tile__head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; }
-.tile__rank { font-family: var(--f-mono); font-size: 30px; font-weight: 700; color: var(--ink-200); line-height: 1; }
-.tile--lead .tile__rank { color: var(--gold); }
-.tile__name { font-size: 18px; font-weight: 600; color: var(--paper); overflow-wrap: anywhere; }
-.tile__realm { font-size: 13px; color: var(--ink-300); }
-.tile__label { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
-.tile__boss { font-size: 15px; font-weight: 600; color: var(--paper); }
-.tile__detail { font-size: 13px; color: var(--paper-dim); }
-.tile__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--ink-300); }
-.tile__links { display: inline-flex; gap: 12px; }
-.tile__foot strong { color: var(--paper); font-family: var(--f-mono); font-weight: 500; }
 
 .meter { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 10px; }
 .meter__track { height: 8px; background: var(--ink-700); position: relative; overflow: hidden; }
 .meter__fill { position: absolute; inset: 0 auto 0 0; width: var(--fill, 0%); background: var(--guild, var(--jade)); }
-.meter--heroic .meter__fill { background: var(--ink-400); }
-.meter__value { font-family: var(--f-mono); font-size: 13px; color: var(--paper); min-width: 3ch; text-align: right; }
 
 /* ---- raiding now: a cap on the lane ribbon, a badge on the tile ------------ */
-.rib__caps { display: flex; gap: 6px; margin-left: 14px; margin-bottom: -6px; position: relative; z-index: 2; }
-.rib__caps .rib__cap { margin: 0; }
-.rib__cap--live.is-live { color: var(--jade); border-color: var(--jade); }
-.live-badge {
-  align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; padding: 4px 12px 4px 9px;
-  font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  background: var(--ink-750); color: var(--ink-300);
-  clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
-}
-.live-badge.is-live { background: var(--jade-ghost); color: var(--jade); }
+
 /* On a tile it hangs on the top edge, like the caps on the lanes, so the tiles keep one line-up. */
-.tile { position: relative; }
-.tile .live-badge {
-  position: absolute; top: -10px; right: 12px; height: 20px; padding: 0 10px; clip-path: none;
-  background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px;
-}
-.tile .live-badge.is-live { border-color: var(--jade); }
 .live-dot {
   width: 7px; height: 7px; border-radius: var(--r-pill); background: var(--jade); flex: 0 0 7px;
   animation: live-pulse 1.6s var(--ease) infinite;
 }
-.rib__cap .live-dot { margin-right: 6px; }
 @keyframes live-pulse { 50% { opacity: .3; } }
 
 /* ---- kill feed ------------------------------------------------------------ */
 .feed { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 8px 16px; }
-.feed__item {
-  display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; align-items: center; gap: 14px;
-  padding: 10px 14px; background: var(--ink-800); border: 1px solid var(--ink-700);
-  border-left: 3px solid var(--guild, var(--jade));
-}
-.feed__when { display: flex; flex-direction: column; font-family: var(--f-mono); line-height: 1.25; }
-.feed__day { font-size: 13px; color: var(--paper); }
-.feed__time { font-size: 12px; color: var(--ink-300); }
-.feed__boss { font-size: 15px; font-weight: 600; color: var(--paper); overflow-wrap: anywhere; }
-.feed__star { color: var(--gold); margin-right: 6px; }
-.feed__item--first .feed__day { color: var(--gold); }
-.feed__guild { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--paper-dim); }
-.feed__pulls { font-family: var(--f-mono); font-size: 12px; color: var(--ink-300); white-space: nowrap; }
 
 /* ---- legend + tables ------------------------------------------------------ */
 .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; margin-top: 14px; font-size: 14px; color: var(--paper-dim); }
@@ -218,12 +161,15 @@ a:hover { text-decoration-color: var(--jade); }
 .cell { display: flex; flex-direction: column; gap: 3px; }
 .cell__main { font-family: var(--f-mono); color: var(--paper); }
 .cell__sub { font-size: 12px; color: var(--ink-300); }
-.cell--killed .cell__main::before { content: "✓ "; color: var(--jade); }
-.cell--first { box-shadow: inset 3px 0 0 var(--gold); }
+/* Drawn marks (one stroke family): a check for a kill, a star for the race's first kill. */
+.cell--killed .cell__main::before {
+  content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px;
+  background: var(--jade); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .cell--first .cell__main { color: var(--gold); }
-.cell--first .cell__main::before { content: "★ "; color: var(--gold); }
+.cell--first .cell__main::before { background: var(--gold); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); }
 .cell--progress .meter__track { width: 100%; min-width: 80px; }
-.cell--current { box-shadow: inset 3px 0 0 var(--guild, var(--jade)); background: var(--ink-800); }
+.cell--current { box-shadow: inset 0 0 0 1px var(--guild, var(--jade)); background: var(--ink-800); }
 .cell--untouched { color: var(--ink-500); }
 /* Phones get one card per boss instead of the wide table. */
 .boss-cards { display: none; }
@@ -243,19 +189,28 @@ a:hover { text-decoration-color: var(--jade); }
 .bcard .cell--progress .meter__track { flex-basis: 100%; min-width: 0; order: 3; }
 .bcard .cell--current { background: transparent; }
 .bcard .muted-note { font-size: 13px; }
-.ce-tag { margin-left: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--gold); }
+.ce-tag { margin-left: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--jade); }
+.pill--jade { color: var(--jade); }
+::selection { background: var(--jade-ghost); color: var(--paper); }
+.boss-thumb { width: 30px; height: 30px; margin-right: 10px; object-fit: contain; vertical-align: middle; }
 
 /* ---- current-boss cards: the overlay's angled rcard + boss card ----------
    css/ribbon.css (.rcard*, caption tags on the top edge) and css/banner.css
    (.boss__*): same shapes, same type scale, sized up a little for a page.
    The source tag links back to Raider.IO, as their Acceptable Use asks. */
-.curves-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px 16px; }
+.curves-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px 16px; }
+/* Five guilds on a wide screen: three over two, centred, never one orphan. */
+@media (min-width: 1100px) {
+  .curves-grid:has(> :nth-child(5):last-child) { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .curves-grid:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
+  .curves-grid:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
+}
 .rcard-wrap { position: relative; display: flex; flex-direction: column; min-width: 0; padding-top: 11px; }
 .rcard__cap, .rcard__src {
   position: absolute; top: 0; z-index: 3; height: 22px; display: flex; align-items: center; padding: 0 12px;
   background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px; white-space: nowrap;
 }
-.rcard__cap { left: 22px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acc, var(--ink-300)); }
+.rcard__cap { left: 22px; max-width: calc(100% - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acc, var(--ink-300)); }
 .rcard__src { right: 22px; border-color: var(--ink-750); font-size: 10px; font-weight: 600; letter-spacing: .12em; color: var(--ink-300); text-decoration: none; }
 a.rcard__src:hover { color: var(--jade); }
 .rcard {
@@ -267,8 +222,7 @@ a.rcard__src:hover { color: var(--jade); }
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 21px), calc(100% - 21px) 100%, 0 100%);
   display: flex; flex-direction: column; gap: 8px; min-width: 0;
 }
-.boss__over { font-size: 10px; font-weight: 600; color: var(--ink-300); letter-spacing: .14em; text-transform: uppercase; }
-.boss__top { display: flex; align-items: flex-start; gap: 10px; }
+.boss__top { display: flex; align-items: flex-start; gap: 10px; min-height: 2.4em; }
 .boss__nm { font-size: 21px; font-weight: 600; line-height: 1.14; letter-spacing: -.012em; flex: 1; min-width: 0; color: var(--paper); }
 .boss__tag {
   font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; flex: 0 0 auto; margin-top: 4px;
@@ -278,7 +232,6 @@ a.rcard__src:hover { color: var(--jade); }
 .boss__tag.prog { background: var(--ink-750); color: var(--gold); }
 .boss__stat { display: flex; align-items: flex-end; gap: 22px; margin-top: 6px; }
 .boss__v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 24px; font-weight: 500; line-height: 1; color: var(--paper); }
-.boss__v.gold { color: var(--gold); }
 .boss__l { font-size: 9px; font-weight: 600; color: var(--ink-300); margin-top: 6px; letter-spacing: .14em; text-transform: uppercase; }
 .curve__plot { margin-top: 8px; min-height: 150px; }
 /* No pulls on the current boss yet: a short card, not a tall empty one. */
@@ -295,28 +248,12 @@ a.rcard__src:hover { color: var(--jade); }
 .svg-kill { stroke: var(--jade); stroke-width: 1; stroke-dasharray: 4 4; }
 
 /* ---- race lanes: an overlay ribbon per guild, then its track ------------------ */
-.race-chart { display: flex; flex-direction: column; gap: 10px; }
+
 .lane { display: grid; grid-template-columns: minmax(220px, 310px) minmax(0, 1fr); gap: 16px; align-items: end; }
-.lane__label { min-width: 0; }
-.lane__track { min-width: 0; padding-bottom: 0; }
 .lane .rib { --rib-h: 36px; --rib-cut: 11px; }
 .lane .rib__acc { color: var(--ink-900); font-weight: 700; font-size: 15px; }
 .lane .rib__val { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-.lane__pos { padding-left: 12px; font-size: 14px; color: var(--paper-dim); }
-.rib__cap {
-  align-self: flex-start; margin-left: 14px; margin-bottom: -6px; position: relative; z-index: 2;
-  height: 20px; display: flex; align-items: center; padding: 0 10px;
-  background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px;
-  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-300); white-space: nowrap;
-}
-.rib__cap--gold { color: var(--gold); border-color: var(--gold); }
-.rib--lead .rib__bar { background: var(--gold); }
-.rib--lead .rib__val { color: var(--paper); }
-.lane--axis .lane__track { align-self: end; }
-.svg-chk-light { fill: var(--paper-dim); }
-.svg-chk-dark { fill: var(--ink-900); }
 .svg-marker { stroke: var(--ink-900); stroke-width: 2; }
-.svg-marker--lead { stroke: var(--gold); stroke-width: 2.5; }
 .svg-step { stroke-linecap: round; }
 
 /* ---- footer ------------------------------------------------------------------- */
@@ -342,7 +279,6 @@ a.rcard__src:hover { color: var(--jade); }
   .table-wrap--scroll { display: none; }
   .boss-cards { display: flex; flex-direction: column; gap: 10px; }
   .feed { grid-template-columns: minmax(0, 1fr); }
-  .feed__item { grid-template-columns: 54px minmax(0, 1fr) auto; gap: 10px; padding: 9px 12px; }
 }
 @media (max-width: 400px) {
   .page { padding: 22px 12px 64px; }
@@ -365,12 +301,13 @@ a.rcard__src:hover { color: var(--jade); }
 .live-dot { width: 9px; height: 9px; border-radius: var(--r-pill); background: var(--rose); flex: 0 0 9px; }
 .live-card {
   display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 12px 16px; text-decoration: none;
-  background: var(--ink-800); border: 1px solid var(--ink-700); border-left: 3px solid var(--guild, var(--rose));
+  background: var(--ink-800); border: 1px solid var(--ink-700);
 }
 .live-card:hover { border-color: var(--ink-600); background: var(--ink-750); }
 .live-card__top { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .live-card__name { font-size: 16px; font-weight: 600; color: var(--paper); }
-.live-card__guild { font-size: 13px; color: var(--ink-300); }
+.live-card__guild { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-300); }
+.live-card__guild::before { content: ""; width: 8px; height: 8px; background: var(--guild, var(--rose)); clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 0 100%); }
 .live-card__title {
   font-size: 13px; color: var(--paper-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }

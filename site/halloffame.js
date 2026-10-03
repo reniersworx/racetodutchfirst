@@ -51,6 +51,7 @@
     const isCe = ce && ce.raid === boss.raid && ce.slug === boss.slug;
     const card = h('article', { class: 'hof-boss' },
       h('div', { class: 'hof-boss__top' },
+        typeof bossThumb === 'function' ? bossThumb(boss.name, 'hof-thumb') : null,
         h('h3', { class: 'hof-boss__name', text: boss.name }),
         isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
       h('p', { class: 'hof-boss__label', text: tr('hof.first') }),
@@ -82,13 +83,13 @@
         h('td', { class: 'hof-num', text: String(nums[i]) }),
         h('th', { scope: 'row' }, nameLink(r), h('span', { class: 'hof-realm', text: r.realm || '' })),
         setGuild(h('td', {}, h('span', { class: 'dot', 'aria-hidden': 'true' }), ` ${r.guild}`), r),
-        h('td', { class: 'hof-num hof-firsts', text: r.firsts ? `★ ${r.firsts}` : '–' }),
+        h('td', { class: 'hof-num hof-firsts', text: r.firsts ? String(r.firsts) : '–' }),
         h('td', { class: 'hof-num', text: String(r.kills), title: r.bosses.map(b => b.name).join(', ') }));
       row.hidden = !expanded && i >= SHOW;
       return row;
     });
     $('#hofRaiders').replaceChildren(
-      h('thead', {}, h('tr', {}, cols.map(c => h('th', { scope: 'col', text: tr(`hof.col.${c}`) })))),
+      h('thead', {}, h('tr', {}, cols.map(c => h('th', { scope: 'col', class: c === 'raider' || c === 'guild' ? '' : 'hof-num', text: tr(`hof.col.${c}`) })))),
       h('tbody', {}, rows));
 
     const more = $('#hofMore');

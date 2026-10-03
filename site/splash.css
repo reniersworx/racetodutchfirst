@@ -1,0 +1,130 @@
+/* =====================================================================
+   Splash hero (design language v2 for the race site), sketch A: the
+   overlay's language (tokens.css, ribbons, slanted pills, jade + gold)
+   grown into a poster. The leader's current boss is the backdrop with
+   nothing drawn on it, the question is the title, the board is a column
+   of overlay ribbons with a raid-frame bar per guild, and a jade ticker
+   (from sketch C) carries the latest kills. Guild colour = --guild/--acc.
+   Gold = the leader and the winner; jade = the race brand and live state.
+   ===================================================================== */
+
+.sp {
+  position: relative; overflow: hidden; border-bottom: 1px solid var(--ink-700);
+  background:
+    radial-gradient(60% 70% at 74% 42%, rgba(63, 217, 164, .22), transparent 70%),
+    radial-gradient(50% 60% at 96% 8%, rgba(150, 90, 255, .32), transparent 70%),
+    linear-gradient(160deg, #1b1030 0%, #0d1a1c 55%, var(--ink-900) 100%);
+}
+.sp::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 260px; pointer-events: none;
+  background: linear-gradient(transparent, var(--ink-900) 92%);
+}
+
+/* ---- top --------------------------------------------------------------- */
+.sp__top {
+  position: relative; z-index: 3; max-width: 1320px; margin: 0 auto; padding: 26px 24px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.sp__end { display: flex; align-items: center; gap: 14px; }
+.sp__upd { font-size: 13px; color: var(--ink-200); white-space: nowrap; }
+.sp__live { color: var(--ink-900); background: var(--jade); }
+.sp__live .live-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: var(--r-pill); background: var(--ink-900); animation: live-pulse 1.6s var(--ease) infinite; }
+.sp__upd.updated--late { color: var(--rose); }
+
+/* ---- stage ----------------------------------------------------------------- */
+.sp__stage { position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; padding: 64px 24px 56px; }
+/* The boss: self-hosted cut-outs with real alpha, so the jade/void glow reads behind the
+   bodies. Only the feet fade out (a long serpent would otherwise end in a hard cut). */
+.sp__art {
+  position: absolute; z-index: -1; right: 0; top: -30px; width: min(560px, 42%); aspect-ratio: 1;
+  display: flex; justify-content: center; align-items: center;
+  -webkit-mask-image: linear-gradient(#000 78%, transparent);
+  mask-image: linear-gradient(#000 78%, transparent);
+}
+.sp__art img { width: 100%; height: 100%; object-fit: contain; }
+.sp__art--pair img { width: 62%; margin: 0 -9%; }
+.sp__title {
+  max-width: 12ch; font-size: clamp(44px, 6.6vw, 88px); font-weight: 800; line-height: .92;
+  letter-spacing: -.03em; text-transform: uppercase; color: var(--paper); text-wrap: balance;
+}
+.sp__title em { font-style: normal; color: var(--jade); }
+.sp__lead { margin-top: 20px; max-width: 40ch; font-size: 19px; line-height: 1.5; color: var(--paper-dim); }
+.sp__tier { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.sp__tier .pill { background: rgba(10, 11, 13, .72); }
+
+/* ---- the board ------------------------------------------------------------------ */
+.sp__board { margin-top: 48px; max-width: 820px; }
+.board { list-style: none; display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 320px 96px minmax(0, 1fr); align-items: center; gap: 20px; }
+.row .rib__bar { --rib-h: 46px; }
+.row .rib__acc { font-size: 20px; font-weight: 800; }
+.row .rib__val { font-size: 18px; color: var(--paper); text-decoration: none; overflow: hidden; text-overflow: ellipsis; }
+.row a.rib__val:hover { color: var(--jade); }
+.row--lead .rib__bar { background: var(--gold); }
+.row__live { display: inline-flex; align-items: center; gap: 6px; margin-left: 10px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-300); white-space: nowrap; }
+.row__live.is-live { color: var(--jade); }
+.row__live .live-dot { width: 7px; height: 7px; flex-basis: 7px; background: var(--jade); }
+.row__kills { font-size: 32px; font-weight: 700; color: var(--paper); }
+.row__kills small { font-size: 16px; color: var(--ink-300); }
+.row--lead .row__kills { color: var(--gold); }
+.row__fight { display: grid; gap: 6px; min-width: 0; }
+.row__label { font-size: 14px; color: var(--paper-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row__hp {
+  display: block; height: 10px; background: rgba(255, 255, 255, .08);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+.row__hp i { display: block; height: 100%; width: var(--w, 0%); background: var(--guild, var(--jade)); }
+
+/* ---- ticker (from sketch C) ------------------------------------------------------------ */
+.ticker {
+  position: relative; z-index: 3; max-width: 1320px; margin: 0 auto 0; display: flex; align-items: stretch; height: 52px;
+  background: var(--ink-900); border: 1px solid var(--ink-700); border-top: 2px solid var(--jade);
+}
+.sp > .ticker { margin: 0 24px 28px; }
+@media (min-width: 1368px) { .sp > .ticker { margin: 0 auto 28px; } }
+.ticker__label {
+  flex: 0 0 auto; display: flex; align-items: center; padding: 0 20px;
+  background: var(--jade); color: var(--ink-900); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+}
+.ticker { overflow: hidden; }
+.ticker__label { position: relative; z-index: 2; }
+.ticker::after {
+  content: ""; position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: 64px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--ink-900));
+}
+/* A broadcast ticker: the list is rendered twice and the band slides by one list width. */
+.ticker__list {
+  list-style: none; display: flex; align-items: center; flex: none; width: max-content;
+  animation: ticker-run 48s linear infinite;
+}
+.ticker:hover .ticker__list, .ticker:focus-within .ticker__list { animation-play-state: paused; }
+@keyframes ticker-run { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker__list { animation: none; flex: 1 1 auto; width: auto; overflow-x: auto; }
+  .ticker__list .tk[aria-hidden="true"] { display: none; }
+}
+.tk { flex: 0 0 auto; padding: 0 26px; font-size: 15px; color: var(--paper-dim); white-space: nowrap; }
+.tk b { color: var(--paper); font-weight: 700; }
+.tk--empty { color: var(--ink-300); }
+
+/* ---- responsive ------------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .sp__top { padding: 16px 16px 0; flex-wrap: wrap; }
+  .sp__upd { font-size: 12px; }
+  .sp__stage { padding: 36px 16px 32px; }
+  /* On a phone the boss gets its own band above the title, at full strength. */
+  .sp__art { position: relative; z-index: 0; inset: auto; width: 100%; height: 300px; aspect-ratio: auto; margin: -24px 0 4px; }
+  .sp__art img { width: auto; height: 100%; }
+  .sp__art--pair img { width: auto; margin: 0 -14%; }
+  .sp__lead { font-size: 17px; }
+  .sp__board { margin-top: 32px; }
+  .row { grid-template-columns: minmax(0, 1fr) 64px; gap: 6px 12px; }
+  .row .rib__bar { --rib-h: 40px; }
+  .row__kills { font-size: 24px; text-align: right; }
+  .row__fight { grid-column: 1 / -1; margin-bottom: 8px; }
+  .sp > .ticker { margin: 0 16px 20px; }
+}
+@media (max-width: 480px) {
+  .sp__end { width: 100%; justify-content: space-between; }
+  .ticker__label { padding: 0 14px; font-size: 12px; }
+}

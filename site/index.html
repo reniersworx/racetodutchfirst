@@ -22,13 +22,12 @@
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="halloffame.css">
+<link rel="stylesheet" href="splash.css">
 </head>
 <body>
 
-<div class="page">
-
-  <header class="dash-header">
-    <div class="brand-row">
+<header class="sp">
+  <div class="sp__top">
     <div class="rib brand-rib">
       <div class="rib__bar"><div class="rib__in">
         <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
@@ -37,42 +36,42 @@
         <span class="rib__val">Race to Dutch First</span>
       </div></div>
     </div>
-    <div class="lang-switch" role="group" data-i18n-aria-label="lang.label" aria-label="Taal">
-      <button type="button" data-lang="nl" aria-pressed="true" lang="nl">NL</button>
-      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    <div class="sp__end">
+      <span id="bugLive" class="pill sp__live" hidden><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.live">Live</span></span>
+      <p id="updated" class="updated sp__upd" data-i18n="footer.loading">Data laden…</p>
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang.label" aria-label="Taal">
+        <button type="button" data-lang="nl" aria-pressed="true" lang="nl">NL</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
     </div>
-    </div>
+  </div>
 
-    <h1 data-i18n="title">Wie haalt als eerste Cutting Edge?</h1>
-    <p class="lead" data-i18n="lead">De race tussen Nederlandse guilds naar de laatste Mythic-boss van de huidige raid tier, live gevolgd via Raider.IO en Warcraft Logs.</p>
-    <div id="tierPills" class="status-line"></div>
-  </header>
+  <div class="sp__stage">
+    <div id="heroArt" class="sp__art" aria-hidden="true" hidden></div>
+    <h1 class="sp__title"><span data-i18n="title.a">Wie haalt als eerste</span> <em data-i18n="title.b">Cutting Edge?</em></h1>
+    <p class="sp__lead" data-i18n="lead">De race tussen Nederlandse guilds naar de laatste Mythic-boss van de huidige raid tier, live gevolgd via Raider.IO en Warcraft Logs.</p>
+    <div id="tierPills" class="sp__tier"></div>
+    <section class="sp__board" aria-labelledby="ltHeading">
+      <h2 id="ltHeading" class="visually-hidden" data-i18n="hero.standings">Klassement</h2>
+      <ol id="lowerThirds" class="board"></ol>
+    </section>
+  </div>
 
-  <section id="liveStrip" class="live-strip" aria-live="polite" hidden></section>
+  <div class="ticker">
+    <h2 class="ticker__label" data-i18n="feed.h">Laatste kills</h2>
+    <ol id="killFeed" class="ticker__list"></ol>
+  </div>
+</header>
+
+<div class="page">
+
+<section id="liveStrip" class="live-strip" aria-live="polite" hidden></section>
 
   <div id="globalError" class="error-capsule" role="alert" hidden></div>
 
   <section id="winnerBanner" class="winner" aria-live="polite" hidden></section>
 
-  <section class="view" aria-labelledby="raceHeading">
-    <h2 id="raceHeading" class="view__title" data-i18n="race.h">De race</h2>
-    <p class="section-caption" data-i18n="race.cap">Elke guild rijdt op zijn eigen baan: één stap per Mythic-kill, plus het deel van de huidige boss dat al weg is. Een beste pull op 27% telt als 0,73. De finish ligt bij de Cutting Edge-boss.</p>
-    <div id="raceTrack" class="chart race-chart"></div>
-  </section>
-
-  <section class="view" aria-labelledby="standingsHeading">
-    <h2 id="standingsHeading" class="view__title" data-i18n="standings.h">Klassement</h2>
-    <p class="section-caption" data-i18n="standings.cap">Eerst het meeste Mythic-kills, dan de laagste beste % op de huidige boss, dan wie zijn laatste kill het eerst had, dan het meeste Heroic-kills.</p>
-    <ol id="standings" class="tiles-grid standings"></ol>
-  </section>
-
-  <section class="view" aria-labelledby="feedHeading">
-    <h2 id="feedHeading" class="view__title" data-i18n="feed.h">Laatste kills</h2>
-    <p class="section-caption" data-i18n="feed.cap">De nieuwste Mythic-kills van alle guilds. Een ster is de eerste kill van die boss hier.</p>
-    <ol id="killFeed" class="feed"></ol>
-  </section>
-
-  <section class="view" aria-labelledby="timelineHeading">
+<section class="view" aria-labelledby="timelineHeading">
     <h2 id="timelineHeading" class="view__title" data-i18n="timeline.h">Voortgang</h2>
     <p class="section-caption" data-i18n="timeline.cap">Mythic-kills door de tijd, vanaf de week van de eerste Mythic-kill. Elke trede is een kill.</p>
     <div id="timeline" class="chart timeline-chart"></div>
@@ -83,22 +82,22 @@
     </details>
   </section>
 
-  <section class="view" aria-labelledby="bossHeading">
+<section class="view" aria-labelledby="bossHeading">
     <h2 id="bossHeading" class="view__title" data-i18n="boss.h">Per boss</h2>
-    <p class="section-caption" data-i18n="boss.cap">Een verslagen boss toont de datum en het aantal pulls; goud is de eerste kill van alle guilds hier. Een balk is de beste pull: hoeveel van de boss er al af was. Grijs is nog niet geprobeerd.</p>
+    <p class="section-caption" data-i18n="boss.cap">Een verslagen boss toont de datum en het aantal pulls; een gouden ster markeert de eerste kill van de race. Een balk is de beste pull: hoeveel van de boss er al af was. Grijs is nog niet geprobeerd.</p>
     <div class="table-wrap table-wrap--scroll" tabindex="0" role="region" aria-labelledby="bossHeading">
       <table id="bossTable" class="boss-table"></table>
     </div>
     <div id="bossCards" class="boss-cards"></div>
   </section>
 
-  <section class="view" aria-labelledby="currentHeading">
+<section class="view" aria-labelledby="currentHeading">
     <h2 id="currentHeading" class="view__title" data-i18n="current.h">Huidige boss</h2>
     <p class="section-caption" data-i18n="current.cap">Hoe dicht zitten ze erbij? Elke staaf is een pull: hoe hoger, hoe meer van de boss eraf. De lijn is de beste pull tot dan toe, de stippellijn bovenaan de kill. Een streep scheidt de raidavonden.</p>
     <div id="currentBoss" class="curves-grid"></div>
   </section>
 
-  <section id="hallOfFame" class="view" aria-labelledby="hofHeading" hidden>
+<section id="hallOfFame" class="view" aria-labelledby="hofHeading" hidden>
     <h2 id="hofHeading" class="view__title" data-i18n="hof.h">Hall of fame</h2>
     <p class="section-caption" data-i18n="hof.cap">Per verslagen boss het team van elke guild, in de volgorde van hun kill. Bovenaan staat het team van de eerste Nederlandse kill; de andere guilds klap je open. Een naam linkt naar Raider.IO.</p>
     <div id="hofBosses" class="hof-grid"></div>
@@ -111,13 +110,13 @@
   </section>
 
   <footer class="site-footer">
-    <p id="updated" class="updated" data-i18n="footer.loading">Data laden…</p>
     <p><span data-i18n="footer.src1">Bronnen:</span> <a href="https://raider.io" rel="noopener">Raider.IO</a> <span data-i18n="footer.src2">(guildprofielen, kills en live tracking) en</span> <a href="https://www.warcraftlogs.com" rel="noopener">Warcraft Logs</a> <span data-i18n="footer.src3">(gelogde fights).</span> <span id="wclNote"></span> <span data-i18n="footer.src4">Een pull die nergens gevolgd of gelogd werd, ontbreekt hier ook.</span></p>
     <p><a href="https://github.com/reniersworx/racetodutchfirst" rel="noopener" data-i18n="footer.code">Broncode op GitHub</a></p>
   </footer>
 
 </div>
 
+<script src="bossart.js"></script>
 <script src="i18n.js"></script>
 <script src="app.js"></script>
 <script src="halloffame.js"></script>
