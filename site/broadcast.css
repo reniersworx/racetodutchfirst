@@ -1,8 +1,8 @@
 /* =====================================================================
    Broadcast hero (design language v2 for the race site): the overlay's
    language (tokens.css, ribbons, slanted pills, jade + gold) framed as a
-   Race to World First broadcast. A scorebug, the leader's current boss as
-   the hero with a WoW-style boss bar, the classification as lower-thirds,
+   Race to World First broadcast: a scorebug, the leader's current boss as
+   the backdrop and nothing else on it, the classification as lower-thirds,
    and a ticker with the latest kills. Guild colours arrive as --guild.
    Gold = the leader and the winner; jade = live, active, the race brand.
    ===================================================================== */
@@ -38,8 +38,9 @@
 /* ---- stage ------------------------------------------------------------------- */
 .bc__stage {
   position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; padding: 44px 24px 40px;
-  display: grid; grid-template-columns: minmax(0, 760px); gap: 28px; min-height: 720px;
+  display: flex; flex-direction: column; gap: 40px; min-height: 700px;
 }
+.bc__standings { margin-top: auto; width: min(100%, 760px); }
 .bc__art {
   position: absolute; z-index: -1; right: -40px; top: -10px; width: min(780px, 62%); aspect-ratio: 1;
   display: flex; justify-content: center;
@@ -55,25 +56,6 @@
   max-width: 13ch; font-size: clamp(42px, 6.4vw, 78px); font-weight: 800; line-height: .9;
   letter-spacing: -.03em; text-transform: uppercase; color: var(--paper); text-wrap: balance;
 }
-.bc__lead { margin-top: 16px; max-width: 46ch; font-size: 17px; line-height: 1.5; color: var(--paper-dim); }
-.bc__tier { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-
-/* ---- the hero boss frame ------------------------------------------------------- */
-.bossframe { padding: 16px 18px 18px; background: rgba(10, 11, 13, .78); border: 1px solid var(--ink-600); }
-.bossframe__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 10px; }
-.bossframe__name { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; letter-spacing: -.01em; text-transform: uppercase; line-height: 1; }
-.bossframe__who { font-size: 15px; color: var(--paper-dim); }
-.bossframe__who b { color: var(--guild, var(--jade)); font-weight: 700; }
-.bossbar {
-  position: relative; height: 34px; background: rgba(0, 0, 0, .6); border: 1px solid var(--ink-500);
-  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
-}
-.bossbar__hp { position: absolute; inset: 0 auto 0 0; width: var(--hp, 100%); background: linear-gradient(180deg, #ff6b5f, #b8232c); }
-.bossbar__txt {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 16px; font-weight: 700; color: var(--paper); text-shadow: 0 1px 2px #000;
-}
-.bossframe__pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 
 /* ---- lower-thirds ------------------------------------------------------------------ */
 .lt-list { list-style: none; display: grid; gap: 6px; }

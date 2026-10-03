@@ -148,6 +148,7 @@ function paintLive({ el, g }) {
 /* ---- header + winner -------------------------------------------------- */
 
 function renderHeader(data) {
+  if (!$('#tierPills')) return;
   const tier = data.tier;
   const raids = tier.raids.map(r => `${r.name} ${r.bosses.length}`).join(' + ');
   $('#tierPills').replaceChildren(
@@ -183,10 +184,9 @@ function renderWinner(data) {
 
 /* ---- 1. Broadcast hero ------------------------------------------------------------- */
 
-/* The leader's current boss is the hero: its full-body render (Blizzard's render CDN, via
- * bossart.js from the overlay) behind a WoW-style boss bar on the leader's best pull. Below
- * it the classification as broadcast lower-thirds; a scorebug says LIVE only while a guild
- * is really raiding. */
+/* The leader's current boss is the backdrop: its full-body render (Blizzard's render CDN,
+ * via bossart.js from the overlay) and nothing else on it. Over it the classification as
+ * broadcast lower-thirds; a scorebug says LIVE only while a guild is really raiding. */
 function bossArtFor(name) {
   const art = window.BossArt;
   if (!art || !name) return [];
@@ -201,9 +201,8 @@ function renderHero(data) {
   const total = data.tier.totalBosses;
   const lead = leaderName(data);
   const g = data.guilds.find(x => x.name === lead);
-  const won = !!data.winner;
   const cur = g && g.current;
-  const bossName = won ? data.tier.ceBoss.name : cur ? cur.name : null;
+  const bossName = data.winner ? data.tier.ceBoss.name : cur ? cur.name : null;
 
   // Scorebug: day of the race and an honest LIVE.
   const days = Math.max(1, Math.floor((Date.parse(data.generatedAt) - Date.parse(data.tier.start)) / 86400000) + 1);
@@ -217,27 +216,7 @@ function renderHero(data) {
   art.classList.toggle('bc__art--pair', srcs.length > 1);
   art.replaceChildren(...srcs.map(src => h('img', { src, alt: '' })));
 
-  const frame = $('#heroBoss');
-  if (!g) { frame.replaceChildren(); return; }
-  const tried = !won && cur && cur.bestPercent !== null;
-  const bar = h('div', { class: 'bossbar', role: 'img',
-    'aria-label': tried ? tr('hero.barAria', { boss: bossName, pct: pct(cur.bestPercent) }) : bossName || '' },
-    h('i', { class: 'bossbar__hp' }),
-    h('span', { class: 'bossbar__txt mono',
-      text: won ? tr('hero.won') : tried ? tr('hero.bestBar', { pct: pct(cur.bestPercent) }) : tr('tile.noPulls') }));
-  bar.style.setProperty('--hp', `${won ? 0 : tried ? cur.bestPercent : 100}%`);
-  const lineGuild = h('b', { text: g.name });
-  setGuild(lineGuild, g);
-  frame.replaceChildren(
-    h('div', { class: 'bossframe__head' },
-      h('h2', { class: 'bossframe__name', text: bossName || tr('tile.done') }),
-      h('p', { class: 'bossframe__who' }, `${tr('hero.leader')} `, lineGuild,
-        tried ? ` · ${pulls(cur.pullCount)}` : '')),
-    bar,
-    h('div', { class: 'bossframe__pills' },
-      won ? null : h('span', { class: 'pill pill--jade', text: tr('hero.killOf', { n: Math.min(total, g.mythicKills + 1), total }) }),
-      won ? null : h('span', { class: 'pill', text: tr('hero.toGo', { n: total - g.mythicKills }) }),
-      h('span', { class: 'pill pill--gold', text: tr('pill.ce', { boss: data.tier.ceBoss.name }) })));
+  if (!g) { $('#lowerThirds').replaceChildren(); return; }
 
   // Lower-thirds: the classification with each guild's gap to the leader.
   const leadPos = trackPosition(g, total);
