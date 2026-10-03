@@ -8,8 +8,9 @@
   background: var(--ink-800); border: 1px solid var(--ink-700);
   padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
 }
-.hof-thumb { width: 52px; height: 52px; margin: -8px 4px -8px -6px; object-fit: contain; flex: 0 0 52px; }
-.hof-boss__top { display: flex; align-items: baseline; gap: 4px; }
+.hof-thumb { width: 52px; height: 52px; flex: 0 0 52px; margin-right: 6px; }
+.hof-thumb .boss-thumb__mono { font-size: 24px; }
+.hof-boss__top { display: flex; align-items: center; gap: 4px; }
 .hof-boss__name { font-size: 19px; font-weight: 600; line-height: 1.15; color: var(--paper); }
 .hof-boss__label {
   font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
@@ -39,9 +40,14 @@
 .hof-team { display: flex; flex-direction: column; gap: 8px; padding: 10px 0 12px; border-bottom: 1px solid var(--ink-750); }
 .hof-team:last-child { border-bottom: 0; padding-bottom: 0; }
 
+/* Raiders: a subsection head in the same poster voice as .view__title, one step down. */
 .hof-subtitle {
-  margin-top: 30px; margin-bottom: 6px;
-  font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-200);
+  display: flex; align-items: center; gap: 10px; margin-top: 36px; margin-bottom: 8px;
+  font-size: clamp(20px, 2vw, 24px); font-weight: 800; line-height: 1.05; text-transform: uppercase; color: var(--paper);
+}
+.hof-subtitle::before {
+  content: ""; flex: 0 0 11px; width: 11px; height: .9em; background: var(--jade);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
 }
 /* Its own wrapper: style.css hides .table-wrap--scroll on phones (the boss table
    becomes cards there); this table just scrolls sideways instead. */

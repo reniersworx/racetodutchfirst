@@ -199,9 +199,12 @@ function bossArtFor(name) {
     .filter(Boolean).slice(0, 2).map(m => `img/boss/creature-display-${m[1]}.png`);
 }
 
+// A boss head: a slanted tile with the top of the render (the face reads, a long body doesn't);
+// a boss without art gets the same tile with its initial, so every head lines up.
 function bossThumb(name, cls = 'boss-thumb') {
   const src = bossArtFor(name)[0];
-  return src ? h('img', { class: cls, src, alt: '', loading: 'lazy' }) : null;
+  return h('span', { class: `boss-thumb ${cls}`, 'aria-hidden': 'true' },
+    src ? h('img', { src, alt: '', loading: 'lazy' }) : h('span', { class: 'boss-thumb__mono', text: name.trim()[0] }));
 }
 
 // Race day: the tier start is day 1; once someone has CE the count stops on the winning day.
@@ -428,7 +431,7 @@ function renderBossTable(data) {
         h('span', { class: 'bcard__guild' }, h('span', { class: 'dot', 'aria-hidden': 'true' }), g.name),
         bossCell(g, ref, boss.firstKill, 'div')), g));
       cards.push(h('article', { class: 'bcard' },
-        h('h4', { class: 'bcard__name' }, boss.name, isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
+        h('h4', { class: 'bcard__name' }, bossThumb(boss.name), boss.name, isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
         rows.length ? rows : h('p', { class: 'muted-note', text: tr('boss.nobody') })));
     }
   }
