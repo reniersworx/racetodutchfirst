@@ -234,7 +234,17 @@ function renderHero(data) {
   const srcs = bossArtFor(bossName);
   art.hidden = !srcs.length;
   art.classList.toggle('sp__art--pair', srcs.length > 1);
-  art.replaceChildren(...srcs.map(src => h('img', { src, alt: '' })));
+  art.classList.remove('sp__art--wide');
+  // Once a render is in: --nat-h caps it at 2x its own size (some of Blizzard's renders are
+  // tiny and turn to mush past that), and a lone wide boss gets the wide box.
+  const imgs = srcs.map(src => h('img', { src, alt: '' }));
+  for (const img of imgs) {
+    img.addEventListener('load', () => {
+      img.style.setProperty('--nat-h', `${img.naturalHeight}px`);
+      if (imgs.length === 1 && img.naturalWidth > 2 * img.naturalHeight) art.classList.add('sp__art--wide');
+    });
+  }
+  art.replaceChildren(...imgs);
 
   if (!g) { $('#lowerThirds').replaceChildren(); return; }
 

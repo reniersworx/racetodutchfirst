@@ -64,9 +64,14 @@
   mask-image: linear-gradient(#000 78%, transparent);
 }
 /* The PNGs are trimmed to the body, so height drives the size and contain keeps wide bosses in. */
-.sp__art img { height: 100%; width: auto; max-width: 100%; object-fit: contain; }
+.sp__art img { height: 100%; width: auto; max-width: 100%; max-height: calc(var(--nat-h, 9999px) * 2); object-fit: contain; }
 .sp__art--pair { gap: 6%; }
 .sp__art--pair img { max-width: 47%; }
+/* A lone wide boss (wings, a long body sideways) would shrink in the board-side column, so it
+   takes the open field right of the title instead, above the board, up to the page edge. */
+@media (min-width: 1181px) {
+  .sp__art--wide { left: calc(50% + 40px); right: -60px; bottom: auto; height: 62%; -webkit-mask-image: none; mask-image: none; }
+}
 .sp__title {
   max-width: 12ch; font-size: clamp(44px, 6.6vw, 88px); font-weight: 800; line-height: .92;
   letter-spacing: -.03em; text-transform: uppercase; color: var(--paper); text-wrap: balance;
