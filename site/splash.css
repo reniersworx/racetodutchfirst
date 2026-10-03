@@ -35,6 +35,15 @@
 .bug__day { padding: 0 18px; background: var(--jade); color: var(--ink-900); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
 .sp__end { display: flex; align-items: center; gap: 14px; }
 .sp__upd { font-size: 13px; color: var(--ink-200); white-space: nowrap; }
+/* NL | EN in the bug's language: flush square blocks at its height, the active one in jade
+   like the race day, the other on ink. */
+.sp__end .lang-switch { gap: 0; height: 40px; }
+.sp__end .lang-switch button {
+  clip-path: none; padding: 0 14px; font-size: 13px; font-weight: 800;
+  background: var(--ink-900); color: var(--ink-300);
+}
+.sp__end .lang-switch button:hover { color: var(--paper); }
+.sp__end .lang-switch button[aria-pressed="true"] { background: var(--jade); color: var(--ink-900); }
 .sp__upd.updated--late { color: var(--rose); }
 
 /* ---- stage ----------------------------------------------------------------- */
@@ -117,7 +126,8 @@
 @media (max-width: 900px) {
   .sp__top { padding: 16px 16px 0; flex-wrap: wrap; }
   .sp__upd { font-size: 12px; }
-  .bug { height: 34px; }
+  .bug, .sp__end .lang-switch { height: 34px; }
+  .sp__end .lang-switch button { padding: 0 12px; font-size: 12px; }
   .bug__live { padding: 0 12px; font-size: 12px; }
   .bug__title { padding: 0 14px; font-size: 12px; }
   .bug__day { padding: 0 12px; font-size: 12px; }
