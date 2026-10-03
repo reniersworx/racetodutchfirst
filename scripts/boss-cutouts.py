@@ -3,17 +3,30 @@
 
 Blizzard's render CDN serves each creature as a 600x600 JPEG on a flat rgb(24,24,24)
 ground. Laid over the page that ground shows as a grey box, so this script keys it to
-alpha and writes site/img/boss/creature-display-<id>.png next to the page. Run it again
+alpha and writes site/img/boss/creature-display-<id>.png next to the page, with its origin
+in the PNG's `impeccable:prompt` text chunk (Impeccable's provenance; `impeccable embed-prompt
+--scan site/img` checks it). Run it again
 after copying a new bossart.js from the overlay (needs Pillow: uv run --with pillow).
 """
-import io, json, pathlib, re, urllib.request
+import io
+import pathlib
+import re
+import urllib.request
+
 from PIL import Image, ImageFilter
+from PIL.PngImagePlugin import PngInfo
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / 'site' / 'bossart.js'
 OUT = ROOT / 'site' / 'img' / 'boss'
 GROUND = (24, 24, 24)
 LO, HI = 10, 34  # colour distance from the ground: <= LO transparent, >= HI opaque
+PROVENANCE = (
+    "Sourced, not generated. Origin: Blizzard's World of Warcraft render CDN, {url} "
+    "(as listed in site/bossart.js, copied from the overlay). The flat rgb(24,24,24) backdrop "
+    "was keyed to alpha by scripts/boss-cutouts.py (distance <=10 transparent, >=34 opaque, "
+    "0.6px blur on the matte); no other edits."
+)
 
 
 def cutout(data: bytes) -> Image.Image:
@@ -39,7 +52,9 @@ def main():
         name = url.rsplit('/', 1)[1].replace('.jpg', '.png')
         req = urllib.request.Request(url, headers={'User-Agent': 'racetodutchfirst boss-cutouts'})
         with urllib.request.urlopen(req, timeout=30) as resp:
-            cutout(resp.read()).save(OUT / name, optimize=True)
+            info = PngInfo()
+            info.add_text('impeccable:prompt', PROVENANCE.format(url=url))
+            cutout(resp.read()).save(OUT / name, optimize=True, pnginfo=info)
         print(name)
 
 
