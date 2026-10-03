@@ -154,7 +154,8 @@ Read `DESIGN.md` before UI work: it records the visual system (tokens, component
   come from an external API.
 - The CSP is `'self'` + Google Fonts only, and no `'unsafe-inline'`: so no `style="…"` in
   HTML and no `setAttribute('style')`. Set custom properties with `el.style.setProperty()`.
-- Colours, fonts and radii come from tokens.css variables. Guild colours come from
+- Colours, fonts and radii come from tokens.css variables (one exception: `--live-red` for the
+  LIVE block sits on :root in splash.css until the overlay's tokens.css adopts it). Guild colours come from
   guilds.toml (validated `#rrggbb` in config.py *and* app.js) as `--guild` / `--acc`.
   Keep them clear of jade and gold, which mean leader / first kill / winner.
 - Look: design language v2 (direction contract in `.impeccable/surfaces/site-index-html.md`,
@@ -164,9 +165,16 @@ Read `DESIGN.md` before UI work: it records the visual system (tokens, component
   stripes on cards or cells: use a 1-2px outline or a guild chip/rank block instead.
 - The hero shows the leader's current boss (the CE boss once someone won) from bossart.js:
   self-hosted cut-outs in site/img/boss/ made by scripts/boss-cutouts.py from Blizzard's renders
-  (rerun it after copying a new bossart.js). Nothing is drawn on the boss. A council fight shows up to two bodies.
-  A boss missing from bossart.js (Nymrissa) leaves the hero without art.
-- The LIVE pill in the top bar shows only while some guild's `liveState` is `live`.
+  (rerun it after copying a new bossart.js; it trims each to the body and embeds its origin as
+  Impeccable provenance). Nothing is drawn on the boss. A council fight shows up to two bodies.
+  The art owns the column right of the board; a lone render wider than 2:1 takes the field beside
+  the title instead; below 1180px it is a band above the title. Never shown past 2x its own size
+  (`--nat-h`). A boss missing from bossart.js (Nymrissa) leaves the hero without art.
+- Boss heads below the hero (`bossThumb()`): a slanted ink tile with the top of the render, or
+  the boss's initial when there is no art, so every head lines up.
+- The top bar is sketch C's broadcast bug: flush blocks, LIVE (only while some guild's
+  `liveState` is `live`), the name, and "Dag N" (tier.start is day 1; stops on the winning day).
+  NL | EN uses the same flush blocks.
 - Charts draw at the container's measured width and redraw on resize (ResizeObserver).
   It must work at 360 px: below 600 px the per-boss table is replaced by one card per boss
   (`#bossCards`, same `bossCell()` markup in a `div`).
