@@ -103,8 +103,8 @@
   position: relative; z-index: 3; max-width: 1320px; margin: 0 auto 0; display: flex; align-items: stretch; height: 52px;
   background: var(--ink-900); border: 1px solid var(--ink-700); border-top: 2px solid var(--jade);
 }
-.sp > .ticker { margin: 0 24px 28px; }
-@media (min-width: 1368px) { .sp > .ticker { margin: 0 auto 28px; } }
+/* The ticker closes the hero from edge to edge, like the bug's flush blocks. */
+.sp > .ticker { max-width: none; margin: 0; border-left: 0; border-right: 0; border-bottom: 0; }
 .ticker__label {
   flex: 0 0 auto; display: flex; align-items: center; padding: 0 20px;
   background: var(--jade); color: var(--ink-900); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
@@ -152,7 +152,6 @@
   .row .rib__bar { --rib-h: 40px; }
   .row__kills { font-size: 24px; text-align: right; }
   .row__fight { grid-column: 1 / -1; margin-bottom: 8px; }
-  .sp > .ticker { margin: 0 16px 20px; }
 }
 @media (max-width: 480px) {
   .sp__end { width: 100%; justify-content: space-between; align-items: flex-start; }

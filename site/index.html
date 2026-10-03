@@ -78,23 +78,17 @@
     </details>
   </section>
 
-<section class="view" aria-labelledby="bossHeading">
-    <h2 id="bossHeading" class="view__title" data-i18n="boss.h">Per boss</h2>
-    <p class="section-caption" data-i18n="boss.cap">Een verslagen boss toont de datum en het aantal pulls; een gouden ster markeert de eerste kill van de race. Een balk is de beste pull: hoeveel van de boss er al af was. Grijs is nog niet geprobeerd.</p>
-    <div class="table-wrap table-wrap--scroll" tabindex="0" role="region" aria-labelledby="bossHeading">
-      <table id="bossTable" class="boss-table"></table>
+<section class="view" aria-labelledby="guildHeading">
+    <h2 id="guildHeading" class="view__title" data-i18n="guild.h">Per guild</h2>
+    <p class="section-caption" data-i18n="guild.cap">Elke rij is een guild: per boss de killdatum (een gouden ster is de eerste Nederlandse kill) of hun beste pull, rechts de pulls op hun huidige boss. Hoe hoger een staaf, hoe meer van de boss eraf; de gekleurde is hun beste.</p>
+    <div class="table-wrap gs-wrap" tabindex="0" role="region" aria-labelledby="guildHeading">
+      <table id="guildSheets" class="gs"></table>
     </div>
-    <div id="bossCards" class="boss-cards"></div>
-  </section>
-
-<section class="view" aria-labelledby="currentHeading">
-    <h2 id="currentHeading" class="view__title" data-i18n="current.h">Huidige boss</h2>
-    <p class="section-caption" data-i18n="current.cap">Hoe dicht zitten ze erbij? Elke staaf is een pull: hoe hoger, hoe meer van de boss eraf. De lijn is de beste pull tot dan toe, de stippellijn bovenaan de kill. Een streep scheidt de raidavonden.</p>
-    <div id="currentBoss" class="curves-grid"></div>
   </section>
 
 <section id="hallOfFame" class="view" aria-labelledby="hofHeading" hidden>
-    <h2 id="hofHeading" class="view__title" data-i18n="hof.h">Hall of fame</h2>
+    <details class="fold">
+    <summary class="fold__summary"><h2 id="hofHeading" class="view__title" data-i18n="hof.h">Hall of fame</h2><span class="fold__hint" data-i18n="hof.fold">Teams en raiders</span></summary>
     <p class="section-caption" data-i18n="hof.cap">Per verslagen boss het team van elke guild, in de volgorde van hun kill. Bovenaan staat het team van de eerste Nederlandse kill; de andere guilds klap je open. Een naam linkt naar Raider.IO.</p>
     <div id="hofBosses" class="hof-grid"></div>
     <h3 id="hofRaidersHeading" class="hof-subtitle" data-i18n="hof.raiders.h">Raiders</h3>
@@ -103,6 +97,7 @@
       <table id="hofRaiders" class="data-table hof-table"></table>
     </div>
     <div id="hofMore" class="hof-more"></div>
+    </details>
   </section>
 
   <footer class="site-footer">

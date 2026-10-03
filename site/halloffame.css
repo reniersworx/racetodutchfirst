@@ -49,8 +49,7 @@
   content: ""; flex: 0 0 11px; width: 11px; height: .9em; background: var(--jade);
   clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
 }
-/* Its own wrapper: style.css hides .table-wrap--scroll on phones (the boss table
-   becomes cards there); this table just scrolls sideways instead. */
+/* The raiders table scrolls sideways on phones. */
 .hof-table-wrap { overflow-x: auto; border: 1px solid var(--ink-700); background: var(--ink-850); }
 .hof-table { width: 100%; font-size: 14px; }
 .hof-table th, .hof-table td { white-space: nowrap; padding: 8px 14px; }

@@ -104,15 +104,12 @@ a:hover { text-decoration-color: var(--jade); }
 .winner__text { margin-top: 6px; font-size: 16px; color: var(--paper-dim); }
 
 /* ---- race track (SVG) --------------------------------------------------- */
-.race-chart text, .timeline-chart text, .curve__plot text { font-family: var(--f-display); }
+.timeline-chart text { font-family: var(--f-display); }
 .svg-axis { fill: var(--ink-300); font-size: 11px; font-family: var(--f-mono) !important; }
 .svg-grid { stroke: var(--ink-700); stroke-width: 1; }
 
-.meter { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 10px; }
-.meter__track { height: 8px; background: var(--ink-700); position: relative; overflow: hidden; }
-.meter__fill { position: absolute; inset: 0 auto 0 0; width: var(--fill, 0%); background: var(--guild, var(--jade)); }
 
-/* ---- raiding now: the jade pulsing dot (board rows, current-boss cards) ---------- */
+/* ---- raiding now: the jade pulsing dot (board rows, Per guild rows) ---------- */
 .live-dot {
   width: 7px; height: 7px; border-radius: var(--r-pill); background: var(--jade); flex: 0 0 7px;
   animation: live-pulse 1.6s var(--ease) infinite;
@@ -130,58 +127,10 @@ a:hover { text-decoration-color: var(--jade); }
 .as-table summary { cursor: pointer; color: var(--jade); width: max-content; }
 .as-table[open] summary { margin-bottom: 10px; }
 .table-wrap { max-width: 100%; }
-.table-wrap--scroll { overflow-x: auto; border: 1px solid var(--ink-700); background: var(--ink-850); }
 .data-table { border-collapse: collapse; font-size: 13px; }
 .data-table th, .data-table td { text-align: left; padding: 6px 14px 6px 0; border-bottom: 1px solid var(--ink-700); vertical-align: top; }
 .data-table th { color: var(--ink-200); font-weight: 600; }
 
-/* ---- per-boss table ---------------------------------------------------------- */
-.boss-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: max-content; font-size: 13px; }
-.boss-table th, .boss-table td { padding: 10px 12px; border-bottom: 1px solid var(--ink-700); text-align: left; vertical-align: middle; }
-.boss-table thead th { position: sticky; top: 0; background: var(--ink-850); font-size: 13px; font-weight: 600; color: var(--paper); white-space: nowrap; }
-.boss-table thead th .dot { margin-right: 7px; }
-.boss-table tbody th {
-  position: sticky; left: 0; z-index: 1; background: var(--ink-850);
-  font-weight: 600; color: var(--paper); min-width: 150px; max-width: 190px;
-  border-right: 1px solid var(--ink-700);
-}
-.boss-table thead th:first-child { position: sticky; left: 0; z-index: 2; border-right: 1px solid var(--ink-700); }
-.boss-table .raid-row th {
-  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--ink-200); background: var(--ink-800);
-}
-.boss-table td { min-width: 118px; }
-.cell { display: flex; flex-direction: column; gap: 3px; }
-.cell__main { font-family: var(--f-mono); color: var(--paper); }
-.cell__sub { font-size: 12px; color: var(--ink-300); }
-/* Drawn marks (one stroke family): a check for a kill, a star for the race's first kill. */
-.cell--killed .cell__main::before {
-  content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px;
-  background: var(--jade); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-.cell--first .cell__main { color: var(--gold); }
-.cell--first .cell__main::before { background: var(--gold); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); }
-.cell--progress .meter__track { width: 100%; min-width: 80px; }
-.cell--current { box-shadow: inset 0 0 0 1px var(--guild, var(--jade)); background: var(--ink-800); }
-.cell--untouched { color: var(--ink-500); }
-/* Phones get one card per boss instead of the wide table. */
-.boss-cards { display: none; }
-.bcards__raid {
-  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-200);
-  margin: 6px 0 2px;
-}
-.bcard { font-size: 13px; background: var(--ink-850); border: 1px solid var(--ink-700); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
-.bcard__name { font-size: 15px; font-weight: 600; color: var(--paper); margin-bottom: 4px; }
-.bcard__row {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 10px; align-items: center;
-  padding: 7px 0 7px 10px; border-top: 1px solid var(--ink-700);
-}
-.bcard__guild { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--paper-dim); min-width: 0; overflow-wrap: anywhere; }
-.bcard .cell-td { padding: 2px 0 2px 10px; }
-.bcard .cell { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
-.bcard .cell--progress .meter__track { flex-basis: 100%; min-width: 0; order: 3; }
-.bcard .cell--current { background: transparent; }
-.bcard .muted-note { font-size: 13px; }
 .ce-tag { margin-left: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--jade); }
 .pill--jade { color: var(--jade); }
 ::selection { background: var(--jade-ghost); color: var(--paper); }
@@ -191,64 +140,83 @@ a:hover { text-decoration-color: var(--jade); }
 }
 .boss-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 .boss-thumb__mono { font-size: 18px; font-weight: 800; color: var(--ink-400); }
-.bcard__name { display: flex; align-items: center; }
-.bcard__name .boss-thumb { width: 44px; height: 44px; flex: 0 0 44px; }
 
-/* ---- current-boss cards: the overlay's angled rcard + boss card ----------
-   css/ribbon.css (.rcard*, caption tags on the top edge) and css/banner.css
-   (.boss__*): same shapes, same type scale, sized up a little for a page.
-   The source tag links back to Raider.IO, as their Acceptable Use asks. */
-.curves-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px 16px; }
-/* Five guilds on a wide screen: three over two, centred, never one orphan. */
-@media (min-width: 1100px) {
-  .curves-grid:has(> :nth-child(5):last-child) { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .curves-grid:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
-  .curves-grid:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
-}
-.rcard-wrap { position: relative; display: flex; flex-direction: column; min-width: 0; padding-top: 11px; }
-.rcard__cap, .rcard__src {
-  position: absolute; top: 0; z-index: 3; height: 22px; display: flex; align-items: center; padding: 0 12px;
-  background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px; white-space: nowrap;
-}
-.rcard__cap { left: 22px; max-width: calc(100% - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acc, var(--ink-300)); }
-.rcard__src { right: 22px; border-color: var(--ink-750); font-size: 10px; font-weight: 600; letter-spacing: .12em; color: var(--ink-300); text-decoration: none; }
-a.rcard__src:hover { color: var(--jade); }
-.rcard {
-  flex: 1; padding: 1px; background: var(--ink-700);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
-}
-.rcard__in {
-  height: 100%; background: var(--ink-800); padding: 22px 20px 26px;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 21px), calc(100% - 21px) 100%, 0 100%);
-  display: flex; flex-direction: column; gap: 8px; min-width: 0;
-}
-.boss__top { display: flex; align-items: flex-start; gap: 10px; min-height: 2.4em; }
-.boss__nm { font-size: 21px; font-weight: 600; line-height: 1.14; letter-spacing: -.012em; flex: 1; min-width: 0; color: var(--paper); }
-.boss__tag {
-  font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; flex: 0 0 auto; margin-top: 4px;
-  background: var(--ink-750); color: var(--ink-200);
-  clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
-}
-.boss__tag.prog { background: var(--ink-750); color: var(--jade); }
-.boss__stat { display: flex; align-items: flex-end; gap: 22px; margin-top: 6px; }
-.boss__v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 24px; font-weight: 500; line-height: 1; color: var(--paper); }
-.boss__l { font-size: 9px; font-weight: 600; color: var(--ink-300); margin-top: 6px; letter-spacing: .14em; text-transform: uppercase; }
-.curve__plot { margin-top: 8px; min-height: 150px; }
-/* No pulls on the current boss yet: a short card, not a tall empty one. */
-.curves-grid { align-items: start; }
-.rcard-wrap--compact .rcard__in { padding-bottom: 22px; }
-.curve__last { margin-top: 6px; display: flex; flex-direction: column; gap: 2px; }
-.curve__lastline { font-size: 14px; color: var(--paper-dim); }
-.curve__lastline strong { color: var(--paper); font-weight: 600; }
-.svg-night { stroke: var(--ink-400); stroke-width: 1; stroke-dasharray: 2 3; }
-/* pull bars: higher = more boss HP gone, as in the overlay's .spark */
-.svg-bar { fill: var(--ink-500); }
-.svg-bar--best { fill: var(--paper-dim); }
-.svg-bar--kill { fill: var(--jade); }
-.svg-kill { stroke: var(--jade); stroke-width: 1; stroke-dasharray: 4 4; }
+/* ---- Voortgang chart ---------------------------------------------------------------- */
+.svg-night { fill: rgba(63, 217, 164, .045); }
+.svg-grid--ce { stroke: var(--jade-deep); stroke-dasharray: 4 5; }
+.svg-step { fill: none; stroke: var(--guild); stroke-linejoin: round; stroke-linecap: round; }
+.svg-node { fill: var(--ink-850); stroke: var(--guild); stroke-width: 2; }
+.svg-star { fill: var(--gold); stroke: var(--ink-850); stroke-width: 1.5; }
+.svg-end { fill: var(--guild); font: 700 14px var(--f-display); }
+.svg-end__n { fill: var(--paper-dim); font: 500 12px var(--f-mono); }
+.timeline-chart { background: var(--ink-850); border: 1px solid var(--ink-700); padding: 14px 0 4px; }
+/* The line ends carry the names on wide screens; the legend is for phones. */
+@media (min-width: 600px) { #timelineLegend { display: none; } }
 
-.svg-marker { stroke: var(--ink-900); stroke-width: 2; }
-.svg-step { stroke-linecap: round; }
+/* ---- Per guild: a row per guild, a cell per boss, then its current-boss pulls ---------- */
+.gs-wrap { position: relative; overflow-x: auto; margin: -6px; } /* relative: clips the cells' visually-hidden text too */
+/* Fixed layout: the guild and pulls columns keep their width, the nine bosses share the rest. */
+.gs { width: 100%; min-width: 1040px; table-layout: fixed; border-collapse: separate; border-spacing: 6px; font-size: 13px; }
+.gs-corner, .gs-who { width: 240px; }
+.gs-pulls-h, .gs-pulls { width: 230px; }
+.gs th, .gs td { text-align: left; vertical-align: middle; }
+.gs thead th { vertical-align: bottom; padding: 0 0 4px; font-weight: 500; }
+.gs-boss { font-size: 11px; color: var(--ink-300); }
+.gs-boss .boss-thumb { display: grid; margin: 0 0 6px; }
+.gs-boss__label { display: flex; align-items: baseline; gap: 5px; min-width: 0; }
+.gs-boss__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gs-boss .ce-tag { margin-left: 0; flex: 0 0 auto; }
+.gs-pulls-h { font-size: 11px; font-weight: 700 !important; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-300); }
+.gs-who, .gs-corner { position: sticky; left: 0; z-index: 1; padding: 0; background: var(--ink-900); }
+.gs-who__in {
+  display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: center; gap: 0 10px; min-height: 58px; padding-right: 18px;
+  background: var(--ink-800); clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+.gs-who__rank { align-self: stretch; display: grid; place-items: center; background: var(--guild); color: var(--ink-900); font-size: 18px; font-weight: 800; }
+.gs-who__name { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-left: 2px; font-size: 16px; font-weight: 600; }
+.gs-who__name a { color: var(--paper); text-decoration: none; line-height: 1.15; overflow-wrap: break-word; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.gs-who__name a:hover { color: var(--jade); }
+.gs-who__name .row__live { margin-left: 0; }
+.gs-who__k { font-size: 22px; font-weight: 800; color: var(--paper); }
+.gs-who__k small { font-size: 13px; font-weight: 600; color: var(--ink-300); }
+.gs-row--lead .gs-who__k { color: var(--gold); }
+.gs-cell { padding: 8px 9px; min-height: 58px; background: var(--ink-850); border: 1px solid var(--ink-700); }
+.gs-cell > span { display: block; }
+.gs-cell__main { font-family: var(--f-mono); font-size: 12px; color: var(--paper); white-space: nowrap; }
+.gs-cell__sub { margin-top: 3px; font-size: 11px; color: var(--ink-300); white-space: nowrap; }
+/* Drawn marks (one stroke family): a check for a kill, a star for the race's first kill. */
+.gs-cell--kill .gs-cell__main::before {
+  content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px;
+  background: var(--jade); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.gs-cell--first .gs-cell__main { color: var(--gold); }
+.gs-cell--first .gs-cell__main::before { background: var(--gold); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); }
+.gs-meter { height: 5px; margin-top: 5px; background: rgba(255, 255, 255, .07); position: relative; }
+.gs-meter i { position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); background: var(--guild); }
+.gs-cell--none { background: transparent; border-style: dashed; border-color: var(--ink-750); }
+.gs-cell--current { border-color: transparent; box-shadow: inset 0 0 0 1px var(--guild); background: var(--ink-800); }
+.gs-sep { box-shadow: -4px 0 0 -3px var(--ink-600); }
+.gs-cell--current.gs-sep { box-shadow: inset 0 0 0 1px var(--guild); }
+.gs-pulls { padding-left: 8px; }
+.gs-bars { display: flex; align-items: flex-end; gap: 1px; height: 32px; border-bottom: 1px solid var(--ink-600); }
+.gs-bars i { flex: 1; min-width: 1px; height: var(--h, 4%); background: var(--ink-500); }
+.gs-bars i.is-best { background: var(--guild); }
+.gs-pulls__cap { display: block; margin-top: 5px; font-size: 11px; line-height: 1.4; color: var(--paper-dim); }
+.gs-pulls__src { color: var(--ink-300); text-decoration: none; }
+.gs-pulls__src:hover { color: var(--jade); }
+
+/* ---- folded sections (Hall of fame) ------------------------------------------------- */
+.fold__summary { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; cursor: pointer; list-style: none; }
+.fold__summary::-webkit-details-marker { display: none; }
+.fold__summary .view__title { margin-bottom: 0; }
+.fold__hint { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--jade); }
+.fold__hint::after {
+  content: ""; width: 8px; height: 8px; margin-top: -3px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); transition: transform var(--t-fast) var(--ease);
+}
+.fold[open] .fold__hint::after { transform: rotate(-135deg); margin-top: 4px; }
+.fold__summary:hover .fold__hint { color: var(--paper); }
+.fold[open] > .fold__summary { margin-bottom: 14px; }
 
 /* ---- footer ------------------------------------------------------------------- */
 .site-footer {
@@ -267,14 +235,25 @@ a.rcard__src:hover { color: var(--jade); }
   .winner__icon { width: 44px; height: 44px; }
 }
 @media (max-width: 600px) {
-  .table-wrap--scroll { display: none; }
-  .boss-cards { display: flex; flex-direction: column; gap: 10px; }
+  /* Per guild scrolls sideways with the guild column pinned. */
+  .gs { min-width: 1120px; }
+  .gs-cell { padding: 7px 6px; }
+  .gs-cell__main { font-size: 11px; }
+  .gs-cell--kill .gs-cell__main::before { margin-right: 4px; }
+  .gs-corner, .gs-who { width: 150px; }
+  .gs-pulls-h, .gs-pulls { width: 190px; }
+  /* The count goes under the name, so names don't break mid-word. */
+  .gs-who__in { grid-template-columns: 32px minmax(0, 1fr); grid-template-rows: 1fr auto auto 1fr; gap: 2px 8px; padding: 0 12px 0 0; }
+  .gs-who__rank { grid-row: 1 / 5; }
+  .gs-who__name { grid-row: 2; }
+  .gs-who__k { grid-row: 3; }
+  .gs-who__rank { font-size: 15px; }
+  .gs-who__name { font-size: 14px; }
+  .gs-who__k { grid-column: 2; font-size: 15px; line-height: 1; padding-bottom: 2px; }
 }
 @media (max-width: 400px) {
   .page { padding: 22px 12px 64px; }
   .rib__val { font-size: 14px; }
-  .curves-grid { grid-template-columns: minmax(0, 1fr); }
-  .boss-table tbody th { min-width: 118px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
