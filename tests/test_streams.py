@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import dataclasses
 from datetime import UTC, datetime
 
 import pytest
@@ -12,6 +13,12 @@ from racetodutchfirst.twitch import DecAPI, StreamError, live_streams, parse_upt
 from tests.conftest import FixtureDecAPI
 
 NOW = datetime(2026, 10, 3, 16, 24, 46, tzinfo=UTC)
+
+
+@pytest.fixture
+def config(config):
+    """The recorded answers assume the WoW filter, whatever guilds.toml says today."""
+    return dataclasses.replace(config, streams=Streams(config.streams.channels, "World of Warcraft"))
 
 
 def _run(config, overrides=None, game="keep"):
