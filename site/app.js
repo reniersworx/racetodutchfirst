@@ -100,18 +100,6 @@ function resetCharts() {
   charts.clear();
 }
 
-function ribbon({ acc, accText, value, extra, caps, cls }) {
-  const rib = h('div', { class: `rib rib--sm ${cls || ''}` },
-    caps && caps.length ? h('div', { class: 'rib__caps' }, caps) : null,
-    h('div', { class: 'rib__bar' },
-      h('div', { class: 'rib__in' },
-        h('span', { class: 'rib__acc mono', text: accText }),
-        h('span', { class: 'rib__val', text: value }),
-        extra || null)));
-  if (acc) rib.style.setProperty('--acc', acc);
-  return rib;
-}
-
 /* ---- raiding now ------------------------------------------------------ */
 
 /* A guild's latest sign of life: its last pull on the current boss or its
@@ -163,9 +151,9 @@ function renderHeader(data) {
   const tier = data.tier;
   const raids = tier.raids.map(r => `${r.name} ${r.bosses.length}`).join(' + ');
   $('#tierPills').replaceChildren(
-    h('span', { class: 'pill', text: tr('pill.bosses', { n: tier.totalBosses }), title: raids }),
-    h('span', { class: 'pill pill--gold', text: tr('pill.ce', { boss: tier.ceBoss.name }) }),
-    h('span', { class: 'pill', text: tr('pill.since', { date: day(tier.start) }) }),
+    h('span', { class: 'tier-meta__item', text: tr('pill.bosses', { n: tier.totalBosses }), title: raids }),
+    h('span', { class: 'tier-meta__item tier-meta__ce', text: tr('pill.ce', { boss: tier.ceBoss.name }) }),
+    h('span', { class: 'tier-meta__item', text: tr('pill.since', { date: day(tier.start) }) }),
   );
 }
 
@@ -194,148 +182,117 @@ function renderWinner(data) {
   box.hidden = false;
 }
 
-/* ---- 1. De race --------------------------------------------------------- */
+/* ---- 1. Klassement ------------------------------------------------------------ */
 
-function trackScale(width, total) {
-  const left = 10, right = 16;
-  return v => left + (v / total) * (width - left - right);
-}
-
-function drawAxis(el, total, ceName) {
-  chart(el, w => {
-    const x = trackScale(w, total);
-    const svg = s('svg', { width: w, height: 22, viewBox: `0 0 ${w} 22`, 'aria-hidden': 'true' });
-    for (let i = 0; i <= total; i++) {
-      svg.append(s('text', {
-        x: x(i), y: 15, 'text-anchor': 'middle',
-        class: i === total ? 'svg-finish-label' : 'svg-axis', text: i === total ? 'CE' : String(i),
-      }));
-    }
-    svg.append(svgTitle(tr('axis.finish', { boss: ceName })));
-    el.replaceChildren(svg);
-  });
-}
-
-function drawLane(el, g, total, lead) {
-  chart(el, w => {
-    const x = trackScale(w, total);
-    const pos = trackPosition(g, total);
-    const H = 36, y = 14, th = 8;
-    const svg = s('svg', { width: w, height: H, viewBox: `0 0 ${w} ${H}`, role: 'img' });
-    const cur = g.current;
-    const about = cur && cur.bestPercent !== null
-      ? tr('lane.progress', { n: g.mythicKills, gone: pct(100 - cur.bestPercent), boss: cur.name })
-      : tr('lane.kills', { n: g.mythicKills });
-    svg.append(svgTitle(tr('lane.title', { guild: g.name, about, pos: num(g.racePosition, 2), total })));
-    svg.append(s('rect', { class: 'svg-track', x: x(0), y, width: x(total) - x(0), height: th }));
-    svg.append(s('rect', {
-      x: x(0), y, width: Math.max(0, x(pos) - x(0)), height: th,
-      fill: colour(g.colour), 'fill-opacity': lead ? '.75' : '.45',
-    }));
-    for (let i = 1; i < total; i++) {
-      svg.append(s('line', { class: 'svg-tick', x1: x(i), x2: x(i), y1: y - 4, y2: y + th + 4 }));
-    }
-    // Finish line: a two-column chequered strip at the CE boss.
-    const fx = x(total);
-    for (let row = 0; row < 8; row++) {
-      for (let col = 0; col < 2; col++) {
-        svg.append(s('rect', {
-          x: fx - 4 + col * 4, y: 2 + row * 4, width: 4, height: 4,
-          class: (row + col) % 2 ? 'svg-chk-dark' : 'svg-chk-light',
-        }));
+/* The signature: one 9-boss scale. Every guild's bar has a segment per boss in
+ * tier order, so bars line up with each other and with the per-boss table. */
+function progressBar(g, data) {
+  const segs = [];
+  for (const raid of data.tier.raids) {
+    for (const boss of raid.bosses) {
+      const b = g.bosses.find(x => x.raid === raid.slug && x.slug === boss.slug);
+      const isCe = raid.slug === data.tier.ceBoss.raid && boss.slug === data.tier.ceBoss.slug;
+      const isCurrent = g.current && g.current.raid === raid.slug && g.current.slug === boss.slug;
+      let cls = 'seg', title = tr('st.seg.open', { boss: boss.name });
+      const seg = h('span', {});
+      if (b && b.state === 'killed') {
+        cls += ' seg--killed';
+        title = tr('st.seg.killed', { boss: boss.name, date: day(b.defeatedAt) });
+      } else if (isCurrent && g.current.bestPercent !== null) {
+        cls += ' seg--current';
+        seg.style.setProperty('--fill', `${100 - g.current.bestPercent}%`);
+        title = tr('st.seg.current', { boss: boss.name, pct: pct(g.current.bestPercent) });
       }
+      if (isCe) cls += ' seg--ce';
+      seg.className = cls;
+      seg.title = title;
+      segs.push(seg);
     }
-    svg.append(s('circle', {
-      cx: x(pos), cy: y + th / 2, r: lead ? 9 : 7.5,
-      fill: colour(g.colour), class: lead ? 'svg-marker svg-marker--lead' : 'svg-marker',
-    }));
-    el.replaceChildren(svg);
-  });
-}
-
-function renderRace(data) {
-  const root = $('#raceTrack');
-  const total = data.tier.totalBosses;
-  const lead = leaderName(data);
-  const axisTrack = h('div', { class: 'lane__track' });
-  root.replaceChildren(h('div', { class: 'lane lane--axis' }, h('div', { class: 'lane__label' }), axisTrack));
-  drawAxis(axisTrack, total, data.tier.ceBoss.name);
-
-  for (const g of data.guilds) {
-    const isLead = g.name === lead;
-    const won = data.winner && data.winner.guild === g.name;
-    const track = h('div', { class: 'lane__track' });
-    const caps = [
-      won || isLead ? h('span', { class: 'rib__cap rib__cap--gold', text: won ? tr('cap.winner') : tr('cap.lead') }) : null,
-      liveBadge(g, 'rib__cap rib__cap--live'),
-    ];
-    const lane = h('div', { class: `lane${isLead ? ' lane--lead' : ''}` },
-      h('div', { class: 'lane__label' }, ribbon({
-        acc: colour(g.colour), accText: String(g.rank), value: g.name,
-        extra: h('span', { class: 'lane__pos mono', text: num(trackPosition(g, total), 2) }),
-        caps, cls: isLead ? 'rib--lead' : '',
-      })),
-      track);
-    root.append(lane);
-    drawLane(track, g, total, isLead);
   }
+  return h('div', {
+    class: 'progress', role: 'img',
+    'aria-label': tr('st.progressAria', { n: g.mythicKills, total: data.tier.totalBosses }),
+  }, ...segs);
 }
 
-/* ---- 2. Klassement --------------------------------------------------------- */
-
-function meter(label, value, total, cls) {
-  const fill = h('span', { class: 'meter__fill' });
-  fill.style.setProperty('--fill', `${total ? (value / total) * 100 : 0}%`);
-  return h('div', { class: `meter ${cls}` },
-    h('span', { class: 'tile__label', text: label }),
-    h('span', {
-      class: 'meter__track', role: 'img', 'aria-label': tr('meter.aria', { label, value, total }),
-    }, fill),
-    h('span', { class: 'meter__value', text: `${value}/${total}` }));
-}
-
-function currentLines(g, data) {
+function currentText(g, data) {
   const cur = g.current;
-  if (data.winner && data.winner.guild === g.name) return [h('p', { class: 'tile__boss', text: tr('tile.ce') })];
-  if (!cur) return [h('p', { class: 'tile__boss', text: tr('tile.done') })];
-  return [
-    h('p', { class: 'tile__boss', text: cur.name }),
-    h('p', {
-      class: 'tile__detail',
-      text: cur.bestPercent === null
-        ? tr('tile.noPulls')
-        : tr('tile.best', { pct: pct(cur.bestPercent), pulls: pulls(cur.pullCount) }),
-    }),
-  ];
+  if (data.winner && data.winner.guild === g.name) return [tr('tile.ce'), ''];
+  if (!cur) return [tr('tile.done'), ''];
+  return [cur.name, cur.bestPercent === null
+    ? tr('tile.noPulls')
+    : tr('tile.best', { pct: pct(cur.bestPercent), pulls: pulls(cur.pullCount) })];
+}
+
+const SORTS = {
+  rank: { label: 'st.col.rank', get: g => g.rank, dir: 1 },
+  guild: { label: 'st.col.guild', get: g => g.name.toLowerCase(), dir: 1 },
+  progress: { label: 'st.col.progress', get: g => trackPosition(g, race.tier.totalBosses), dir: -1 },
+  world: { label: 'st.col.world', get: g => g.worldRank || Infinity, dir: 1 },
+};
+let sortKey = 'rank';
+let sortDir = 1;
+
+function sortHeader(key, cls) {
+  const def = SORTS[key];
+  const active = key === sortKey;
+  const btn = h('button', {
+    type: 'button', class: 'sort', 'data-sort': key,
+    'aria-label': tr('st.sort', { col: tr(def.label) }),
+  }, tr(def.label), h('span', { class: 'sort__icon', 'aria-hidden': 'true' }));
+  btn.addEventListener('click', () => {
+    if (sortKey === key) sortDir = -sortDir;
+    else { sortKey = key; sortDir = def.dir; }
+    renderStandings(race);
+  });
+  return h('th', {
+    scope: 'col', class: cls,
+    'aria-sort': active ? (sortDir === 1 ? 'ascending' : 'descending') : 'none',
+  }, btn);
 }
 
 function renderStandings(data) {
   const lead = leaderName(data);
   const total = data.tier.totalBosses;
-  const items = data.guilds.map(g => {
+  const def = SORTS[sortKey];
+  const rows = [...data.guilds].sort((a, b) => {
+    const x = def.get(a), y = def.get(b);
+    return (x < y ? -1 : x > y ? 1 : a.rank - b.rank) * sortDir;
+  }).map(g => {
     const url = raiderioUrl(g.profileUrl);
     const logs = wclUrl(g.wclUrl);
-    const rank = g.worldRank ? `#${num(g.worldRank)}` : '–';
-    return setGuild(h('li', { class: `tile${g.name === lead ? ' tile--lead' : ''}` },
-      h('div', { class: 'tile__head' },
-        h('span', { class: 'tile__rank', text: String(g.rank), 'aria-label': tr('tile.place', { n: g.rank }) }),
-        h('div', {},
-          h('p', { class: 'tile__name', text: g.name }),
-          h('p', { class: 'tile__realm', text: `${g.realm} · ${g.region}` }))),
-      liveBadge(g, 'live-badge'),
-      meter('Mythic', g.mythicKills, total, 'meter--mythic'),
-      meter('Heroic', Math.min(g.heroicKills, total), total, 'meter--heroic'),
-      h('div', {}, h('p', { class: 'tile__label', text: tr('tile.current') }), ...currentLines(g, data)),
-      h('div', { class: 'tile__foot' },
-        h('span', {}, `${tr('tile.worldRank')} `, h('strong', { text: rank })),
-        h('span', { class: 'tile__links' },
-          url ? h('a', { href: url, rel: 'noopener', text: 'Raider.IO' }) : null,
-          logs ? h('a', { href: logs, rel: 'noopener', text: 'Logs' }) : null))), g);
+    const [curName, curDetail] = currentText(g, data);
+    const isLead = g.name === lead;
+    const chip = h('span', { class: 'chip', 'aria-hidden': 'true' });
+    return setGuild(h('tr', { class: isLead ? 'is-lead' : '' },
+      h('td', { class: 'c-rank mono' },
+        h('span', { text: String(g.rank), 'aria-label': tr('tile.place', { n: g.rank }) })),
+      h('th', { scope: 'row', class: 'c-guild' },
+        h('div', { class: 'guild' }, chip,
+          h('div', { class: 'guild__text' },
+            h('span', { class: 'guild__name', text: g.name }),
+            h('span', { class: 'guild__realm', text: `${g.realm} · ${g.region}` }),
+            h('span', { class: 'guild__cur', text: curDetail ? `${curName} · ${curDetail}` : curName }))),
+        isLead ? h('span', { class: 'lead-tag', text: data.winner ? tr('cap.winner') : tr('cap.lead') }) : null),
+      h('td', { class: 'c-progress' },
+        h('div', { class: 'progress-cell' }, progressBar(g, data),
+          h('span', { class: 'progress-count mono', text: `${g.mythicKills}/${total}` }))),
+      h('td', { class: 'c-current' },
+        h('span', { class: 'cur__name', text: curName }),
+        curDetail ? h('span', { class: 'cur__detail', text: curDetail }) : null),
+      h('td', { class: 'c-world mono', text: g.worldRank ? `#${num(g.worldRank)}` : '–' }),
+      h('td', { class: 'c-status' }, liveBadge(g, 'badge badge--raiding')),
+      h('td', { class: 'c-links' },
+        url ? h('a', { href: url, rel: 'noopener', text: 'Raider.IO' }) : null,
+        logs ? h('a', { href: logs, rel: 'noopener', text: 'Logs' }) : null)), g);
   });
-  const list = $('#standings');
-  // One row on a wide screen: a column per guild, at most 6 (then it wraps).
-  list.style.setProperty('--n', String(Math.min(6, Math.max(1, data.guilds.length))));
-  list.replaceChildren(...items);
+  const head = h('tr', {},
+    sortHeader('rank', 'c-rank'), sortHeader('guild', 'c-guild'), sortHeader('progress', 'c-progress'),
+    h('th', { scope: 'col', class: 'c-current', text: tr('st.col.current') }),
+    sortHeader('world', 'c-world'),
+    h('th', { scope: 'col', class: 'c-status' }, h('span', { class: 'visually-hidden', text: tr('st.col.status') })),
+    h('th', { scope: 'col', class: 'c-links' }, h('span', { class: 'visually-hidden', text: tr('st.col.links') })));
+  $('#standings').replaceChildren(h('thead', {}, head), h('tbody', {}, rows));
 }
 
 /* ---- 3. Laatste kills ---------------------------------------------------------- */
@@ -630,7 +587,7 @@ function renderCurrent(data) {
       return wrap;
     }
     inner.append(h('div', { class: 'boss__stat' },
-      stat(pct(cur.bestPercent), tr('cur.best'), 'gold'),
+      stat(pct(cur.bestPercent), tr('cur.best')),
       stat(pct(100 - cur.bestPercent), tr('cur.gone')),
       stat(num(cur.pullCount), tr('cur.pulls'))));
     const plot = h('div', { class: 'chart curve__plot' });
@@ -676,7 +633,6 @@ function render(data) {
   liveBadges.length = 0;
   renderHeader(data);
   renderWinner(data);
-  renderRace(data);
   renderStandings(data);
   renderFeed(data);
   renderTimeline(data);

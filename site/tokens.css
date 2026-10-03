@@ -1,61 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
 
-:root{
-  /* ---- grond -------------------------------------------------------
-     Vlakke tinten, geen gradients. Een egaal vlak kost na de keyframe
-     bijna geen bitrate; een verloop over 2560px kost 'm elke frame en
-     gaat banden op 8 Mbps. */
-  --ink-900:#0a0b0d;
-  --ink-850:#0e1014;
-  --ink-800:#131519;
-  --ink-750:#171a1f;
-  --ink-700:#1e2228;
-  --ink-600:#2a2f37;
-  --ink-500:#3a414b;
-  --ink-400:#5b6470;
-  --ink-300:#818b98;
-  --ink-200:#a8b1bc;
+/* =====================================================================
+   bmiest design language v2 — tokens
+   Source of truth: Bmiest/bmiest-design. The category standard (a dark
+   data product) at Linear/Vercel finish with Raider.IO's data fluency.
+   Graphite in three steps, hairlines instead of boxes, one sans with its
+   mono sibling, one interaction accent; saturation is reserved for data
+   (guild colours) and for three small states: raiding, on air, winning.
+   ===================================================================== */
 
-  /* Niet puur #fff: puur wit clipt en gaat ringen op de AMF-encoder. */
-  --paper    :#eef1f5;
-  --paper-dim:#c9d0d8;
+:root {
+  color-scheme: dark;
 
-  /* ---- accenten ----------------------------------------------------
-     jade  = Mistweaver Monk (#00ff98) gedempt zodat hij niet bloedt
-     holy  = Priest klassekleur, puur wit, alleen voor lichtaccenten */
-  --jade      :#3fd9a4;
-  --jade-deep :#1f8d68;
-  --jade-ghost:rgba(63,217,164,.13);
-  --holy      :#ffffff;
-  --gold      :#d8b263;
-  --rose      :#d98b8b;
+  /* ---- ground: three steps of graphite, faintly cool ---------------- */
+  --bg:        #0b0c0e;  /* page */
+  --bg-raised: #111317;  /* panels, table header, cards */
+  --bg-hover:  #171a1f;  /* row hover, pressed controls */
+  --bg-inset:  #08090a;  /* chart wells, inputs */
 
-  /* ---- vorm (uit Amused: capsules, pillen, ribbons) ---------------- */
-  --r-cap :30px;
-  --r-pill:999px;
-  --pad   :32px;
-  --gap   :20px;
+  /* ---- hairlines ----------------------------------------------------- */
+  --line:        #1f2228;  /* seams between rows and panels */
+  --line-strong: #2c3038;  /* panel outlines, control borders */
 
-  --f-display:'Outfit','Segoe UI',system-ui,-apple-system,sans-serif;
-  --f-mono   :'JetBrains Mono','Cascadia Mono',Consolas,monospace;
+  /* ---- text ------------------------------------------------------------ */
+  --fg:        #eceef2;  /* primary; never pure white (stream encoders clip it) */
+  --fg-muted:  #a1a7b3;  /* secondary text, table body detail */
+  --fg-subtle: #7f8692;  /* captions, axis labels, disabled */
 
-  /* ---- motion ------------------------------------------------------
-     Kort en lokaal. Doorlopende animatie over de volle breedte trekt
-     bitrate weg bij je gameplay, dus die zit er nergens in. */
-  --t-fast:160ms;
-  --t-med :300ms;
-  --t-slow:420ms;
-  --ease  :cubic-bezier(.22,.61,.36,1);
+  /* ---- interaction ------------------------------------------------------ */
+  --accent:      #8b9cff;  /* links, focus, selected control */
+  --accent-soft: rgba(139, 156, 255, .14);
+
+  /* ---- state (small and exact; never decoration) ----------------------- */
+  --raiding:      #3ddc97;  /* a guild is pulling right now */
+  --raiding-soft: rgba(61, 220, 151, .14);
+  --onair:        #ff5c6c;  /* a channel is live on Twitch */
+  --onair-soft:   rgba(255, 92, 108, .14);
+  --win:          #f2b84b;  /* leader, first kill, Cutting Edge, winner */
+  --win-soft:     rgba(242, 184, 75, .14);
+  --danger:       #ff7a59;  /* errors, always with words */
+
+  /* ---- type -------------------------------------------------------------- */
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 14px;
+  --text-md:   16px;
+  --text-lg:   20px;
+  --text-xl:   28px;
+  --text-2xl:  clamp(28px, 4.2vw, 40px);
+
+  /* ---- space (4px grid) ---------------------------------------------------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px; --s-16: 64px;
+
+  /* ---- shape ------------------------------------------------------------------ */
+  --radius-sm: 4px;   /* chips, bars */
+  --radius:    8px;   /* panels, cards, controls */
+  --radius-pill: 999px;
+
+  /* ---- motion ------------------------------------------------------------------ */
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --t-fast: 120ms;
+  --t-med:  220ms;
+  --t-slow: 420ms;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-body{
-  font-family:var(--f-display);
-  color:var(--paper);
-  -webkit-font-smoothing:antialiased;
-  overflow:hidden;
-}
-
-.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.u    {text-transform:uppercase;letter-spacing:.14em}
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
