@@ -27,6 +27,8 @@
 }
 .sp__end { display: flex; align-items: center; gap: 14px; }
 .sp__upd { font-size: 13px; color: var(--ink-200); white-space: nowrap; }
+.sp__live { color: var(--ink-900); background: var(--jade); }
+.sp__live .live-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: var(--r-pill); background: var(--ink-900); animation: live-pulse 1.6s var(--ease) infinite; }
 .sp__upd.updated--late { color: var(--rose); }
 
 /* ---- stage ----------------------------------------------------------------- */

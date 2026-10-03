@@ -202,6 +202,8 @@ function renderHero(data) {
   const total = data.tier.totalBosses;
   const lead = leaderName(data);
   const g = data.guilds.find(x => x.name === lead);
+  // LIVE only while a guild is really raiding (same rule as the per-guild badges).
+  $('#bugLive').hidden = !data.guilds.some(x => liveState(x, data) === 'live');
   const cur = g && g.current;
   const bossName = data.winner ? data.tier.ceBoss.name : cur ? cur.name : null;
 
