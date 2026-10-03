@@ -40,7 +40,7 @@ def test_recorded_answers(config):
     assert diigii["startedAt"] == "2026-10-03T14:22:29Z"
     assert diigii["shown"] is False  # live, but not in World of Warcraft
     assert _ch(out, "bmiest")["live"] is False and _ch(out, "bmiest")["guild"] == "Kelderklasse"
-    assert _ch(out, "rughaar")["guild"] is None
+    assert _ch(out, "rughaar")["guild"] == "Kelderklasse"
 
 
 def test_offline_channels_cost_one_request(config):

@@ -87,6 +87,7 @@ guild = "Kelderklasse"
 
 [[streams.channels]]
 twitch = "rughaar"
+guild = "Kelderklasse"
 
 [[streams.channels]]
 twitch = "diigii"
