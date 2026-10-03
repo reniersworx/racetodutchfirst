@@ -10,16 +10,17 @@
 }
 .hof-boss__top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-2); }
 .hof-boss__name { font-size: var(--text-md); font-weight: 600; letter-spacing: -.01em; line-height: 1.2; color: var(--fg); }
+.hof-boss__label::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 5px; vertical-align: -1px; border-radius: 1px; background: radial-gradient(var(--polka-red) 30%, transparent 32%) 0 0 / 4px 4px, var(--polka-white); }
 .hof-boss__label {
   align-self: flex-start; flex: 0 0 auto; padding: 1px 6px; font-size: 10px; font-weight: 600;
-  color: var(--win); background: var(--win-soft); border-radius: var(--radius-sm);
+  color: var(--bg); background-color: var(--polka-white); border-radius: var(--radius-sm);
 }
 
 .hof-team { display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-3) 0; border-top: 1px solid var(--line); }
 .hof-team:first-of-type { border-top: 0; padding-top: 0; }
 .hof-team__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1) var(--s-3); }
 .hof-team__guild { display: inline-flex; align-items: center; gap: var(--s-2); font-weight: 600; color: var(--fg); }
-.hof-team__when { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--fg-muted); }
+.hof-team__when { font-family: var(--font); font-size: var(--text-xs); color: var(--fg-muted); }
 .hof-team__pulls { font-size: var(--text-xs); color: var(--fg-subtle); }
 
 .hof-roster { display: flex; flex-direction: column; gap: var(--s-2); }
@@ -47,14 +48,14 @@
 .hof-table tbody th a:hover { color: var(--accent); }
 .hof-realm { margin-left: var(--s-2); font-size: var(--text-xs); font-weight: 400; color: var(--fg-subtle); }
 .hof-table .dot { margin-right: 6px; }
-.hof-num { font-family: var(--font-mono); text-align: right; color: var(--fg-muted); }
-thead .hof-num { font-family: var(--font-sans); }
+.hof-num { font-family: var(--font); text-align: right; color: var(--fg-muted); }
+thead .hof-num { font-family: var(--font); }
 .hof-firsts { color: var(--fg-subtle); }
-.hof-row--first .hof-firsts { color: var(--win); }
+.hof-row--first .hof-firsts { color: var(--fg); font-weight: 700; }
 
 .hof-more { margin-top: var(--s-3); }
 .hof-more .pill {
-  font: 500 var(--text-sm)/1 var(--font-sans); cursor: pointer; padding: 8px 12px;
+  font: 500 var(--text-sm)/1 var(--font); cursor: pointer; padding: 8px 12px;
   color: var(--fg); background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: var(--radius);
   transition: background var(--t-fast) var(--ease-out);
 }

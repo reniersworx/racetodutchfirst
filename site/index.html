@@ -58,6 +58,15 @@
   <div class="layout">
     <div class="layout__main">
 
+      <section class="view" aria-labelledby="profileHeading">
+        <div class="view__head">
+          <h2 id="profileHeading" class="view__title" data-i18n="parcours.h">Het parcours</h2>
+          <p class="section-caption" data-i18n="parcours.cap">De race als één bergrit: elke guild rijdt op dezelfde weg, één kilometerpaal per Mythic-kill, met de Cutting Edge-boss als finish op de top. Hoe steiler de klim, hoe meer pulls die kill de guilds kostte.</p>
+        </div>
+        <div id="profile" class="chart profile-chart panel"></div>
+        <ul id="profileKey" class="profile-key"></ul>
+      </section>
+
       <section class="view" aria-labelledby="standingsHeading">
         <div class="view__head">
           <h2 id="standingsHeading" class="view__title" data-i18n="standings.h">Klassement</h2>
@@ -113,7 +122,7 @@
       <section class="view" aria-labelledby="feedHeading">
         <div class="view__head">
           <h2 id="feedHeading" class="view__title" data-i18n="feed.h">Laatste kills</h2>
-          <p class="section-caption" data-i18n="feed.cap">De nieuwste Mythic-kills van alle guilds. Een ster is de eerste kill van die boss hier.</p>
+          <p class="section-caption" data-i18n="feed.cap">De nieuwste Mythic-kills van alle guilds. Een bolletjesvlak is de eerste kill van die boss in de race.</p>
         </div>
         <ol id="killFeed" class="feed panel"></ol>
       </section>

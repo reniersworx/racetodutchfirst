@@ -182,6 +182,113 @@ function renderWinner(data) {
   box.hidden = false;
 }
 
+/* ---- 0. Het parcours (the signature) ------------------------------------------------ */
+
+/* The race as one mountain stage. x = number of Mythic kills (kill order differs per guild,
+ * so the road counts kills, not bosses); each climb is as steep as the median pulls the
+ * guilds needed for that kill. Climbs nobody has made yet use the average, drawn dashed. */
+function climbs(data) {
+  const total = data.tier.totalBosses;
+  const per = Array.from({ length: total }, () => []);
+  for (const g of data.guilds) {
+    killsOf(g).forEach((k, i) => { if (i < total && k.pullCount) per[i].push(k.pullCount); });
+  }
+  const med = list => { const a = [...list].sort((x, y) => x - y); const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+  const known = per.map(l => (l.length ? med(l) : null));
+  const seen = known.filter(v => v !== null);
+  const avg = seen.length ? seen.reduce((a, b) => a + b, 0) / seen.length : 10;
+  return known.map(v => ({ pulls: v, steep: Math.log2(1 + (v === null ? avg : v)), known: v !== null }));
+}
+
+function drawProfile(el, data) {
+  chart(el, w => {
+    const total = data.tier.totalBosses;
+    const narrow = w < 560;
+    const H = narrow ? 210 : 260;
+    const m = { l: 8, r: narrow ? 30 : 44, t: 58, b: 34 };
+    const segs = climbs(data);
+    const heights = [0];
+    segs.forEach(c => heights.push(heights[heights.length - 1] + c.steep));
+    const top = heights[heights.length - 1] || 1;
+    const x = k => m.l + (k / total) * (w - m.l - m.r);
+    const y = k => H - m.b - (k / top) * (H - m.b - m.t);
+    const at = pos => { // road height at a fractional race position
+      const i = Math.min(total - 1, Math.floor(pos));
+      return heights[i] + (heights[i + 1] - heights[i]) * (pos - i);
+    };
+    const svg = s('svg', { viewBox: `0 0 ${w} ${H}`, role: 'img', 'aria-label': tr('parcours.aria', { n: total }) });
+
+    // Mountain: one flat silhouette, the road as a 2px line, dashed where nobody has been.
+    let area = `M${x(0)},${H - m.b}`;
+    heights.forEach((hgt, k) => { area += ` L${x(k)},${y(hgt)}`; });
+    area += ` L${x(total)},${H - m.b} Z`;
+    svg.append(s('path', { d: area, class: 'pf-mass' }));
+    segs.forEach((c, k) => {
+      svg.append(s('line', {
+        x1: x(k), y1: y(heights[k]), x2: x(k + 1), y2: y(heights[k + 1]),
+        class: c.known ? 'pf-road' : 'pf-road pf-road--unknown',
+      }, svgTitle(c.known ? tr('parcours.climb', { n: k + 1, pulls: num(c.pulls) }) : tr('parcours.climbUnknown', { n: k + 1 }))));
+    });
+    // Kilometre markers: kill 1..n along the base, the finish at the top.
+    for (let k = 1; k <= total; k++) {
+      svg.append(s('line', { x1: x(k), x2: x(k), y1: y(heights[k]) + 3, y2: H - m.b, class: 'pf-mark' }));
+      svg.append(s('text', { x: x(k), y: H - m.b + 18, 'text-anchor': 'middle', class: 'pf-km', text: k === total ? 'CE' : String(k) }));
+    }
+    svg.append(s('text', { x: x(0), y: H - m.b + 18, class: 'pf-km', text: '0' }));
+    const fx = x(total), fy = y(top);
+    svg.append(s('line', { x1: fx, x2: fx, y1: fy, y2: fy - 34, class: 'pf-finish' }));
+    svg.append(s('rect', { x: fx - 1, y: fy - 34, width: 4, height: 34, class: 'pf-finish-band' }));
+    svg.append(s('text', { x: fx - 8, y: fy - 40, 'text-anchor': 'end', class: 'pf-finish-label', text: tr('parcours.finish', { boss: data.tier.ceBoss.name }) }));
+
+    // Riders: every guild on the road at its race position; equal spots stack upward.
+    const lead = leaderName(data);
+    const placed = [];
+    [...data.guilds].sort((a, b) => b.rank - a.rank).forEach(g => {
+      const pos = trackPosition(g, total);
+      const cx = x(pos), cy = y(at(pos));
+      const stack = placed.filter(p => Math.abs(p - cx) < 26).length;
+      placed.push(cx);
+      const lift = 16 + stack * 22;
+      const grp = s('g', { class: `pf-rider${g.name === lead ? ' pf-rider--lead' : ''}` });
+      grp.style.setProperty('--guild', colour(g.colour));
+      grp.append(
+        s('line', { x1: cx, x2: cx, y1: cy, y2: cy - lift + 9, class: 'pf-stem' }),
+        s('circle', { cx, cy, r: 4.5, class: 'pf-dot' }),
+        s('rect', { x: cx - 11, y: cy - lift - 9, width: 22, height: 18, rx: 2, class: 'pf-bib' }),
+        s('text', { x: cx, y: cy - lift + 4.5, 'text-anchor': 'middle', class: 'pf-bib-num', text: String(g.rank) }),
+        svgTitle(tr('parcours.rider', { guild: g.name, pos: num(pos, 2) })));
+      svg.append(grp);
+    });
+    el.replaceChildren(svg);
+  });
+}
+
+function renderProfile(data) {
+  drawProfile($('#profile'), data);
+  const lead = leaderName(data);
+  $('#profileKey').replaceChildren(...data.guilds.map(g => setGuild(h('li', { class: g.name === lead ? 'is-lead' : '' },
+    h('span', { class: 'pf-key-bib num', text: String(g.rank) }), g.name), g)));
+}
+
+/* Jerseys, drawn: yellow for the leader, polka dots for the most race-first kills. */
+function jersey(kind, label) {
+  const svg = s('svg', { class: `jersey jersey--${kind}`, viewBox: '0 0 20 20', role: 'img', 'aria-label': label },
+    s('title', { text: label }),
+    s('path', { d: 'M7 2.5 3 4.5 1.5 9l3 1.2 1-2.4V18h9V7.8l1 2.4 3-1.2L17 4.5l-4-2c-.4 1.3-1.6 2.2-3 2.2s-2.6-.9-3-2.2Z', class: 'jersey__body' }));
+  if (kind === 'polka') {
+    for (const [cx, cy] of [[8, 8], [12, 11], [8, 14], [12.5, 15.5], [5.5, 11], [14.5, 7.5]]) svg.append(s('circle', { cx, cy, r: 1.15, class: 'jersey__dot' }));
+  }
+  return svg;
+}
+
+function firstKillCounts(data) {
+  const counts = new Map();
+  for (const raid of data.tier.raids) for (const b of raid.bosses) {
+    if (b.firstKill) counts.set(b.firstKill.guild, (counts.get(b.firstKill.guild) || 0) + 1);
+  }
+  return counts;
+}
+
 /* ---- 1. Klassement ------------------------------------------------------------ */
 
 /* The signature: one 9-boss scale. Every guild's bar has a segment per boss in
@@ -255,6 +362,11 @@ function renderStandings(data) {
   const lead = leaderName(data);
   const total = data.tier.totalBosses;
   const def = SORTS[sortKey];
+  const leadGuild = data.guilds.find(x => x.name === lead);
+  const leadPos = leadGuild ? trackPosition(leadGuild, total) : 0;
+  const firsts = firstKillCounts(data);
+  const topFirsts = Math.max(0, ...firsts.values());
+  const polkaGuild = topFirsts ? [...firsts.entries()].find(([, n]) => n === topFirsts)[0] : null;
   const rows = [...data.guilds].sort((a, b) => {
     const x = def.get(a), y = def.get(b);
     return (x < y ? -1 : x > y ? 1 : a.rank - b.rank) * sortDir;
@@ -264,6 +376,11 @@ function renderStandings(data) {
     const [curName, curDetail] = currentText(g, data);
     const isLead = g.name === lead;
     const chip = h('span', { class: 'chip', 'aria-hidden': 'true' });
+    const pos = trackPosition(g, total);
+    const gap = leadPos - pos;
+    const jerseys = h('span', { class: 'jerseys' },
+      isLead ? jersey('yellow', tr(data.winner ? 'jersey.winner' : 'jersey.yellow')) : null,
+      polkaGuild === g.name ? jersey('polka', tr('jersey.polka', { n: firsts.get(g.name) })) : null);
     return setGuild(h('tr', { class: isLead ? 'is-lead' : '' },
       h('td', { class: 'c-rank mono' },
         h('span', { text: String(g.rank), 'aria-label': tr('tile.place', { n: g.rank }) })),
@@ -273,10 +390,11 @@ function renderStandings(data) {
             h('span', { class: 'guild__name', text: g.name }),
             h('span', { class: 'guild__realm', text: `${g.realm} · ${g.region}` }),
             h('span', { class: 'guild__cur', text: curDetail ? `${curName} · ${curDetail}` : curName }))),
-        isLead ? h('span', { class: 'lead-tag', text: data.winner ? tr('cap.winner') : tr('cap.lead') }) : null),
+        jerseys),
       h('td', { class: 'c-progress' },
         h('div', { class: 'progress-cell' }, progressBar(g, data),
           h('span', { class: 'progress-count mono', text: `${g.mythicKills}/${total}` }))),
+      h('td', { class: 'c-gap num', text: gap > 0.005 ? `+${num(gap, 2)}` : tr('st.gap.lead') }),
       h('td', { class: 'c-current' },
         h('span', { class: 'cur__name', text: curName }),
         curDetail ? h('span', { class: 'cur__detail', text: curDetail }) : null),
@@ -288,6 +406,7 @@ function renderStandings(data) {
   });
   const head = h('tr', {},
     sortHeader('rank', 'c-rank'), sortHeader('guild', 'c-guild'), sortHeader('progress', 'c-progress'),
+    h('th', { scope: 'col', class: 'c-gap', text: tr('st.col.gap') }),
     h('th', { scope: 'col', class: 'c-current', text: tr('st.col.current') }),
     sortHeader('world', 'c-world'),
     h('th', { scope: 'col', class: 'c-status' }, h('span', { class: 'visually-hidden', text: tr('st.col.status') })),
@@ -321,7 +440,7 @@ function renderFeed(data) {
         h('span', { class: 'feed__time', text: clock(k.iso) })),
       h('div', { class: 'feed__what' },
         h('p', { class: 'feed__boss' },
-          first ? h('span', { class: 'feed__star', title: tr('feed.first'), 'aria-label': tr('feed.first'), text: '★' }) : null,
+          first ? h('span', { class: 'feed__star polka', title: tr('feed.first'), role: 'img', 'aria-label': tr('feed.first') }) : null,
           k.name,
           isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
         h('p', { class: 'feed__guild' }, h('span', { class: 'dot', 'aria-hidden': 'true' }), k.g.name)),
@@ -633,6 +752,7 @@ function render(data) {
   liveBadges.length = 0;
   renderHeader(data);
   renderWinner(data);
+  renderProfile(data);
   renderStandings(data);
   renderFeed(data);
   renderTimeline(data);

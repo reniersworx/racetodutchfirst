@@ -1,25 +1,25 @@
 /* The share image (og.png): 1200 x 630, drawn by og.js from data/race.json.
    Same tokens as the page (design language v2): graphite panels, rounded
    corners, guild colour for data, amber only for the leader and the CE boss. */
-html, body { width: 1200px; height: 630px; background: var(--bg); color: var(--fg); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+html, body { width: 1200px; height: 630px; background: var(--bg); color: var(--fg); font-family: var(--font); -webkit-font-smoothing: antialiased; }
 .og {
   width: 1200px; height: 630px; padding: 46px 60px 42px;
   display: flex; flex-direction: column; gap: 20px;
 }
 .og__top { display: flex; align-items: center; justify-content: space-between; }
 .og__brand { display: flex; align-items: center; height: 40px; gap: 12px; }
-.og__flag { width: 40px; height: 40px; display: grid; place-items: center; color: var(--win);
+.og__flag { width: 40px; height: 40px; display: grid; place-items: center; color: var(--fg);
   background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: var(--radius); }
 .og__flag svg { width: 17px; height: 17px; }
-.og__brandname { font-size: 20px; font-weight: 600; color: var(--fg); }
-.og__url { font-family: var(--font-mono); font-size: 17px; color: var(--fg-subtle); }
-.og__title { font-size: 50px; font-weight: 600; line-height: 1.05; letter-spacing: -.03em; color: var(--fg); }
-.og__title--won { color: var(--win); }
+.og__brandname { font-size: 22px; font-weight: 800; font-stretch: var(--w-condensed); text-transform: uppercase; letter-spacing: .02em; font-weight: 600; color: var(--fg); }
+.og__url { font-family: var(--font); font-size: 17px; color: var(--fg-subtle); }
+.og__title { font-size: 66px; font-weight: 850; font-stretch: var(--w-condensed); font-style: italic; text-transform: uppercase; line-height: .95; letter-spacing: -.01em; color: var(--fg); }
+.og__title--won { color: var(--yellow); }
 
 .og__rows { list-style: none; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
 .og__row { display: grid; grid-template-columns: 44px 300px minmax(0, 1fr) 92px; align-items: center; gap: 18px; height: 52px; }
 .og__rank { height: 44px; display: grid; place-items: center; background: var(--guild); color: var(--bg);
-  font-family: var(--font-mono); font-size: 22px; font-weight: 600; border-radius: var(--radius); }
+  font-family: var(--font); font-size: 22px; font-weight: 600; border-radius: var(--radius); }
 .og__name { min-width: 0; }
 .og__guild { font-size: 25px; font-weight: 600; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .og__boss { font-size: 15px; color: var(--fg-subtle); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -27,16 +27,19 @@ html, body { width: 1200px; height: 630px; background: var(--bg); color: var(--f
 .og__fill { position: absolute; inset: 0 auto 0 0; border-radius: 3px; width: var(--pos); background: var(--guild); opacity: .6; }
 .og__dot { position: absolute; top: 50%; left: var(--pos); width: 18px; height: 18px; margin: -9px 0 0 -9px;
   border-radius: var(--radius-pill); background: var(--guild); border: 2px solid var(--bg); }
-.og__row--lead .og__dot { border-color: var(--win); width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+.og__row--lead .og__dot { border-color: var(--yellow); width: 22px; height: 22px; margin: -11px 0 0 -11px; }
 .og__row--lead .og__fill { opacity: .85; }
 .og__finish { position: absolute; right: -2px; top: -9px; width: 8px; height: 28px;
   background: repeating-conic-gradient(var(--fg-muted) 0 25%, var(--bg) 0 50%) 0 0 / 8px 8px; }
-.og__kills { font-family: var(--font-mono); font-size: 24px; color: var(--fg); text-align: right; }
+.og__kills { font-family: var(--font); font-size: 24px; color: var(--fg); text-align: right; }
 .og__kills small { font-size: 15px; color: var(--fg-subtle); margin-left: 3px; }
-.og__row--lead .og__kills { color: var(--win); }
+.og__row--lead .og__kills { color: var(--yellow); }
+.og__row--lead .og__rank { background: var(--yellow); color: var(--yellow-ink); }
+.og__rank { font-family: var(--font); font-weight: 800; font-stretch: var(--w-condensed); }
+.og__kills { font-weight: 800; font-stretch: var(--w-condensed); }
 
 .og__foot { display: flex; align-items: center; justify-content: space-between; }
 .og__pill { padding: 7px 12px; font-size: 15px; font-weight: 600;
   background: var(--bg-hover); border-radius: var(--radius); }
-.og__pill--win { color: var(--win); background: var(--win-soft); }
+.og__pill--win { color: var(--yellow); background: var(--yellow-soft); }
 .og__updated { font-size: 16px; color: var(--fg-subtle); }

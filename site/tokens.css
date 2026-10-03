@@ -1,73 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap');
 
 /* =====================================================================
-   bmiest design language v2 — tokens
-   Source of truth: Bmiest/bmiest-design. The category standard (a dark
-   data product) at Linear/Vercel finish with Raider.IO's data fluency.
-   Graphite in three steps, hairlines instead of boxes, one sans with its
-   mono sibling, one interaction accent; saturation is reserved for data
-   (guild colours) and for three small states: raiding, on air, winning.
+   Race to Dutch First — design language v2, "Het Klassement"
+   Grand Tour graphics lending four things to a working data product:
+   type (Archivo across its widths: condensed bold for headings, ranks and
+   gaps), palette (night asphalt, race-day white, maillot-jaune yellow,
+   polka dots), density (timing-graphic rows and 2px rules) and one move
+   (the stage profile). Layout and controls stay standard web.
+   Yellow = leader / winner only. Polka dots = race-first kills only.
+   Guild colours are the riders.
    ===================================================================== */
 
 :root {
   color-scheme: dark;
 
-  /* ---- ground: three steps of graphite, faintly cool ---------------- */
-  --bg:        #0b0c0e;  /* page */
-  --bg-raised: #111317;  /* panels, table header, cards */
-  --bg-hover:  #171a1f;  /* row hover, pressed controls */
-  --bg-inset:  #08090a;  /* chart wells, inputs */
+  /* ---- ground: night asphalt, blue-black ------------------------------ */
+  --bg:        #0a1018;
+  --bg-raised: #101924;
+  --bg-hover:  #172331;
+  --bg-inset:  #070b11;
 
-  /* ---- hairlines ----------------------------------------------------- */
-  --line:        #1f2228;  /* seams between rows and panels */
-  --line-strong: #2c3038;  /* panel outlines, control borders */
+  /* ---- rules ------------------------------------------------------------ */
+  --line:        #1c2836;
+  --line-strong: #2a394b;
+  --rule:        2px;      /* timing-graphic rule weight */
 
-  /* ---- text ------------------------------------------------------------ */
-  --fg:        #eceef2;  /* primary; never pure white (stream encoders clip it) */
-  --fg-muted:  #a1a7b3;  /* secondary text, table body detail */
-  --fg-subtle: #7f8692;  /* captions, axis labels, disabled */
+  /* ---- type colours -------------------------------------------------------- */
+  --fg:        #f3f1ea;    /* race-day white, never pure #fff */
+  --fg-muted:  #b6bfce;
+  --fg-subtle: #8a95a8;
 
-  /* ---- interaction ------------------------------------------------------ */
-  --accent:      #8b9cff;  /* links, focus, selected control */
-  --accent-soft: rgba(139, 156, 255, .14);
+  /* ---- jerseys -------------------------------------------------------------- */
+  --yellow:     #ffd400;   /* maillot jaune: the leader, the winner */
+  --yellow-ink: #14110a;   /* text set on yellow */
+  --yellow-soft: rgba(255, 212, 0, .12);
+  --polka-red:  #e4002b;   /* bolletjes: race-first kills */
+  --polka-white:#f6f4ee;
 
-  /* ---- state (small and exact; never decoration) ----------------------- */
-  --raiding:      #3ddc97;  /* a guild is pulling right now */
-  --raiding-soft: rgba(61, 220, 151, .14);
-  --onair:        #ff5c6c;  /* a channel is live on Twitch */
-  --onair-soft:   rgba(255, 92, 108, .14);
-  --win:          #f2b84b;  /* leader, first kill, Cutting Edge, winner */
-  --win-soft:     rgba(242, 184, 75, .14);
-  --danger:       #ff7a59;  /* errors, always with words */
+  /* ---- states ---------------------------------------------------------------- */
+  --raiding:      #19c37d; /* a guild is pulling right now */
+  --raiding-soft: rgba(25, 195, 125, .14);
+  --onair:        #ff5a6a; /* a channel is live on Twitch */
+  --onair-soft:   rgba(255, 90, 106, .14);
+  --danger:       #ff7a59; /* errors, always with words */
 
-  /* ---- type -------------------------------------------------------------- */
-  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  /* ---- interaction ------------------------------------------------------------- */
+  --accent:      #7cc4ff;  /* links, focus, selected control */
+  --accent-soft: rgba(124, 196, 255, .14);
 
-  --text-xs:   11px;
+  /* ---- type ---------------------------------------------------------------------- */
+  --font: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --w-condensed: 68%;      /* headings, ranks, gaps, column heads */
+  --w-semi: 82%;
+  --w-normal: 100%;
+
+  --text-xs:   12px;
   --text-sm:   13px;
-  --text-base: 14px;
-  --text-md:   16px;
-  --text-lg:   20px;
-  --text-xl:   28px;
-  --text-2xl:  clamp(28px, 4.2vw, 40px);
+  --text-base: 15px;
+  --text-md:   17px;
+  --text-lg:   22px;
+  --text-xl:   34px;
+  --text-2xl:  clamp(38px, 6.4vw, 72px);
 
-  /* ---- space (4px grid) ---------------------------------------------------- */
+  /* ---- space (4px grid) ---------------------------------------------------------------- */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
   --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px; --s-16: 64px;
 
-  /* ---- shape ------------------------------------------------------------------ */
-  --radius-sm: 4px;   /* chips, bars */
-  --radius:    8px;   /* panels, cards, controls */
+  /* ---- shape ------------------------------------------------------------------------------ */
+  --radius-sm: 2px;
+  --radius:    4px;
   --radius-pill: 999px;
 
-  /* ---- motion ------------------------------------------------------------------ */
+  /* ---- motion ---------------------------------------------------------------------------- */
   --ease-out: cubic-bezier(.16, 1, .3, 1);
   --t-fast: 120ms;
-  --t-med:  220ms;
-  --t-slow: 420ms;
+  --t-med:  240ms;
+  --t-slow: 600ms;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.mono, .num { font-variant-numeric: tabular-nums; }
+.cond { font-stretch: var(--w-condensed); }
+
+/* Polka dots: the race-first-kill mark, red on white. */
+.polka {
+  background-color: var(--polka-white);
+  background-image: radial-gradient(var(--polka-red) 28%, transparent 30%);
+  background-size: 6px 6px;
+}

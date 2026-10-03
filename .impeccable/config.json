@@ -8,6 +8,33 @@
         "value": "geist",
         "createdAt": "2026-10-03T17:46:45.374Z",
         "reason": "model decided: the user set Linear/Vercel as the v2 craft bar (canon direction, 2026-10-03); Geist is Vercel's own UI face"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "site/tokens.css"
+        ],
+        "createdAt": "2026-10-03T17:59:31.237Z",
+        "reason": "model decided: tiled polka-dot pattern (4-6px tiles) marking race-first kills, not a halo"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "site/style.css"
+        ],
+        "createdAt": "2026-10-03T17:59:31.250Z",
+        "reason": "model decided: tiled polka-dot pattern (4-6px tiles) marking race-first kills, not a halo"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "site/halloffame.css"
+        ],
+        "createdAt": "2026-10-03T17:59:31.262Z",
+        "reason": "model decided: tiled polka-dot pattern (4-6px tiles) marking race-first kills, not a halo"
       }
     ]
   }

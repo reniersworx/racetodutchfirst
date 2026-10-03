@@ -7,31 +7,30 @@ related_targets: []
 
 ## Scope
 
-Race to Dutch First, the whole page (`site/index.html` with `style.css`, `app.js`, `halloffame.*`, `live.js`). First surface of the shared design language v2 (`Bmiest/bmiest-design`). Mode: Operate. Brand-neutral: no bmiest branding.
+Race to Dutch First, the whole page (`site/index.html` with `style.css`, `halloffame.css`, `og.*`, `app.js`). First surface of design language v2. Mode: Operate. Brand-neutral: no bmiest branding.
 
 ## Audience and task
 
-Dutch raiders and the wider Dutch WoW community, mostly on a phone or a second monitor around raid nights. Task: see who leads, by how much, who is raiding or live now; then dig into bosses, history and the hall of fame. Constraints: NL + EN for every string (Dutch default), live data honest about source and freshness.
+Dutch raiders and the wider Dutch WoW community, mostly on a phone or a second monitor around raid nights. Task: see who leads, by how much and who is raiding or live now; then dig into bosses, history and the hall of fame. Constraints: NL + EN for every string (Dutch default); live data honest about source and freshness. Not a sports or betting site.
 
 ## Direction contract
 
-THESIS: The category standard, executed at Linear/Vercel craft with Raider.IO's data fluency: a dark, dense, precise data product a Raider.IO user reads without learning anything. It refuses the category's half-finish: uneven spacing, decorative ribbons and cut corners, charts that each speak their own visual language.
+THESIS: The race read as a Grand Tour: a general classification with gaps, jerseys and a stage profile, run as a precise working data product. It refuses the generic dark dashboard (graphite, indigo accent, Geist) that the first v2 attempt became.
 
-OWN-WORLD: Graphite ground in three tonal steps, sections divided by 1px hairline seams instead of boxed tiles, one sans and its mono sibling with tabular figures, a single neutral interaction accent, guild colours as the only saturated data series, small exact state colours (raiding, on air, winning), modest uniform radii. No ribbons, no slanted pills, no cut corners.
+OWN-WORLD: Night-asphalt ground (deep blue-black, not graphite) with race-day white type; maillot-jaune yellow only for the leader and the winner; polka dots (red on white) only for race-first kills; Archivo across its widths, condensed bold uppercase for headings, ranks and gaps, normal width for reading; tabular figures; 2px timing-graphic rules and near-square corners. Guild colours are the riders.
 
-STORY: Within a second the visitor knows the leader, the gap and who is raiding now; then they scan the standings, open a boss or a guild, check the hall of fame, and leave trusting the numbers because source and update time sit next to them.
+STORY: In one look the visitor sees who wears yellow, every guild's gap to the leader and where each one stands on the climb; then they scan the classification, open bosses, history and the hall of fame, and trust it because source and update time sit beside the numbers.
 
-FIRST VIEWPORT: A slim top bar: product name, tier label (The Venomous Abyss · Mythic, CE boss), NL|EN switch, update time with a freshness dot. Under it, the standings table is the hero: rank, guild with colour chip, a 9-segment progress bar (killed bosses filled, current boss partially filled to its best %), best %, pulls, world rank, live state; sortable headers. At desktop width a right column holds Latest kills and Nu live. The race chart follows directly below on the same 9-boss scale.
+FIRST VIEWPORT: The slim top bar (name, tier, update time, NL|EN). Then "Het parcours": the tier drawn as a stage profile across the content width, one col per boss, each climb as steep as the pulls its first kill cost, the CE boss as the summit finish; every guild a numbered rider on the road at its race position. Directly below, the general classification table: rank, jersey, guild, kills, gap to the leader in condensed figures, current boss, world rank, status. Side column: latest kills and Nu live.
 
-FORM: The category standard (canon card), chosen over the assigned "Het Raster" and the pick "Het Klassement"; seed key 837f26aa. Quality bar: Linear, Vercel, Raider.IO.
+FORM: Het Klassement (Tour de France graphics), the IMPECCABLE'S PICK card, rank 1 of the seven grounded candidates; chosen after the category standard was built and rejected; seed key 837f26aa.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Signature move
 
-One 9-boss scale shared by every view: the progress bars, the race chart, the per-boss table and the boss cards all align to the same nine boss positions.
+The stage profile: the race drawn as one mountain stage, guilds as riders on the same road.
 
 ## Unresolved
 
-- Exact type family (a workhorse UI sans with a mono sibling; decided at build).
-- How much of today's section order survives.
+- Bosses no guild has killed yet have no pull count, so their climb is drawn at the average steepness, dashed.
