@@ -15,6 +15,8 @@ from racetodutchfirst.raiderio import RaiderIO, fixture_name
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = Path(__file__).parent / "fixtures" / "raiderio"
+# Season 1 (archived), recorded 2026-10-04 with --tier seasons/season-1.toml --record.
+FIXTURES_S1 = Path(__file__).parent / "fixtures" / "raiderio-s1"
 
 
 class Response:
@@ -30,16 +32,18 @@ class Response:
 class FixtureHTTP:
     """Answers each URL from its recorded fixture; overrides win. Unknown URL = test failure."""
 
-    def __init__(self, overrides: dict[str, object] | None = None) -> None:
+    def __init__(self, overrides: dict[str, object] | None = None,
+                 directory: Path = FIXTURES) -> None:
         self.urls: list[str] = []
         self.overrides = overrides or {}
+        self.directory = directory
 
     def get(self, url: str) -> Response:
         self.urls.append(url)
         name = fixture_name(url)
         if name in self.overrides:
             return Response(200, self.overrides[name])
-        path = FIXTURES / name
+        path = self.directory / name
         if not path.exists():
             raise AssertionError(f"request without a fixture: {url} ({name})")
         return Response(200, json.loads(path.read_text()))

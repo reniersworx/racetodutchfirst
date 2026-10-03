@@ -1,0 +1,433 @@
+{
+ "kill": {
+  "pulledAt": "2026-05-25T18:29:04.453Z",
+  "defeatedAt": "2026-05-25T18:36:55.944Z",
+  "durationMs": 471567,
+  "isSuccess": true,
+  "itemLevelEquippedAvg": 288.941,
+  "itemLevelEquippedMax": 290.375,
+  "itemLevelEquippedMin": 284.938
+ },
+ "roster": [
+  {
+   "character": {
+    "name": "Dagame",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Mage",
+     "slug": "mage"
+    },
+    "spec": {
+     "name": "Frost",
+     "slug": "frost",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Zivione",
+    "realm": {
+     "name": "Ravencrest",
+     "slug": "ravencrest"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Mage",
+     "slug": "mage"
+    },
+    "spec": {
+     "name": "Frost",
+     "slug": "frost",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Anarionn",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Paladin",
+     "slug": "paladin"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Nieki",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Paladin",
+     "slug": "paladin"
+    },
+    "spec": {
+     "name": "Retribution",
+     "slug": "retribution",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Zydell",
+    "realm": {
+     "name": "Stormscale",
+     "slug": "stormscale"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warrior",
+     "slug": "warrior"
+    },
+    "spec": {
+     "name": "Arms",
+     "slug": "arms",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Kirstie",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warrior",
+     "slug": "warrior"
+    },
+    "spec": {
+     "name": "Fury",
+     "slug": "fury",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Ominous",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Druid",
+     "slug": "druid"
+    },
+    "spec": {
+     "name": "Restoration",
+     "slug": "restoration",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Bevrorenziel",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Death Knight",
+     "slug": "death-knight"
+    },
+    "spec": {
+     "name": "Blood",
+     "slug": "blood",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Oríani",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Beast Mastery",
+     "slug": "beast-mastery",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Vehiron",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Marksmanship",
+     "slug": "marksmanship",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Quickeye",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Marksmanship",
+     "slug": "marksmanship",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Nckerino",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Discipline",
+     "slug": "discipline",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Cloudborné",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Hélénà",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Ranethia",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Shaman",
+     "slug": "shaman"
+    },
+    "spec": {
+     "name": "Elemental",
+     "slug": "elemental",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Demonisch",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warlock",
+     "slug": "warlock"
+    },
+    "spec": {
+     "name": "Demonology",
+     "slug": "demonology",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Fistingacow",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Brewmaster",
+     "slug": "brewmaster",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Monjit",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Mistweaver",
+     "slug": "mistweaver",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Dutchblade",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Havoc",
+     "slug": "havoc",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Ragnarí",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Devourer",
+     "slug": "devourer",
+     "role": "dps"
+    }
+   }
+  }
+ ]
+}

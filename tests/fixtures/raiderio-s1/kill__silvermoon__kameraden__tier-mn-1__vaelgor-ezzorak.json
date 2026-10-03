@@ -1,0 +1,433 @@
+{
+ "kill": {
+  "pulledAt": "2026-04-23T19:14:48.014Z",
+  "defeatedAt": "2026-04-23T19:22:02.464Z",
+  "durationMs": 434343,
+  "isSuccess": true,
+  "itemLevelEquippedAvg": 280.075,
+  "itemLevelEquippedMax": 282.062,
+  "itemLevelEquippedMin": 276.438
+ },
+ "roster": [
+  {
+   "character": {
+    "name": "Klappie",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Mage",
+     "slug": "mage"
+    },
+    "spec": {
+     "name": "Frost",
+     "slug": "frost",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Torenedo",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Paladin",
+     "slug": "paladin"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Fará",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warrior",
+     "slug": "warrior"
+    },
+    "spec": {
+     "name": "Protection",
+     "slug": "protection",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Masaia",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Druid",
+     "slug": "druid"
+    },
+    "spec": {
+     "name": "Balance",
+     "slug": "balance",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Diekae",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Death Knight",
+     "slug": "death-knight"
+    },
+    "spec": {
+     "name": "Blood",
+     "slug": "blood",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Binayo",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Beast Mastery",
+     "slug": "beast-mastery",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Jiangjiang",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Survival",
+     "slug": "survival",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Offspek",
+    "realm": {
+     "name": "Stormscale",
+     "slug": "stormscale"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Dropdoos",
+    "realm": {
+     "name": "Stormscale",
+     "slug": "stormscale"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Shadow",
+     "slug": "shadow",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Marlborook",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Rogue",
+     "slug": "rogue"
+    },
+    "spec": {
+     "name": "Subtlety",
+     "slug": "subtlety",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Parelsuiker",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Shaman",
+     "slug": "shaman"
+    },
+    "spec": {
+     "name": "Elemental",
+     "slug": "elemental",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Smekbeer",
+    "realm": {
+     "name": "Kazzak",
+     "slug": "kazzak"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Shaman",
+     "slug": "shaman"
+    },
+    "spec": {
+     "name": "Restoration",
+     "slug": "restoration",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Onkilock",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warlock",
+     "slug": "warlock"
+    },
+    "spec": {
+     "name": "Demonology",
+     "slug": "demonology",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Zyraian",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warlock",
+     "slug": "warlock"
+    },
+    "spec": {
+     "name": "Demonology",
+     "slug": "demonology",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Nathylia",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Brewmaster",
+     "slug": "brewmaster",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Icarusm-230597151",
+    "realm": {
+     "name": "Ragnaros",
+     "slug": "ragnaros"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Windwalker",
+     "slug": "windwalker",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Aejeong",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Mistweaver",
+     "slug": "mistweaver",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Catsdh",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Havoc",
+     "slug": "havoc",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Samdragun",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Evoker",
+     "slug": "evoker"
+    },
+    "spec": {
+     "name": "Augmentation",
+     "slug": "augmentation",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Xecdh",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Devourer",
+     "slug": "devourer",
+     "role": "dps"
+    }
+   }
+  }
+ ]
+}

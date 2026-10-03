@@ -214,6 +214,25 @@ purpose. The switch redraws the page (render() runs again) and dispatches `race:
 - The app.js helpers `h()`, `$()`, `day()`, `dayTime()`, `colour()`, `setGuild()` and
   `raiderioUrl()` are globals other scripts use: keep their names and signatures.
 
+## Earlier seasons
+
+The site can switch to a finished season. `[[seasons]]` in guilds.toml lists them (`id`,
+`label`, `file` under site/); `[tier]` has the current season's `id` and `label`. Each
+archived season has a tier file in `seasons/` (only a `[tier]` table, with `end`) and a
+committed archive made once with
+`uv run python -m racetodutchfirst --tier seasons/season-1.toml --output site/data/season-1.json`
+(same guilds, no streams, no WCL without a zone). CI only refreshes race.json, never an archive.
+
+- race.json and every archive carry `season` (`id`, `label`, `archived`, `end`) and `seasons`
+  (the switch list, current first), so the page knows what it shows and what it can switch to.
+- `race = false` on a raid (Sporefall in Season 1): fetched and shown (`counts: false` in
+  `tier.raids` and `hallOfFame.bosses`), but its kills don't count for kills, the current
+  boss, the ranking, latestKillAt or the raider ranking. The first raid and the CE boss must count.
+- Season 1 = Raider.IO's `tier-mn-1` (The Voidspire, The Dreamrift and March on Quel'Danas as
+  one 9-boss raid), CE = Midnight Falls. Raider.IO keeps kills, kill pulls and rosters of
+  old raids, but no pulls on a boss a guild never killed: those show as no pulls seen.
+  Fixtures: tests/fixtures/raiderio-s1 (recorded 2026-10-04).
+
 ## Changing the tier
 
 Edit `[tier]` in guilds.toml: `start`, `ce_boss = { raid, boss }`, and `[[tier.raids]]` with

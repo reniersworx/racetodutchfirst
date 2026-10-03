@@ -1,0 +1,81 @@
+{
+ "guild": {
+  "id": 47949,
+  "name": "Lelijkerds",
+  "displayName": "Lelijkerds",
+  "faction": "horde",
+  "realm": {
+   "id": 579,
+   "connectedRealmId": 308,
+   "wowRealmId": 506,
+   "wowConnectedRealmId": 1403,
+   "name": "Draenor",
+   "altName": null,
+   "slug": "draenor",
+   "altSlug": "draenor",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/draenor/Lelijkerds",
+  "logo": "https://cdn.raiderio.net/images/site/horde_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16340,
+  "difficulty": "mythic",
+  "name": "MN Tier 1 (VS / DR / MQD)",
+  "short_name": "VS/DR/MQD",
+  "wowInstanceId": 2912,
+  "slug": "tier-mn-1",
+  "icon_url": "/images/wow/icons/large/inv_achievement_raid_darkwell.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197140,
+  "wowEncounterId": 3183,
+  "name": "Midnight Falls",
+  "slug": "midnight-falls",
+  "ordinal": 8,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_120_raid_marchonqueldanas_lura.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2740.png"
+ },
+ "overallProgress": {
+  "summary": "8/9 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 9,
+  "defeatedBosses": 8,
+  "normalBossesKilled": 9,
+  "heroicBossesKilled": 9,
+  "mythicBossesKilled": 8
+ },
+ "bestPercent": null,
+ "bestAttemptDurationMs": null,
+ "pullCount": 0,
+ "pullStartedAt": null,
+ "isDefeated": false,
+ "error": null,
+ "widgetVersion": 0
+}

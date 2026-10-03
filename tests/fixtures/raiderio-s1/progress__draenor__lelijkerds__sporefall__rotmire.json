@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 47949,
+  "name": "Lelijkerds",
+  "displayName": "Lelijkerds",
+  "faction": "horde",
+  "realm": {
+   "id": 579,
+   "connectedRealmId": 308,
+   "wowRealmId": 506,
+   "wowConnectedRealmId": 1403,
+   "name": "Draenor",
+   "altName": null,
+   "slug": "draenor",
+   "altSlug": "draenor",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/draenor/Lelijkerds",
+  "logo": "https://cdn.raiderio.net/images/site/horde_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 8062,
+  "difficulty": "mythic",
+  "name": "Sporefall",
+  "short_name": "SF",
+  "wowInstanceId": 1592,
+  "slug": "sporefall",
+  "icon_url": "/images/wow/icons/large/inv_1207_achievement_raid_fungariangiant_fungalgiant.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197162,
+  "wowEncounterId": 3159,
+  "name": "Rotmire",
+  "slug": "rotmire",
+  "ordinal": 0,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_1207_achievement_raid_fungariangiant_fungalgiant.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2711.png"
+ },
+ "overallProgress": {
+  "summary": "1/1 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 1,
+  "defeatedBosses": 1,
+  "normalBossesKilled": 0,
+  "heroicBossesKilled": 1,
+  "mythicBossesKilled": 1
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 475541,
+ "boss_percent": 0,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "0%",
+ "pullCount": 7,
+ "pullStartedAt": "2026-06-22T18:39:24.041Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}

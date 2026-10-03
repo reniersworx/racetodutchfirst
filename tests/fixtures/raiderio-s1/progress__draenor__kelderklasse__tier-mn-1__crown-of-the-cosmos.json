@@ -1,0 +1,86 @@
+{
+ "guild": {
+  "id": 2118172,
+  "name": "Kelderklasse",
+  "displayName": "Kelderklasse",
+  "faction": "horde",
+  "realm": {
+   "id": 579,
+   "connectedRealmId": 308,
+   "wowRealmId": 506,
+   "wowConnectedRealmId": 1403,
+   "name": "Draenor",
+   "altName": null,
+   "slug": "draenor",
+   "altSlug": "draenor",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/draenor/Kelderklasse",
+  "logo": "https://cdn.raiderio.net/images/site/horde_icon4.png",
+  "color": "#93009f",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16340,
+  "difficulty": "mythic",
+  "name": "MN Tier 1 (VS / DR / MQD)",
+  "short_name": "VS/DR/MQD",
+  "wowInstanceId": 2912,
+  "slug": "tier-mn-1",
+  "icon_url": "/images/wow/icons/large/inv_achievement_raid_darkwell.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197137,
+  "wowEncounterId": 3181,
+  "name": "Crown of the Cosmos",
+  "slug": "crown-of-the-cosmos",
+  "ordinal": 5,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_120_raid_voidspire_alleria.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2738.png"
+ },
+ "overallProgress": {
+  "summary": "9/9 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 9,
+  "defeatedBosses": 9,
+  "normalBossesKilled": 7,
+  "heroicBossesKilled": 8,
+  "mythicBossesKilled": 9
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 495255,
+ "boss_percent": 0,
+ "phase": 3,
+ "phase_label": "P3",
+ "progress_display": "0% P3",
+ "pullCount": 89,
+ "pullStartedAt": "2026-06-03T19:34:44.207Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}

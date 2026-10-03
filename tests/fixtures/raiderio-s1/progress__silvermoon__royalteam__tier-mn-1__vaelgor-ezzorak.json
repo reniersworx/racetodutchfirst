@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 1705186,
+  "name": "RoyalTeam",
+  "displayName": "RoyalTeam",
+  "faction": "alliance",
+  "realm": {
+   "id": 704,
+   "connectedRealmId": 355,
+   "wowRealmId": 549,
+   "wowConnectedRealmId": 3391,
+   "name": "Silvermoon",
+   "altName": null,
+   "slug": "silvermoon",
+   "altSlug": "silvermoon",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/silvermoon/RoyalTeam",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16340,
+  "difficulty": "mythic",
+  "name": "MN Tier 1 (VS / DR / MQD)",
+  "short_name": "VS/DR/MQD",
+  "wowInstanceId": 2912,
+  "slug": "tier-mn-1",
+  "icon_url": "/images/wow/icons/large/inv_achievement_raid_darkwell.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197135,
+  "wowEncounterId": 3178,
+  "name": "Vaelgor & Ezzorak",
+  "slug": "vaelgor-ezzorak",
+  "ordinal": 3,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_120_raid_voidspire_dragonduo.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2735.png"
+ },
+ "overallProgress": {
+  "summary": "6/9 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 9,
+  "defeatedBosses": 6,
+  "normalBossesKilled": 9,
+  "heroicBossesKilled": 9,
+  "mythicBossesKilled": 6
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 406728,
+ "boss_percent": 0,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "0%",
+ "pullCount": 134,
+ "pullStartedAt": "2026-06-01T19:47:33.142Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}
