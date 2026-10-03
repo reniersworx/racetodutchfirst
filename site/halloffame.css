@@ -1,67 +1,67 @@
-/* Hall of fame (halloffame.js), design language v2: panels with hairline seams,
-   a guild colour chip instead of a coloured edge, amber only for the race's
-   first kills. Tokens from tokens.css; a guild's colour arrives as --guild. */
+/* Hall of fame (halloffame.js). Same language as style.css: square dark tiles with
+   the guild colour on the left edge, gold for the race's first kills. Colours and
+   fonts only from tokens.css; a guild's colour arrives as --guild. */
 
-.hof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--s-4); }
+.hof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
 
 .hof-boss {
-  display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; padding: var(--s-4);
-  background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--ink-800); border: 1px solid var(--ink-700); border-left: 3px solid var(--guild, var(--gold));
+  padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
 }
-.hof-boss__top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-2); }
-.hof-boss__name { font-size: var(--text-md); font-weight: 600; letter-spacing: -.01em; line-height: 1.2; color: var(--fg); }
-.hof-boss__label::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 5px; vertical-align: -1px; border-radius: 1px; background: radial-gradient(var(--polka-red) 30%, transparent 32%) 0 0 / 4px 4px, var(--polka-white); }
+.hof-boss__top { display: flex; align-items: baseline; gap: 4px; }
+.hof-boss__name { font-size: 19px; font-weight: 600; line-height: 1.15; color: var(--paper); }
 .hof-boss__label {
-  align-self: flex-start; flex: 0 0 auto; padding: 1px 6px; font-size: 10px; font-weight: 600;
-  color: var(--bg); background-color: var(--polka-white); border-radius: var(--radius-sm);
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
 }
 
-.hof-team { display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-3) 0; border-top: 1px solid var(--line); }
-.hof-team:first-of-type { border-top: 0; padding-top: 0; }
-.hof-team__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1) var(--s-3); }
-.hof-team__guild { display: inline-flex; align-items: center; gap: var(--s-2); font-weight: 600; color: var(--fg); }
-.hof-team__when { font-family: var(--font); font-size: var(--text-xs); color: var(--fg-muted); }
-.hof-team__pulls { font-size: var(--text-xs); color: var(--fg-subtle); }
+.hof-team__head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.hof-team__guild { font-size: 15px; font-weight: 600; color: var(--paper); }
+.hof-team__when { font-family: var(--f-mono); font-size: 13px; color: var(--paper-dim); }
+.hof-team__pulls { font-size: 12px; color: var(--ink-300); }
 
-.hof-roster { display: flex; flex-direction: column; gap: var(--s-2); }
-.hof-role__label { font-size: var(--text-xs); font-weight: 500; color: var(--fg-subtle); margin-bottom: 2px; }
-.hof-members { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 2px var(--s-3); }
-.hof-member { display: flex; align-items: baseline; gap: 6px; min-width: 0; font-size: var(--text-sm); }
-.hof-member a, .hof-member > span:first-child { color: var(--fg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.hof-member a:hover { color: var(--accent); }
-.hof-member__spec { font-size: var(--text-xs); color: var(--fg-subtle); white-space: nowrap; }
+.hof-roster { display: flex; flex-direction: column; gap: 8px; }
+.hof-role__label {
+  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-300);
+  margin-bottom: 4px;
+}
+.hof-members { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 3px 12px; }
+.hof-member { display: flex; align-items: baseline; gap: 6px; min-width: 0; font-size: 14px; }
+.hof-member a, .hof-member > span:first-child {
+  color: var(--paper); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hof-member a:hover { color: var(--jade); text-decoration: underline; }
+.hof-member__spec { font-size: 11px; color: var(--ink-300); white-space: nowrap; }
 
-.hof-others { border-top: 1px solid var(--line); padding-top: var(--s-3); font-size: var(--text-sm); }
-.hof-others summary { cursor: pointer; color: var(--accent); width: max-content; }
-.hof-others[open] summary { margin-bottom: var(--s-3); }
+.hof-others { border-top: 1px solid var(--ink-700); padding-top: 10px; font-size: 14px; }
+.hof-others summary { cursor: pointer; color: var(--jade); width: max-content; }
+.hof-others[open] summary { margin-bottom: 12px; }
+.hof-team { display: flex; flex-direction: column; gap: 8px; padding: 10px 0 12px; border-bottom: 1px solid var(--ink-750); }
+.hof-team:last-child { border-bottom: 0; padding-bottom: 0; }
 
-.hof-subtitle { margin-top: var(--s-8); font-size: var(--text-md); font-weight: 600; letter-spacing: -.01em; color: var(--fg); }
-.hof-subtitle + .section-caption { margin-bottom: var(--s-4); }
-
+.hof-subtitle {
+  margin-top: 30px; margin-bottom: 6px;
+  font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-200);
+}
 /* Its own wrapper: style.css hides .table-wrap--scroll on phones (the boss table
-   becomes cards there); this table scrolls sideways instead. */
-.hof-table-wrap { overflow-x: auto; background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius); }
-.hof-table th, .hof-table td { white-space: nowrap; }
-.hof-table tbody tr:hover { background: var(--bg-hover); }
-.hof-table tbody th { font-weight: 600; }
-.hof-table tbody th a { color: var(--fg); }
-.hof-table tbody th a:hover { color: var(--accent); }
-.hof-realm { margin-left: var(--s-2); font-size: var(--text-xs); font-weight: 400; color: var(--fg-subtle); }
-.hof-table .dot { margin-right: 6px; }
-.hof-num { font-family: var(--font); text-align: right; color: var(--fg-muted); }
-thead .hof-num { font-family: var(--font); }
-.hof-firsts { color: var(--fg-subtle); }
-.hof-row--first .hof-firsts { color: var(--fg); font-weight: 700; }
-
-.hof-more { margin-top: var(--s-3); }
-.hof-more .pill {
-  font: 500 var(--text-sm)/1 var(--font); cursor: pointer; padding: 8px 12px;
-  color: var(--fg); background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: var(--radius);
-  transition: background var(--t-fast) var(--ease-out);
-}
-.hof-more .pill:hover { background: var(--bg-hover); }
+   becomes cards there); this table just scrolls sideways instead. */
+.hof-table-wrap { overflow-x: auto; border: 1px solid var(--ink-700); background: var(--ink-850); }
+.hof-table { width: 100%; font-size: 14px; }
+.hof-table th, .hof-table td { white-space: nowrap; padding: 8px 14px; }
+.hof-table thead th { font-size: 12px; color: var(--ink-200); background: var(--ink-850); }
+.hof-table tbody tr:hover { background: var(--ink-800); }
+.hof-table tbody th { min-width: 0; font-weight: 600; }
+.hof-table tbody th a { color: var(--paper); text-decoration: none; }
+.hof-table tbody th a:hover { color: var(--jade); text-decoration: underline; }
+.hof-realm { margin-left: 8px; font-size: 12px; font-weight: 400; color: var(--ink-300); }
+.hof-table .dot { margin-right: 4px; }
+.hof-num { font-family: var(--f-mono); text-align: right; }
+.hof-firsts { color: var(--ink-300); }
+.hof-row--first .hof-firsts { color: var(--gold); }
+.hof-more { margin-top: 12px; }
+.hof-more button { border: 0; font: inherit; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
 
 @media (max-width: 720px) {
+  .hof-table th, .hof-table td { padding: 7px 10px; }
   .hof-realm { display: block; margin-left: 0; }
 }
 @media (max-width: 400px) {
