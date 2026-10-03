@@ -79,7 +79,8 @@ bosses = [
 # must be one of the guild names above. Only streams in `game` are shown; leave
 # it out to show every live stream.
 [streams]
-game = "World of Warcraft"
+# Test: no game filter, so every live stream of a listed channel shows.
+# Put back game = "World of Warcraft" to show WoW streams only.
 
 [[streams.channels]]
 twitch = "bmiest"
