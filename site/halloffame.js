@@ -51,6 +51,7 @@
     const isCe = ce && ce.raid === boss.raid && ce.slug === boss.slug;
     const card = h('article', { class: 'hof-boss' },
       h('div', { class: 'hof-boss__top' },
+        typeof bossThumb === 'function' ? bossThumb(boss.name, 'hof-thumb') : null,
         h('h3', { class: 'hof-boss__name', text: boss.name }),
         isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
       h('p', { class: 'hof-boss__label', text: tr('hof.first') }),

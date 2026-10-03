@@ -97,7 +97,7 @@ i18n.add({
     'timeline.cap': 'Mythic-kills door de tijd, vanaf de week van de eerste Mythic-kill. Elke trede is een kill.',
     'timeline.asTable': 'Toon als tabel',
     'boss.h': 'Per boss',
-    'boss.cap': 'Een verslagen boss toont de datum en het aantal pulls; een bolletjesvlak is de eerste kill van de race. Een balk is de beste pull: hoeveel van de boss er al af was. Grijs is nog niet geprobeerd.',
+    'boss.cap': 'Een verslagen boss toont de datum en het aantal pulls; een gouden ster markeert de eerste kill van de race. Een balk is de beste pull: hoeveel van de boss er al af was. Grijs is nog niet geprobeerd.',
     'current.h': 'Huidige boss',
     'current.cap': 'Hoe dicht zitten ze erbij? Elke staaf is een pull: hoe hoger, hoe meer van de boss eraf. De lijn is de beste pull tot dan toe, de stippellijn bovenaan de kill. Een streep scheidt de raidavonden.',
 
@@ -212,7 +212,7 @@ i18n.add({
     'timeline.cap': 'Mythic kills over time, from the week of the first Mythic kill. Every step is a kill.',
     'timeline.asTable': 'Show as table',
     'boss.h': 'By boss',
-    'boss.cap': 'A defeated boss shows the date and the number of pulls; a polka-dot square marks the first kill of the race. A bar is the best pull: how much of the boss was already down. Grey is not tried yet.',
+    'boss.cap': 'A defeated boss shows the date and the number of pulls; a gold star marks the first kill of the race. A bar is the best pull: how much of the boss was already down. Grey is not tried yet.',
     'current.h': 'Current boss',
     'current.cap': 'How close are they? Every bar is a pull: the higher, the more of the boss is down. The line is the best pull so far, the dashed line at the top the kill. A divider separates raid nights.',
 

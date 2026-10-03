@@ -72,9 +72,15 @@ a:hover { text-decoration-color: var(--jade); }
 
 /* ---- sections --------------------------------------------------------- */
 .view { min-width: 0; }
+/* Section heads in the poster's voice: Outfit 800 caps behind a slanted jade cap. */
 .view__title {
-  font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--ink-200); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+  font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; letter-spacing: -.01em; line-height: 1.05;
+  text-transform: uppercase; color: var(--paper);
+}
+.view__title::before {
+  content: ""; flex: 0 0 14px; width: 14px; height: .9em; background: var(--jade);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
 }
 .section-caption { font-size: 14px; line-height: 1.5; color: var(--ink-300); max-width: 72ch; margin-bottom: 18px; }
 .chart { width: 100%; min-width: 0; }
@@ -155,9 +161,13 @@ a:hover { text-decoration-color: var(--jade); }
 .cell { display: flex; flex-direction: column; gap: 3px; }
 .cell__main { font-family: var(--f-mono); color: var(--paper); }
 .cell__sub { font-size: 12px; color: var(--ink-300); }
-.cell--killed .cell__main::before { content: "✓ "; color: var(--jade); }
+/* Drawn marks (one stroke family): a check for a kill, a star for the race's first kill. */
+.cell--killed .cell__main::before {
+  content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px;
+  background: var(--jade); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5 5 9.5 10.5 3' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .cell--first .cell__main { color: var(--gold); }
-.cell--first .cell__main::before { content: "★ "; color: var(--gold); }
+.cell--first .cell__main::before { background: var(--gold); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); }
 .cell--progress .meter__track { width: 100%; min-width: 80px; }
 .cell--current { box-shadow: inset 0 0 0 1px var(--guild, var(--jade)); background: var(--ink-800); }
 .cell--untouched { color: var(--ink-500); }
@@ -179,19 +189,28 @@ a:hover { text-decoration-color: var(--jade); }
 .bcard .cell--progress .meter__track { flex-basis: 100%; min-width: 0; order: 3; }
 .bcard .cell--current { background: transparent; }
 .bcard .muted-note { font-size: 13px; }
-.ce-tag { margin-left: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--gold); }
+.ce-tag { margin-left: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--jade); }
+.pill--jade { color: var(--jade); }
+::selection { background: var(--jade-ghost); color: var(--paper); }
+.boss-thumb { width: 30px; height: 30px; margin-right: 10px; object-fit: contain; vertical-align: middle; }
 
 /* ---- current-boss cards: the overlay's angled rcard + boss card ----------
    css/ribbon.css (.rcard*, caption tags on the top edge) and css/banner.css
    (.boss__*): same shapes, same type scale, sized up a little for a page.
    The source tag links back to Raider.IO, as their Acceptable Use asks. */
-.curves-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px 16px; }
+.curves-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px 16px; }
+/* Five guilds on a wide screen: three over two, centred, never one orphan. */
+@media (min-width: 1100px) {
+  .curves-grid:has(> :nth-child(5):last-child) { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .curves-grid:has(> :nth-child(5):last-child) > * { grid-column: span 2; }
+  .curves-grid:has(> :nth-child(5):last-child) > :nth-child(4) { grid-column: 2 / span 2; }
+}
 .rcard-wrap { position: relative; display: flex; flex-direction: column; min-width: 0; padding-top: 11px; }
 .rcard__cap, .rcard__src {
   position: absolute; top: 0; z-index: 3; height: 22px; display: flex; align-items: center; padding: 0 12px;
   background: var(--ink-900); border: 1px solid var(--ink-600); border-radius: 5px; white-space: nowrap;
 }
-.rcard__cap { left: 22px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acc, var(--ink-300)); }
+.rcard__cap { left: 22px; max-width: calc(100% - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--acc, var(--ink-300)); }
 .rcard__src { right: 22px; border-color: var(--ink-750); font-size: 10px; font-weight: 600; letter-spacing: .12em; color: var(--ink-300); text-decoration: none; }
 a.rcard__src:hover { color: var(--jade); }
 .rcard {
@@ -203,7 +222,7 @@ a.rcard__src:hover { color: var(--jade); }
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 21px), calc(100% - 21px) 100%, 0 100%);
   display: flex; flex-direction: column; gap: 8px; min-width: 0;
 }
-.boss__top { display: flex; align-items: flex-start; gap: 10px; }
+.boss__top { display: flex; align-items: flex-start; gap: 10px; min-height: 2.4em; }
 .boss__nm { font-size: 21px; font-weight: 600; line-height: 1.14; letter-spacing: -.012em; flex: 1; min-width: 0; color: var(--paper); }
 .boss__tag {
   font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; flex: 0 0 auto; margin-top: 4px;

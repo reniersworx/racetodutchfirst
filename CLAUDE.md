@@ -149,7 +149,7 @@ appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
 
 - Build DOM with `h()` / `s()` and `textContent`. **No `innerHTML`**: guild and boss names
   come from an external API.
-- The CSP is `'self'` + Google Fonts + boss renders from render.worldofwarcraft.com, and no `'unsafe-inline'`: so no `style="…"` in
+- The CSP is `'self'` + Google Fonts only, and no `'unsafe-inline'`: so no `style="…"` in
   HTML and no `setAttribute('style')`. Set custom properties with `el.style.setProperty()`.
 - Colours, fonts and radii come from tokens.css variables. Guild colours come from
   guilds.toml (validated `#rrggbb` in config.py *and* app.js) as `--guild` / `--acc`.
@@ -160,8 +160,8 @@ appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
   the race brand and live state, gold only for the leader and the winner. No coloured side
   stripes on cards or cells: use a 1-2px outline or a guild chip/rank block instead.
 - The hero shows the leader's current boss (the CE boss once someone won) from bossart.js:
-  Blizzard renders on render.worldofwarcraft.com, the only external image host the CSP
-  allows (`img-src`). Nothing is drawn on the boss. A council fight shows up to two bodies.
+  self-hosted cut-outs in site/img/boss/ made by scripts/boss-cutouts.py from Blizzard's renders
+  (rerun it after copying a new bossart.js). Nothing is drawn on the boss. A council fight shows up to two bodies.
   A boss missing from bossart.js (Nymrissa) leaves the hero without art.
 - The LIVE pill in the top bar shows only while some guild's `liveState` is `live`.
 - Charts draw at the container's measured width and redraw on resize (ResizeObserver).

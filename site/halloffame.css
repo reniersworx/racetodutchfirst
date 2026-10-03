@@ -8,6 +8,7 @@
   background: var(--ink-800); border: 1px solid var(--ink-700);
   padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
 }
+.hof-thumb { width: 52px; height: 52px; margin: -8px 4px -8px -6px; object-fit: contain; flex: 0 0 52px; }
 .hof-boss__top { display: flex; align-items: baseline; gap: 4px; }
 .hof-boss__name { font-size: 19px; font-weight: 600; line-height: 1.15; color: var(--paper); }
 .hof-boss__label {

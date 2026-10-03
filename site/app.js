@@ -153,7 +153,7 @@ function renderHeader(data) {
   const raids = tier.raids.map(r => `${r.name} ${r.bosses.length}`).join(' + ');
   $('#tierPills').replaceChildren(
     h('span', { class: 'pill', text: tr('pill.bosses', { n: tier.totalBosses }), title: raids }),
-    h('span', { class: 'pill pill--gold', text: tr('pill.ce', { boss: tier.ceBoss.name }) }),
+    h('span', { class: 'pill pill--jade', text: tr('pill.ce', { boss: tier.ceBoss.name }) }),
     h('span', { class: 'pill', text: tr('pill.since', { date: day(tier.start) }) }),
   );
 }
@@ -185,17 +185,23 @@ function renderWinner(data) {
 
 /* ---- 1. Broadcast hero ------------------------------------------------------------- */
 
-/* The splash: the leader's current boss as the backdrop (its full-body render from Blizzard's
- * render CDN, via bossart.js from the overlay), the question as the title, and the board of
- * overlay ribbons. Nothing is drawn on the boss itself. */
+/* The splash: the leader's current boss as the backdrop (a cut-out of its full-body render,
+ * via bossart.js from the overlay), the question as the title, and the board of overlay
+ * ribbons. Nothing is drawn on the boss itself. */
 function bossArtFor(name) {
   const art = window.BossArt;
   if (!art || !name) return [];
   const enc = art.byName[name.toLowerCase()];
   const list = (enc && art.byEncounter[enc]) || [];
+  // Self-hosted cut-outs (scripts/boss-cutouts.py) of Blizzard's renders, keyed by display id.
   // A council fight (The Twin Fangs) has several bodies: show up to two.
-  return list.filter(x => typeof x.img === 'string' && x.img.startsWith('https://render.worldofwarcraft.com/'))
-    .slice(0, 2).map(x => x.img);
+  return list.map(x => /creature-display-(\d+)\.jpg$/.exec(x.img || ''))
+    .filter(Boolean).slice(0, 2).map(m => `img/boss/creature-display-${m[1]}.png`);
+}
+
+function bossThumb(name, cls = 'boss-thumb') {
+  const src = bossArtFor(name)[0];
+  return src ? h('img', { class: cls, src, alt: '', loading: 'lazy' }) : null;
 }
 
 function renderHero(data) {
@@ -262,11 +268,13 @@ function renderFeed(data) {
     return;
   }
   // Ticker items: "Guild · boss · date", plus "first kill" for the race's first.
-  list.replaceChildren(...kills.map(k => h('li', { class: 'tk' },
+  const item = (k, copy) => h('li', { class: 'tk', 'aria-hidden': copy ? 'true' : null },
     h('b', { text: k.g.name }),
     ` · ${k.name} · `,
     h('time', { datetime: k.iso, title: dayTime(k.iso), text: day(k.iso) }),
-    isFirstKill(data, k, k.g) ? ` · ${tr('tk.first')}` : '')));
+    isFirstKill(data, k, k.g) ? ` · ${tr('tk.first')}` : '');
+  // The band scrolls like a broadcast ticker: the list twice, moving by one list width.
+  list.replaceChildren(...kills.map(k => item(k, false)), ...kills.map(k => item(k, true)));
 }
 
 /* ---- 4. Voortgang ------------------------------------------------------------ */
@@ -399,7 +407,7 @@ function renderBossTable(data) {
       const isCe = raid.slug === data.tier.ceBoss.raid && boss.slug === data.tier.ceBoss.slug;
       const ref = { raid: raid.slug, slug: boss.slug };
       body.push(h('tr', {},
-        h('th', { scope: 'row' }, boss.name, isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
+        h('th', { scope: 'row' }, bossThumb(boss.name), boss.name, isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
         ...data.guilds.map(g => bossCell(g, ref, boss.firstKill))));
 
       // Phone layout: one card per boss, a row per guild that has touched it.
