@@ -343,7 +343,10 @@ a.rcard__src:hover { color: var(--accent); }
   .boss-cards { display: block; }
 }
 @media (max-width: 480px) {
-  .brand__name { font-size: var(--text-sm); }
+  .topbar__in { gap: var(--s-2); }
+  .topbar__end { gap: var(--s-2); }
+  .brand { flex: 0 1 auto; min-width: 0; }
+  .brand__name { font-size: var(--text-sm); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .updated { font-size: var(--text-xs); }
   .c-status { display: none; }
   .progress-count { display: none; }
