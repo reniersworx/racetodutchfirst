@@ -17,11 +17,11 @@ Dutch raiders and the wider Dutch WoW community, on a phone or a second monitor 
 
 THESIS: The race as a raid poster in the language of the bmiest stream overlay: the boss the leader is fighting right now is the hero, and the standings sit on it as overlay ribbons. It refuses the generic data dashboard that the canon and Klassement attempts became.
 
-OWN-WORLD: The overlay's tokens unchanged (ink scale, jade, gold, Outfit + JetBrains Mono): ribbons with a coloured accent block, slanted pills and bars, flat dark panels; a jade/void glow behind a Blizzard boss render; jade for the race brand and live state, gold only for the leader and the winner, guild colours on rank blocks, bars and chips. No side stripes.
+OWN-WORLD: The overlay's tokens unchanged (ink scale, jade, gold, Outfit + JetBrains Mono): ribbons with a coloured accent block, slanted pills and bars, flat dark panels; a jade/void glow behind a Blizzard boss render; jade for the race brand, raiding and the CE marker, --live-red for on air (LIVE, Nu live), gold only for the leader, the first kill and the winner, guild colours on rank blocks, bars and chips. No side stripes.
 
 STORY: In one look the visitor sees the boss the race is stuck on, the question, every guild's kills and how far it has brought its current boss, and the latest kills; LIVE appears only while a guild is raiding. Below: progress over time, per boss, current boss pull charts, hall of fame.
 
-FIRST VIEWPORT: Top bar with the brand ribbon left, LIVE pill (only when raiding), update time and NL|EN right. Then the uppercase title with "Cutting Edge?" in jade, the lead line and tier pills, over the leader's current boss render (two bodies for a council fight) on the right with nothing drawn on it. Under the title the board: per guild a ribbon (rank block in guild colour, name, raiding badge), kills x/9, and a raid-frame bar labelled with its current boss, best pull and pulls; the leader in gold. A jade "Laatste kills" ticker closes the hero.
+FIRST VIEWPORT: Top bar as sketch C's broadcast bug (user decision after the first build): flush blocks LIVE (only when raiding), RACE TO DUTCH FIRST, Dag N; update time and NL|EN (same flush blocks) right. Then the uppercase title with "Cutting Edge?" in jade, the lead line and tier pills, over the leader's current boss render (two bodies for a council fight) owning the column right of the board (a lone wide render takes the field beside the title; below 1180px a band above the title), never past 2x its render, with nothing drawn on it. Under the title the board: per guild a ribbon (rank block in guild colour, name, raiding badge), kills x/9, and a raid-frame bar labelled with its current boss, best pull and pulls; the leader in gold. A jade "Laatste kills" ticker closes the hero.
 
 FORM: User-pinned from a three-sketch moodboard: sketch A (the splash) with the ticker of sketch C, after the category standard (seed 837f26aa canon card) and "Het Klassement" (pick card) were built and rejected. Reference the user named: "my overlay".
 
@@ -34,4 +34,5 @@ The live hero: the boss the leader is fighting right now, swapping by itself as 
 ## Unresolved
 
 - Nymrissa Wavecaller has no render in the overlay's bossart.js; with her as the leader's boss the hero shows no art.
-- Boss renders load from render.worldofwarcraft.com (CSP img-src allows it); no local copies.
+- Resolved: boss renders are self-hosted alpha cut-outs (scripts/boss-cutouts.py, provenance embedded); CSP img-src is 'self'.
+- Outfit 800 is loaded by splash.css because the overlay's tokens.css imports 300-700 only; move it into the overlay's tokens.css (and --live-red with it) when the overlay adopts v2.

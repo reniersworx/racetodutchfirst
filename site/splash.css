@@ -1,3 +1,6 @@
+/* tokens.css (a byte copy of the overlay's) loads Outfit 300-700; the poster type is 800. */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap');
+
 /* =====================================================================
    Splash hero (design language v2 for the race site), sketch A: the
    overlay's language (tokens.css, ribbons, slanted pills, jade + gold)
@@ -5,7 +8,8 @@
    nothing drawn on it, the question is the title, the board is a column
    of overlay ribbons with a raid-frame bar per guild, and a jade ticker
    (from sketch C) carries the latest kills. Guild colour = --guild/--acc.
-   Gold = the leader and the winner; jade = the race brand and live state.
+   Gold = the leader, the first kill and the winner; jade = the race brand, raiding and the CE
+   marker; --live-red = on air (LIVE block, Nu live).
    ===================================================================== */
 
 .sp {
@@ -20,29 +24,48 @@
   background: linear-gradient(transparent, var(--ink-900) 92%);
 }
 
+/* tokens.css is a byte copy of the overlay's, so the broadcast red lives here until the overlay
+   adopts it: the LIVE block's colour and nothing else. */
+:root { --live-red: #e5484d; }
+
 /* ---- top --------------------------------------------------------------- */
 .sp__top {
   position: relative; z-index: 3; max-width: 1320px; margin: 0 auto; padding: 26px 24px 0;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
+/* The broadcast bug from sketch C: flush blocks, no gaps. LIVE in broadcast red (only while a
+   guild is really raiding), the name on ink, the race day in jade. */
+.bug { display: flex; align-items: stretch; height: 40px; min-width: 0; }
+.bug > span { display: flex; align-items: center; font-weight: 800; white-space: nowrap; }
+.bug__live { gap: 8px; padding: 0 18px; background: var(--live-red); color: var(--paper); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+.bug__live .live-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .27); box-shadow: 0 0 0 2px var(--paper); animation: live-pulse 1.6s var(--ease) infinite; }
+.bug__title { padding: 0 22px; background: var(--ink-900); color: var(--paper); font-size: 14px; letter-spacing: .1em; text-transform: uppercase; }
+.bug__day { padding: 0 18px; background: var(--jade); color: var(--ink-900); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
 .sp__end { display: flex; align-items: center; gap: 14px; }
 .sp__upd { font-size: 13px; color: var(--ink-200); white-space: nowrap; }
-.sp__live { color: var(--ink-900); background: var(--jade); }
-.sp__live .live-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: var(--r-pill); background: var(--ink-900); animation: live-pulse 1.6s var(--ease) infinite; }
-.sp__upd.updated--late { color: var(--rose); }
 
 /* ---- stage ----------------------------------------------------------------- */
 .sp__stage { position: relative; z-index: 2; max-width: 1320px; margin: 0 auto; padding: 64px 24px 56px; }
 /* The boss: self-hosted cut-outs with real alpha, so the jade/void glow reads behind the
    bodies. Only the feet fade out (a long serpent would otherwise end in a hard cut). */
+/* The art owns everything right of the board column (820px + a 40px gutter), at the stage's
+   full height, so it is the poster without anything on it. Below 1180px that column gets too
+   narrow and the boss becomes a band above the title instead (see the media queries). */
 .sp__art {
-  position: absolute; z-index: -1; right: 0; top: -30px; width: min(560px, 42%); aspect-ratio: 1;
+  position: absolute; z-index: -1; top: -20px; bottom: 0; left: calc(24px + 820px + 40px); right: 0;
   display: flex; justify-content: center; align-items: center;
   -webkit-mask-image: linear-gradient(#000 78%, transparent);
   mask-image: linear-gradient(#000 78%, transparent);
 }
-.sp__art img { width: 100%; height: 100%; object-fit: contain; }
-.sp__art--pair img { width: 62%; margin: 0 -9%; }
+/* The PNGs are trimmed to the body, so height drives the size and contain keeps wide bosses in. */
+.sp__art img { height: 100%; width: auto; max-width: 100%; max-height: calc(var(--nat-h, 9999px) * 2); object-fit: contain; }
+.sp__art--pair { gap: 6%; }
+.sp__art--pair img { max-width: 47%; }
+/* A lone wide boss (wings, a long body sideways) would shrink in the board-side column, so it
+   takes the open field right of the title instead, above the board, up to the page edge. */
+@media (min-width: 1181px) {
+  .sp__art--wide { left: calc(50% + 40px); right: -60px; bottom: auto; height: 62%; -webkit-mask-image: none; mask-image: none; }
+}
 .sp__title {
   max-width: 12ch; font-size: clamp(44px, 6.6vw, 88px); font-weight: 800; line-height: .92;
   letter-spacing: -.03em; text-transform: uppercase; color: var(--paper); text-wrap: balance;
@@ -108,14 +131,21 @@
 .tk--empty { color: var(--ink-300); }
 
 /* ---- responsive ------------------------------------------------------------------------------- */
+/* Narrower than the board plus a real art column: the boss gets its own band above the title,
+   at full strength (also the phone layout). */
+@media (max-width: 1180px) {
+  .sp__art { position: relative; z-index: 0; inset: auto; width: 100%; height: 360px; margin: -24px 0 8px; }
+}
+@media (max-width: 900px) { .sp__art { height: 300px; } }
 @media (max-width: 900px) {
   .sp__top { padding: 16px 16px 0; flex-wrap: wrap; }
   .sp__upd { font-size: 12px; }
+  .bug, .lang-switch { height: 34px; }
+  .lang-switch button { padding: 0 12px; font-size: 12px; }
+  .bug__live { padding: 0 12px; font-size: 12px; }
+  .bug__title { padding: 0 14px; font-size: 12px; }
+  .bug__day { padding: 0 12px; font-size: 12px; }
   .sp__stage { padding: 36px 16px 32px; }
-  /* On a phone the boss gets its own band above the title, at full strength. */
-  .sp__art { position: relative; z-index: 0; inset: auto; width: 100%; height: 300px; aspect-ratio: auto; margin: -24px 0 4px; }
-  .sp__art img { width: auto; height: 100%; }
-  .sp__art--pair img { width: auto; margin: 0 -14%; }
   .sp__lead { font-size: 17px; }
   .sp__board { margin-top: 32px; }
   .row { grid-template-columns: minmax(0, 1fr) 64px; gap: 6px 12px; }
@@ -125,6 +155,7 @@
   .sp > .ticker { margin: 0 16px 20px; }
 }
 @media (max-width: 480px) {
-  .sp__end { width: 100%; justify-content: space-between; }
+  .sp__end { width: 100%; justify-content: space-between; align-items: flex-start; }
+  .sp__upd { white-space: normal; min-width: 0; }
   .ticker__label { padding: 0 14px; font-size: 12px; }
 }

@@ -199,9 +199,24 @@ function bossArtFor(name) {
     .filter(Boolean).slice(0, 2).map(m => `img/boss/creature-display-${m[1]}.png`);
 }
 
+// A boss head: a slanted tile with the top of the render (the face reads, a long body doesn't);
+// a boss without art gets the same tile with its initial, so every head lines up.
 function bossThumb(name, cls = 'boss-thumb') {
   const src = bossArtFor(name)[0];
-  return src ? h('img', { class: cls, src, alt: '', loading: 'lazy' }) : null;
+  return h('span', { class: `boss-thumb ${cls}`, 'aria-hidden': 'true' },
+    src ? h('img', { src, alt: '', loading: 'lazy' }) : h('span', { class: 'boss-thumb__mono', text: name.trim()[0] }));
+}
+
+// Race day: the tier start is day 1; once someone has CE the count stops on the winning day.
+function renderRaceDay(data) {
+  const el = $('#bugDay');
+  const [y, m, d] = data.tier.start.split('-').map(Number);
+  const end = data.winner ? new Date(data.winner.defeatedAt) : new Date();
+  const n = Math.floor((new Date(end.getFullYear(), end.getMonth(), end.getDate()) - new Date(y, m - 1, d)) / 86400000) + 1;
+  el.hidden = !(n >= 1);
+  if (el.hidden) return;
+  el.textContent = tr('hero.day', { n });
+  el.title = tr('hero.dayTitle', { n, date: day(data.tier.start) });
 }
 
 function renderHero(data) {
@@ -210,6 +225,7 @@ function renderHero(data) {
   const g = data.guilds.find(x => x.name === lead);
   // LIVE only while a guild is really raiding (same rule as the per-guild badges).
   $('#bugLive').hidden = !data.guilds.some(x => liveState(x, data) === 'live');
+  renderRaceDay(data);
   const cur = g && g.current;
   const bossName = data.winner ? data.tier.ceBoss.name : cur ? cur.name : null;
 
@@ -218,7 +234,17 @@ function renderHero(data) {
   const srcs = bossArtFor(bossName);
   art.hidden = !srcs.length;
   art.classList.toggle('sp__art--pair', srcs.length > 1);
-  art.replaceChildren(...srcs.map(src => h('img', { src, alt: '' })));
+  art.classList.remove('sp__art--wide');
+  // Once a render is in: --nat-h caps it at 2x its own size (some of Blizzard's renders are
+  // tiny and turn to mush past that), and a lone wide boss gets the wide box.
+  const imgs = srcs.map(src => h('img', { src, alt: '' }));
+  for (const img of imgs) {
+    img.addEventListener('load', () => {
+      img.style.setProperty('--nat-h', `${img.naturalHeight}px`);
+      if (imgs.length === 1 && img.naturalWidth > 2 * img.naturalHeight) art.classList.add('sp__art--wide');
+    });
+  }
+  art.replaceChildren(...imgs);
 
   if (!g) { $('#lowerThirds').replaceChildren(); return; }
 
@@ -415,7 +441,7 @@ function renderBossTable(data) {
         h('span', { class: 'bcard__guild' }, h('span', { class: 'dot', 'aria-hidden': 'true' }), g.name),
         bossCell(g, ref, boss.firstKill, 'div')), g));
       cards.push(h('article', { class: 'bcard' },
-        h('h4', { class: 'bcard__name' }, boss.name, isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
+        h('h4', { class: 'bcard__name' }, bossThumb(boss.name), boss.name, isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
         rows.length ? rows : h('p', { class: 'muted-note', text: tr('boss.nobody') })));
     }
   }

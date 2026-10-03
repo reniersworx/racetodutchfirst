@@ -28,16 +28,12 @@
 
 <header class="sp">
   <div class="sp__top">
-    <div class="rib brand-rib">
-      <div class="rib__bar"><div class="rib__in">
-        <span class="rib__acc"><svg viewBox="0 0 18 18" aria-hidden="true">
-          <path d="M4 16V2.5M4 3h9l-2 3 2 3H4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg></span>
-        <span class="rib__val">Race to Dutch First</span>
-      </div></div>
+    <div class="bug">
+      <span id="bugLive" class="bug__live" hidden><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.live">Live</span></span>
+      <span class="bug__title">Race to Dutch First</span>
+      <span id="bugDay" class="bug__day" hidden></span>
     </div>
     <div class="sp__end">
-      <span id="bugLive" class="pill sp__live" hidden><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.live">Live</span></span>
       <p id="updated" class="updated sp__upd" data-i18n="footer.loading">Data laden…</p>
       <div class="lang-switch" role="group" data-i18n-aria-label="lang.label" aria-label="Taal">
         <button type="button" data-lang="nl" aria-pressed="true" lang="nl">NL</button>
