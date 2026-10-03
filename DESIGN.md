@@ -221,7 +221,7 @@ A near-black ink ramp with one cool green voice, one warm gold voice and the gui
 
 ### Tertiary
 - **Broadcast Red** (live-red): [race; candidate family] the LIVE block in the bug, shown only while a guild is really raiding. Lives on `:root` in splash.css because tokens.css is a byte copy of the overlay's; move it to tokens.css when the overlay adopts it.
-- **Faded Rose** (rose): [family] warnings that are not errors: the error capsule's 1px border and the late-data update line in the top bar.
+- **Faded Rose** (rose): [family] warnings that are not errors: the error capsule's 1px border and the late-data update line (top bar and footer).
 
 ### Neutral
 - **Raid Night Black** (ink-900): page ground, bug name block, ticker band, inactive language block, ink text on jade.
@@ -244,7 +244,7 @@ A near-black ink ramp with one cool green voice, one warm gold voice and the gui
 
 **The Jade Is the Race Rule.** Jade is the race brand, live state and the CE marker. Guild colours (from guilds.toml) stay clear of jade and gold.
 
-**The Red Means On Air Rule.** Broadcast red appears only in the LIVE block, and only while some guild's live state is really `live`.
+**The Red Means On Air Rule.** Broadcast red means on air: the LIVE block (only while some guild's live state is really `live`) and the "Nu live" strip of streams that are live now. Raiding itself is jade.
 
 ## Typography
 

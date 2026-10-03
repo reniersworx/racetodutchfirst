@@ -1,5 +1,5 @@
-/* Hall of fame (halloffame.js). Same language as style.css: square dark tiles with
-   the guild colour on the left edge, gold for the race's first kills. Colours and
+/* Hall of fame (halloffame.js). Same language as style.css: square dark tiles with a
+   boss-head tile and the first team's guild dot, gold for the race's first kills. Colours and
    fonts only from tokens.css; a guild's colour arrives as --guild. */
 
 .hof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }

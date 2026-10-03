@@ -1,8 +1,8 @@
 /* =====================================================================
-   Race to Dutch First
-   The dashboard language of bmiest_wowaudit_wishlist_updater/site/style.css:
-   a ribbon brand mark, square dark tiles, flat slanted pills. Colours, fonts
-   and radii come only from tokens.css (copied unchanged from the overlay);
+   Race to Dutch First: the sections below the hero (splash.css is the hero).
+   Design language v2 (DESIGN.md): the overlay's ribbons, slanted pills, the
+   angled rcard and flat inks. Colours, fonts and radii come from tokens.css
+   (copied unchanged from the overlay; --live-red sits in splash.css);
    a guild's own colour arrives from race.json as --guild on its element.
    tokens.css sets body{overflow:hidden} for a fixed OBS canvas: undone here.
    ===================================================================== */
@@ -25,7 +25,7 @@ a:hover { text-decoration-color: var(--jade); }
   clip-path: inset(50%); white-space: nowrap;
 }
 
-/* ---- ribbon (brand mark) -------------------------------------------- */
+/* ---- ribbon (the board rows in the hero) ------------------------------ */
 .rib { display: flex; flex-direction: column; flex: 0 0 auto; min-width: 0; }
 .rib__bar {
   height: var(--rib-h, 34px); padding: 1px; background: var(--ink-600);
@@ -45,20 +45,19 @@ a:hover { text-decoration-color: var(--jade); }
 .rib__acc svg { width: 15px; height: 15px; }
 .rib__val { padding-left: 13px; font-size: 16px; font-weight: 600; white-space: nowrap; }
 
-/* NL | EN: two flat slanted buttons, the active one in jade like .pill--jade. */
-.lang-switch { display: inline-flex; gap: 4px; flex: 0 0 auto; }
+/* NL | EN in the top bar's broadcast-bug language: flush square blocks at its height, the
+   active one solid jade like the race day, the other on ink. */
+.lang-switch { display: inline-flex; flex: 0 0 auto; height: 40px; }
 .lang-switch button {
-  font: inherit; font-size: 11px; font-weight: 700; letter-spacing: .12em; cursor: pointer;
-  padding: 7px 15px 7px 11px; border: 0; background: var(--ink-750); color: var(--ink-300);
-  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  font: inherit; font-size: 13px; font-weight: 800; letter-spacing: .12em; cursor: pointer;
+  padding: 0 14px; border: 0; background: var(--ink-900); color: var(--ink-300);
   transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
 .lang-switch button:hover { color: var(--paper); }
-.lang-switch button[aria-pressed="true"] { background: var(--jade-ghost); color: var(--jade); }
+.lang-switch button[aria-pressed="true"] { background: var(--jade); color: var(--ink-900); }
 
 /* ---- header ---------------------------------------------------------- */
 
-.lead { margin-top: 20px; max-width: 64ch; font-size: 20px; font-weight: 300; line-height: 1.55; color: var(--paper-dim); }
 
 /* ---- pills ------------------------------------------------------------ */
 .pill {
@@ -68,6 +67,9 @@ a:hover { text-decoration-color: var(--jade); }
   clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
 }
 .pill--gold { background: var(--ink-750); color: var(--gold); }
+/* A pill that is a button (Hall of fame: show all raiders). */
+.pill--action { border: 0; font-family: inherit; cursor: pointer; color: var(--jade); transition: background var(--t-fast) var(--ease); }
+.pill--action:hover { background: var(--ink-700); }
 
 /* ---- sections --------------------------------------------------------- */
 .view { min-width: 0; }
@@ -106,25 +108,17 @@ a:hover { text-decoration-color: var(--jade); }
 .svg-axis { fill: var(--ink-300); font-size: 11px; font-family: var(--f-mono) !important; }
 .svg-grid { stroke: var(--ink-700); stroke-width: 1; }
 
-@media (min-width: 1180px) {
-  .standings { grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); }
-}
-
 .meter { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 10px; }
 .meter__track { height: 8px; background: var(--ink-700); position: relative; overflow: hidden; }
 .meter__fill { position: absolute; inset: 0 auto 0 0; width: var(--fill, 0%); background: var(--guild, var(--jade)); }
 
-/* ---- raiding now: a cap on the lane ribbon, a badge on the tile ------------ */
-
-/* On a tile it hangs on the top edge, like the caps on the lanes, so the tiles keep one line-up. */
+/* ---- raiding now: the jade pulsing dot (board rows, current-boss cards) ---------- */
 .live-dot {
   width: 7px; height: 7px; border-radius: var(--r-pill); background: var(--jade); flex: 0 0 7px;
   animation: live-pulse 1.6s var(--ease) infinite;
 }
 @keyframes live-pulse { 50% { opacity: .3; } }
 
-/* ---- kill feed ------------------------------------------------------------ */
-.feed { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 8px 16px; }
 
 /* ---- legend + tables ------------------------------------------------------ */
 .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; margin-top: 14px; font-size: 14px; color: var(--paper-dim); }
@@ -235,7 +229,7 @@ a.rcard__src:hover { color: var(--jade); }
   background: var(--ink-750); color: var(--ink-200);
   clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
 }
-.boss__tag.prog { background: var(--ink-750); color: var(--gold); }
+.boss__tag.prog { background: var(--ink-750); color: var(--jade); }
 .boss__stat { display: flex; align-items: flex-end; gap: 22px; margin-top: 6px; }
 .boss__v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 24px; font-weight: 500; line-height: 1; color: var(--paper); }
 .boss__l { font-size: 9px; font-weight: 600; color: var(--ink-300); margin-top: 6px; letter-spacing: .14em; text-transform: uppercase; }
@@ -253,12 +247,6 @@ a.rcard__src:hover { color: var(--jade); }
 .svg-bar--kill { fill: var(--jade); }
 .svg-kill { stroke: var(--jade); stroke-width: 1; stroke-dasharray: 4 4; }
 
-/* ---- race lanes: an overlay ribbon per guild, then its track ------------------ */
-
-.lane { display: grid; grid-template-columns: minmax(220px, 310px) minmax(0, 1fr); gap: 16px; align-items: end; }
-.lane .rib { --rib-h: 36px; --rib-cut: 11px; }
-.lane .rib__acc { color: var(--ink-900); font-weight: 700; font-size: 15px; }
-.lane .rib__val { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .svg-marker { stroke: var(--ink-900); stroke-width: 2; }
 .svg-step { stroke-linecap: round; }
 
@@ -268,28 +256,24 @@ a.rcard__src:hover { color: var(--jade); }
   display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--ink-300); max-width: 90ch;
 }
 .updated { font-size: 15px; color: var(--paper-dim); }
-/* Late data is gold, not red: nothing is broken, the data just hasn't caught up
-   (the overlay's .rcard__at.is-late). */
-.updated--late { color: var(--gold); }
+/* Late data is muted rose, not alarm red and never gold (gold is earned): nothing is broken,
+   the data just hasn't caught up. */
+.updated.updated--late { color: var(--rose); }
 
 /* ---- responsive ------------------------------------------------------------------ */
 @media (max-width: 720px) {
   .page { padding: 28px 16px 72px; gap: 32px; }
-  .lane { grid-template-columns: minmax(0, 1fr); gap: 4px; }
-  .lane--axis .lane__label { display: none; }
-  .lead { font-size: 17px; }
   .winner { grid-template-columns: minmax(0, 1fr); padding: 20px; gap: 12px; }
   .winner__icon { width: 44px; height: 44px; }
 }
 @media (max-width: 600px) {
   .table-wrap--scroll { display: none; }
   .boss-cards { display: flex; flex-direction: column; gap: 10px; }
-  .feed { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 400px) {
   .page { padding: 22px 12px 64px; }
   .rib__val { font-size: 14px; }
-  .tiles-grid, .curves-grid { grid-template-columns: minmax(0, 1fr); }
+  .curves-grid { grid-template-columns: minmax(0, 1fr); }
   .boss-table tbody th { min-width: 118px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -297,14 +281,14 @@ a.rcard__src:hover { color: var(--jade); }
 }
 
 /* ---- "Nu live" strip (live.js) -----------------------------------------------
-   Rose for the live dot: the one place on the page that means "right now". */
+   On air = --live-red, like the LIVE block in the top bar (raiding is jade). */
 .live-strip { display: flex; flex-direction: column; gap: 10px; }
 .live-strip__label {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rose);
+  font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--live-red);
 }
 .live-strip__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px 16px; }
-.live-dot { width: 9px; height: 9px; border-radius: var(--r-pill); background: var(--rose); flex: 0 0 9px; }
+.live-strip .live-dot { width: 9px; height: 9px; flex-basis: 9px; background: var(--live-red); }
 .live-card {
   display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 12px 16px; text-decoration: none;
   background: var(--ink-800); border: 1px solid var(--ink-700);
@@ -313,7 +297,7 @@ a.rcard__src:hover { color: var(--jade); }
 .live-card__top { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .live-card__name { font-size: 16px; font-weight: 600; color: var(--paper); }
 .live-card__guild { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-300); }
-.live-card__guild::before { content: ""; width: 8px; height: 8px; background: var(--guild, var(--rose)); clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 0 100%); }
+.live-card__guild::before { content: ""; width: 8px; height: 8px; background: var(--guild, var(--live-red)); clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 0 100%); }
 .live-card__title {
   font-size: 13px; color: var(--paper-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }

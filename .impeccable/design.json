@@ -474,7 +474,7 @@
       },
       {
         "name": "The Red Means On Air Rule",
-        "body": "Broadcast red appears only in the LIVE block, and only while some guild's live state is really `live`.",
+        "body": "Broadcast red means on air: the LIVE block (only while some guild's live state is really `live`) and the \"Nu live\" strip of streams that are live now. Raiding itself is jade.",
         "section": "colors"
       },
       {
