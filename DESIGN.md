@@ -86,6 +86,9 @@ components:
     backgroundColor: "{colors.jade-ghost}"
     textColor: "{colors.jade}"
     typography: "{typography.label}"
+  live-card:
+    backgroundColor: "{colors.ink-800}"
+    padding: "12px 16px"
   lang-switch-active:
     backgroundColor: "{colors.jade-ghost}"
     textColor: "{colors.jade}"
@@ -101,42 +104,44 @@ The site is the bmiest stream bar unfolded into a page: the same ribbons, flat s
 
 The ground is near-black and flat. There are no gradients and no shadows, because the visual language comes from a 2560-pixel stream canvas where every gradient costs bitrate. Depth comes from stepping up the ink scale, not from light. Each guild brings its own colour, and that colour is the only thing that tells guilds apart; the system colours (jade, gold) are reserved for state.
 
-The tone is a timing screen read by fans: dense but calm, factual, Dutch by default. Decoration has to mean something in the race.
+The tone is a timing screen read by fans: dense but calm, factual, Dutch by default. Decoration has to mean something in the race. It is not a SaaS dashboard (rounded white cards, pastels, generic admin chrome) and not a sports or betting site (loud banners, countdowns, shouting headlines).
 
 **Key Characteristics:**
 - Flat dark layers from the ink scale; no shadows, no gradients.
 - Ribbon brand mark and slanted pills from the stream overlay.
 - Numbers in JetBrains Mono with tabular figures, so columns line up like a timing board.
-- Guild colour identifies a guild; jade means live or active; gold means winning.
+- Guild colour identifies a guild; jade means raiding or active; rose means on air; gold means winning.
 - `tokens.css` is shared byte-for-byte with the overlay and the wishlist site.
 
 ## Colors
 
-A near-black ink ramp with two state colours and a data palette of guild colours on top.
+A near-black ink ramp with three state colours and a data palette of guild colours on top.
 
 ### Primary
-- **Live Jade** (`jade`): live and active state: the "Nu aan het raiden" badge, the selected language, links, focus rings. A muted Mistweaver green so it doesn't bleed on stream. `jade-ghost` is its translucent fill behind jade text; `jade-deep` is the darker step.
+- **Green Flag Jade** (`jade`): raiding and active state: the "Nu aan het raiden" badge, the selected language, links, focus rings. A muted Mistweaver green so it doesn't bleed on stream. `jade-ghost` is its translucent fill behind jade text; `jade-deep` is the darker step.
 
 ### Secondary
 - **Podium Gold** (`gold`): winning and leading only. The leader's cap and tile border, a first kill (★), the Cutting Edge finish line and the winner banner.
 
 ### Tertiary
-- **Error Rose** (`rose`): errors only, as the border of the error capsule.
+- **On-Air Rose** (`rose`): a camera is on: the "Nu live" strip for Twitch streams (label, dot, card edge for a channel without a guild). Errors use it too, as the border of the error capsule, always together with words that say what went wrong.
 
 ### Neutral
-- **Pit Black** (`ink-900`): page background.
-- **Panel Ink** (`ink-800`): tiles, cards, ribbons; one step up from the page.
-- **Raised Ink** (`ink-750`, `ink-700`): pills, tracks, borders and dividers between surfaces.
-- **Rule Ink** (`ink-600`, `ink-500`, `ink-400`): outlines, ticks and inactive marks.
+- **Pit Lane Black** (`ink-900`): page background.
+- **Garage Ink** (`ink-800`): tiles, cards, ribbons; one step up from the page.
+- **Raised Garage** (`ink-750`, `ink-700`): pills, tracks, borders and dividers between surfaces.
+- **Pit Wall Grey** (`ink-600`, `ink-500`, `ink-400`): outlines, ticks and inactive marks.
 - **Caption Grey** (`ink-300`, `ink-200`): captions, labels, axis text, secondary values.
-- **Paper** (`paper`): primary text. Deliberately not pure white, which clips on the stream encoder.
-- **Dim Paper** (`paper-dim`): lead paragraphs and secondary text on dark panels.
+- **Timing Paper** (`paper`): primary text. Deliberately not pure white, which clips on the stream encoder.
+- **Faded Paper** (`paper-dim`): lead paragraphs and secondary text on dark panels.
 
 ### Data palette
 Guild colours come from `guilds.toml` (currently `#5aa9ff`, `#ff8a3d`, `#e5484d`, `#b48cff`, `#f472b6`) and reach the page as `--guild` on the guild's element. They are data, not tokens.
 
 ### Named Rules
 **The Gold Means Winning Rule.** Gold marks a leader, a first kill, the CE finish or a winner, nothing else. Warnings and stale data use another colour, so gold always reads as good news.
+
+**The Two Kinds of Live Rule.** Jade means a guild is raiding right now; rose means someone is on air on Twitch. Never swap them.
 
 **The Guild Owns Its Colour Rule.** A guild's colour appears on its own lane, tile edge, dot and chart line. System colours never stand in for a guild, and guild colours never signal state.
 
@@ -196,6 +201,12 @@ A 1px `ink-700` frame with a cut bottom-right corner, `ink-800` inside, a guild-
 ### Live badge
 Jade label with a pulsing dot while a guild raided in the last hour; it fades to a grey "Raidde om 21:02" afterwards.
 
+### Nu live strip
+Shown under the header only while a listed channel is live, and hidden once the check is over 75 minutes old. A rose uppercase label with a rose dot, then a grid of cards (min 280px): `ink-800` with a 1px `ink-700` border and a 3px left edge in the streamer's guild colour (rose without a guild). Name, guild, a one-line title with ellipsis, and "live since" plus viewers in mono. The whole card links to the Twitch channel.
+
+### Hall of fame
+Per killed boss a card with each guild's kill team in kill order (the first is the race's first kill), members in an auto-fill grid with their spec in caption grey, and a raider ranking table on `ink-850` that scrolls sideways on phones.
+
 ### Language switch
 Two slanted buttons (NL | EN); the active one is jade on `jade-ghost`.
 
@@ -205,11 +216,13 @@ Two slanted buttons (NL | EN); the active one is jade on `jade-ghost`.
 - **Do** take every colour, font and radius from `tokens.css`, and keep that file identical to the overlay's.
 - **Do** set every comparable number in JetBrains Mono with tabular figures.
 - **Do** use the guild colour only for that guild's own marks.
-- **Do** use jade for live or active state and gold only for leading, first kills, Cutting Edge and the winner.
+- **Do** use jade for raiding or active state, rose for on air, and gold only for leading, first kills, Cutting Edge and the winner.
 - **Do** build emphasis with an edge (left border, inset bar, outline) instead of a shadow.
 
 ### Don't:
 - **Don't** use gradients or shadows.
 - **Don't** use pure white (`#fff`) for text; use `paper`.
 - **Don't** use gold for warnings or stale data.
+- **Don't** show an error by colour alone; say what went wrong.
+- **Don't** drift toward a SaaS dashboard (rounded white cards, pastels) or a sports/betting site (loud banners, countdowns).
 - **Don't** put `style=""` in HTML or set styles with `setAttribute('style')`; the CSP forbids inline styles, so use `el.style.setProperty()`.

@@ -134,7 +134,7 @@ halloffame.js does). Fixture rosters are trimmed by `RecordingHTTP` to the used 
 ## Live streams
 
 `[streams]` in guilds.toml lists Twitch channels (`twitch`, optional `guild`) and a `game`
-filter (World of Warcraft). `twitch.py` asks DecAPI (https://decapi.me/twitch/<what>/<login>,
+filter (World of Warcraft; removed as a test in PR #9, so every live stream shows). `twitch.py` asks DecAPI (https://decapi.me/twitch/<what>/<login>,
 plain text, no key; the overlay uses it too) per channel: `uptime` ("<login> is offline" or
 "1 hour, 2 minutes, …"), and only for live ones `game`, `title`, `viewercount`. A failure
 makes that channel `live: null` and never stops the run. `site/live.js` shows the "Nu live"
