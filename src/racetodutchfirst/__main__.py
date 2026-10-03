@@ -16,6 +16,7 @@ from pathlib import Path
 from .config import ConfigError, load_config
 from .race import build_race
 from .raiderio import FetchError, RaiderIO, RecordingHTTP, http_client
+from .twitch import DecAPI, RecordingDecAPI
 from .wcl import RecordingTransport, WarcraftLogs
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -53,8 +54,9 @@ def main(argv: list[str] | None = None) -> int:
         if wcl_id and wcl_secret:
             transport = RecordingTransport(client, args.record) if args.record else client
             wcl = WarcraftLogs(transport, wcl_id, wcl_secret)
+        decapi = DecAPI(RecordingDecAPI(client, args.record) if args.record else client)
         try:
-            race = build_race(rio, config, datetime.now(UTC), wcl=wcl)
+            race = build_race(rio, config, datetime.now(UTC), wcl=wcl, decapi=decapi)
         except FetchError as exc:
             print(f"Raider.IO: {exc}. {args.output} blijft ongewijzigd.", file=sys.stderr)
             return 1
@@ -73,6 +75,10 @@ def main(argv: list[str] | None = None) -> int:
                      f"({cur['pullCount']} pulls, {cur['pullSource']})")
         print(f"  #{g['rank']} {g['name']}: {g['mythicKills']}/{g['totalBosses']} M, "
               f"positie {g['racePosition']:.2f}, {where}")
+    for ch in (race["streams"] or {}).get("channels", []):
+        if ch["live"]:
+            print(f"  Live: {ch['twitch']} ({ch['game']}, {ch['viewers']} kijkers)"
+                  f"{'' if ch['shown'] else ', niet getoond'}")
     if race["winner"]:
         print(f"  Winnaar: {race['winner']['guild']} ({race['winner']['defeatedAt']})")
     return 0

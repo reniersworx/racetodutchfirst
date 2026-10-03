@@ -8,6 +8,10 @@ Live op <https://racetodutchfirst.bmiest.be/>. De data komt van [Raider.IO](http
 
 Zet een `[[guilds]]`-blok in [`guilds.toml`](guilds.toml) (naam, realm, kleur) en open een pull request. Na de merge staat de guild er bij de volgende verversing bij.
 
+## Een streamer toevoegen
+
+Zet een `[[streams.channels]]`-blok in [`guilds.toml`](guilds.toml) met de Twitch-naam en eventueel de guild. Wie live is in World of Warcraft, staat bovenaan de site onder "Nu live".
+
 ## Lokaal draaien
 
 ```bash

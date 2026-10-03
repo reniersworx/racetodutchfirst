@@ -21,6 +21,7 @@ class Response:
     def __init__(self, status_code: int, payload: object = None) -> None:
         self.status_code = status_code
         self._payload = payload
+        self.text = payload if isinstance(payload, str) else ""
 
     def json(self) -> object:
         return self._payload
@@ -90,3 +91,27 @@ class FixtureWCL:
         if not path.exists():
             raise AssertionError(f"WCL query without a fixture: {path.name}")
         return Response(200, json.loads(path.read_text()))
+
+
+DECAPI_FIXTURES = Path(__file__).parent / "fixtures" / "decapi"
+
+
+class FixtureDecAPI:
+    """DecAPI answers from tests/fixtures/decapi; overrides win, an int override is a status."""
+
+    def __init__(self, overrides: dict[str, object] | None = None) -> None:
+        self.overrides = overrides or {}
+        self.urls: list[str] = []
+
+    def get(self, url: str) -> Response:
+        from racetodutchfirst.twitch import fixture_name
+
+        self.urls.append(url)
+        name = fixture_name(url)
+        if name in self.overrides:
+            v = self.overrides[name]
+            return Response(v) if isinstance(v, int) else Response(200, v)
+        path = DECAPI_FIXTURES / name
+        if not path.exists():
+            raise AssertionError(f"DecAPI request without a fixture: {name}")
+        return Response(200, path.read_text())

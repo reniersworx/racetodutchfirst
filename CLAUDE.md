@@ -14,6 +14,7 @@ src/racetodutchfirst/
   config.py                  loads and validates guilds.toml
   raiderio.py                the 4 Raider.IO endpoints; pacing, retries, fixture recording
   wcl.py                     Warcraft Logs v2 (optional): token, reports+fights query, dedupe
+  twitch.py                  who of [streams] is live on Twitch, via DecAPI
   race.py                    responses → per-guild state, race position, ranking, winner
   __main__.py                CLI: writes site/data/race.json (atomically; never on failure)
 tests/
@@ -129,6 +130,18 @@ apart; after a guild switch the latest kill's guild wins. A kill known only from
 `rosterKnown: false`. `site/halloffame.js` + `halloffame.css` draw it, on app.js's
 `race:data` event *and* from app.js's global `race` at load (race.json can arrive before
 halloffame.js does). Fixture rosters are trimmed by `RecordingHTTP` to the used fields.
+
+## Live streams
+
+`[streams]` in guilds.toml lists Twitch channels (`twitch`, optional `guild`) and a `game`
+filter (World of Warcraft). `twitch.py` asks DecAPI (https://decapi.me/twitch/<what>/<login>,
+plain text, no key; the overlay uses it too) per channel: `uptime` ("<login> is offline" or
+"1 hour, 2 minutes, …"), and only for live ones `game`, `title`, `viewercount`. A failure
+makes that channel `live: null` and never stops the run. `site/live.js` shows the "Nu live"
+strip for `shown` channels and hides it once `streams.checkedAt` is over 75 min old.
+Raider.IO's published `raiding/boss-rankings` also carries per-guild `streamers` (count +
+top stream), but only for a realm's top 50 guilds per boss; Lelijkerds and RoyalTeam never
+appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
 
 ## Frontend rules
 
