@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T16:49:27+00:00",
+  "title": "Design System: Race to Dutch First",
+  "extensions": {
+    "colorMeta": {
+      "jade": {
+        "role": "primary",
+        "displayName": "Live Jade",
+        "tonalRamp": [
+          "oklch(15% 0.15 165)",
+          "oklch(25% 0.15 165)",
+          "oklch(35% 0.15 165)",
+          "oklch(48% 0.15 165)",
+          "oklch(60% 0.15 165)",
+          "oklch(72% 0.15 165)",
+          "oklch(84% 0.15 165)",
+          "oklch(95% 0.15 165)"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Podium Gold",
+        "tonalRamp": [
+          "oklch(15% 0.1 85)",
+          "oklch(25% 0.1 85)",
+          "oklch(35% 0.1 85)",
+          "oklch(48% 0.1 85)",
+          "oklch(60% 0.1 85)",
+          "oklch(72% 0.1 85)",
+          "oklch(84% 0.1 85)",
+          "oklch(95% 0.1 85)"
+        ]
+      },
+      "rose": {
+        "role": "tertiary",
+        "displayName": "Error Rose",
+        "tonalRamp": [
+          "oklch(15% 0.08 20)",
+          "oklch(25% 0.08 20)",
+          "oklch(35% 0.08 20)",
+          "oklch(48% 0.08 20)",
+          "oklch(60% 0.08 20)",
+          "oklch(72% 0.08 20)",
+          "oklch(84% 0.08 20)",
+          "oklch(95% 0.08 20)"
+        ]
+      },
+      "ink-900": {
+        "role": "neutral",
+        "displayName": "Pit Black",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#0e1014",
+          "#131519",
+          "#171a1f",
+          "#1e2228",
+          "#2a2f37",
+          "#3a414b",
+          "#5b6470"
+        ]
+      },
+      "ink-800": {
+        "role": "neutral",
+        "displayName": "Panel Ink"
+      },
+      "ink-300": {
+        "role": "neutral",
+        "displayName": "Caption Grey"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper"
+      },
+      "paper-dim": {
+        "role": "neutral",
+        "displayName": "Dim Paper"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The page question, once per page."
+      },
+      "section-label": {
+        "displayName": "Section label",
+        "purpose": "Uppercase section headings."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Pills, badges, caps, tile labels."
+      },
+      "numeric": {
+        "displayName": "Numeric",
+        "purpose": "Every comparable number, tabular figures."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "t-fast",
+        "value": "160ms",
+        "purpose": "Hover colour changes."
+      },
+      {
+        "name": "t-med",
+        "value": "300ms",
+        "purpose": "Local state transitions."
+      },
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.22,.61,.36,1)",
+        "purpose": "Default easing; the live dot pulses on it (1.6s)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "400px"
+      },
+      {
+        "name": "sm",
+        "value": "600px"
+      },
+      {
+        "name": "md",
+        "value": "720px"
+      },
+      {
+        "name": "wide",
+        "value": "1180px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ribbon",
+      "kind": "custom",
+      "refersTo": "ribbon",
+      "description": "Brand mark and race-lane label: accent block plus slanted dark bar.",
+      "html": "<div class=\"ds-rib\"><span class=\"ds-rib-acc\">1</span><span class=\"ds-rib-val\">Kelderklasse <b>6,73</b></span></div>",
+      "css": ".ds-rib{display:inline-flex;height:34px;padding:1px;background:var(--ink-600,#2a2f37);clip-path:polygon(0 0,100% 0,calc(100% - 11px) 100%,0 100%);font-family:Outfit,system-ui,sans-serif}.ds-rib-acc{width:34px;display:grid;place-items:center;background:#5aa9ff;color:#0a0b0d;font-weight:700;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}.ds-rib-val{display:flex;align-items:center;gap:24px;padding:0 24px 0 13px;background:var(--ink-800,#131519);color:var(--paper,#eef1f5);font-weight:600}.ds-rib-val b{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--paper-dim,#c9d0d8)}"
+    },
+    {
+      "name": "Pill",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "Flat slanted status pill; neutral, jade and gold variants.",
+      "html": "<span class=\"ds-pill\">9 bosses</span> <span class=\"ds-pill ds-pill-gold\">Cutting Edge: Ula'tek</span> <span class=\"ds-pill ds-pill-jade\">Live</span>",
+      "css": ".ds-pill{display:inline-flex;padding:6px 15px 6px 11px;font:700 11px/1 Outfit,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;background:var(--ink-750,#171a1f);color:var(--ink-200,#a8b1bc);clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);}.ds-pill-gold{color:var(--gold,#d8b263)}.ds-pill-jade{background:var(--jade-ghost,rgba(63,217,164,.13));color:var(--jade,#3fd9a4)}"
+    },
+    {
+      "name": "Standings tile",
+      "kind": "card",
+      "refersTo": "tile",
+      "description": "Klassement tile: square, guild-coloured left edge, gold when leading.",
+      "html": "<div class=\"ds-tile ds-tile-lead\"><span class=\"ds-tile-rank\">1</span><div><div class=\"ds-tile-name\">Kelderklasse</div><div class=\"ds-tile-realm\">Draenor · EU</div></div></div>",
+      "css": ".ds-tile{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:16px 18px 18px;background:var(--ink-800,#131519);border:1px solid var(--ink-700,#1e2228);border-left:3px solid #5aa9ff;font-family:Outfit,system-ui,sans-serif}.ds-tile-lead{border-color:var(--gold,#d8b263);border-left-color:#5aa9ff}.ds-tile-rank{font:700 30px/1 'JetBrains Mono',monospace;color:var(--ink-200,#a8b1bc)}.ds-tile-lead .ds-tile-rank{color:var(--gold,#d8b263)}.ds-tile-name{font-size:18px;font-weight:600;color:var(--paper,#eef1f5)}.ds-tile-realm{font-size:13px;color:var(--ink-300,#818b98)}"
+    },
+    {
+      "name": "Boss card",
+      "kind": "card",
+      "refersTo": "boss-card",
+      "description": "Huidige boss card with a cut bottom-right corner and big mono figures.",
+      "html": "<div class=\"ds-rcard\"><div class=\"ds-rcard-in\"><div class=\"ds-over\">The Venomous Abyss · Mythic</div><div class=\"ds-boss\">The Twin Fangs</div><div class=\"ds-v\">27,02%</div></div></div>",
+      "css": ".ds-rcard{padding:1px;background:var(--ink-700,#1e2228);clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%);font-family:Outfit,system-ui,sans-serif}.ds-rcard-in{background:var(--ink-800,#131519);padding:22px 20px 26px;clip-path:polygon(0 0,100% 0,100% calc(100% - 21px),calc(100% - 21px) 100%,0 100%)}.ds-over{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-300,#818b98)}.ds-boss{font-size:20px;font-weight:600;color:var(--paper,#eef1f5);margin:4px 0 8px}.ds-v{font:500 24px/1 'JetBrains Mono',monospace;color:var(--gold,#d8b263)}"
+    },
+    {
+      "name": "Live badge",
+      "kind": "chip",
+      "refersTo": "live-badge",
+      "description": "'Nu aan het raiden' with a pulsing jade dot.",
+      "html": "<span class=\"ds-live\"><i></i>Nu aan het raiden</span>",
+      "css": ".ds-live{display:inline-flex;align-items:center;gap:7px;padding:4px 12px 4px 9px;font:700 10px/1 Outfit,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:var(--jade-ghost,rgba(63,217,164,.13));color:var(--jade,#3fd9a4);clip-path:polygon(0 0,100% 0,calc(100% - 5px) 100%,0 100%)}.ds-live i{width:7px;height:7px;border-radius:999px;background:var(--jade,#3fd9a4);animation:ds-p 1.6s cubic-bezier(.22,.61,.36,1) infinite}@keyframes ds-p{50%{opacity:.35}}"
+    },
+    {
+      "name": "Language switch",
+      "kind": "nav",
+      "refersTo": "lang-switch-active",
+      "description": "NL | EN, the active one in jade.",
+      "html": "<span class=\"ds-lang\"><button aria-pressed=\"true\">NL</button><button>EN</button></span>",
+      "css": ".ds-lang{display:inline-flex;gap:4px}.ds-lang button{font:700 11px Outfit,system-ui,sans-serif;letter-spacing:.12em;padding:7px 15px 7px 11px;border:0;cursor:pointer;background:var(--ink-750,#171a1f);color:var(--ink-300,#818b98);clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);transition:color 160ms}.ds-lang button:hover{color:var(--paper,#eef1f5)}.ds-lang button:focus-visible{outline:2px solid var(--jade,#3fd9a4);outline-offset:3px}.ds-lang button[aria-pressed=true]{background:var(--jade-ghost,rgba(63,217,164,.13));color:var(--jade,#3fd9a4)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Stream Bar at the Pit Wall",
+    "overview": "The site is the bmiest stream bar unfolded into a page: the same ribbons, flat slanted pills and dark tiles that sit under the gameplay on stream, laid out with the discipline of a pit-wall timing screen. Positions, gaps and counts come first, in monospaced figures that line up; colour only appears where something changed or someone leads.\n\nThe ground is near-black and flat. There are no gradients and no shadows, because the visual language comes from a 2560-pixel stream canvas where every gradient costs bitrate. Depth comes from stepping up the ink scale, not from light. Each guild brings its own colour, and that colour is the only thing that tells guilds apart; the system colours (jade, gold) are reserved for state.\n\nThe tone is a timing screen read by fans: dense but calm, factual, Dutch by default. Decoration has to mean something in the race.",
+    "keyCharacteristics": [
+      "Flat dark layers from the ink scale; no shadows, no gradients.",
+      "Ribbon brand mark and slanted pills from the stream overlay.",
+      "Numbers in JetBrains Mono with tabular figures, so columns line up like a timing board.",
+      "Guild colour identifies a guild; jade means live or active; gold means winning.",
+      "`tokens.css` is shared byte-for-byte with the overlay and the wishlist site."
+    ],
+    "rules": [
+      {
+        "name": "The Gold Means Winning Rule",
+        "body": "Gold marks a leader, a first kill, the CE finish or a winner, nothing else. Warnings and stale data use another colour, so gold always reads as good news.",
+        "section": "colors"
+      },
+      {
+        "name": "The Guild Owns Its Colour Rule",
+        "body": "A guild's colour appears on its own lane, tile edge, dot and chart line. System colours never stand in for a guild, and guild colours never signal state.",
+        "section": "colors"
+      },
+      {
+        "name": "The Timing Board Rule",
+        "body": "Every number that can be compared with another number is set in the mono face with tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Glow Rule",
+        "body": "Nothing casts a shadow or glows. If something needs to stand out, give it an edge or a state colour.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do take every colour, font and radius from `tokens.css`, and keep that file identical to the overlay's.",
+      "Do set every comparable number in JetBrains Mono with tabular figures.",
+      "Do use the guild colour only for that guild's own marks.",
+      "Do use jade for live or active state and gold only for leading, first kills, Cutting Edge and the winner.",
+      "Do build emphasis with an edge (left border, inset bar, outline) instead of a shadow."
+    ],
+    "donts": [
+      "Don't use gradients or shadows.",
+      "Don't use pure white (`#fff`) for text; use `paper`.",
+      "Don't use gold for warnings or stale data.",
+      "Don't put `style=\"\"` in HTML or set styles with `setAttribute('style')`; the CSP forbids inline styles, so use `el.style.setProperty()`."
+    ]
+  }
+}

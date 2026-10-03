@@ -145,6 +145,9 @@ appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
 
 ## Frontend rules
 
+Read `DESIGN.md` before UI work: it records the visual system (tokens, components, rules);
+`.impeccable/design.json` is its machine-readable sidecar for the Impeccable plugin.
+
 - Build DOM with `h()` / `s()` and `textContent`. **No `innerHTML`**: guild and boss names
   come from an external API.
 - The CSP is `'self'` + Google Fonts only, and no `'unsafe-inline'`: so no `style="…"` in
@@ -155,7 +158,8 @@ appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
 - Look borrowed from the operator's repos: ribbons (`.rib`, `.rib__cap`) and the angled
   `rcard` from the overlay's css/ribbon.css; boss card type (`.boss__*`) and pull bars
   (higher = more HP gone) from its css/banner.css; dark `.tile`s, pills and the header
-  from bmiest_wowaudit_wishlist_updater site/style.css. Late data is gold, not red.
+  from bmiest_wowaudit_wishlist_updater site/style.css. Gold means winning only (DESIGN.md);
+  late data and the best-pull figure still use gold and are due to move to another colour.
 - Charts draw at the container's measured width and redraw on resize (ResizeObserver).
   It must work at 360 px: below 600 px the per-boss table is replaced by one card per boss
   (`#bossCards`, same `bossCell()` markup in a `div`).
