@@ -27,12 +27,14 @@ tests/
   fixtures/api/              older single responses from the first version (unused but kept)
 scripts/og-image.sh          headless Chrome: site/og.html → site/og.png (run by site.yml)
 site/                        static, no build step, no framework, no CDN scripts
-  index.html                 sections in order: De race, Klassement, Laatste kills, Voortgang, Per boss, Huidige boss, footer
+  index.html                 splash hero (top bar, title, board, kills ticker), then Nu live, Voortgang, Per boss, Huidige boss, Hall of fame, footer
   i18n.js                    NL + EN strings and the global `i18n` (loaded before app.js)
   app.js                     loads data/race.json, draws everything (inline SVG)
   og.html, og.css, og.js     the 1200x630 share image page; scripts/og-image.sh screenshots it to og.png
   og.png                     committed fallback share image; CI replaces it in the Pages artifact
-  style.css                  the page
+  splash.css                 the hero (design language v2: the overlay's language as a raid poster)
+  style.css                  the sections below the hero
+  bossart.js                 boss renders per encounter, copied UNCHANGED from the overlay's js/bossart.js (build-bossart.py there)
   tokens.css                 copied UNCHANGED from Bmiest/bmiest_wow_streaming_theme css/tokens.css
   data/race.json             sample data; CI regenerates it into the Pages artifact only
 .github/workflows/site.yml   raid evenings every 30 min, else every 2 h, + main pushes + manual: fetch, share image, deploy
@@ -152,10 +154,16 @@ appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
 - Colours, fonts and radii come from tokens.css variables. Guild colours come from
   guilds.toml (validated `#rrggbb` in config.py *and* app.js) as `--guild` / `--acc`.
   Keep them clear of jade and gold, which mean leader / first kill / winner.
-- Look borrowed from the operator's repos: ribbons (`.rib`, `.rib__cap`) and the angled
-  `rcard` from the overlay's css/ribbon.css; boss card type (`.boss__*`) and pull bars
-  (higher = more HP gone) from its css/banner.css; dark `.tile`s, pills and the header
-  from bmiest_wowaudit_wishlist_updater site/style.css. Late data is gold, not red.
+- Look: design language v2 (direction contract in `.impeccable/surfaces/site-index-html.md`,
+  product record in `PRODUCT.md`, shared repo Bmiest/bmiest-design). The overlay's language
+  grown into a poster: ribbons (`.rib`), slanted pills and bars, the angled `rcard`, jade for
+  the race brand and live state, gold only for the leader and the winner. No coloured side
+  stripes on cards or cells: use a 1-2px outline or a guild chip/rank block instead.
+- The hero shows the leader's current boss (the CE boss once someone won) from bossart.js:
+  Blizzard renders on render.worldofwarcraft.com, the only external image host the CSP
+  allows (`img-src`). Nothing is drawn on the boss. A council fight shows up to two bodies.
+  A boss missing from bossart.js (Nymrissa) leaves the hero without art.
+- The LIVE pill in the top bar shows only while some guild's `liveState` is `live`.
 - Charts draw at the container's measured width and redraw on resize (ResizeObserver).
   It must work at 360 px: below 600 px the per-boss table is replaced by one card per boss
   (`#bossCards`, same `bossCell()` markup in a `div`).
