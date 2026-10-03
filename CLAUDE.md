@@ -149,7 +149,7 @@ appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
 
 - Build DOM with `h()` / `s()` and `textContent`. **No `innerHTML`**: guild and boss names
   come from an external API.
-- The CSP is `'self'` + Google Fonts only, and no `'unsafe-inline'`: so no `style="…"` in
+- The CSP is `'self'` + Google Fonts + boss renders from render.worldofwarcraft.com, and no `'unsafe-inline'`: so no `style="…"` in
   HTML and no `setAttribute('style')`. Set custom properties with `el.style.setProperty()`.
 - Colours, fonts and radii come from tokens.css variables. Guild colours come from
   guilds.toml (validated `#rrggbb` in config.py *and* app.js) as `--guild` / `--acc`.
