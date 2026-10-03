@@ -73,3 +73,21 @@ name = "The Tidebound Grotto"
 bosses = [
   { slug = "nymrissa-wavecaller", name = "Nymrissa Wavecaller", encounter = 3379 },
 ]
+
+# Twitch channels of raiders in the race. The site shows who is live right now
+# (checked through DecAPI on every run, no key needed). guild is optional: it
+# must be one of the guild names above. Only streams in `game` are shown; leave
+# it out to show every live stream.
+[streams]
+game = "World of Warcraft"
+
+[[streams.channels]]
+twitch = "bmiest"
+guild = "Kelderklasse"
+
+[[streams.channels]]
+twitch = "rughaar"
+
+[[streams.channels]]
+twitch = "diigii"
+guild = "Kameraden"

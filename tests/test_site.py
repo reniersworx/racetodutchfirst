@@ -26,7 +26,7 @@ def test_both_languages_have_the_same_keys():
 
 def test_every_used_key_exists():
     keys = _dict((SITE / "i18n.js").read_text(encoding="utf-8"), "nl")
-    app = "\n".join((SITE / n).read_text(encoding="utf-8") for n in ("app.js", "halloffame.js"))
+    app = "\n".join((SITE / n).read_text(encoding="utf-8") for n in ("app.js", "halloffame.js", "live.js"))
     html = (SITE / "index.html").read_text(encoding="utf-8")
     used = set(re.findall(r"\btr\('([\w.]+)'", app))
     used |= set(re.findall(r'data-i18n(?:-aria-label)?="([\w.]+)"', html))
@@ -37,7 +37,7 @@ def test_every_used_key_exists():
 
 
 def test_no_innerhtml_and_no_inline_styles():
-    for name in ("app.js", "i18n.js", "og.js", "halloffame.js"):
+    for name in ("app.js", "i18n.js", "og.js", "halloffame.js", "live.js"):
         js = (SITE / name).read_text(encoding="utf-8")
         assert not re.search(r"\.(inner|outer)HTML\s*[+]?=|insertAdjacentHTML", js), name
         assert "setAttribute('style'" not in js, name

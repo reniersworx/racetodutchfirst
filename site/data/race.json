@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T22:09:50Z",
+ "generatedAt": "2026-10-03T16:24:46Z",
  "sources": {
   "raiderio": true,
   "warcraftlogs": true
@@ -106,7 +106,7 @@
    "mythicKills": 6,
    "heroicKills": 9,
    "totalBosses": 9,
-   "worldRank": 1037,
+   "worldRank": 1040,
    "racePosition": 6.73,
    "latestKillAt": "2026-09-27T18:44:52.256Z",
    "ceKilledAt": null,
@@ -116,7 +116,7 @@
      "heroic": 8,
      "total": 8,
      "summary": "5/8 M",
-     "worldRank": 1037,
+     "worldRank": 1040,
      "regionRank": 529,
      "realmRank": 41
     },
@@ -494,7 +494,7 @@
    "mythicKills": 5,
    "heroicKills": 9,
    "totalBosses": 9,
-   "worldRank": 1715,
+   "worldRank": 1722,
    "racePosition": 5.5627,
    "latestKillAt": "2026-09-28T18:45:57.772Z",
    "ceKilledAt": null,
@@ -504,7 +504,7 @@
      "heroic": 8,
      "total": 8,
      "summary": "4/8 M",
-     "worldRank": 1715,
+     "worldRank": 1722,
      "regionRank": 839,
      "realmRank": 39
     },
@@ -882,7 +882,7 @@
    "mythicKills": 4,
    "heroicKills": 9,
    "totalBosses": 9,
-   "worldRank": 1970,
+   "worldRank": 1983,
    "racePosition": 4.3305,
    "latestKillAt": "2026-09-27T18:35:22.350Z",
    "ceKilledAt": null,
@@ -892,7 +892,7 @@
      "heroic": 8,
      "total": 8,
      "summary": "4/8 M",
-     "worldRank": 1970,
+     "worldRank": 1983,
      "regionRank": 972,
      "realmRank": 11
     },
@@ -901,8 +901,8 @@
      "heroic": 1,
      "total": 1,
      "summary": "1/1 H",
-     "worldRank": 3133,
-     "regionRank": 1389,
+     "worldRank": 3150,
+     "regionRank": 1390,
      "realmRank": 15
     }
    },
@@ -1168,7 +1168,7 @@
    "mythicKills": 2,
    "heroicKills": 9,
    "totalBosses": 9,
-   "worldRank": 2967,
+   "worldRank": 2983,
    "racePosition": 2.9765,
    "latestKillAt": "2026-09-24T20:06:31.567Z",
    "ceKilledAt": null,
@@ -1178,9 +1178,9 @@
      "heroic": 8,
      "total": 8,
      "summary": "2/8 M",
-     "worldRank": 2967,
-     "regionRank": 1338,
-     "realmRank": 94
+     "worldRank": 2983,
+     "regionRank": 1340,
+     "realmRank": 95
     },
     "the-tidebound-grotto": {
      "mythic": 0,
@@ -1597,7 +1597,7 @@
    "mythicKills": 2,
    "heroicKills": 9,
    "totalBosses": 9,
-   "worldRank": 3923,
+   "worldRank": 3929,
    "racePosition": 2.0,
    "latestKillAt": "2026-10-01T20:30:30.871Z",
    "ceKilledAt": null,
@@ -1607,7 +1607,7 @@
      "heroic": 8,
      "total": 8,
      "summary": "2/8 M",
-     "worldRank": 3923,
+     "worldRank": 3929,
      "regionRank": 1694,
      "realmRank": 99
     },
@@ -9177,6 +9177,45 @@
       "first": false
      }
     ]
+   }
+  ]
+ },
+ "streams": {
+  "checkedAt": "2026-10-03T16:24:46Z",
+  "game": "World of Warcraft",
+  "channels": [
+   {
+    "twitch": "bmiest",
+    "guild": "Kelderklasse",
+    "url": "https://www.twitch.tv/bmiest",
+    "live": false,
+    "game": null,
+    "title": null,
+    "viewers": null,
+    "startedAt": null,
+    "shown": false
+   },
+   {
+    "twitch": "rughaar",
+    "guild": null,
+    "url": "https://www.twitch.tv/rughaar",
+    "live": false,
+    "game": null,
+    "title": null,
+    "viewers": null,
+    "startedAt": null,
+    "shown": false
+   },
+   {
+    "twitch": "diigii",
+    "guild": "Kameraden",
+    "url": "https://www.twitch.tv/diigii",
+    "live": true,
+    "game": "AION 2",
+    "title": "✅DROPS! - Lumiel EU - Templar Tank Leveling/Dungeons :) 👑",
+    "viewers": 18,
+    "startedAt": "2026-10-03T14:22:29Z",
+    "shown": false
    }
   ]
  }

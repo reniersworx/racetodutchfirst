@@ -26,6 +26,7 @@ from urllib.parse import quote
 
 from .config import Boss, Config, Guild, Tier
 from .raiderio import RaiderIO
+from .twitch import DecAPI, live_streams
 from .wcl import WarcraftLogs, WCLError
 
 NO_PROGRESS = 100.0  # best % used for ranking when a guild has no pull on its current boss
@@ -405,7 +406,7 @@ def hall_of_fame(guilds: list[dict], tier: Tier) -> dict:
 
 
 def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
-               wcl: WarcraftLogs | None = None) -> dict:
+               wcl: WarcraftLogs | None = None, decapi: DecAPI | None = None) -> dict:
     guilds = []
     for i, guild in enumerate(config.guilds, start=1):
         log(f"[{i}/{len(config.guilds)}] {guild.name} ({guild.realm})")
@@ -438,4 +439,6 @@ def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
         "winner": find_winner(ranked),
         "guilds": ranked,
         "hallOfFame": fame,
+        "streams": (live_streams(decapi, config.streams, now)
+                    if decapi and config.streams.channels else None),
     }

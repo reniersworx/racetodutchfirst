@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 _HEX_COLOUR = re.compile(r"^#[0-9a-fA-F]{6}$")
+_TWITCH_LOGIN = re.compile(r"^[a-z0-9_]{3,25}$")
 
 
 class ConfigError(ValueError):
@@ -78,9 +79,22 @@ class Tier:
 
 
 @dataclass(frozen=True)
+class Channel:
+    twitch: str
+    guild: str | None = None
+
+
+@dataclass(frozen=True)
+class Streams:
+    channels: tuple[Channel, ...] = ()
+    game: str | None = None
+
+
+@dataclass(frozen=True)
 class Config:
     guilds: tuple[Guild, ...]
     tier: Tier
+    streams: Streams = Streams()
 
 
 def _title(slug: str) -> str:
@@ -129,7 +143,22 @@ def parse_config(data: dict) -> Config:
         tier.boss(ce_raid, ce_slug)
     except KeyError as exc:
         raise ConfigError(f"tier.ce_boss {ce_raid}/{ce_slug} is not one of the tier's bosses") from exc
-    return Config(guilds=tuple(guilds), tier=tier)
+    return Config(guilds=tuple(guilds), tier=tier, streams=_streams(data.get("streams") or {}, guilds))
+
+
+def _streams(data: dict, guilds: list[Guild]) -> Streams:
+    names = {g.name for g in guilds}
+    channels = []
+    for c in data.get("channels", []):
+        login = str(c.get("twitch", "")).strip().lower()
+        if not _TWITCH_LOGIN.match(login):
+            raise ConfigError(f"streams: {c.get('twitch')!r} is not a Twitch login")
+        if c.get("guild") is not None and c["guild"] not in names:
+            raise ConfigError(f"streams: {login}'s guild {c['guild']!r} isn't one of the guilds")
+        channels.append(Channel(twitch=login, guild=c.get("guild")))
+    if len({c.twitch for c in channels}) != len(channels):
+        raise ConfigError("streams: a Twitch channel is listed twice")
+    return Streams(channels=tuple(channels), game=data.get("game") or None)
 
 
 def load_config(path: Path) -> Config:
