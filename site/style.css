@@ -44,7 +44,6 @@ a:hover { text-decoration-color: var(--jade); }
 }
 .rib__acc svg { width: 15px; height: 15px; }
 .rib__val { padding-left: 13px; font-size: 16px; font-weight: 600; white-space: nowrap; }
-.brand-rib { align-self: flex-start; }
 
 /* NL | EN: two flat slanted buttons, the active one in jade like .pill--jade. */
 .lang-switch { display: inline-flex; gap: 4px; flex: 0 0 auto; }

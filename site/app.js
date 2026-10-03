@@ -204,12 +204,25 @@ function bossThumb(name, cls = 'boss-thumb') {
   return src ? h('img', { class: cls, src, alt: '', loading: 'lazy' }) : null;
 }
 
+// Race day: the tier start is day 1; once someone has CE the count stops on the winning day.
+function renderRaceDay(data) {
+  const el = $('#bugDay');
+  const [y, m, d] = data.tier.start.split('-').map(Number);
+  const end = data.winner ? new Date(data.winner.defeatedAt) : new Date();
+  const n = Math.floor((new Date(end.getFullYear(), end.getMonth(), end.getDate()) - new Date(y, m - 1, d)) / 86400000) + 1;
+  el.hidden = !(n >= 1);
+  if (el.hidden) return;
+  el.textContent = tr('hero.day', { n });
+  el.title = tr('hero.dayTitle', { n, date: day(data.tier.start) });
+}
+
 function renderHero(data) {
   const total = data.tier.totalBosses;
   const lead = leaderName(data);
   const g = data.guilds.find(x => x.name === lead);
   // LIVE only while a guild is really raiding (same rule as the per-guild badges).
   $('#bugLive').hidden = !data.guilds.some(x => liveState(x, data) === 'live');
+  renderRaceDay(data);
   const cur = g && g.current;
   const bossName = data.winner ? data.tier.ceBoss.name : cur ? cur.name : null;
 
