@@ -123,6 +123,7 @@ i18n.add({
     'tile.ce': 'Cutting Edge behaald',
     'tile.done': 'Alles verslagen',
     'tile.noPulls': 'Nog geen pulls gezien',
+    'tile.noPullsKept': 'Geen pulls bewaard',
     'tile.best': 'Beste pull {pct} · {pulls}',
 
     'feed.empty': 'Nog geen Mythic-kills.',
@@ -227,6 +228,7 @@ i18n.add({
     'tile.ce': 'Cutting Edge achieved',
     'tile.done': 'Everything defeated',
     'tile.noPulls': 'No pulls seen yet',
+    'tile.noPullsKept': 'No pulls kept',
     'tile.best': 'Best pull {pct} · {pulls}',
 
     'feed.empty': 'No Mythic kills yet.',

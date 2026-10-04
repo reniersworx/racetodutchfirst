@@ -255,7 +255,7 @@ function renderHero(data) {
     const won = data.winner && data.winner.guild === x.name;
     const label = won ? tr('tile.ce')
       : !c ? tr('tile.done')
-      : c.bestPercent === null ? `${c.name} · ${tr('tile.noPulls')}`
+      : c.bestPercent === null ? `${c.name} · ${noPullsText(data)}`
       : `${c.name} · ${tr('tile.best', { pct: pct(c.bestPercent), pulls: pulls(c.pullCount) })}`;
     const fill = h('i', {});
     fill.style.setProperty('--w', `${won ? 100 : c && c.bestPercent !== null ? 100 - c.bestPercent : 0}%`);
@@ -274,6 +274,17 @@ function renderHero(data) {
         h('span', { class: 'row__hp', role: 'img', 'aria-label': label }, fill))), x);
   }));
 }
+
+/* An archived season (race.json `season.archived`, see the season switch) ends on its
+ * `season.end`; the live season runs up to the fetch. */
+function isArchive(data) { return !!(data.season && data.season.archived); }
+function seasonEnd(data) {
+  const end = isArchive(data) && data.season.end ? Date.parse(data.season.end) : NaN;
+  return Number.isFinite(end) ? end : Date.parse(data.generatedAt);
+}
+// "No pulls seen yet" is wrong for an old raid: Raider.IO keeps no pulls on bosses that were
+// never killed there.
+function noPullsText(data) { return tr(isArchive(data) ? 'tile.noPullsKept' : 'tile.noPulls'); }
 
 /* ---- 3. Laatste kills ---------------------------------------------------------- */
 
@@ -331,7 +342,7 @@ const STAR = 'M0,-7 L2,-2.2 7,-2 3.2,1.3 4.4,6.5 0,3.6 -4.4,6.5 -3.2,1.3 -7,-2 -
 function drawTimeline(el, data) {
   const total = data.tier.totalBosses;
   const start = timelineStart(data);
-  const end = Math.max(Date.parse(data.generatedAt), start + 86400000);
+  const end = Math.max(seasonEnd(data), start + 86400000);
   const lead = leaderName(data);
   // Leader drawn last, so it sits on top where lines overlap.
   const order = [...data.guilds].reverse();
@@ -467,7 +478,7 @@ function pullStrip(data, g) {
   const src = url ? h('a', { class: 'gs-pulls__src', href: url, rel: 'noopener', text: fromLogs ? 'warcraftlogs' : 'raider.io' }) : null;
   const all = (cur.pulls || []).filter(p => p.percent !== null);
   if (cur.bestPercent === null || !all.length) {
-    return h('td', { class: 'gs-pulls' }, h('span', { class: 'gs-pulls__cap' }, `${cur.name} · ${tr('tile.noPulls')}`, srcTag(src)));
+    return h('td', { class: 'gs-pulls' }, h('span', { class: 'gs-pulls__cap' }, `${cur.name} · ${noPullsText(data)}`, srcTag(src)));
   }
   const skip = Math.max(0, all.length - PULL_BARS);
   const best = Math.min(...all.map(p => p.percent));
