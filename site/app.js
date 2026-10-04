@@ -10,6 +10,7 @@
 'use strict';
 
 const DATA_URL = 'data/race.json';
+const SITE_URL = 'https://racetodutchfirst.bmiest.be/';
 const SEASON_FILE = /^data\/[a-z0-9-]+\.json$/; // an archived season's file, from race.json's `seasons`
 const REFRESH_MS = 5 * 60 * 1000;
 const STALE_MIN = 150; // the fetcher runs every 30 min on raid evenings, else every 2 h
@@ -662,6 +663,8 @@ function renderSeason(data) {
   lead.textContent = archived
     ? tr('lead.archived', { season: data.season.label || data.season.id, raids: data.tier.raids.map(r => r.name).join(' + ') })
     : tr('lead');
+  document.title = archived ? tr('doc.titlePast', { season: data.season.label || data.season.id }) : tr('doc.title');
+  setPageLinks(archived ? data.season.id : null);
   $('[data-i18n="guild.cap"]').textContent = tr(archived ? 'guild.capPast' : 'guild.cap');
   $('#srcWcl').hidden = archived && !(data.sources && data.sources.warcraftlogs);
   renderSideRaids(data);
@@ -683,6 +686,23 @@ function renderSeason(data) {
     });
     return b;
   }));
+}
+
+/* The canonical URL is the page in the language in its own URL (?lang=en, else Dutch), so
+ * Dutch, English and each archive are separate pages to a search engine, tied by hreflang. */
+function setPageLinks(season) {
+  const url = lang => {
+    const u = new URL(SITE_URL);
+    if (season) u.searchParams.set('season', season);
+    if (lang === 'en') u.searchParams.set('lang', 'en');
+    return u.href;
+  };
+  const en = new URLSearchParams(location.search).get('lang') === 'en';
+  const canon = document.querySelector('link[rel="canonical"]');
+  if (canon) canon.href = url(en ? 'en' : 'nl');
+  for (const l of document.querySelectorAll('link[rel="alternate"][hreflang]')) {
+    l.href = url(l.hreflang === 'en' ? 'en' : 'nl');
+  }
 }
 
 /* Sporefall-style raids: one quiet line under the winner banner, never in the race itself. */

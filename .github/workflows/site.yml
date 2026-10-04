@@ -44,6 +44,12 @@ jobs:
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
         run: uv run --no-sync python -m racetodutchfirst
 
+      - name: Standings in the HTML
+        # The board and tier pills written into index.html for crawlers (app.js replaces
+        # them). If this fails, the plain index.html deploys: the page works the same.
+        continue-on-error: true
+        run: uv run --no-sync python -m racetodutchfirst.prerender
+
       - name: Share image
         # og.png for link previews: og.html drawn from the fresh race.json by headless
         # Chrome (part of the runner image). If this fails, the og.png committed in the

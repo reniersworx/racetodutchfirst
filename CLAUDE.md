@@ -17,6 +17,7 @@ src/racetodutchfirst/
   twitch.py                  who of [streams] is live on Twitch, via DecAPI
   race.py                    responses → per-guild state, race position, ranking, winner
   __main__.py                CLI: writes site/data/race.json (atomically; never on failure)
+  prerender.py               CI: the board + tier pills into index.html for crawlers; site/sitemap.xml
 tests/
   conftest.py                FixtureHTTP: replays tests/fixtures/raiderio/*.json, no network
   test_race.py
@@ -37,6 +38,7 @@ site/                        static, no build step, no framework, no CDN scripts
   bossart.js                 boss renders per encounter, copied UNCHANGED from the overlay's js/bossart.js (build-bossart.py there)
   tokens.css                 copied UNCHANGED from Bmiest/bmiest_wow_streaming_theme css/tokens.css
   data/race.json             sample data; CI regenerates it into the Pages artifact only
+  robots.txt, sitemap.xml    sitemap = every season in NL and EN (test_prerender checks it matches guilds.toml)
 .github/workflows/site.yml   raid evenings every 30 min, else every 2 h, + main pushes + manual: fetch, share image, deploy
 .github/workflows/test.yml   PRs and main: ruff, pytest, node --check
 ```
@@ -242,6 +244,21 @@ committed archive made once with
   one 9-boss raid), CE = Midnight Falls. Raider.IO keeps kills, kill pulls and rosters of
   old raids, but no pulls on a boss a guild never killed: those show as no pulls seen.
   Fixtures: tests/fixtures/raiderio-s1 (recorded 2026-10-04).
+
+## Search engines
+
+- **Prerender** (`python -m racetodutchfirst.prerender`, a CI step after the fetch): fills
+  `<ol id="lowerThirds">` and `<div id="tierPills">` in index.html with the markup app.js builds,
+  in Dutch, escaped, without colours or bars (no inline styles). app.js replaces both on load.
+  Only the Pages artifact gets it; the committed index.html keeps the empty containers (the
+  markers prerender looks for, exactly once each). Its Dutch strings are a copy of i18n.js's;
+  test_prerender fails when they drift. If the step fails, the plain page deploys.
+- **One page per language and season**: the canonical URL is the page in the language in its
+  own URL (`?lang=en`, else Dutch) and season (`?season=s1`), tied by hreflang. index.html
+  carries the live season's links; `setPageLinks()` in app.js rewrites them, and
+  `document.title` (`doc.title` / `doc.titlePast`), for the language and season shown.
+- **sitemap.xml** is generated from guilds.toml's seasons by prerender (CI) and committed;
+  after adding a season, regenerate it (test_prerender says so). robots.txt points at it.
 
 ## Changing the tier
 
