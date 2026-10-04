@@ -15,7 +15,7 @@ Static HTML, CSS and JavaScript with no build step and no framework, like the th
 This repository holds the shared design language (v2) for three products with different audiences:
 
 - **Stream overlay** (`Bmiest/bmiest_wow_streaming_theme`, `streamoverlay.bmiest.be`): Twitch viewers following bmiest's World of Warcraft raids. They watch on a PC, often on a second monitor next to their own game, or on a phone, so the overlay is usually seen small and at a glance. The operator (bmiest) sets it up in OBS.
-- **Race to Dutch First** (`reniersworx/racetodutchfirst`, `racetodutchfirst.bmiest.be`): Dutch WoW raiders and their guilds checking how the race to Cutting Edge stands, often on a phone around raid nights. Built for the wider Dutch WoW community too, where possible.
+- **Race to Dutch First** (`reniersworx/racetodutchfirst`, `racetodutchfirst.bmiest.be`): Dutch-speaking WoW raiders and their guilds checking how the race to Cutting Edge stands, often on a phone around raid nights. Built for the wider Dutch-speaking WoW community too, where possible.
 - **Wishlist updater dashboard** (`Bmiest/bmiest_wowaudit_wishlist_updater`, `wishlistupdater.bmiest.be`): the operator (Shiftheal, Holy Priest, Ragnaros EU), deciding which gear to wish for and where to spend crests.
 
 ## Product Purpose
@@ -28,7 +28,7 @@ Give the three products one design language, version 2, that improves on the cur
 
 ## Positioning
 
-Built by a raiding streamer, from live raid data (Raider.IO, Warcraft Logs, QE Live, StreamElements, DecAPI). Race to Dutch First is a tracker focused only on Dutch guilds racing to Cutting Edge.
+Built by a raiding streamer, from live raid data (Raider.IO, Warcraft Logs, QE Live, StreamElements, DecAPI). Race to Dutch First is a tracker focused only on Dutch-speaking guilds racing to Cutting Edge.
 
 ## Operating Context
 

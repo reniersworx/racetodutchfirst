@@ -11,7 +11,7 @@ Race to Dutch First, the whole page (`site/index.html` with `splash.css`, `style
 
 ## Audience and task
 
-Dutch raiders and the wider Dutch WoW community, on a phone or a second monitor around raid nights. Task: see who leads, how far every guild is on its current boss, who is raiding now, the latest kills; then the details below. NL + EN for every string (Dutch default); honest about source and freshness.
+Dutch-speaking raiders and the wider Dutch-speaking WoW community, on a phone or a second monitor around raid nights. Task: see who leads, how far every guild is on its current boss, who is raiding now, the latest kills; then the details below. NL + EN for every string (Dutch default); honest about source and freshness.
 
 ## Direction contract
 

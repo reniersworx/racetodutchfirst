@@ -1,6 +1,6 @@
 # Race to Dutch First: notes for agents
 
-A public, static site that follows Dutch WoW guilds racing to be the first to reach
+A public, static site that follows Dutch-speaking WoW guilds racing to be the first to reach
 Cutting Edge (the CE boss on Mythic) in the current raid tier. **The UI is Dutch by default**,
 with an English translation behind the NL | EN switch (see *Languages*).
 Live at https://racetodutchfirst.bmiest.be/ (GitHub Pages, custom domain set in the

@@ -1,6 +1,6 @@
 ---
 name: Race to Dutch First
-description: The race between Dutch guilds to Cutting Edge as a raid poster, in the bmiest overlay's language (design language v2, first surface).
+description: The race between Dutch-speaking guilds to Cutting Edge as a raid poster, in the bmiest overlay's language (design language v2, first surface).
 colors:
   ink-900: "#0a0b0d"
   ink-850: "#0e1014"
@@ -303,7 +303,7 @@ A near-black ink ramp with one cool green voice, one warm gold voice and the gui
 
 **The Compared Number Rule.** A number a visitor compares across guilds is JetBrains Mono with tabular figures.
 
-**The One-Line Caption Rule.** A section caption is one line that names the marks ("Trede = Mythic-kill · ster = eerste Nederlandse kill · lichte kolom = raidavond"); the explanation lives in the marks themselves, not in a paragraph.
+**The One-Line Caption Rule.** A section caption is one line that names the marks ("Trede = Mythic-kill · ster = eerste kill van de race · lichte kolom = raidavond"); the explanation lives in the marks themselves, not in a paragraph.
 
 ## Layout
 

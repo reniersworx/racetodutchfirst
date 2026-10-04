@@ -370,7 +370,7 @@ def wcl_fights_for(wcl: WarcraftLogs, guild: Guild, tier: Tier) -> tuple[int | N
 def hall_of_fame(guilds: list[dict], tier: Tier) -> dict:
     """Per killed boss every guild's kill team, first kill first; and every raider in one.
 
-    The first team of a boss is the race's first kill (the first Dutch guild). Raiders
+    The first team of a boss is the race's first kill (the first guild in the race). Raiders
     are characters (an alt on another realm counts apart), ranked by race-first kills,
     then by kills with their guild, then name."""
     bosses, raiders = [], {}

@@ -2,7 +2,7 @@
  *
  * Draws race.json's hallOfFame each time app.js's render() fires 'race:data'
  * (on load, on fresh data and after a language switch). Per defeated boss the
- * team of the first Dutch kill, the other guilds' teams folded under it, and a
+ * team of the race's first kill, the other guilds' teams folded under it, and a
  * table of every raider. Strings are the hof.* keys in i18n.js.
  *
  * Uses app.js's globals h(), $(), tr(), day(), dayTime(), pulls(), setGuild() and
