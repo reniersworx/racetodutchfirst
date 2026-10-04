@@ -33,6 +33,6 @@ The live hero: the boss the leader is fighting right now, swapping by itself as 
 
 ## Unresolved
 
-- Nymrissa Wavecaller has no render in the overlay's bossart.js; with her as the leader's boss the hero shows no art.
+- Resolved: Nymrissa Wavecaller and the Season 1 bosses have renders (bossart.js regenerated for every season's raids).
 - Resolved: boss renders are self-hosted alpha cut-outs (scripts/boss-cutouts.py, provenance embedded); CSP img-src is 'self'.
 - Outfit 800 is loaded by splash.css because the overlay's tokens.css imports 300-700 only; move it into the overlay's tokens.css (and --live-red with it) when the overlay adopts v2.
