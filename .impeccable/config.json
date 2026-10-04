@@ -2,6 +2,16 @@
   "detector": {
     "ignoreRules": [],
     "ignoreFiles": [],
-    "ignoreValues": []
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/hof/hof-mock.css"
+        ],
+        "createdAt": "2026-10-04T01:05:26.737Z",
+        "reason": "Claude decided: L48 is the 3px bottom class-colour bar of a WoW raid-frame cell (mockup B's signature, like the in-game health bar), not a side stripe on a card; mockup file only, not shipped"
+      }
+    ]
   }
 }
