@@ -88,10 +88,10 @@ const i18n = (() => {
 
 i18n.add({
   nl: {
+    'doc.title': 'Race to Dutch First · Nederlandstalige WoW-guilds naar Cutting Edge',
+    'doc.titlePast': 'Race to Dutch First · {season}: wie haalde als eerste Cutting Edge?',
     'lang.label': 'Taal',
     'title': 'Wie haalt als eerste Cutting Edge?',
-    'doc.title': 'Race to Dutch First · Nederlandse WoW-guilds naar Cutting Edge',
-    'doc.titlePast': 'Race to Dutch First · {season}: wie haalde als eerste Cutting Edge?',
     'lead': 'De race tussen Nederlandse guilds naar de laatste Mythic-boss van de huidige raid tier, live gevolgd via Raider.IO en Warcraft Logs.',
 
     'feed.h': 'Laatste kills',
@@ -216,10 +216,10 @@ i18n.add({
   },
 
   en: {
+    'doc.title': 'Race to Dutch First · Dutch-speaking WoW guilds racing to Cutting Edge',
+    'doc.titlePast': 'Race to Dutch First · {season}: who got Cutting Edge first?',
     'lang.label': 'Language',
     'title': 'Who gets Cutting Edge first?',
-    'doc.title': 'Race to Dutch First · Dutch WoW guilds racing to Cutting Edge',
-    'doc.titlePast': 'Race to Dutch First · {season}: who got Cutting Edge first?',
     'lead': 'The race between Dutch guilds to the last Mythic boss of the current raid tier, followed live via Raider.IO and Warcraft Logs.',
 
     'feed.h': 'Latest kills',
