@@ -367,7 +367,7 @@ A slanted ink-750 tile (40px in Per guild, 52px in hall-of-fame panels) showing 
 Drawn marks, one stroke family: a check (jade) for a kill, a star (gold) for the race's first kill, a trophy (gold) for the winner. In CSS cells they are SVG masks over a background in the meaning colour; in charts they are SVG paths.
 
 ### Fold and disclosure [race]
-The Hall of fame folds into a quiet row: a 1px ink-700 hairline above, the fold title and its ink-300 hint, the drawn jade chevron before it; the footer's top rule closes it. Open, it shows the hall-of-fame panels and the Raiders table. Every `<details>` uses the same drawn chevron instead of the browser triangle.
+The Hall of fame folds into a quiet row: a 1px ink-700 hairline above, the fold title and its ink-300 hint, the drawn jade chevron before it; the footer's top rule closes it. Open, it shows the hall-of-fame panels (top-aligned, so a card that opens its other guilds grows alone; a boss of a raid that doesn't count says "Eerste kill · telt niet mee" in ink-300, never gold) and the Raiders table (capped at 880px, numbers right-aligned in mono, a shared rank in paper once and ink-300 after; under 600px the guild column folds into the name's second line as dot, guild · realm). Every `<details>` uses the same drawn chevron instead of the browser triangle.
 
 ### Panels [family]
 Square ink-800 panels with a 1px ink-700 border (hall-of-fame bosses, live cards; live cards lift to ink-750 with an ink-600 border on hover). The winner banner is the same panel with a 2px gold border, a drawn SVG trophy and the winner's name. Errors use the panel with a 1px rose border.
