@@ -1,0 +1,231 @@
+/* Hall of fame redesign mockups (not shipped). Design language v2: flat inks, right-edge
+   slants, jade = race, gold = first kill / winner, guild colour = the guild. */
+
+/* ---- shared ------------------------------------------------------------------------------ */
+.hm .hof-subtitle { margin-top: 56px; }
+.hm-star { width: 14px; height: 14px; flex: 0 0 auto; fill: currentColor; }
+.hm-star--gold { color: var(--gold); }
+.hm-muted { font-size: 14px; color: var(--ink-300); }
+.hm-chev { width: 7px; height: 7px; border: solid var(--jade); border-width: 0 2px 2px 0; transform: rotate(-45deg); transition: transform var(--t-fast) var(--ease); flex: 0 0 auto; }
+[aria-expanded="true"] > .hm-chev { transform: rotate(45deg); }
+
+.hm-art { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 4%; overflow: hidden; }
+.hm-art img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; object-position: 50% 100%; }
+.hm-art--duo img { max-width: 48%; }
+.hm-art__mono { font-size: 44px; font-weight: 800; color: var(--ink-500); align-self: center; }
+
+/* Ribbon: rank block in the guild colour carrying the star, the name on ink. */
+.hm-rib { display: inline-flex; align-items: stretch; height: 34px; max-width: 100%; background: var(--ink-750);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 100%, 0 100%); }
+.hm-rib__acc { display: grid; place-items: center; width: 34px; flex: 0 0 34px; background: var(--guild); color: var(--ink-900); }
+.hm-rib__acc .hm-star { width: 15px; height: 15px; }
+.hm-rib__acc--n { font-size: 15px; font-weight: 800; }
+.hm-rib__name { display: flex; align-items: center; padding: 0 22px 0 12px; font-size: 16px; font-weight: 600; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hm-rib--big { height: 44px; }
+.hm-rib--big .hm-rib__acc { width: 44px; flex-basis: 44px; }
+.hm-rib--big .hm-rib__name { font-size: 22px; font-weight: 700; }
+
+.hm-chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--paper-dim); white-space: nowrap; }
+.hm-chip i { width: 12px; height: 12px; background: var(--guild); clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 0 100%); }
+.hm-chip em { font-style: normal; font-family: var(--f-mono); font-size: 12px; color: var(--ink-300); }
+
+/* The team as running text. */
+.hm-ins { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.hm-ins__row { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+.hm-ins__role { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
+.hm-ins__names { min-width: 0; font-size: 15px; line-height: 1.65; color: var(--paper); }
+.hm-ins__n { display: inline-block; }
+.hm-ins__n:not(:last-child)::after { content: "·"; margin: 0 .5em; color: var(--ink-500); }
+.hm-ins__n a, .hm-ins__n span { color: inherit; text-decoration: none; }
+.hm-ins__n a:hover { color: var(--jade); }
+
+/* Raid frame: a cell per raider, class colour as the bar underneath. */
+.hm-frame { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.hm-frame__role { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); margin-bottom: 6px; }
+.hm-frame__cells { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 4px; }
+.hm-cell { position: relative; display: grid; gap: 1px; min-width: 0; padding: 7px 10px 10px; background: var(--ink-800);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+.hm-cell::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--cls); }
+.hm-cell a, .hm-cell > span:first-child { font-size: 13.5px; font-weight: 600; color: var(--paper); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hm-cell a:hover { color: var(--jade); }
+.hm-cell__spec { font-size: 11px; color: var(--ink-300); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.hfa-label { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.hfa-label--empty { color: var(--ink-400); }
+.hfa-after__n { font-size: 11px; color: var(--ink-400); width: 12px; }
+.ce-tag { margin-left: 8px; }
+
+/* ---- A · Trofeeënkast ---------------------------------------------------------------------- */
+.hfa-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; align-items: start; }
+.hfa-plaque { display: grid; grid-template-rows: 250px auto; background: var(--ink-850); border: 1px solid var(--ink-700); min-width: 0; }
+.hfa-plaque__art { padding: 18px 18px 0; background: var(--ink-800);
+  -webkit-mask-image: linear-gradient(#000 78%, transparent); mask-image: linear-gradient(#000 78%, transparent); }
+.hfa-plaque__body { display: flex; flex-direction: column; gap: 10px; padding: 4px 20px 20px; min-width: 0; }
+.hfa-boss { display: flex; align-items: center; font-size: 19px; font-weight: 600; line-height: 1.15; color: var(--paper); }
+.hfa-meta { display: flex; gap: 12px; font-size: 13px; color: var(--ink-300); }
+.hfa-meta .mono { color: var(--paper-dim); }
+.hfa-after { list-style: none; display: grid; gap: 5px; padding-top: 10px; border-top: 1px solid var(--ink-700); }
+.hfa-after li { display: flex; align-items: center; gap: 8px; }
+.hfa-toggle { display: inline-flex; align-items: center; gap: 10px; margin-top: 2px; padding: 0; border: 0; background: none;
+  font: inherit; font-size: 14px; color: var(--jade); cursor: pointer; width: max-content; }
+.hfa-team { display: none; }
+
+/* Empty trophies: the render as a dark silhouette, waiting. */
+.hfa-plaque.is-empty { background: transparent; border-style: dashed; border-color: var(--ink-700); }
+.hfa-plaque.is-empty .hfa-plaque__art { background: transparent; }
+.hfa-plaque.is-empty .hfa-plaque__art img { filter: brightness(0) invert(.15); }
+.hfa-plaque.is-empty .hfa-boss { color: var(--ink-300); }
+
+/* The crown: the CE trophy spans the row, art left. Open plaques do the same. */
+.hfa-plaque--ce, .hfa-plaque.is-open { grid-column: 1 / -1; grid-template-rows: none; grid-template-columns: minmax(260px, 34%) minmax(0, 1fr); }
+.hfa-plaque--ce .hfa-plaque__art, .hfa-plaque.is-open .hfa-plaque__art { height: 100%; min-height: 320px; padding: 24px 12px 0;
+  -webkit-mask-image: linear-gradient(#000 82%, transparent); mask-image: linear-gradient(#000 82%, transparent); }
+.hfa-plaque--ce .hfa-plaque__body, .hfa-plaque.is-open .hfa-plaque__body { padding: 28px 32px 28px; gap: 12px; }
+.hfa-plaque--ce:not(.is-empty) { border: 2px solid var(--gold); }
+.hfa-plaque--ce .hfa-boss { font-size: clamp(26px, 3vw, 36px); font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; }
+.hfa-plaque--ce .hfa-plaque__art img, .hfa-plaque.is-open .hfa-plaque__art img { max-height: 440px; }
+.hfa-plaque.is-open .hfa-team { display: block; margin-top: 10px; padding-top: 16px; border-top: 1px solid var(--ink-700); }
+.hfa-plaque.is-open .hfa-after { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+/* Erelijst: tiers by first kills, the number as the poster. */
+.hfa-roll { display: grid; border-top: 1px solid var(--ink-700); }
+.hfa-roll__tier { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--ink-700); align-items: start; }
+.hfa-roll__n { display: grid; gap: 2px; }
+.hfa-roll__n b { font-size: 44px; font-weight: 700; line-height: .95; color: var(--gold); }
+.hfa-roll__n span { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
+.hfa-roll__names { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; }
+.hfa-roll__names li { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 16px 0 10px; background: var(--ink-800);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%); font-size: 14px; font-weight: 600; }
+.hfa-roll__names i { width: 9px; height: 9px; border-radius: var(--r-pill); background: var(--guild); }
+.hfa-roll__names a { color: var(--paper); text-decoration: none; }
+.hfa-roll__names a:hover { color: var(--jade); }
+
+/* ---- B · Raid journal --------------------------------------------------------------------- */
+.hfb-tabs { max-width: 100%; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(104px, 1fr); gap: 4px; overflow-x: auto; padding-bottom: 2px; }
+.hfb-tab { display: grid; gap: 5px; justify-items: start; padding: 0 0 10px; border: 0; border-top: 2px solid transparent; background: var(--ink-850);
+  color: var(--paper-dim); font: inherit; text-align: left; cursor: pointer; min-width: 0; }
+.hfb-tab__head { width: 100%; height: 76px; padding-top: 8px; background: var(--ink-800); }
+.hfb-tab__head img { object-position: 50% 0; max-height: none; height: 140%; object-fit: cover; width: 100%; }
+.hfb-tab__head.hm-art--duo img { width: 48%; }
+.hfb-tab__head .hm-art__mono { font-size: 28px; }
+.hfb-tab__name { padding: 0 10px; font-size: 12.5px; font-weight: 600; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.hfb-tab__day { display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; font-size: 11px; color: var(--ink-300); }
+.hfb-tab__day .hm-star { width: 11px; height: 11px; }
+.hfb-tab.is-empty .hfb-tab__head img { filter: brightness(0) invert(.12); }
+.hfb-tab:hover { background: var(--ink-800); }
+.hfb-tab[aria-selected="true"] { border-top-color: var(--jade); background: var(--ink-800); }
+
+.hfb-box { margin-top: 4px; background: var(--ink-850); border: 1px solid var(--ink-700); }
+.hfb-stage { display: grid; grid-template-columns: minmax(280px, 36%) minmax(0, 1fr); min-height: 460px; }
+.hfb-stage__art { padding: 28px 16px 0; background: var(--ink-800);
+  -webkit-mask-image: linear-gradient(#000 80%, transparent); mask-image: linear-gradient(#000 80%, transparent); }
+.hfb-stage__art img { max-height: 520px; }
+.hfb-stage__info { display: flex; flex-direction: column; gap: 14px; padding: 30px 34px 32px; min-width: 0; }
+.hfb-guild { display: flex; align-items: center; gap: 16px; font-size: clamp(30px, 4vw, 52px); font-weight: 700; line-height: 1.02; letter-spacing: -.02em; color: var(--paper); }
+.hfb-guild i { width: 22px; height: .9em; flex: 0 0 22px; background: var(--guild); clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+.hfb-boss { font-size: clamp(26px, 3vw, 40px); font-weight: 800; text-transform: uppercase; color: var(--ink-300); }
+.hfb-meta { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; color: var(--paper-dim); }
+.hfb-meta .mono { color: var(--paper); }
+.hfb-stage.is-empty .hfb-stage__art img { filter: brightness(0) invert(.1); }
+.hfb-after { padding-top: 14px; border-top: 1px solid var(--ink-700); }
+.hfb-after__h { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); margin-bottom: 8px; }
+.hfb-after ol { list-style: none; display: grid; gap: 6px; }
+.hfb-after li { display: grid; grid-template-columns: 14px minmax(150px, 220px) 64px 70px 1fr; align-items: center; gap: 10px; font-size: 13px; }
+.hfb-after em { font-style: normal; font-family: var(--f-mono); font-size: 12px; color: var(--ink-300); }
+.hfb-after__d { color: var(--paper-dim); font-size: 12px; }
+.hfb-after__p { color: var(--ink-300); }
+
+.hfb-present { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.hfb-present__row { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 20px; align-items: start; }
+.hfb-present__row .hm-rib { height: 40px; width: 100%; }
+.hfb-present__row .hm-rib__acc { width: 40px; flex-basis: 40px; }
+.hfb-present__txt { display: grid; gap: 2px; padding-top: 2px; }
+.hfb-present__cap { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
+.hfb-present__names { font-size: 15px; line-height: 1.6; color: var(--paper); }
+
+/* ---- C · Gedenkrol ------------------------------------------------------------------------ */
+.hm--c .fold__summary { align-items: center; }
+.hfc-teaser { display: inline-flex; gap: 3px; margin-left: auto; }
+.hfc-teaser__t { position: relative; }
+.hfc-teaser__head { width: 30px; height: 30px; background: var(--ink-750); clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%); }
+.hfc-teaser__head img { object-fit: cover; object-position: 50% 0; width: 100%; height: 100%; max-height: none; }
+.hfc-teaser__head .hm-art__mono { font-size: 14px; }
+.hfc-teaser__t.is-empty .hfc-teaser__head img { filter: brightness(0) invert(.14); }
+.hfc-teaser__t .hm-star { position: absolute; right: -2px; bottom: -3px; width: 11px; height: 11px; stroke: var(--ink-900); stroke-width: 1.4; paint-order: stroke; }
+
+.hfc-roll { list-style: none; border-top: 1px solid var(--ink-700); }
+.hfc-row { border-bottom: 1px solid var(--ink-700); }
+.hfc-line { display: grid; grid-template-columns: 64px 52px minmax(180px, 1.1fr) minmax(250px, 1.3fr) 1.2fr 28px; gap: 18px; align-items: center; padding: 14px 4px; }
+.hfc-day { font-size: 13px; color: var(--ink-300); }
+.hfc-head { width: 52px; height: 52px; background: var(--ink-750); clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+.hfc-head img { object-fit: cover; object-position: 50% 0; width: 100%; height: 100%; max-height: none; }
+.hfc-head .hm-art__mono { font-size: 22px; }
+.hfc-boss { display: flex; align-items: center; font-size: 19px; font-weight: 600; color: var(--paper); line-height: 1.15; }
+.hfc-first { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.hfc-date { font-size: 13px; color: var(--paper-dim); }
+.hfc-pulls { font-size: 12px; color: var(--ink-300); white-space: nowrap; }
+.hfc-after { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.hfc-none { font-size: 14px; color: var(--ink-400); }
+.hfc-toggle { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; }
+.hfc-team { display: none; padding: 4px 4px 22px calc(64px + 52px + 36px + 4px); }
+.hfc-row.is-open .hfc-team { display: block; }
+.hfc-row.is-open { background: var(--ink-850); }
+.hfc-row.is-empty .hfc-boss { color: var(--ink-300); }
+.hfc-row.is-empty .hfc-head img { filter: brightness(0) invert(.14); }
+
+.hfc-wall { text-align: center; line-height: 1.5; max-width: 1100px; margin: 8px auto 0; padding: 32px 0 8px; border-top: 1px solid var(--ink-700); text-wrap: balance; }
+.hfc-wall__n { display: inline-block; margin: 0 .55em; white-space: nowrap; }
+.hfc-wall__n a, .hfc-wall__n > span { color: var(--paper); text-decoration: none; }
+.hfc-wall__n a:hover { color: var(--jade); }
+.hfc-wall__n sup { margin-left: 3px; font-size: 10px; font-weight: 500; color: var(--gold); vertical-align: super; }
+.hfc-wall__n--5 { font-size: 30px; font-weight: 800; letter-spacing: -.01em; }
+.hfc-wall__n--4 { font-size: 24px; font-weight: 700; }
+.hfc-wall__n--3 { font-size: 19px; font-weight: 600; }
+.hfc-wall__n--2 { font-size: 16px; font-weight: 500; }
+.hfc-wall__n--2 a, .hfc-wall__n--1 a { color: var(--paper-dim); }
+.hfc-wall__n--1 { font-size: 14px; font-weight: 400; }
+
+/* ---- phones ------------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  .hfa-wall { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+  .hfa-plaque { grid-template-rows: 150px auto; }
+  .hfa-plaque__art { padding: 10px 10px 0; }
+  .hfa-plaque__body { padding: 2px 12px 14px; gap: 7px; }
+  .hfa-boss { font-size: 15px; }
+  .hfa-plaque:not(.hfa-plaque--ce) .hfa-label__long { display: none; }
+  .hfa-plaque .hm-rib { height: 28px; }
+  .hfa-plaque .hm-rib__acc { width: 28px; flex-basis: 28px; }
+  .hfa-plaque .hm-rib__name { font-size: 13px; padding: 0 14px 0 8px; }
+  .hfa-plaque:not(.is-open):not(.hfa-plaque--ce) .hfa-after { display: none; }
+  .hfa-plaque--ce, .hfa-plaque.is-open { grid-template-columns: minmax(0, 1fr); grid-template-rows: 240px auto; }
+  .hfa-plaque--ce .hfa-plaque__art, .hfa-plaque.is-open .hfa-plaque__art { min-height: 0; }
+  .hfa-plaque--ce .hfa-plaque__body, .hfa-plaque.is-open .hfa-plaque__body { padding: 6px 16px 18px; }
+  .hfa-roll__tier { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .hfa-roll__n { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 10px; }
+  .hfa-roll__n b { font-size: 32px; }
+  .hm-ins__row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+
+  .hfb-stage { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .hfb-stage__art { height: 260px; }
+  .hfb-stage__info { padding: 8px 16px 20px; }
+  .hm-frame__cells { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .hfb-after li { grid-template-columns: 14px minmax(0, 1fr) auto auto; }
+  .hfb-after__p { display: none; }
+  .hfb-present__row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+
+  .hfc-teaser { display: none; }
+  .hfc-line { grid-template-columns: 44px minmax(0, 1fr) 24px; grid-template-areas: "head boss tog" "head first tog" "day after after"; gap: 6px 12px; }
+  .hfc-head { grid-area: head; width: 44px; height: 44px; }
+  .hfc-boss { grid-area: boss; font-size: 16px; }
+  .hfc-first, .hfc-none { grid-area: first; flex-wrap: wrap; gap: 4px 10px; }
+  .hfc-day { grid-area: day; font-size: 11px; }
+  .hfc-after { grid-area: after; }
+  .hfc-toggle { grid-area: tog; }
+  .hfc-first .hm-rib { height: 28px; }
+  .hfc-first .hm-rib__acc { width: 28px; flex-basis: 28px; }
+  .hfc-first .hm-rib__name { font-size: 14px; }
+  .hfc-team { padding: 4px 4px 18px; }
+  .hfc-wall__n--5 { font-size: 22px; }
+  .hfc-wall__n--4 { font-size: 19px; }
+  .hfc-wall__n--3 { font-size: 16px; }
+}
