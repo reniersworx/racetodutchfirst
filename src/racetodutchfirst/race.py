@@ -15,6 +15,8 @@ Traps found in the live data (2026-10-02), each covered by a test:
   that kill, lowest best %. Never "WCL wins".
 - boss-pulls lists resets (is_reset, ~0 s long) that pullCount doesn't count.
 - The profile also lists older raids (tier-mn-1, sporefall): read only our slugs.
+- A raid with race = false (Sporefall in Season 1) is fetched and shown, but its kills
+  don't count: not for kills, the current boss, the ranking or the raider ranking.
 """
 
 from __future__ import annotations
@@ -118,9 +120,9 @@ def compact_roster(roster: object) -> list[dict]:
 def _pick_current(tier: Tier, states: dict[str, dict], latest: dict) -> Boss | None:
     """The boss the guild is working on: Raider.IO's latest boss if it's still alive,
     else the living boss of the main raid with the lowest best %, else the first
-    living one. After a full main-raid clear the other raids get the same treatment."""
+    living one. After a full main-raid clear the other raids that count get the same treatment."""
     latest_slug = (latest.get("boss") or {}).get("slug") if not latest.get("error") else None
-    for raid in tier.raids:
+    for raid in tier.race_raids:
         alive = [b for b in raid.bosses if states[b.key]["state"] != "killed"]
         if not alive:
             continue
@@ -279,8 +281,10 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier, wcl_fights: list[dict] 
         if st["defeatedAt"]:
             rosters[key] = roster  # None: the kill is known (e.g. from WCL) but not who was in it
 
-    mythic_kills = sum(r["mythic"] for r in raids.values())
-    kill_times = [s["defeatedAt"] for s in states.values() if s["defeatedAt"]]
+    counted = [raids[r.slug] for r in tier.race_raids]
+    mythic_kills = sum(r["mythic"] for r in counted)
+    kill_times = [states[b.key]["defeatedAt"] for r in tier.race_raids for b in r.bosses
+                  if states[b.key]["defeatedAt"]]
     ce = states[f"{tier.ce_raid}/{tier.ce_boss}"]
     url = profile.get("profile_url")
     return {
@@ -292,7 +296,7 @@ def fetch_guild(rio: RaiderIO, guild: Guild, tier: Tier, wcl_fights: list[dict] 
         "wclUrl": f"https://www.warcraftlogs.com/guild/id/{wcl_id}" if wcl_id else None,
         "sources": ["raiderio"] + (["warcraftlogs"] if wcl_fights else []),
         "mythicKills": mythic_kills,
-        "heroicKills": sum(r["heroic"] for r in raids.values()),
+        "heroicKills": sum(r["heroic"] for r in counted),
         "totalBosses": tier.total_bosses,
         "worldRank": raids[main.slug]["worldRank"],
         "racePosition": race_position(mythic_kills, current),
@@ -384,7 +388,10 @@ def hall_of_fame(guilds: list[dict], tier: Tier) -> dict:
                 continue
             teams.sort(key=lambda t: _ts(t["defeatedAt"]))
             name = next(x["name"] for x in guilds[0]["bosses"] if x["slug"] == b.slug)
-            bosses.append({"raid": b.raid, "slug": b.slug, "name": name, "teams": teams})
+            bosses.append({"raid": b.raid, "slug": b.slug, "name": name, "counts": raid.counts,
+                           "teams": teams})
+            if not raid.counts:
+                continue
             for place, team in enumerate(teams):
                 for m in team["roster"]:
                     key = (m["realmSlug"], m["name"].casefold())
@@ -405,8 +412,18 @@ def hall_of_fame(guilds: list[dict], tier: Tier) -> dict:
     return {"bosses": bosses, "raiders": ranked}
 
 
+def season_index(config: Config) -> list[dict]:
+    """The seasons the site can switch between: the current one first, then the archive."""
+    t = config.tier
+    return ([{"id": t.id, "label": t.label, "file": "data/race.json", "current": True}]
+            + [{"id": s.id, "label": s.label, "file": s.file, "current": False}
+               for s in config.seasons])
+
+
 def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
-               wcl: WarcraftLogs | None = None, decapi: DecAPI | None = None) -> dict:
+               wcl: WarcraftLogs | None = None, decapi: DecAPI | None = None,
+               seasons: list[dict] | None = None) -> dict:
+    """seasons: the switch list (season_index of guilds.toml); defaults to this config's own."""
     guilds = []
     for i, guild in enumerate(config.guilds, start=1):
         log(f"[{i}/{len(config.guilds)}] {guild.name} ({guild.realm})")
@@ -422,14 +439,18 @@ def build_race(rio: RaiderIO, config: Config, now: datetime, log=print,
     ce_key = f"{tier.ce_raid}/{tier.ce_boss}"
     return {
         "generatedAt": now.isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "season": {"id": tier.id, "label": tier.label, "archived": tier.end is not None,
+                   "end": tier.end},
+        "seasons": seasons if seasons is not None else season_index(config),
         "sources": {"raiderio": True,
                     "warcraftlogs": any("warcraftlogs" in g["sources"] for g in ranked)},
         "tier": {
             "start": tier.start,
+            "end": tier.end,
             "totalBosses": tier.total_bosses,
             "ceBoss": {"raid": tier.ce_raid, "slug": tier.ce_boss, "name": names[ce_key]},
             "raids": [
-                {"slug": r.slug, "name": r.name, "bosses": [
+                {"slug": r.slug, "name": r.name, "counts": r.counts, "bosses": [
                     {"slug": b.slug, "name": names[b.key], "firstKill": firsts.get(b.key)}
                     for b in r.bosses
                 ]}

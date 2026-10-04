@@ -1,0 +1,38 @@
+# Midnight Season 1, archived: the race through Raider.IO's tier-mn-1 (The Voidspire,
+# The Dreamrift and March on Quel'Danas as one 9-boss tier), 18 Mar - 19 Aug 2026 (EU).
+# Raider.IO keys the three raids as one raid, so they stay one raid here too.
+# Regenerate (only if the archive is wrong; the season is over):
+#   uv run python -m racetodutchfirst --tier seasons/season-1.toml --output site/data/season-1.json
+# No warcraft_logs_zone: Season 1 comes from Raider.IO alone.
+[tier]
+id = "s1"
+label = "Season 1"
+start = "2026-03-18"
+end = "2026-08-19"
+
+# Cutting Edge: Midnight Falls on Mythic, the last boss of March on Quel'Danas.
+ce_boss = { raid = "tier-mn-1", boss = "midnight-falls" }
+
+[[tier.raids]]
+slug = "tier-mn-1"
+name = "The Voidspire, The Dreamrift & March on Quel'Danas"
+bosses = [
+  { slug = "imperator-averzian", name = "Imperator Averzian" },
+  { slug = "vorasius", name = "Vorasius" },
+  { slug = "fallenking-salhadaar", name = "Fallen-King Salhadaar" },
+  { slug = "vaelgor-ezzorak", name = "Vaelgor & Ezzorak" },
+  { slug = "lightblinded-vanguard", name = "Lightblinded Vanguard" },
+  { slug = "crown-of-the-cosmos", name = "Crown of the Cosmos" },
+  { slug = "chimaerus-the-undreamt-god", name = "Chimaerus the Undreamt God" },
+  { slug = "beloren-child-of-alar", name = "Belo'ren, Child of Al'ar" },
+  { slug = "midnight-falls", name = "Midnight Falls" },
+]
+
+# Sporefall (from 17 June): shown, but it doesn't count for the race.
+[[tier.raids]]
+slug = "sporefall"
+name = "Sporefall"
+race = false
+bosses = [
+  { slug = "rotmire", name = "Rotmire" },
+]

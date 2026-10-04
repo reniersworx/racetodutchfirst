@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 1327250,
+  "name": "Knikkerende Krijgers",
+  "displayName": "Knikkerende Krijgers",
+  "faction": "alliance",
+  "realm": {
+   "id": 716,
+   "connectedRealmId": 265,
+   "wowRealmId": 628,
+   "wowConnectedRealmId": 1597,
+   "name": "Sylvanas",
+   "altName": null,
+   "slug": "sylvanas",
+   "altSlug": "sylvanas",
+   "locale": "en_GB",
+   "isConnected": true,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/sylvanas/Knikkerende%20Krijgers",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 8062,
+  "difficulty": "mythic",
+  "name": "Sporefall",
+  "short_name": "SF",
+  "wowInstanceId": 1592,
+  "slug": "sporefall",
+  "icon_url": "/images/wow/icons/large/inv_1207_achievement_raid_fungariangiant_fungalgiant.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197162,
+  "wowEncounterId": 3159,
+  "name": "Rotmire",
+  "slug": "rotmire",
+  "ordinal": 0,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_1207_achievement_raid_fungariangiant_fungalgiant.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2711.png"
+ },
+ "overallProgress": {
+  "summary": "1/1 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 1,
+  "defeatedBosses": 1,
+  "normalBossesKilled": 1,
+  "heroicBossesKilled": 1,
+  "mythicBossesKilled": 1
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 476337,
+ "boss_percent": 0,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "0%",
+ "pullCount": 6,
+ "pullStartedAt": "2026-06-17T18:31:16.853Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}

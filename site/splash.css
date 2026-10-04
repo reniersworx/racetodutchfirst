@@ -101,6 +101,86 @@
 }
 .row__hp i { display: block; height: 100%; width: var(--w, 0%); background: var(--guild, var(--jade)); }
 
+/* ---- season switch ---------------------------------------------------------------------
+   The same flush blocks as NL | EN (.lang-switch), next to it: Season 2 | Season 1, short ids
+   (S2 | S1) on phones. Shown only when race.json lists an archived season. */
+.season-switch__short { display: none; }
+@media (max-width: 600px) {
+  .season-switch__long { display: none; }
+  .season-switch__short { display: inline; }
+}
+@media (max-width: 480px) { .sp__end { flex-wrap: wrap; row-gap: 8px; } .sp__upd { flex: 1 1 100%; } }
+
+/* ---- on air (live.js) ----------------------------------------------------------------
+   Only while a listed channel is live: the stream joins the hero. On a wide screen it sits at
+   the foot of the boss column, where the art already fades out, level with the board; below
+   1281px it follows the tier pills. Broadcast red = on air (raiding itself stays jade). The
+   player is a click-to-load facade with the card notch; channels are ribbons. */
+.onair { display: grid; gap: 10px; margin-top: 28px; max-width: 520px; }
+/* Over the boss it gets the pills' ink backing (ink-900 at 86%), so text never sits on the art. */
+@media (min-width: 1281px) {
+  .onair {
+    position: absolute; z-index: 3; margin: 0; bottom: 56px; right: 24px; padding: 12px 12px 14px;
+    width: min(464px, calc(100% - 24px - 820px - 40px - 24px)); background: rgba(10, 11, 13, .86);
+  }
+}
+.onair__head { display: flex; align-items: stretch; height: 28px; }
+.onair__tag, .onair__h {
+  display: flex; align-items: center; gap: 7px; padding: 0 11px;
+  font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap;
+}
+.onair__tag { background: var(--live-red); color: var(--paper); }
+.onair__tag .live-dot { width: 7px; height: 7px; flex-basis: 7px; background: rgba(255, 255, 255, .27); box-shadow: 0 0 0 2px var(--paper); }
+.onair__h { background: var(--ink-900); color: var(--paper); }
+.onair__count { margin-left: auto; align-self: center; font-family: var(--f-mono); font-size: 12px; color: var(--ink-300); }
+
+.onair__player {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink-850);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+}
+.onair__play {
+  position: absolute; inset: 0; display: grid; place-items: center; padding: 0; border: 0;
+  background: transparent; color: var(--paper); font: inherit; cursor: pointer;
+}
+.onair__play::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(transparent 40%, rgba(10, 11, 13, .88));
+}
+.onair__play:focus-visible { outline: 2px solid var(--jade); outline-offset: -5px; }
+.onair__still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.78); }
+.onair__btn {
+  position: relative; z-index: 1; display: grid; place-items: center; width: 68px; height: 48px;
+  background: var(--live-red); clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 100%, 0 100%);
+  transition: transform var(--t-fast) var(--ease);
+}
+.onair__btn svg { width: 24px; height: 24px; margin-left: -4px; }
+.onair__play:hover .onair__btn { transform: scale(1.06); }
+.onair__hint { position: absolute; z-index: 1; left: 14px; right: 30px; bottom: 11px; display: grid; gap: 1px; text-align: left; }
+.onair__hint b { font-size: 15px; font-weight: 700; color: var(--paper); }
+.onair__hint span { font-size: 12px; color: var(--paper-dim); }
+.onair__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.onair__meta { display: grid; gap: 3px; min-width: 0; }
+.onair__title { font-size: 14px; color: var(--paper-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.onair__sub { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.onair__since { font-family: var(--f-mono); font-size: 12px; color: var(--ink-300); min-width: 0; }
+.onair__out { display: inline-flex; align-items: center; gap: 5px; flex: 0 0 auto; font-size: 13px; font-weight: 600; color: var(--jade); }
+.onair__out svg { width: 14px; height: 14px; }
+
+.onair__list { display: grid; gap: 6px; }
+.onair__rib {
+  --rib-h: 38px; width: 100%; padding: 0; border: 0; background: none;
+  font: inherit; color: var(--paper); text-align: left; cursor: pointer;
+}
+.onair__rib .rib__acc svg { width: 16px; height: 16px; }
+.onair__rib .rib__val { font-size: 15px; }
+.onair__guild { margin-left: 10px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--acc, var(--ink-300)); }
+.onair__viewers { margin-left: auto; padding-left: 12px; font-family: var(--f-mono); font-size: 12px; color: var(--ink-300); }
+.onair__rib:hover .rib__bar { background: var(--ink-500); }
+.onair__rib[aria-pressed="true"] .rib__bar { background: var(--live-red); }
+.onair__rib:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; }
+@media (max-width: 900px) { .onair { margin-top: 24px; } }
+
 /* ---- ticker (from sketch C) ------------------------------------------------------------ */
 .ticker {
   position: relative; z-index: 3; max-width: 1320px; margin: 0 auto 0; display: flex; align-items: stretch; height: 52px;

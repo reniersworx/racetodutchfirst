@@ -10,6 +10,7 @@
 'use strict';
 
 const DATA_URL = 'data/race.json';
+const SEASON_FILE = /^data\/[a-z0-9-]+\.json$/; // an archived season's file, from race.json's `seasons`
 const REFRESH_MS = 5 * 60 * 1000;
 const STALE_MIN = 150; // the fetcher runs every 30 min on raid evenings, else every 2 h
 const LIVE_MIN = 60;   // a pull or kill this close to the fetch = raiding now
@@ -114,6 +115,7 @@ function lastActivity(g) {
 /* 'live' only while the data is fresh too, so a stale race.json never claims
  * a raid that ended hours ago; then it fades to 'recent' ("raided at 21:57"). */
 function liveState(g, data, now = Date.now()) {
+  if (isArchive(data)) return null; // a finished season never raids "now"
   const last = lastActivity(g);
   if (last === null) return null;
   const fetched = Date.parse(data.generatedAt);
@@ -153,7 +155,9 @@ function renderHeader(data) {
   $('#tierPills').replaceChildren(
     h('span', { class: 'pill', text: tr('pill.bosses', { n: tier.totalBosses }), title: raids }),
     h('span', { class: 'pill pill--jade', text: tr('pill.ce', { boss: tier.ceBoss.name }) }),
-    h('span', { class: 'pill', text: tr('pill.since', { date: day(tier.start) }) }),
+    h('span', { class: 'pill', text: isArchive(data) && data.season.end
+      ? tr('pill.period', { from: day(tier.start), to: day(data.season.end) })
+      : tr('pill.since', { date: day(tier.start) }) }),
   );
 }
 
@@ -210,8 +214,9 @@ function bossThumb(name, cls = 'boss-thumb') {
 function renderRaceDay(data) {
   const el = $('#bugDay');
   const [y, m, d] = data.tier.start.split('-').map(Number);
-  const end = data.winner ? new Date(data.winner.defeatedAt) : new Date();
-  const n = Math.floor((new Date(end.getFullYear(), end.getMonth(), end.getDate()) - new Date(y, m - 1, d)) / 86400000) + 1;
+  const end = data.winner ? new Date(data.winner.defeatedAt)
+    : isArchive(data) && data.season.end ? new Date(data.season.end) : new Date();
+  const n = Math.round((new Date(end.getFullYear(), end.getMonth(), end.getDate()) - new Date(y, m - 1, d)) / 86400000) + 1; // round: DST days are 23 or 25 h
   el.hidden = !(n >= 1);
   if (el.hidden) return;
   el.textContent = tr('hero.day', { n });
@@ -444,7 +449,7 @@ function renderTimeline(data) {
  * the current-boss cards; on phones the table scrolls with the guild column pinned. */
 const PULL_BARS = 60;
 
-function guildCell(g, raid, boss) {
+function guildCell(g, raid, boss, archived = false) {
   const b = g.bosses.find(x => x.raid === raid.slug && x.slug === boss.slug);
   const isCurrent = g.current && g.current.raid === raid.slug && g.current.slug === boss.slug;
   if (b && b.state === 'killed') {
@@ -463,7 +468,7 @@ function guildCell(g, raid, boss) {
       h('span', { class: 'gs-cell__sub', text: pulls(b.pullCount) })), g);
   }
   return setGuild(h('td', { class: `gs-cell gs-cell--none${isCurrent ? ' gs-cell--current' : ''}`, title: boss.name },
-    isCurrent ? h('span', { class: 'gs-cell__sub', text: tr('boss.next') }) : h('span', { class: 'visually-hidden', text: tr('boss.untried') })), g);
+    isCurrent ? h('span', { class: 'gs-cell__sub', text: tr(archived ? 'boss.stopped' : 'boss.next') }) : h('span', { class: 'visually-hidden', text: tr('boss.untried') })), g);
 }
 
 /* The pulls on a guild's current boss as bars (higher = more of the boss down), the
@@ -506,7 +511,7 @@ function renderGuildSheets(data) {
       return h('th', { scope: 'col', class: `gs-boss${sep ? ' gs-sep' : ''}`, title: `${boss.name} · ${raid.name}` },
         bossThumb(boss.name), h('span', { class: 'gs-boss__label' }, h('span', { class: 'gs-boss__name', text: boss.name }), isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null));
     }),
-    h('th', { scope: 'col', class: 'gs-pulls-h', text: tr('guild.thPulls') }));
+    h('th', { scope: 'col', class: 'gs-pulls-h', text: tr(isArchive(data) ? 'guild.thPullsPast' : 'guild.thPulls') }));
   const rows = data.guilds.map(g => {
     const url = raiderioUrl(g.profileUrl);
     const row = h('tr', { class: g.name === lead ? 'gs-row gs-row--lead' : 'gs-row' },
@@ -515,7 +520,7 @@ function renderGuildSheets(data) {
         h('span', { class: 'gs-who__name' }, url ? h('a', { href: url, rel: 'noopener', text: g.name }) : g.name, liveBadge(g, 'row__live')),
         h('span', { class: 'gs-who__k' }, String(g.mythicKills), h('small', { text: `/${data.tier.totalBosses}` })))),
       ...cols.map(({ raid, boss, sep }) => {
-        const td = guildCell(g, raid, boss);
+        const td = guildCell(g, raid, boss, isArchive(data));
         if (sep) td.classList.add('gs-sep');
         return td;
       }),
@@ -530,6 +535,13 @@ function renderGuildSheets(data) {
 function renderUpdated() {
   if (!race) return;
   const el = $('#updated');
+  if (isArchive(race)) {
+    el.classList.remove('updated--late');
+    el.textContent = race.season.end ? tr('upd.archived', { date: day(race.season.end) }) : tr('upd.archivedNoDate');
+    el.title = '';
+    liveBadges.forEach(paintLive);
+    return;
+  }
   const min = Math.max(0, Math.round((Date.now() - Date.parse(race.generatedAt)) / 60000));
   let when;
   if (min < 1) when = tr('upd.now');
@@ -557,13 +569,15 @@ function showError(msg) {
 function render(data) {
   resetCharts();
   liveBadges.length = 0;
+  renderSeason(data);
   renderHeader(data);
   renderWinner(data);
   renderHero(data);
   renderFeed(data);
   renderTimeline(data);
   renderGuildSheets(data);
-  $('#wclNote').textContent = data.sources && data.sources.warcraftlogs ? tr('wcl.on') : tr('wcl.off');
+  $('#wclNote').textContent = isArchive(data) && !(data.sources && data.sources.warcraftlogs) ? tr('wcl.archive')
+    : data.sources && data.sources.warcraftlogs ? tr('wcl.on') : tr('wcl.off');
   renderUpdated();
   // Other scripts draw their own sections from the same data (halloffame.js).
   document.dispatchEvent(new CustomEvent('race:data', { detail: data }));
@@ -571,13 +585,61 @@ function render(data) {
 
 let loadError = null;
 
+/* ---- seasons ---------------------------------------------------------------------------------
+ * race.json lists the seasons (`seasons`, current first). ?season=s1 shows an archived one: a
+ * finished race.json-shaped file, fetched once and never refreshed. Without the parameter, or
+ * with an id that isn't archived, the page is the live race. */
+let seasons = [];
+let wanted = new URLSearchParams(location.search).get('season');
+
+function archiveEntry() {
+  return seasons.find(s => s.id === wanted && !s.current && SEASON_FILE.test(s.file || '')) || null;
+}
+
+/* A raid with counts: false (Sporefall in Season 1) is shown, but doesn't count for the race:
+ * it leaves tier.raids and the guilds' bosses here, so every chart and table below counts only
+ * the race, and comes back as data.sideRaids for its own note. */
+function splitSideRaids(data) {
+  const side = data.tier.raids.filter(r => r.counts === false);
+  data.sideRaids = side.map(r => ({
+    name: r.name,
+    bosses: r.bosses.map(b => ({
+      name: b.name,
+      kills: data.guilds
+        .map(g => ({ g, st: g.bosses.find(x => x.raid === r.slug && x.slug === b.slug) }))
+        .filter(x => x.st && x.st.defeatedAt)
+        .sort((a, c) => Date.parse(a.st.defeatedAt) - Date.parse(c.st.defeatedAt)),
+    })),
+  }));
+  if (side.length) {
+    const keep = new Set(data.tier.raids.filter(r => r.counts !== false).map(r => r.slug));
+    data.tier.raids = data.tier.raids.filter(r => keep.has(r.slug));
+    for (const g of data.guilds) g.bosses = g.bosses.filter(b => keep.has(b.raid));
+  }
+  return data;
+}
+
+async function fetchRace(url) {
+  const resp = await fetch(url, { cache: 'no-cache' });
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  const data = await resp.json();
+  if (!data || !Array.isArray(data.guilds) || !data.tier) throw new Error(tr('err.content'));
+  return splitSideRaids(data);
+}
+
 async function load() {
   try {
-    const resp = await fetch(DATA_URL, { cache: 'no-cache' });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const data = await resp.json();
-    if (!data || !Array.isArray(data.guilds) || !data.tier) throw new Error(tr('err.content'));
-    const fresh = !race || race.generatedAt !== data.generatedAt;
+    let data;
+    if (!seasons.length || !archiveEntry()) {
+      data = await fetchRace(DATA_URL);
+      seasons = Array.isArray(data.seasons) ? data.seasons : [];
+    }
+    const entry = archiveEntry();
+    if (entry) {
+      if (race && isArchive(race) && race.season.id === entry.id) return; // an archive never changes
+      data = await fetchRace(entry.file);
+    }
+    const fresh = !race || race.generatedAt !== data.generatedAt || race.season?.id !== data.season?.id;
     race = data;
     loadError = null;
     showError('');
@@ -588,6 +650,53 @@ async function load() {
       showLoadError();
     }
   }
+}
+
+/* The switch: flush blocks like NL | EN, shown only when there is an archive to switch to. */
+function renderSeason(data) {
+  const box = $('#seasonSwitch');
+  const archived = isArchive(data);
+  document.body.classList.toggle('is-archive', archived);
+  $('.sp__title [data-i18n="title.a"]').textContent = tr(archived ? 'title.aPast' : 'title.a');
+  const lead = $('.sp__lead');
+  lead.textContent = archived
+    ? tr('lead.archived', { season: data.season.label || data.season.id, raids: data.tier.raids.map(r => r.name).join(' + ') })
+    : tr('lead');
+  $('[data-i18n="guild.cap"]').textContent = tr(archived ? 'guild.capPast' : 'guild.cap');
+  $('#srcWcl').hidden = archived && !(data.sources && data.sources.warcraftlogs);
+  renderSideRaids(data);
+  if (!box) return;
+  box.hidden = seasons.length < 2;
+  const active = archived ? data.season.id : (seasons.find(s => s.current) || {}).id;
+  box.replaceChildren(...seasons.map(s => {
+    const b = h('button', { type: 'button', 'aria-pressed': String(s.id === active), title: s.label || s.id },
+      h('span', { class: 'season-switch__long', text: s.label || s.id }),
+      h('span', { class: 'season-switch__short', 'aria-hidden': 'true', text: s.id.toUpperCase() }));
+    b.addEventListener('click', () => {
+      if (s.id === active) return;
+      wanted = s.current ? null : s.id;
+      const url = new URL(location.href);
+      if (wanted) url.searchParams.set('season', wanted); else url.searchParams.delete('season');
+      history.replaceState(null, '', url);
+      race = null;
+      load();
+    });
+    return b;
+  }));
+}
+
+/* Sporefall-style raids: one quiet line under the winner banner, never in the race itself. */
+function renderSideRaids(data) {
+  const box = $('#sideRaids');
+  if (!box) return;
+  const side = data.sideRaids || [];
+  box.hidden = !side.length;
+  box.replaceChildren(...side.flatMap(r => r.bosses.map(b => h('p', { class: 'side-raids__row' },
+    h('span', { class: 'side-raids__h', text: tr('side.h', { raid: r.name }) }),
+    ' ',
+    b.kills.length
+      ? tr('side.kills', { boss: b.name, list: b.kills.map(k => `${k.g.name} ${day(k.st.defeatedAt)}`).join(', ') })
+      : tr('side.none', { boss: b.name })))));
 }
 
 function showLoadError() {
@@ -609,5 +718,5 @@ function setupLangSwitch() {
 i18n.applyStatic();
 setupLangSwitch();
 load();
-setInterval(load, REFRESH_MS);
+setInterval(() => { if (!archiveEntry()) load(); }, REFRESH_MS);
 setInterval(renderUpdated, 30 * 1000);

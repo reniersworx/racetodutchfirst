@@ -264,25 +264,6 @@ details[open] > .disclose::before { transform: rotate(45deg); }
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
 
-/* ---- "Nu live" strip (live.js) -----------------------------------------------
-   On air = --live-red, like the LIVE block in the top bar (raiding is jade). */
-.live-strip { display: flex; flex-direction: column; gap: 10px; }
-.live-strip__label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--live-red);
-}
-.live-strip__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px 16px; }
-.live-strip .live-dot { width: 9px; height: 9px; flex-basis: 9px; background: var(--live-red); }
-.live-card {
-  display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 12px 16px; text-decoration: none;
-  background: var(--ink-800); border: 1px solid var(--ink-700);
-}
-.live-card:hover { border-color: var(--ink-600); background: var(--ink-750); }
-.live-card__top { display: flex; align-items: center; gap: 8px; min-width: 0; }
-.live-card__name { font-size: 16px; font-weight: 600; color: var(--paper); }
-.live-card__guild { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-300); }
-.live-card__guild::before { content: ""; width: 8px; height: 8px; background: var(--guild, var(--live-red)); clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 0 100%); }
-.live-card__title {
-  font-size: 13px; color: var(--paper-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.live-card__meta { font-family: var(--f-mono); font-size: 12px; color: var(--ink-300); }
+/* ---- side raids (a raid that doesn't count, e.g. Sporefall in Season 1) ------------------ */
+.side-raids { display: grid; gap: 4px; padding: 12px 16px; background: var(--ink-800); border: 1px solid var(--ink-700); font-size: 14px; color: var(--paper-dim); }
+.side-raids__h { color: var(--paper); font-weight: 600; }

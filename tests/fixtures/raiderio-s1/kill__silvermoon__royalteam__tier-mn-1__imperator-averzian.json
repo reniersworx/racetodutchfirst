@@ -1,0 +1,433 @@
+{
+ "kill": {
+  "pulledAt": "2026-04-12T18:06:11.450Z",
+  "defeatedAt": "2026-04-12T18:13:13.266Z",
+  "durationMs": 421846,
+  "isSuccess": true,
+  "itemLevelEquippedAvg": 274.391,
+  "itemLevelEquippedMax": 276.375,
+  "itemLevelEquippedMin": 271
+ },
+ "roster": [
+  {
+   "character": {
+    "name": "Rotjoch",
+    "realm": {
+     "name": "Al'Akir",
+     "slug": "alakir"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Mage",
+     "slug": "mage"
+    },
+    "spec": {
+     "name": "Frost",
+     "slug": "frost",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Wizzurd",
+    "realm": {
+     "name": "Darkspear",
+     "slug": "darkspear"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Mage",
+     "slug": "mage"
+    },
+    "spec": {
+     "name": "Frost",
+     "slug": "frost",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Neliz",
+    "realm": {
+     "name": "The Maelstrom",
+     "slug": "the-maelstrom"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Paladin",
+     "slug": "paladin"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Uitsmijtert",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warrior",
+     "slug": "warrior"
+    },
+    "spec": {
+     "name": "Fury",
+     "slug": "fury",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Bhast",
+    "realm": {
+     "name": "Stormscale",
+     "slug": "stormscale"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warrior",
+     "slug": "warrior"
+    },
+    "spec": {
+     "name": "Fury",
+     "slug": "fury",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Daddybird",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Druid",
+     "slug": "druid"
+    },
+    "spec": {
+     "name": "Balance",
+     "slug": "balance",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Weerbeerwolf-192510339",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Druid",
+     "slug": "druid"
+    },
+    "spec": {
+     "name": "Restoration",
+     "slug": "restoration",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Bloodling",
+    "realm": {
+     "name": "Stormscale",
+     "slug": "stormscale"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Death Knight",
+     "slug": "death-knight"
+    },
+    "spec": {
+     "name": "Unholy",
+     "slug": "unholy",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Groghunter",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Beast Mastery",
+     "slug": "beast-mastery",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Yalshunta",
+    "realm": {
+     "name": "Dragonblight",
+     "slug": "dragonblight"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Survival",
+     "slug": "survival",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Freqnc",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Jerrybóy",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Shadow",
+     "slug": "shadow",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Drambush",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Rogue",
+     "slug": "rogue"
+    },
+    "spec": {
+     "name": "Subtlety",
+     "slug": "subtlety",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Dokterduim",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Shaman",
+     "slug": "shaman"
+    },
+    "spec": {
+     "name": "Restoration",
+     "slug": "restoration",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Leylïth",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warlock",
+     "slug": "warlock"
+    },
+    "spec": {
+     "name": "Demonology",
+     "slug": "demonology",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Nogula",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warlock",
+     "slug": "warlock"
+    },
+    "spec": {
+     "name": "Demonology",
+     "slug": "demonology",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Gymmnk",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Brewmaster",
+     "slug": "brewmaster",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "ßaas",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Windwalker",
+     "slug": "windwalker",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Festard",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Vengeance",
+     "slug": "vengeance",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Starzdemonhu",
+    "realm": {
+     "name": "Silvermoon",
+     "slug": "silvermoon"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Devourer",
+     "slug": "devourer",
+     "role": "dps"
+    }
+   }
+  }
+ ]
+}

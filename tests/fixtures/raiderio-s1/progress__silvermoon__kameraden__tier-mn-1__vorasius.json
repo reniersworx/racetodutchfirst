@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 2320417,
+  "name": "Kameraden",
+  "displayName": "Kameraden",
+  "faction": "alliance",
+  "realm": {
+   "id": 704,
+   "connectedRealmId": 355,
+   "wowRealmId": 549,
+   "wowConnectedRealmId": 3391,
+   "name": "Silvermoon",
+   "altName": null,
+   "slug": "silvermoon",
+   "altSlug": "silvermoon",
+   "locale": "en_GB",
+   "isConnected": false,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/silvermoon/Kameraden",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16340,
+  "difficulty": "mythic",
+  "name": "MN Tier 1 (VS / DR / MQD)",
+  "short_name": "VS/DR/MQD",
+  "wowInstanceId": 2912,
+  "slug": "tier-mn-1",
+  "icon_url": "/images/wow/icons/large/inv_achievement_raid_darkwell.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197133,
+  "wowEncounterId": 3177,
+  "name": "Vorasius",
+  "slug": "vorasius",
+  "ordinal": 1,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_120_raid_voidspire_kaiju.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2734.png"
+ },
+ "overallProgress": {
+  "summary": "9/9 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 9,
+  "defeatedBosses": 9,
+  "normalBossesKilled": 9,
+  "heroicBossesKilled": 9,
+  "mythicBossesKilled": 9
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 353280,
+ "boss_percent": 0,
+ "phase": null,
+ "phase_label": null,
+ "progress_display": "0%",
+ "pullCount": 15,
+ "pullStartedAt": "2026-04-06T20:15:41.347Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}

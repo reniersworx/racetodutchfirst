@@ -27,7 +27,7 @@ tests/
   fixtures/api/              older single responses from the first version (unused but kept)
 scripts/og-image.sh          headless Chrome: site/og.html → site/og.png (run by site.yml)
 site/                        static, no build step, no framework, no CDN scripts
-  index.html                 splash hero (top bar, title, board, kills ticker), then Nu live, Voortgang, Per guild, Hall of fame (folded), footer
+  index.html                 splash hero (top bar, title, Nu live when someone streams, board, kills ticker), then Voortgang, Per guild, Hall of fame (folded), footer
   i18n.js                    NL + EN strings and the global `i18n` (loaded before app.js)
   app.js                     loads data/race.json, draws everything (inline SVG)
   og.html, og.css, og.js     the 1200x630 share image page; scripts/og-image.sh screenshots it to og.png
@@ -139,8 +139,16 @@ halloffame.js does). Fixture rosters are trimmed by `RecordingHTTP` to the used 
 filter (World of Warcraft; removed as a test in PR #9, so every live stream shows). `twitch.py` asks DecAPI (https://decapi.me/twitch/<what>/<login>,
 plain text, no key; the overlay uses it too) per channel: `uptime` ("<login> is offline" or
 "1 hour, 2 minutes, …"), and only for live ones `game`, `title`, `viewercount`. A failure
-makes that channel `live: null` and never stops the run. `site/live.js` shows the "Nu live"
-strip for `shown` channels and hides it once `streams.checkedAt` is over 75 min old.
+makes that channel `live: null` and never stops the run. `site/live.js` draws "Nu live" in the
+hero (`#onAir`) for `shown` channels and hides it once `streams.checkedAt` is over 75 min old:
+at the foot of the boss column on wide screens (ink-900 backing, so no text sits on the art),
+after the tier pills below 1281px. The leader's guild's stream comes first, then most viewers;
+the other live channels are ribbons that switch the player. The player is a click-to-load
+facade: before a click the page only loads Twitch's preview still (static-cdn.jtvnw.net), on
+click Twitch's embed (player.twitch.tv, `parent` = location.hostname). The CSP allows exactly
+those two hosts (img-src, frame-src); without them the page still works, minus the embed. A
+loaded player survives data refreshes and NL | EN redraws (it is only rebuilt when the
+featured channel changes), so a stream never restarts under the viewer.
 Raider.IO's published `raiding/boss-rankings` also carries per-guild `streamers` (count +
 top stream), but only for a realm's top 50 guilds per boss; Lelijkerds and RoyalTeam never
 appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.
@@ -205,6 +213,35 @@ purpose. The switch redraws the page (render() runs again) and dispatches `race:
 - Game names (guilds, raids, bosses) are never translated. og.png stays Dutch.
 - The app.js helpers `h()`, `$()`, `day()`, `dayTime()`, `colour()`, `setGuild()` and
   `raiderioUrl()` are globals other scripts use: keep their names and signatures.
+
+## Earlier seasons
+
+The site can switch to a finished season. `[[seasons]]` in guilds.toml lists them (`id`,
+`label`, `file` under site/); `[tier]` has the current season's `id` and `label`. Each
+archived season has a tier file in `seasons/` (only a `[tier]` table, with `end`) and a
+committed archive made once with
+`uv run python -m racetodutchfirst --tier seasons/season-1.toml --output site/data/season-1.json`
+(same guilds, no streams, no WCL without a zone). CI only refreshes race.json, never an archive.
+
+- race.json and every archive carry `season` (`id`, `label`, `archived`, `end`) and `seasons`
+  (the switch list, current first), so the page knows what it shows and what it can switch to.
+- The page (app.js): a Season 2 | Season 1 switch next to NL | EN (`#seasonSwitch`, the same
+  flush blocks; S2 | S1 on phones), hidden unless `seasons` lists an archive. `?season=s1` loads
+  that archive once (race.json first, for the list; an archive is never refreshed). An archive is
+  never live (`liveState` returns null), the update line says when it closed and never turns
+  late, Dag N stops on the win (or the season's end), the title reads "Wie haalde als eerste", Per guild's
+  last column is "Eindstand" (a guild's last boss says "gestopt", not "volgende"), and the footer
+  drops Warcraft Logs (`#srcWcl`) when the archive has no WCL.
+- `splitSideRaids()` drops `counts: false` raids from `tier.raids` and the guilds' `bosses` right
+  after the fetch, so every chart and table counts only the race; they come back as one line
+  under the winner banner (`#sideRaids`).
+- `race = false` on a raid (Sporefall in Season 1): fetched and shown (`counts: false` in
+  `tier.raids` and `hallOfFame.bosses`), but its kills don't count for kills, the current
+  boss, the ranking, latestKillAt or the raider ranking. The first raid and the CE boss must count.
+- Season 1 = Raider.IO's `tier-mn-1` (The Voidspire, The Dreamrift and March on Quel'Danas as
+  one 9-boss raid), CE = Midnight Falls. Raider.IO keeps kills, kill pulls and rosters of
+  old raids, but no pulls on a boss a guild never killed: those show as no pulls seen.
+  Fixtures: tests/fixtures/raiderio-s1 (recorded 2026-10-04).
 
 ## Changing the tier
 

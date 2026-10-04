@@ -1,0 +1,85 @@
+{
+ "guild": {
+  "id": 1327250,
+  "name": "Knikkerende Krijgers",
+  "displayName": "Knikkerende Krijgers",
+  "faction": "alliance",
+  "realm": {
+   "id": 716,
+   "connectedRealmId": 265,
+   "wowRealmId": 628,
+   "wowConnectedRealmId": 1597,
+   "name": "Sylvanas",
+   "altName": null,
+   "slug": "sylvanas",
+   "altSlug": "sylvanas",
+   "locale": "en_GB",
+   "isConnected": true,
+   "realmType": "live"
+  },
+  "region": {
+   "name": "Europe",
+   "slug": "eu",
+   "short_name": "EU"
+  },
+  "subregion": {
+   "name": "Europe - English",
+   "slug": "eu-english",
+   "short_name": "EU EN",
+   "regions": [
+    {
+     "name": "Europe",
+     "slug": "eu",
+     "short_name": "EU"
+    }
+   ]
+  },
+  "path": "/guilds/eu/sylvanas/Knikkerende%20Krijgers",
+  "logo": "https://cdn.raiderio.net/images/site/alliance_icon4.png",
+  "isDefaultLogo": true
+ },
+ "guildPrivacy": {
+  "shareRaidUntil": null
+ },
+ "raid": {
+  "type": "raid",
+  "id": 16340,
+  "difficulty": "mythic",
+  "name": "MN Tier 1 (VS / DR / MQD)",
+  "short_name": "VS/DR/MQD",
+  "wowInstanceId": 2912,
+  "slug": "tier-mn-1",
+  "icon_url": "/images/wow/icons/large/inv_achievement_raid_darkwell.jpg",
+  "expansion_id": 11
+ },
+ "boss": {
+  "encounterId": 197137,
+  "wowEncounterId": 3181,
+  "name": "Crown of the Cosmos",
+  "slug": "crown-of-the-cosmos",
+  "ordinal": 5,
+  "wingId": 0,
+  "iconUrl": "/images/wow/icons/large/inv_120_raid_voidspire_alleria.jpg",
+  "portraitUrl": "/images/wow/encounter-journal/2738.png"
+ },
+ "overallProgress": {
+  "summary": "9/9 Mythic",
+  "difficulty": "mythic",
+  "totalBosses": 9,
+  "defeatedBosses": 9,
+  "normalBossesKilled": 9,
+  "heroicBossesKilled": 9,
+  "mythicBossesKilled": 9
+ },
+ "bestPercent": 0,
+ "bestAttemptDurationMs": 481532,
+ "boss_percent": 0,
+ "phase": 3,
+ "phase_label": "P3",
+ "progress_display": "0% P3",
+ "pullCount": 113,
+ "pullStartedAt": "2026-05-31T19:19:49.378Z",
+ "isDefeated": true,
+ "error": null,
+ "widgetVersion": 0
+}

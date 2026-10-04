@@ -1,0 +1,109 @@
+{
+ "name": "RoyalTeam",
+ "displayName": null,
+ "faction": "alliance",
+ "region": "eu",
+ "realm": "Silvermoon",
+ "last_crawled_at": "2026-10-02T14:21:10.000Z",
+ "profile_url": "https://raider.io/guilds/eu/silvermoon/RoyalTeam",
+ "raid_rankings": {
+  "tier-mn-1": {
+   "normal": {
+    "world": 9320,
+    "region": 3973,
+    "realm": 221
+   },
+   "heroic": {
+    "world": 3633,
+    "region": 1814,
+    "realm": 95
+   },
+   "mythic": {
+    "world": 4295,
+    "region": 1897,
+    "realm": 95
+   }
+  },
+  "sporefall": {
+   "normal": {
+    "world": 0,
+    "region": 0,
+    "realm": 0
+   },
+   "heroic": {
+    "world": 2799,
+    "region": 483,
+    "realm": 23
+   },
+   "mythic": {
+    "world": 1421,
+    "region": 691,
+    "realm": 41
+   }
+  },
+  "the-tidebound-grotto": {
+   "normal": {
+    "world": 7145,
+    "region": 2863,
+    "realm": 158
+   },
+   "heroic": {
+    "world": 4639,
+    "region": 2010,
+    "realm": 112
+   },
+   "mythic": {
+    "world": 0,
+    "region": 0,
+    "realm": 0
+   }
+  },
+  "the-venomous-abyss": {
+   "normal": {
+    "world": 4630,
+    "region": 1674,
+    "realm": 96
+   },
+   "heroic": {
+    "world": 5306,
+    "region": 2008,
+    "realm": 124
+   },
+   "mythic": {
+    "world": 3936,
+    "region": 1698,
+    "realm": 99
+   }
+  }
+ },
+ "raid_progression": {
+  "tier-mn-1": {
+   "summary": "6/9 M",
+   "total_bosses": 9,
+   "normal_bosses_killed": 9,
+   "heroic_bosses_killed": 9,
+   "mythic_bosses_killed": 6
+  },
+  "sporefall": {
+   "summary": "1/1 M",
+   "total_bosses": 1,
+   "normal_bosses_killed": 0,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 1
+  },
+  "the-tidebound-grotto": {
+   "summary": "1/1 H",
+   "total_bosses": 1,
+   "normal_bosses_killed": 1,
+   "heroic_bosses_killed": 1,
+   "mythic_bosses_killed": 0
+  },
+  "the-venomous-abyss": {
+   "summary": "2/8 M",
+   "total_bosses": 8,
+   "normal_bosses_killed": 8,
+   "heroic_bosses_killed": 8,
+   "mythic_bosses_killed": 2
+  }
+ }
+}

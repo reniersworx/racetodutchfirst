@@ -1,0 +1,433 @@
+{
+ "kill": {
+  "pulledAt": "2026-05-06T19:47:08.683Z",
+  "defeatedAt": "2026-05-06T19:54:43.548Z",
+  "durationMs": 454868,
+  "isSuccess": true,
+  "itemLevelEquippedAvg": 282.547,
+  "itemLevelEquippedMax": 284,
+  "itemLevelEquippedMin": 277.875
+ },
+ "roster": [
+  {
+   "character": {
+    "name": "Noxicore",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Mage",
+     "slug": "mage"
+    },
+    "spec": {
+     "name": "Frost",
+     "slug": "frost",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Sempie",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Mage",
+     "slug": "mage"
+    },
+    "spec": {
+     "name": "Frost",
+     "slug": "frost",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Kuntax",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Paladin",
+     "slug": "paladin"
+    },
+    "spec": {
+     "name": "Holy",
+     "slug": "holy",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Kaeladin",
+    "realm": {
+     "name": "Auchindoun",
+     "slug": "auchindoun"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Paladin",
+     "slug": "paladin"
+    },
+    "spec": {
+     "name": "Protection",
+     "slug": "protection",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Gaintrain",
+    "realm": {
+     "name": "Auchindoun",
+     "slug": "auchindoun"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warrior",
+     "slug": "warrior"
+    },
+    "spec": {
+     "name": "Fury",
+     "slug": "fury",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Dominaterxk",
+    "realm": {
+     "name": "Argent Dawn",
+     "slug": "argent-dawn"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Druid",
+     "slug": "druid"
+    },
+    "spec": {
+     "name": "Restoration",
+     "slug": "restoration",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Mulgar",
+    "realm": {
+     "name": "Twisting Nether",
+     "slug": "twisting-nether"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Death Knight",
+     "slug": "death-knight"
+    },
+    "spec": {
+     "name": "Blood",
+     "slug": "blood",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Sterf",
+    "realm": {
+     "name": "Ravencrest",
+     "slug": "ravencrest"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Death Knight",
+     "slug": "death-knight"
+    },
+    "spec": {
+     "name": "Blood",
+     "slug": "blood",
+     "role": "tank"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Joossie",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Death Knight",
+     "slug": "death-knight"
+    },
+    "spec": {
+     "name": "Unholy",
+     "slug": "unholy",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Calaelen",
+    "realm": {
+     "name": "Ravencrest",
+     "slug": "ravencrest"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Hunter",
+     "slug": "hunter"
+    },
+    "spec": {
+     "name": "Survival",
+     "slug": "survival",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Pausie",
+    "realm": {
+     "name": "Draenor",
+     "slug": "draenor"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Priest",
+     "slug": "priest"
+    },
+    "spec": {
+     "name": "Shadow",
+     "slug": "shadow",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Syllidon",
+    "realm": {
+     "name": "Twisting Nether",
+     "slug": "twisting-nether"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Rogue",
+     "slug": "rogue"
+    },
+    "spec": {
+     "name": "Subtlety",
+     "slug": "subtlety",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Lenkie",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Rogue",
+     "slug": "rogue"
+    },
+    "spec": {
+     "name": "Subtlety",
+     "slug": "subtlety",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Xlbrian",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Shaman",
+     "slug": "shaman"
+    },
+    "spec": {
+     "name": "Elemental",
+     "slug": "elemental",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Rubzy",
+    "realm": {
+     "name": "Tarren Mill",
+     "slug": "tarren-mill"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warlock",
+     "slug": "warlock"
+    },
+    "spec": {
+     "name": "Demonology",
+     "slug": "demonology",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Wipeface",
+    "realm": {
+     "name": "Ragnaros",
+     "slug": "ragnaros"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Warlock",
+     "slug": "warlock"
+    },
+    "spec": {
+     "name": "Demonology",
+     "slug": "demonology",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Bamiebal",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Monk",
+     "slug": "monk"
+    },
+    "spec": {
+     "name": "Mistweaver",
+     "slug": "mistweaver",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Rozen",
+    "realm": {
+     "name": "Moonglade",
+     "slug": "moonglade"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Havoc",
+     "slug": "havoc",
+     "role": "dps"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Zinzanzonzip",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Evoker",
+     "slug": "evoker"
+    },
+    "spec": {
+     "name": "Preservation",
+     "slug": "preservation",
+     "role": "healer"
+    }
+   }
+  },
+  {
+   "character": {
+    "name": "Maarten",
+    "realm": {
+     "name": "Sylvanas",
+     "slug": "sylvanas"
+    },
+    "region": {
+     "slug": "eu"
+    },
+    "class": {
+     "name": "Demon Hunter",
+     "slug": "demon-hunter"
+    },
+    "spec": {
+     "name": "Devourer",
+     "slug": "devourer",
+     "role": "dps"
+    }
+   }
+  }
+ ]
+}

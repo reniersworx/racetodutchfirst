@@ -44,6 +44,8 @@ wcl_id = 665432
 # Raider.IO's names. encounter is the Blizzard encounter ID: Warcraft Logs'
 # encounterID and Raider.IO's wowEncounterId.
 [tier]
+id = "s2"
+label = "Season 2"
 start = "2026-08-19"
 
 # Cutting Edge: the first guild to kill this boss on Mythic wins. The operator
@@ -73,6 +75,13 @@ name = "The Tidebound Grotto"
 bosses = [
   { slug = "nymrissa-wavecaller", name = "Nymrissa Wavecaller", encounter = 3379 },
 ]
+
+# Earlier seasons the site can switch to. Each is a finished race.json-shaped file under
+# site/, made once with --tier (see seasons/*.toml) and committed; CI never refreshes it.
+[[seasons]]
+id = "s1"
+label = "Season 1"
+file = "data/season-1.json"
 
 # Twitch channels of raiders in the race. The site shows who is live right now
 # (checked through DecAPI on every run, no key needed). guild is optional: it
