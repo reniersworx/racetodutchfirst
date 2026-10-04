@@ -216,7 +216,7 @@ function renderRaceDay(data) {
   const [y, m, d] = data.tier.start.split('-').map(Number);
   const end = data.winner ? new Date(data.winner.defeatedAt)
     : isArchive(data) && data.season.end ? new Date(data.season.end) : new Date();
-  const n = Math.floor((new Date(end.getFullYear(), end.getMonth(), end.getDate()) - new Date(y, m - 1, d)) / 86400000) + 1;
+  const n = Math.round((new Date(end.getFullYear(), end.getMonth(), end.getDate()) - new Date(y, m - 1, d)) / 86400000) + 1; // round: DST days are 23 or 25 h
   el.hidden = !(n >= 1);
   if (el.hidden) return;
   el.textContent = tr('hero.day', { n });
@@ -449,7 +449,7 @@ function renderTimeline(data) {
  * the current-boss cards; on phones the table scrolls with the guild column pinned. */
 const PULL_BARS = 60;
 
-function guildCell(g, raid, boss) {
+function guildCell(g, raid, boss, archived = false) {
   const b = g.bosses.find(x => x.raid === raid.slug && x.slug === boss.slug);
   const isCurrent = g.current && g.current.raid === raid.slug && g.current.slug === boss.slug;
   if (b && b.state === 'killed') {
@@ -468,7 +468,7 @@ function guildCell(g, raid, boss) {
       h('span', { class: 'gs-cell__sub', text: pulls(b.pullCount) })), g);
   }
   return setGuild(h('td', { class: `gs-cell gs-cell--none${isCurrent ? ' gs-cell--current' : ''}`, title: boss.name },
-    isCurrent ? h('span', { class: 'gs-cell__sub', text: tr('boss.next') }) : h('span', { class: 'visually-hidden', text: tr('boss.untried') })), g);
+    isCurrent ? h('span', { class: 'gs-cell__sub', text: tr(archived ? 'boss.stopped' : 'boss.next') }) : h('span', { class: 'visually-hidden', text: tr('boss.untried') })), g);
 }
 
 /* The pulls on a guild's current boss as bars (higher = more of the boss down), the
@@ -511,7 +511,7 @@ function renderGuildSheets(data) {
       return h('th', { scope: 'col', class: `gs-boss${sep ? ' gs-sep' : ''}`, title: `${boss.name} · ${raid.name}` },
         bossThumb(boss.name), h('span', { class: 'gs-boss__label' }, h('span', { class: 'gs-boss__name', text: boss.name }), isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null));
     }),
-    h('th', { scope: 'col', class: 'gs-pulls-h', text: tr('guild.thPulls') }));
+    h('th', { scope: 'col', class: 'gs-pulls-h', text: tr(isArchive(data) ? 'guild.thPullsPast' : 'guild.thPulls') }));
   const rows = data.guilds.map(g => {
     const url = raiderioUrl(g.profileUrl);
     const row = h('tr', { class: g.name === lead ? 'gs-row gs-row--lead' : 'gs-row' },
@@ -520,7 +520,7 @@ function renderGuildSheets(data) {
         h('span', { class: 'gs-who__name' }, url ? h('a', { href: url, rel: 'noopener', text: g.name }) : g.name, liveBadge(g, 'row__live')),
         h('span', { class: 'gs-who__k' }, String(g.mythicKills), h('small', { text: `/${data.tier.totalBosses}` })))),
       ...cols.map(({ raid, boss, sep }) => {
-        const td = guildCell(g, raid, boss);
+        const td = guildCell(g, raid, boss, isArchive(data));
         if (sep) td.classList.add('gs-sep');
         return td;
       }),
@@ -662,6 +662,8 @@ function renderSeason(data) {
   lead.textContent = archived
     ? tr('lead.archived', { season: data.season.label || data.season.id, raids: data.tier.raids.map(r => r.name).join(' + ') })
     : tr('lead');
+  $('[data-i18n="guild.cap"]').textContent = tr(archived ? 'guild.capPast' : 'guild.cap');
+  $('#srcWcl').hidden = archived && !(data.sources && data.sources.warcraftlogs);
   renderSideRaids(data);
   if (!box) return;
   box.hidden = seasons.length < 2;

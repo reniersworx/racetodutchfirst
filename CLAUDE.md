@@ -229,7 +229,9 @@ committed archive made once with
   flush blocks; S2 | S1 on phones), hidden unless `seasons` lists an archive. `?season=s1` loads
   that archive once (race.json first, for the list; an archive is never refreshed). An archive is
   never live (`liveState` returns null), the update line says when it closed and never turns
-  late, Dag N stops on the win (or the season's end), the title reads "Wie haalde als eerste".
+  late, Dag N stops on the win (or the season's end), the title reads "Wie haalde als eerste", Per guild's
+  last column is "Eindstand" (a guild's last boss says "gestopt", not "volgende"), and the footer
+  drops Warcraft Logs (`#srcWcl`) when the archive has no WCL.
 - `splitSideRaids()` drops `counts: false` raids from `tier.raids` and the guilds' `bosses` right
   after the fetch, so every chart and table counts only the race; they come back as one line
   under the winner banner (`#sideRaids`).

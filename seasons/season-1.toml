@@ -15,7 +15,7 @@ ce_boss = { raid = "tier-mn-1", boss = "midnight-falls" }
 
 [[tier.raids]]
 slug = "tier-mn-1"
-name = "The Voidspire, The Dreamrift en March on Quel'Danas"
+name = "The Voidspire, The Dreamrift & March on Quel'Danas"
 bosses = [
   { slug = "imperator-averzian", name = "Imperator Averzian" },
   { slug = "vorasius", name = "Vorasius" },
