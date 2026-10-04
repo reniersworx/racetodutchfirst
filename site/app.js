@@ -115,7 +115,7 @@ function lastActivity(g) {
 /* 'live' only while the data is fresh too, so a stale race.json never claims
  * a raid that ended hours ago; then it fades to 'recent' ("raided at 21:57"). */
 function liveState(g, data, now = Date.now()) {
-  if (isArchived(data)) return null; // a finished season never raids "now"
+  if (isArchive(data)) return null; // a finished season never raids "now"
   const last = lastActivity(g);
   if (last === null) return null;
   const fetched = Date.parse(data.generatedAt);
@@ -155,7 +155,7 @@ function renderHeader(data) {
   $('#tierPills').replaceChildren(
     h('span', { class: 'pill', text: tr('pill.bosses', { n: tier.totalBosses }), title: raids }),
     h('span', { class: 'pill pill--jade', text: tr('pill.ce', { boss: tier.ceBoss.name }) }),
-    h('span', { class: 'pill', text: isArchived(data) && data.season.end
+    h('span', { class: 'pill', text: isArchive(data) && data.season.end
       ? tr('pill.period', { from: day(tier.start), to: day(data.season.end) })
       : tr('pill.since', { date: day(tier.start) }) }),
   );
@@ -215,7 +215,7 @@ function renderRaceDay(data) {
   const el = $('#bugDay');
   const [y, m, d] = data.tier.start.split('-').map(Number);
   const end = data.winner ? new Date(data.winner.defeatedAt)
-    : isArchived(data) && data.season.end ? new Date(data.season.end) : new Date();
+    : isArchive(data) && data.season.end ? new Date(data.season.end) : new Date();
   const n = Math.floor((new Date(end.getFullYear(), end.getMonth(), end.getDate()) - new Date(y, m - 1, d)) / 86400000) + 1;
   el.hidden = !(n >= 1);
   if (el.hidden) return;
@@ -535,7 +535,7 @@ function renderGuildSheets(data) {
 function renderUpdated() {
   if (!race) return;
   const el = $('#updated');
-  if (isArchived(race)) {
+  if (isArchive(race)) {
     el.classList.remove('updated--late');
     el.textContent = race.season.end ? tr('upd.archived', { date: day(race.season.end) }) : tr('upd.archivedNoDate');
     el.title = '';
@@ -591,7 +591,6 @@ let loadError = null;
 let seasons = [];
 let wanted = new URLSearchParams(location.search).get('season');
 
-function isArchived(data) { return !!(data && data.season && data.season.archived); }
 function archiveEntry() {
   return seasons.find(s => s.id === wanted && !s.current && SEASON_FILE.test(s.file || '')) || null;
 }
@@ -636,7 +635,7 @@ async function load() {
     }
     const entry = archiveEntry();
     if (entry) {
-      if (isArchived(race) && race.season.id === entry.id) return; // an archive never changes
+      if (race && isArchive(race) && race.season.id === entry.id) return; // an archive never changes
       data = await fetchRace(entry.file);
     }
     const fresh = !race || race.generatedAt !== data.generatedAt || race.season?.id !== data.season?.id;
@@ -655,7 +654,7 @@ async function load() {
 /* The switch: flush blocks like NL | EN, shown only when there is an archive to switch to. */
 function renderSeason(data) {
   const box = $('#seasonSwitch');
-  const archived = isArchived(data);
+  const archived = isArchive(data);
   document.body.classList.toggle('is-archive', archived);
   $('.sp__title [data-i18n="title.a"]').textContent = tr(archived ? 'title.aPast' : 'title.a');
   const lead = $('.sp__lead');
