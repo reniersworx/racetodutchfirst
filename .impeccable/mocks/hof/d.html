@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://static-cdn.jtvnw.net; frame-src https://player.twitch.tv; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
+<title>Mockup D · Trofeeënkast met raidframe</title>
+<meta name="description" content="Welke Nederlandse World of Warcraft-guild haalt als eerste Cutting Edge? De race naar de laatste Mythic-boss, live gevolgd.">
+<link rel="canonical" href="https://racetodutchfirst.bmiest.be/">
+<link rel="alternate" hreflang="nl" href="https://racetodutchfirst.bmiest.be/">
+<link rel="alternate" hreflang="en" href="https://racetodutchfirst.bmiest.be/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://racetodutchfirst.bmiest.be/">
+<meta name="theme-color" content="#0a0b0d">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://racetodutchfirst.bmiest.be/">
+<meta property="og:site_name" content="Race to Dutch First">
+<meta property="og:title" content="Race to Dutch First: wie haalt als eerste Cutting Edge?">
+<meta property="og:description" content="De race tussen Nederlandse guilds naar de laatste Mythic-boss, live gevolgd. Het klassement in deze afbeelding wordt bij elke verversing opnieuw gemaakt.">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:image" content="https://racetodutchfirst.bmiest.be/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Het klassement van Race to Dutch First: per guild de Mythic-kills en de huidige boss.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="halloffame.css">
+<link rel="stylesheet" href="splash.css">
+<link rel="stylesheet" href="hof-mock.css">
+</head>
+<body data-mock="d">
+
+<header class="sp">
+  <div class="sp__top">
+    <div class="bug">
+      <span id="bugLive" class="bug__live" hidden><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.live">Live</span></span>
+      <span class="bug__title">Race to Dutch First</span>
+      <span id="bugDay" class="bug__day" hidden></span>
+    </div>
+    <div class="sp__end">
+      <p id="updated" class="updated sp__upd" data-i18n="footer.loading">Data laden…</p>
+      <div id="seasonSwitch" class="lang-switch season-switch" role="group" data-i18n-aria-label="season.label" aria-label="Seizoen" hidden></div>
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang.label" aria-label="Taal">
+        <button type="button" data-lang="nl" aria-pressed="true" lang="nl">NL</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp__stage">
+    <div id="heroArt" class="sp__art" aria-hidden="true" hidden></div>
+    <h1 class="sp__title"><span data-i18n="title.a">Wie haalt als eerste</span> <em data-i18n="title.b">Cutting Edge?</em></h1>
+    <p class="sp__lead" data-i18n="lead">De race tussen Nederlandse guilds naar de laatste Mythic-boss van de huidige raid tier, live gevolgd via Raider.IO en Warcraft Logs.</p>
+    <div id="tierPills" class="sp__tier"></div>
+    <section id="onAir" class="onair" aria-labelledby="onAirHeading" hidden></section>
+    <section class="sp__board" aria-labelledby="ltHeading">
+      <h2 id="ltHeading" class="visually-hidden" data-i18n="hero.standings">Klassement</h2>
+      <ol id="lowerThirds" class="board"></ol>
+    </section>
+  </div>
+
+  <div class="ticker">
+    <h2 class="ticker__label" data-i18n="feed.h">Laatste kills</h2>
+    <ol id="killFeed" class="ticker__list"></ol>
+  </div>
+</header>
+
+<div class="page">
+
+
+  <div id="globalError" class="error-capsule" role="alert" hidden></div>
+
+  <section id="winnerBanner" class="winner" aria-live="polite" hidden></section>
+  <div id="sideRaids" class="side-raids" hidden></div>
+
+<section class="view" aria-labelledby="timelineHeading">
+    <h2 id="timelineHeading" class="view__title" data-i18n="timeline.h">Voortgang</h2>
+    <p class="section-caption" data-i18n="timeline.cap">Trede = Mythic-kill · ster = eerste Nederlandse kill · lichte kolom = raidavond</p>
+    <div id="timeline" class="chart timeline-chart"></div>
+    <ul id="timelineLegend" class="legend"></ul>
+    <details class="as-table">
+      <summary class="disclose" data-i18n="timeline.asTable">Toon als tabel</summary>
+      <div class="table-wrap"><table id="timelineTable" class="data-table"></table></div>
+    </details>
+  </section>
+
+<section class="view" aria-labelledby="guildHeading">
+    <h2 id="guildHeading" class="view__title" data-i18n="guild.h">Per guild</h2>
+    <p class="section-caption" data-i18n="guild.cap">Per boss de killdatum of de beste pull; rechts elke pull op de huidige boss.</p>
+    <div class="table-wrap gs-wrap" tabindex="0" role="region" aria-labelledby="guildHeading">
+      <table id="guildSheets" class="gs"></table>
+    </div>
+  </section>
+
+<section id="hallOfFame" class="view" aria-labelledby="hofHeading" hidden>
+    <details class="fold">
+    <summary class="fold__summary disclose"><h2 id="hofHeading" class="fold__title" data-i18n="hof.h">Hall of fame</h2><span class="fold__hint" data-i18n="hof.fold">Teams en raiders</span></summary>
+    <p class="section-caption" data-i18n="hof.cap">Per verslagen boss het team van elke guild, in de volgorde van hun kill. Bovenaan staat het team van de eerste Nederlandse kill; de andere guilds klap je open. Een naam linkt naar Raider.IO.</p>
+    <div id="hofBosses" class="hof-grid"></div>
+    <h3 id="hofRaidersHeading" class="hof-subtitle" data-i18n="hof.raiders.h">Raiders</h3>
+    <p class="section-caption" data-i18n="hof.raiders.cap">Eerst wie het vaakst bij de eerste kill van de race was, dan wie de meeste bosses mee versloeg met zijn guild. Het zijn characters, geen spelers: een alt telt apart.</p>
+    <div class="table-wrap hof-table-wrap" tabindex="0" role="region" aria-labelledby="hofRaidersHeading">
+      <table id="hofRaiders" class="data-table hof-table"></table>
+    </div>
+    <div id="hofMore" class="hof-more"></div>
+    </details>
+  </section>
+
+  <footer class="site-footer">
+    <p><span data-i18n="footer.src1">Bronnen:</span> <a href="https://raider.io" rel="noopener">Raider.IO</a> <span data-i18n="footer.src2">(guildprofielen, kills en live tracking)</span><span id="srcWcl"> <span data-i18n="footer.and">en</span> <a href="https://www.warcraftlogs.com" rel="noopener">Warcraft Logs</a> <span data-i18n="footer.src3">(gelogde fights)</span></span>. <span id="wclNote"></span> <span data-i18n="footer.src4">Een pull die nergens gevolgd of gelogd werd, ontbreekt hier ook.</span></p>
+    <p><a href="https://github.com/reniersworx/racetodutchfirst" rel="noopener" data-i18n="footer.code">Broncode op GitHub</a></p>
+  </footer>
+
+</div>
+
+<script src="bossart.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+<script src="halloffame.js"></script>
+<script src="hof-mock.js"></script>
+<script src="live.js"></script>
+</body>
+</html>

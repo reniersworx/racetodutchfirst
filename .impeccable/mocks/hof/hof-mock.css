@@ -144,7 +144,10 @@
 .hfb-present__names { font-size: 15px; line-height: 1.6; color: var(--paper); }
 
 /* ---- C · Gedenkrol ------------------------------------------------------------------------ */
-.hm--c .fold__summary { align-items: center; }
+.hm--c .fold__summary, .hm--d .fold__summary { align-items: center; }
+/* D: the fold row carries C's strip; the open trophy holds B's raid frame. */
+.hm--d .hfa-plaque.is-open .hfa-team { margin-top: 14px; }
+.hm--d .hfa-plaque.is-open .hm-frame__cells { grid-template-columns: repeat(auto-fill, minmax(138px, 1fr)); }
 .hfc-teaser { display: inline-flex; gap: 3px; margin-left: auto; }
 .hfc-teaser__t { position: relative; }
 .hfc-teaser__head { width: 30px; height: 30px; background: var(--ink-750); clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%); }
@@ -213,7 +216,9 @@
   .hfb-after__p { display: none; }
   .hfb-present__row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
 
-  .hfc-teaser { display: none; }
+  .hm--c .hfc-teaser { display: none; }
+  .hm--d .hfc-teaser { margin-left: 0; flex-wrap: wrap; width: 100%; }
+  .hm--d .hfc-teaser__head { width: 26px; height: 26px; }
   .hfc-line { grid-template-columns: 44px minmax(0, 1fr) 24px; grid-template-areas: "head boss tog" "head first tog" "day after after"; gap: 6px 12px; }
   .hfc-head { grid-area: head; width: 44px; height: 44px; }
   .hfc-boss { grid-area: boss; font-size: 16px; }

@@ -100,7 +100,7 @@
   }
 
   /* ---- A · Trofeeënkast ------------------------------------------------------------------ */
-  function plaque(b, open) {
+  function plaque(b, open, team = inscription) {
     const el = h('article', { class: `hfa-plaque${b.isCe ? ' hfa-plaque--ce' : ''}${b.first ? '' : ' is-empty'}${open ? ' is-open' : ''}` });
     const body = h('div', { class: 'hfa-plaque__body' });
     if (b.first) {
@@ -118,7 +118,7 @@
         btn.setAttribute('aria-expanded', String(isOpen));
         btn.lastChild.textContent = isOpen ? 'Team verbergen' : `Bekijk het team · ${b.first.roster.length || '?'}`;
       });
-      body.append(btn, h('div', { class: 'hfa-team' }, inscription(b.first)));
+      body.append(btn, h('div', { class: 'hfa-team' }, team(b.first)));
     } else {
       body.append(
         h('p', { class: 'hfa-label hfa-label--empty', text: b.isCe ? 'De laatste trofee' : 'Nog te verdienen' }),
@@ -267,13 +267,35 @@
     return [det];
   }
 
+  /* ---- D · A's trophy wall, B's raid frame as the team, C's strip on the folded row ---------- */
+  function variantD(d, m) {
+    const ce = m.bosses.find(b => b.isCe);
+    const rest = m.bosses.filter(b => !b.isCe).sort((a, b) => a.t - b.t);
+    // The crown opens once it is won; every other trophy opens on a click.
+    const won = m.bosses.filter(b => b.first).length;
+    const teaser = h('span', { class: 'hfc-teaser', 'aria-hidden': 'true' }, [ce, ...rest].map(b =>
+      h('span', { class: `hfc-teaser__t${b.first ? '' : ' is-empty'}` }, art(b, 'hfc-teaser__head'), b.first ? star('hm-star--gold') : null)));
+    const det = h('details', { class: 'fold', open: new URLSearchParams(location.search).get('fold') !== 'closed' },
+      h('summary', { class: 'fold__summary disclose' },
+        h('h2', { id: 'hofHeading', class: 'fold__title', text: 'Hall of fame' }),
+        h('span', { class: 'fold__hint', text: `${won} van ${m.bosses.length} trofeeën` }),
+        teaser),
+      h('p', { class: 'section-caption', text: 'Elke boss van de race en de guild die hem als eerste versloeg. Open een trofee voor het team.' }),
+      h('div', { class: 'hfa-wall' }, plaque(ce, !!ce.first, raidFrame), rest.map(b => plaque(b, false, raidFrame))),
+      h('h3', { class: 'hof-subtitle', text: 'Erelijst' }),
+      h('p', { class: 'section-caption', text: 'Raiders per aantal eerste kills van de race. Een alt telt apart.' }),
+      honourRoll(m),
+      h('div', { class: 'hof-more' }, h('button', { type: 'button', class: 'pill pill--action', text: `Toon alle ${m.raiders.length} raiders` })));
+    return [det];
+  }
+
   function render(d) {
     const sec = document.getElementById('hallOfFame');
     if (!sec || !d || !d.hallOfFame) return;
     const m = model(d);
     sec.hidden = false;
     sec.className = `view hm hm--${V}`;
-    sec.replaceChildren(...(V === 'a' ? variantA(d, m) : V === 'b' ? variantB(d, m) : variantC(d, m)));
+    sec.replaceChildren(...(V === 'a' ? variantA(d, m) : V === 'b' ? variantB(d, m) : V === 'd' ? variantD(d, m) : variantC(d, m)));
   }
 
   document.addEventListener('race:data', e => setTimeout(() => render(e.detail), 0));
