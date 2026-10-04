@@ -160,8 +160,8 @@ Read `DESIGN.md` before UI work: it records the visual system (tokens, component
   Keep them clear of jade and gold, which mean leader / first kill / winner.
 - Look: design language v2 (direction contract in `.impeccable/surfaces/site-index-html.md`,
   product record in `PRODUCT.md`, shared repo Bmiest/bmiest-design). The overlay's language
-  grown into a poster: ribbons (`.rib`), slanted pills and bars, the angled `rcard`, jade for
-  the race brand and live state, gold only for the leader and the winner. No coloured side
+  grown into a poster: ribbons (`.rib`), slanted pills and bars, flat inks; jade for the race
+  brand, raiding and the CE marker, gold only for the leader, the first kill and the winner. No coloured side
   stripes on cards or cells: use a 1-2px outline or a guild chip/rank block instead.
 - The hero shows the leader's current boss (the CE boss once someone won) from bossart.js:
   self-hosted cut-outs in site/img/boss/ made by scripts/boss-cutouts.py from Blizzard's renders

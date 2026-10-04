@@ -1,7 +1,7 @@
 /* =====================================================================
    Race to Dutch First: the sections below the hero (splash.css is the hero).
    Design language v2 (DESIGN.md): the overlay's ribbons, slanted pills, the
-   angled rcard and flat inks. Colours, fonts and radii come from tokens.css
+   flat inks. Colours, fonts and radii come from tokens.css
    (copied unchanged from the overlay; --live-red sits in splash.css);
    a guild's own colour arrives from race.json as --guild on its element.
    tokens.css sets body{overflow:hidden} for a fixed OBS canvas: undone here.
@@ -66,7 +66,6 @@ a:hover { text-decoration-color: var(--jade); }
   background: var(--ink-750); color: var(--ink-200);
   clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
 }
-.pill--gold { background: var(--ink-750); color: var(--gold); }
 /* A pill that is a button (Hall of fame: show all raiders). */
 .pill--action { border: 0; font-family: inherit; cursor: pointer; color: var(--jade); transition: background var(--t-fast) var(--ease); }
 .pill--action:hover { background: var(--ink-700); }
@@ -174,7 +173,7 @@ details[open] > .disclose::before { transform: rotate(45deg); }
 .gs-boss__label { display: flex; align-items: baseline; gap: 5px; min-width: 0; }
 .gs-boss__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gs-boss .ce-tag { margin-left: 0; flex: 0 0 auto; }
-.gs-pulls-h { font-size: 11px; font-weight: 700 !important; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-300); }
+.gs thead .gs-pulls-h { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-300); }
 .gs-who, .gs-corner { position: sticky; left: 0; z-index: 1; padding: 0; background: var(--ink-900); }
 .gs-who__in {
   display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: center; gap: 0 10px; min-height: 58px; padding-right: 18px;
