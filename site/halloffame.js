@@ -59,7 +59,7 @@
       roster(first));
     if (rest.length) {
       card.append(h('details', { class: 'hof-others' },
-        h('summary', { text: tn('hof.others', rest.length) }),
+        h('summary', { class: 'disclose', text: tn('hof.others', rest.length) }),
         rest.map(t => h('div', { class: 'hof-team' }, teamHead(t), roster(t)))));
     }
     return setGuild(card, first);
