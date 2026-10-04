@@ -2,7 +2,8 @@
    boss-head tile and the first team's guild dot, gold for the race's first kills. Colours and
    fonts only from tokens.css; a guild's colour arrives as --guild. */
 
-.hof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+/* start: a card that opens its other guilds grows alone instead of stretching its row-mates. */
+.hof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; align-items: start; }
 
 .hof-boss {
   background: var(--ink-800); border: 1px solid var(--ink-700);
@@ -15,6 +16,7 @@
 .hof-boss__label {
   font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
 }
+.hof-boss__label--side { color: var(--ink-300); } /* a raid that doesn't count: not the race's first kill */
 
 .hof-team__head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .hof-team__guild { font-size: 15px; font-weight: 600; color: var(--paper); }
@@ -23,7 +25,7 @@
 
 .hof-roster { display: flex; flex-direction: column; gap: 8px; }
 .hof-role__label {
-  font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-300);
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300);
   margin-bottom: 4px;
 }
 .hof-members { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 3px 12px; }
@@ -37,7 +39,7 @@
 .hof-others { border-top: 1px solid var(--ink-700); padding-top: 10px; font-size: 14px; }
 .hof-others summary { cursor: pointer; color: var(--jade); width: max-content; }
 .hof-others[open] summary { margin-bottom: 12px; }
-.hof-team { display: flex; flex-direction: column; gap: 8px; padding: 10px 0 12px; border-bottom: 1px solid var(--ink-750); }
+.hof-team { display: flex; flex-direction: column; gap: 8px; padding: 10px 0 12px; border-bottom: 1px solid var(--ink-700); }
 .hof-team:last-child { border-bottom: 0; padding-bottom: 0; }
 
 /* Raiders: a subsection head in the same poster voice as .view__title, one step down. */
@@ -49,8 +51,8 @@
   content: ""; flex: 0 0 11px; width: 11px; height: .9em; background: var(--jade);
   clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
 }
-/* The raiders table scrolls sideways on phones. */
-.hof-table-wrap { overflow-x: auto; border: 1px solid var(--ink-700); background: var(--ink-850); }
+/* A ranking, not a spreadsheet: capped so the numbers stay next to the names. */
+.hof-table-wrap { overflow-x: auto; max-width: 880px; border: 1px solid var(--ink-700); background: var(--ink-850); }
 .hof-table { width: 100%; font-size: 14px; }
 .hof-table th, .hof-table td { white-space: nowrap; padding: 8px 14px; }
 .hof-table thead th { font-size: 12px; color: var(--ink-200); background: var(--ink-850); }
@@ -58,9 +60,13 @@
 .hof-table tbody th { min-width: 0; font-weight: 600; }
 .hof-table tbody th a { color: var(--paper); text-decoration: none; }
 .hof-table tbody th a:hover { color: var(--jade); text-decoration: underline; }
-.hof-realm { margin-left: 8px; font-size: 12px; font-weight: 400; color: var(--ink-300); }
+.hof-meta { margin-left: 8px; font-size: 12px; font-weight: 400; color: var(--ink-300); }
+.hof-guild-inline { display: none; }
 .hof-table .dot { margin-right: 4px; }
-.hof-num { font-family: var(--f-mono); text-align: right; }
+/* .hof-table raises these over .data-table's left alignment; heads stay in the label face. */
+.hof-table .hof-num { width: 1%; font-family: var(--f-mono); text-align: right; }
+.hof-table thead .hof-num { font-family: inherit; }
+.hof-rank--tie { color: var(--ink-300); } /* a shared rank reads once, in paper */
 .hof-firsts { color: var(--ink-300); }
 .hof-row--first .hof-firsts { color: var(--gold); }
 .hof-more { margin-top: 12px; }
@@ -68,7 +74,14 @@
 
 @media (max-width: 720px) {
   .hof-table th, .hof-table td { padding: 7px 10px; }
-  .hof-realm { display: block; margin-left: 0; }
+  .hof-meta { display: block; margin-left: 0; }
+}
+/* Phones: the guild moves under the name (dot, guild · realm), so Kills fits without scrolling. */
+@media (max-width: 600px) {
+  .hof-table .hof-guild { display: none; }
+  .hof-guild-inline { display: inline; color: var(--paper-dim); }
+  .hof-guild-inline::after { content: " · "; color: var(--ink-400); }
+  .hof-guild-inline .dot { margin-right: 2px; }
 }
 @media (max-width: 400px) {
   .hof-grid { grid-template-columns: minmax(0, 1fr); }

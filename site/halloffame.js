@@ -23,7 +23,7 @@
   }
 
   function member(m) {
-    return h('li', { class: 'hof-member', title: [m.spec, m.class, m.realm].filter(Boolean).join(' · ') },
+    return h('li', { class: 'hof-member', title: [m.name, m.spec, m.class, m.realm].filter(Boolean).join(' · ') },
       nameLink(m), h('span', { class: 'hof-member__spec', text: m.spec || '' }));
   }
 
@@ -46,15 +46,18 @@
       team.pullCount ? h('span', { class: 'hof-team__pulls', text: pulls(team.pullCount) }) : null), team);
   }
 
-  function bossCard(boss, ce) {
+  /* A boss of a raid that doesn't count (app.js's splitSideRaids took it out of tier.raids)
+     keeps its card, but its first kill is not one of the race's: no gold. */
+  function bossCard(boss, ce, counting) {
     const [first, ...rest] = boss.teams;
     const isCe = ce && ce.raid === boss.raid && ce.slug === boss.slug;
+    const side = !counting.has(boss.raid);
     const card = h('article', { class: 'hof-boss' },
       h('div', { class: 'hof-boss__top' },
         typeof bossThumb === 'function' ? bossThumb(boss.name, 'hof-thumb') : null,
         h('h3', { class: 'hof-boss__name', text: boss.name }),
         isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
-      h('p', { class: 'hof-boss__label', text: tr('hof.first') }),
+      h('p', { class: side ? 'hof-boss__label hof-boss__label--side' : 'hof-boss__label', text: tr(side ? 'hof.side' : 'hof.first') }),
       teamHead(first),
       roster(first));
     if (rest.length) {
@@ -79,17 +82,22 @@
     const nums = ranks(raiders);
     const cols = ['rank', 'raider', 'guild', 'firsts', 'kills'];
     const rows = raiders.map((r, i) => {
+      const tie = i > 0 && nums[i] === nums[i - 1];
+      // On phones the guild column folds into the raider cell's second line (.hof-meta).
       const row = h('tr', { class: r.firsts ? 'hof-row--first' : '' },
-        h('td', { class: 'hof-num', text: String(nums[i]) }),
-        h('th', { scope: 'row' }, nameLink(r), h('span', { class: 'hof-realm', text: r.realm || '' })),
-        setGuild(h('td', {}, h('span', { class: 'dot', 'aria-hidden': 'true' }), ` ${r.guild}`), r),
+        h('td', { class: tie ? 'hof-num hof-rank hof-rank--tie' : 'hof-num hof-rank', text: String(nums[i]) }),
+        h('th', { scope: 'row' }, nameLink(r),
+          h('span', { class: 'hof-meta' },
+            setGuild(h('span', { class: 'hof-guild-inline' }, h('span', { class: 'dot', 'aria-hidden': 'true' }), ` ${r.guild}`), r),
+            h('span', { class: 'hof-realm', text: r.realm || '' }))),
+        setGuild(h('td', { class: 'hof-guild' }, h('span', { class: 'dot', 'aria-hidden': 'true' }), ` ${r.guild}`), r),
         h('td', { class: 'hof-num hof-firsts', text: r.firsts ? String(r.firsts) : '–' }),
         h('td', { class: 'hof-num', text: String(r.kills), title: r.bosses.map(b => b.name).join(', ') }));
       row.hidden = !expanded && i >= SHOW;
       return row;
     });
     $('#hofRaiders').replaceChildren(
-      h('thead', {}, h('tr', {}, cols.map(c => h('th', { scope: 'col', class: c === 'raider' || c === 'guild' ? '' : 'hof-num', text: tr(`hof.col.${c}`) })))),
+      h('thead', {}, h('tr', {}, cols.map(c => h('th', { scope: 'col', class: c === 'raider' ? '' : c === 'guild' ? 'hof-guild' : 'hof-num', text: tr(`hof.col.${c}`) })))),
       h('tbody', {}, rows));
 
     const more = $('#hofMore');
@@ -109,8 +117,9 @@
     if (!fame) { section.hidden = true; return; }
     section.hidden = false;
     const ce = data.tier && data.tier.ceBoss;
+    const counting = new Set(((data.tier && data.tier.raids) || []).map(r => r.slug));
     $('#hofBosses').replaceChildren(...(fame.bosses.length
-      ? fame.bosses.map(b => bossCard(b, ce))
+      ? fame.bosses.map(b => bossCard(b, ce, counting))
       : [h('p', { class: 'muted-note', text: tr('hof.empty') })]));
     raidersTable(fame.raiders || []);
   }
