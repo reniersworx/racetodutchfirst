@@ -1,56 +1,105 @@
-/* Hall of fame (halloffame.js). Same language as style.css: square dark tiles with a
-   boss-head tile and the first team's guild dot, gold for the race's first kills. Colours and
-   fonts only from tokens.css; a guild's colour arrives as --guild. */
+/* Hall of fame (halloffame.js) as a raid journal: boss heads as tabs, a stage per boss with
+   the team as a WoW raid frame, "Altijd paraat" per guild, every raider behind a button.
+   Same language as style.css: flat inks, right-edge slants, gold for the race's first kill.
+   Colours and fonts only from tokens.css; a guild's colour arrives as --guild, a raider's
+   class colour as --cls (game data, only on the raid-frame bar). */
 
-/* start: a card that opens its other guilds grows alone instead of stretching its row-mates. */
-.hof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; align-items: start; }
+.hof-star { width: 14px; height: 14px; flex: 0 0 auto; fill: var(--gold); }
 
-.hof-boss {
-  background: var(--ink-800); border: 1px solid var(--ink-700);
-  padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0;
-}
-.hof-thumb { width: 52px; height: 52px; flex: 0 0 52px; margin-right: 6px; }
-.hof-thumb .boss-thumb__mono { font-size: 24px; }
-.hof-boss__top { display: flex; align-items: center; gap: 4px; }
-.hof-boss__name { font-size: 19px; font-weight: 600; line-height: 1.15; color: var(--paper); }
-.hof-boss__label {
-  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
-}
-.hof-boss__label--side { color: var(--ink-300); } /* a raid that doesn't count: not the race's first kill */
+/* A boss render: cut-out, standing on the bottom edge; two bodies for a council. */
+.hof-art { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 4%; overflow: hidden; }
+.hof-art img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; object-position: 50% 100%; }
+.hof-art--duo img { max-width: 48%; }
+.hof-art__mono { align-self: center; font-size: 44px; font-weight: 800; color: var(--ink-500); }
 
-.hof-team__head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
-.hof-team__guild { font-size: 15px; font-weight: 600; color: var(--paper); }
-.hof-team__when { font-family: var(--f-mono); font-size: 13px; color: var(--paper-dim); }
-.hof-team__pulls { font-size: 12px; color: var(--ink-300); }
+/* ---- tabs: a row of boss heads, scrolling sideways when it doesn't fit ------------------- */
+.hof-tabs { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(104px, 1fr); gap: 4px;
+  max-width: 100%; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--ink-600) transparent; }
+.hof-tab { display: grid; gap: 5px; justify-items: start; min-width: 0; padding: 0 0 10px; border: 0; border-top: 2px solid transparent;
+  background: var(--ink-850); color: var(--paper-dim); font: inherit; text-align: left; cursor: pointer;
+  transition: background var(--t-fast) var(--ease); }
+.hof-tab__head { width: 100%; height: 76px; padding-top: 8px; background: var(--ink-800); }
+.hof-tab__head img { width: 100%; height: 140%; max-height: none; object-fit: cover; object-position: 50% 0; }
+.hof-tab__head.hof-art--duo img { width: 48%; }
+.hof-tab__head .hof-art__mono { font-size: 28px; }
+.hof-tab__name { max-width: 100%; padding: 0 10px; font-size: 12.5px; font-weight: 600; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hof-tab__sub { display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; font-size: 11px; color: var(--ink-300); }
+.hof-tab__sub .hof-star { width: 11px; height: 11px; }
+.hof-tab.is-empty .hof-tab__head img { filter: brightness(0) invert(.12); }
+.hof-tab:hover { background: var(--ink-800); }
+.hof-tab[aria-selected="true"] { border-top-color: var(--jade); background: var(--ink-800); }
+.hof-tab:focus-visible { outline-offset: -2px; }
 
-.hof-roster { display: flex; flex-direction: column; gap: 8px; }
-.hof-role__label {
-  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300);
-  margin-bottom: 4px;
-}
-.hof-members { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 3px 12px; }
-.hof-member { display: flex; align-items: baseline; gap: 6px; min-width: 0; font-size: 14px; }
-.hof-member a, .hof-member > span:first-child {
-  color: var(--paper); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.hof-member a:hover { color: var(--jade); text-decoration: underline; }
-.hof-member__spec { font-size: 11px; color: var(--ink-300); white-space: nowrap; }
+/* ---- stage: the chosen boss ------------------------------------------------------------ */
+.hof-box { margin-top: 4px; background: var(--ink-850); border: 1px solid var(--ink-700); }
+.hof-box:focus-visible { outline-offset: 2px; }
+.hof-stage { display: grid; grid-template-columns: minmax(280px, 36%) minmax(0, 1fr); min-height: 460px; }
+.hof-stage__art { padding: 28px 16px 0; background: var(--ink-800);
+  -webkit-mask-image: linear-gradient(#000 80%, transparent); mask-image: linear-gradient(#000 80%, transparent); }
+.hof-stage__art img { max-height: 520px; }
+.hof-stage.is-empty .hof-stage__art img { filter: brightness(0) invert(.1); }
+.hof-stage__info { display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 30px 34px 32px; }
+.hof-label { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.hof-label--quiet { color: var(--ink-300); }
+.hof-stage__guild { display: flex; align-items: center; gap: 16px; min-width: 0; font-size: clamp(30px, 4vw, 52px); font-weight: 700; line-height: 1.02; letter-spacing: -.02em; color: var(--paper); }
+.hof-stage__guild span { min-width: 0; overflow-wrap: anywhere; }
+.hof-stage__guild i { flex: 0 0 22px; width: 22px; height: .9em; background: var(--guild); clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+.hof-stage__boss { display: flex; align-items: center; font-size: clamp(26px, 3vw, 40px); font-weight: 800; text-transform: uppercase; color: var(--ink-300); }
+.hof-stage__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; font-size: 15px; color: var(--paper-dim); }
+.hof-stage__date { color: var(--paper); }
 
-.hof-others { border-top: 1px solid var(--ink-700); padding-top: 10px; font-size: 14px; }
-.hof-others summary { cursor: pointer; color: var(--jade); width: max-content; }
-.hof-others[open] summary { margin-bottom: 12px; }
-.hof-team { display: flex; flex-direction: column; gap: 8px; padding: 10px 0 12px; border-bottom: 1px solid var(--ink-700); }
-.hof-team:last-child { border-bottom: 0; padding-bottom: 0; }
+/* Raid frame: a cell per raider, the class colour as the bar along its foot. */
+.hof-frame { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.hof-frame__role { margin-bottom: 6px; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
+.hof-frame__cells { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 4px; }
+.hof-cell { position: relative; display: grid; gap: 1px; min-width: 0; padding: 7px 10px 10px; background: var(--ink-800);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+.hof-cell::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--cls); }
+.hof-cell a, .hof-cell > span:first-child { font-size: 13.5px; font-weight: 600; color: var(--paper); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hof-cell a:hover { color: var(--jade); text-decoration: underline; }
+.hof-cell__spec { font-size: 11px; color: var(--ink-300); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Raiders: a subsection head in the same poster voice as .view__title, one step down. */
+/* The guilds that followed, with how many days after the first kill. */
+.hof-after { padding-top: 14px; border-top: 1px solid var(--ink-700); }
+.hof-after__h { margin-bottom: 8px; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
+.hof-after ol { list-style: none; display: grid; gap: 6px; }
+.hof-after li { display: grid; grid-template-columns: 14px minmax(150px, 220px) 64px 76px minmax(0, 1fr); align-items: center; gap: 10px; font-size: 13px; }
+.hof-after__n { font-size: 11px; color: var(--ink-400); }
+.hof-after__d { font-size: 12px; color: var(--paper-dim); }
+.hof-after__gap { font-size: 12px; color: var(--ink-300); }
+.hof-after__p { color: var(--ink-300); }
+.hof-chip { display: inline-flex; align-items: center; gap: 7px; min-width: 0; color: var(--paper-dim); }
+.hof-chip i { flex: 0 0 12px; width: 12px; height: 12px; background: var(--guild); clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 0 100%); }
+.hof-chip span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---- Altijd paraat ---------------------------------------------------------------------- */
 .hof-subtitle {
-  display: flex; align-items: center; gap: 10px; margin-top: 36px; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 10px; margin-top: 48px; margin-bottom: 8px;
   font-size: clamp(20px, 2vw, 24px); font-weight: 800; line-height: 1.05; text-transform: uppercase; color: var(--paper);
 }
 .hof-subtitle::before {
   content: ""; flex: 0 0 11px; width: 11px; height: .9em; background: var(--jade);
   clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
 }
+.hof-present { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.hof-present__row { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 20px; align-items: start; }
+.hof-rib { display: flex; align-items: stretch; height: 40px; min-width: 0; background: var(--ink-800);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+.hof-rib__acc { display: grid; place-items: center; flex: 0 0 40px; width: 40px; background: var(--guild); color: var(--ink-900); font-size: 15px; font-weight: 800; }
+.hof-rib__name { display: flex; align-items: center; min-width: 0; padding: 0 22px 0 12px; font-size: 16px; font-weight: 600; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hof-present__txt { display: grid; gap: 2px; padding-top: 2px; min-width: 0; }
+.hof-present__cap { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
+.hof-present__names { font-size: 15px; line-height: 1.6; color: var(--paper); }
+/* inline-block: a break between names, never inside one */
+.hof-present__n { display: inline-block; }
+.hof-present__n:not(:last-child)::after { content: "·"; margin: 0 .5em; color: var(--ink-500); }
+.hof-present__n a, .hof-present__n span { color: inherit; text-decoration: none; }
+.hof-present__n a:hover { color: var(--jade); text-decoration: underline; }
+
+/* ---- every raider, behind the button ---------------------------------------------------- */
+.hof-more { margin-top: 18px; }
+.hof-more button { border: 0; font: inherit; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+.hof-all .hof-subtitle { margin-top: 28px; }
 /* A ranking, not a spreadsheet: capped so the numbers stay next to the names. */
 .hof-table-wrap { overflow-x: auto; max-width: 880px; border: 1px solid var(--ink-700); background: var(--ink-850); }
 .hof-table { width: 100%; font-size: 14px; }
@@ -69,21 +118,31 @@
 .hof-rank--tie { color: var(--ink-300); } /* a shared rank reads once, in paper */
 .hof-firsts { color: var(--ink-300); }
 .hof-row--first .hof-firsts { color: var(--gold); }
-.hof-more { margin-top: 12px; }
-.hof-more button { border: 0; font: inherit; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
 
+/* ---- smaller screens -------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hof-stage { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .hof-stage__art { height: 280px; padding-top: 16px; }
+  .hof-stage__art img { max-height: 100%; } /* the whole body in the band, not its lower half */
+  .hof-stage__info { padding: 10px 20px 24px; }
+}
 @media (max-width: 720px) {
   .hof-table th, .hof-table td { padding: 7px 10px; }
   .hof-meta { display: block; margin-left: 0; }
+  .hof-present__row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .hof-after li { grid-template-columns: 14px minmax(0, 1fr) auto auto; }
+  .hof-after__p { display: none; }
 }
-/* Phones: the guild moves under the name (dot, guild · realm), so Kills fits without scrolling. */
+/* Phones: the raid frame in two columns; the guild moves under the name in the table. */
 @media (max-width: 600px) {
+  .hof-stage__art { height: 240px; }
+  .hof-stage__info { padding: 8px 16px 20px; }
+  .hof-frame__cells { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .hof-table .hof-guild { display: none; }
   .hof-guild-inline { display: inline; color: var(--paper-dim); }
   .hof-guild-inline::after { content: " · "; color: var(--ink-400); }
   .hof-guild-inline .dot { margin-right: 2px; }
 }
-@media (max-width: 400px) {
-  .hof-grid { grid-template-columns: minmax(0, 1fr); }
-  .hof-members { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+@media (prefers-reduced-motion: reduce) {
+  .hof-tab { transition: none; }
 }

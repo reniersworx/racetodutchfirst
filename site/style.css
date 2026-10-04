@@ -214,15 +214,6 @@ details[open] > .disclose::before { transform: rotate(45deg); }
 .gs-pulls__src { color: var(--ink-300); text-decoration: none; }
 .gs-pulls__src:hover { color: var(--jade); }
 
-/* ---- folded sections (Hall of fame): a quiet row between hairlines, not a section head --- */
-.fold { border-top: 1px solid var(--ink-700); } /* the footer's top rule closes it */
-.fold__summary { cursor: pointer; padding: 16px 2px; flex-wrap: wrap; }
-.fold__title { font-size: 16px; font-weight: 700; color: var(--paper); }
-.fold__hint { font-size: 14px; color: var(--ink-300); }
-.fold__summary:hover .fold__title { color: var(--jade); }
-.fold[open] > .fold__summary { margin-bottom: 10px; }
-.fold[open] { padding-bottom: 20px; }
-
 /* ---- footer ------------------------------------------------------------------- */
 .site-footer {
   border-top: 1px solid var(--ink-700); padding-top: 22px;

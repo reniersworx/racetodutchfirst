@@ -93,17 +93,21 @@
   </section>
 
 <section id="hallOfFame" class="view" aria-labelledby="hofHeading" hidden>
-    <details class="fold">
-    <summary class="fold__summary disclose"><h2 id="hofHeading" class="fold__title" data-i18n="hof.h">Hall of fame</h2><span class="fold__hint" data-i18n="hof.fold">Teams en raiders</span></summary>
-    <p class="section-caption" data-i18n="hof.cap">Per verslagen boss het team van elke guild, in de volgorde van hun kill. Bovenaan staat het team van de eerste kill van de race; de andere guilds klap je open. Een naam linkt naar Raider.IO.</p>
-    <div id="hofBosses" class="hof-grid"></div>
-    <h3 id="hofRaidersHeading" class="hof-subtitle" data-i18n="hof.raiders.h">Raiders</h3>
-    <p class="section-caption" data-i18n="hof.raiders.cap">Eerst wie het vaakst bij de eerste kill van de race was, dan wie de meeste bosses mee versloeg met zijn guild. Het zijn characters, geen spelers: een alt telt apart.</p>
-    <div class="table-wrap hof-table-wrap" tabindex="0" role="region" aria-labelledby="hofRaidersHeading">
-      <table id="hofRaiders" class="data-table hof-table"></table>
-    </div>
+    <h2 id="hofHeading" class="view__title" data-i18n="hof.h">Hall of fame</h2>
+    <p class="section-caption" data-i18n="hof.cap">Kies een boss: wie hem als eerste versloeg, met welk team, en wie volgde.</p>
+    <div id="hofTabs" class="hof-tabs" role="tablist" aria-label="Bosses" data-i18n-aria-label="hof.tabs"></div>
+    <div id="hofStage" class="hof-box" role="tabpanel" tabindex="0"></div>
+    <h3 id="hofPresentHeading" class="hof-subtitle" data-i18n="hof.present.h">Altijd paraat</h3>
+    <p class="section-caption" data-i18n="hof.present.cap">Per guild de raiders die bij elke Mythic-kill van hun guild waren. Een alt telt apart.</p>
+    <div id="hofPresent" class="hof-present"></div>
     <div id="hofMore" class="hof-more"></div>
-    </details>
+    <div id="hofAll" class="hof-all" hidden>
+      <h3 id="hofRaidersHeading" class="hof-subtitle" data-i18n="hof.raiders.h">Raiders</h3>
+      <p class="section-caption" data-i18n="hof.raiders.cap">Eerst wie het vaakst bij de eerste kill van de race was, dan wie de meeste bosses mee versloeg met zijn guild. Het zijn characters, geen spelers: een alt telt apart.</p>
+      <div class="table-wrap hof-table-wrap" tabindex="0" role="region" aria-labelledby="hofRaidersHeading">
+        <table id="hofRaiders" class="data-table hof-table"></table>
+      </div>
+    </div>
   </section>
 
   <footer class="site-footer">
