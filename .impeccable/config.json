@@ -2,6 +2,25 @@
   "detector": {
     "ignoreRules": [],
     "ignoreFiles": [],
-    "ignoreValues": []
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/hof/hof-mock.css"
+        ],
+        "createdAt": "2026-10-04T01:05:26.737Z",
+        "reason": "Claude decided: L48 is the 3px bottom class-colour bar of a WoW raid-frame cell (mockup B's signature, like the in-game health bar), not a side stripe on a card; mockup file only, not shipped"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "site/halloffame.css"
+        ],
+        "createdAt": "2026-10-04T01:21:14.953Z",
+        "reason": "User chose mockup B (2026-10-04), whose raid frame puts the class colour as a 3px bar along the foot of each raider cell, like WoW's raid frames; a bottom bar, not a side stripe on a card"
+      }
+    ]
   }
 }

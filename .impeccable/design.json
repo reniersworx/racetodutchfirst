@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-04T00:11:12+00:00",
+  "generatedAt": "2026-10-04T12:00:00+00:00",
   "title": "Design System: Race to Dutch First",
   "extensions": {
     "designLanguage": {
@@ -17,6 +17,10 @@
             "6de594d"
           ],
           "change": "Below the hero: variant B 'per guild' + variant A's edge-to-edge ticker. Removed the per-boss table, phone boss cards and current-boss cards (rcard) from the race site; added Per guild, reworked Voortgang, folded Hall of fame, one drawn disclosure chevron; board label wraps with the raiding badge on it."
+        },
+        {
+          "date": "2026-10-04",
+          "change": "Hall of fame rebuilt as a raid journal (variant B of four mockups in .impeccable/mocks/hof/; finish review: ship). Removed the fold (component, typography role, hairline, hint) and the hall-of-fame panels with their 52px boss heads; retired the orphaned 'title' role. Added boss-head tabs, the stage (hero glow behind an earned trophy, gold first-kill pill), the raid frame with WoW class colours as game data, Daarna, Altijd paraat and the Raiders table behind a pill."
         }
       ]
     },
@@ -72,7 +76,8 @@
           "oklch(72% 0.1 85)",
           "oklch(84% 0.1 85)",
           "oklch(95% 0.1 85)"
-        ]
+        ],
+        "purpose": "Leader, the race's first kill and the winner only. In the Hall of fame: the tab star, the first-kill pill, first-kill counts in the Raiders table; never for a raid that doesn't count."
       },
       "live-red": {
         "role": "tertiary",
@@ -125,12 +130,13 @@
         "role": "neutral",
         "displayName": "Table Ink",
         "scope": "family",
-        "purpose": "Per guild cells, Voortgang chart well, hall-of-fame raiders table well."
+        "purpose": "Per guild cells, Voortgang chart well, Hall of fame tabs, stage box and Raiders table well."
       },
       "ink-800": {
         "role": "neutral",
         "displayName": "Panel Ink",
-        "scope": "family"
+        "scope": "family",
+        "purpose": "Ribbon body, Per guild guild block and current-boss cell, Hall of fame tab head wells, selected tab, raid-frame cells, Altijd paraat ribbons, an unbeaten boss's art column, winner banner, live cards."
       },
       "ink-750": {
         "role": "neutral",
@@ -141,7 +147,7 @@
         "role": "neutral",
         "displayName": "Rule Ink",
         "scope": "family",
-        "purpose": "1px borders, cell borders, chart grid, hairlines, and the track under every meter (Per guild best-pull meter)."
+        "purpose": "1px borders, cell borders, chart grid, hairlines (Hall of fame stage border, rule above Daarna, footer rule), and the track under every meter (Per guild best-pull meter)."
       },
       "ink-600": {
         "role": "neutral",
@@ -183,19 +189,19 @@
         "role": "neutral",
         "displayName": "Void Glow",
         "scope": "race",
-        "purpose": "Hero ground only: violet radial at top right. Web only."
+        "purpose": "Hero ground (violet radial at top right) and, at 28%, behind an earned Hall of fame stage. Web only."
       },
       "hero-dusk": {
         "role": "neutral",
         "displayName": "Hero Dusk",
         "scope": "race",
-        "purpose": "Hero ground linear, start."
+        "purpose": "Hero ground linear, start; also the earned Hall of fame stage's linear."
       },
       "hero-deep-teal": {
         "role": "neutral",
         "displayName": "Hero Deep Teal",
         "scope": "race",
-        "purpose": "Hero ground linear, middle."
+        "purpose": "Hero ground linear, middle; also the earned Hall of fame stage's linear."
       }
     },
     "typographyMeta": {
@@ -206,12 +212,12 @@
       },
       "headline": {
         "displayName": "Section head",
-        "purpose": "Uppercase section heads (Voortgang, Per guild) behind a slanted jade cap.",
+        "purpose": "Uppercase section heads (Voortgang, Per guild, Hall of fame) behind a slanted jade cap.",
         "scope": "family"
       },
       "headline-sub": {
         "displayName": "Subsection head",
-        "purpose": "One step down (Raiders), 11px cap.",
+        "purpose": "One step down (Altijd paraat, Raiders), 11px cap with a 4px slant.",
         "scope": "family"
       },
       "winner": {
@@ -224,14 +230,9 @@
         "purpose": "Hero lead line, max 40ch.",
         "scope": "race"
       },
-      "title": {
-        "displayName": "Title",
-        "purpose": "Hall-of-fame boss names.",
-        "scope": "family"
-      },
-      "fold": {
-        "displayName": "Fold title",
-        "purpose": "Title of a folded section (Hall of fame), with an ink-300 hint; not a section head.",
+      "stage-guild": {
+        "displayName": "Stage guild",
+        "purpose": "The guild with the race's first kill on the Hall of fame stage, behind a slanted guild-colour block.",
         "scope": "race"
       },
       "ribbon": {
@@ -256,7 +257,7 @@
       },
       "label-micro": {
         "displayName": "Micro label",
-        "purpose": "Raid rows, role labels, first-kill labels, raiding badges; uppercase.",
+        "purpose": "Raid rows, role labels (raid frame), Daarna and Altijd paraat caps, first-kill labels, raiding badges; uppercase.",
         "scope": "family"
       },
       "numeric-board": {
@@ -306,12 +307,12 @@
       {
         "name": "slant-accent",
         "value": "10px trailing cut",
-        "purpose": "Ribbon rank block; Per guild guild block."
+        "purpose": "Ribbon rank block; Per guild guild block; Altijd paraat ribbon."
       },
       {
         "name": "slant-pill",
         "value": "6px trailing cut",
-        "purpose": "Pills, raid-frame bars, boss heads."
+        "purpose": "Pills, raid-frame bars, Hall of fame raid-frame cells, the stage guild block, boss heads."
       },
       {
         "name": "slant-cap",
@@ -326,7 +327,7 @@
       {
         "name": "disclose-chevron",
         "value": "7px box, 2px jade right+bottom border, rotate(-45deg) closed / rotate(45deg) open",
-        "purpose": "The one disclosure mark for every <details>."
+        "purpose": "The one disclosure mark for every <details> (Voortgang's table)."
       }
     ],
     "heroGround": {
@@ -367,7 +368,7 @@
       {
         "name": "disclose",
         "value": "transform var(--t-fast) var(--ease)",
-        "purpose": "Chevron turn on open/close."
+        "purpose": "Chevron turn on open/close (Voortgang's table)."
       }
     ],
     "breakpoints": [
@@ -382,16 +383,17 @@
       {
         "name": "sheets",
         "value": "600px",
-        "purpose": "Below: Per guild scrolls sideways (min 1120px, pinned guild column 150px); Voortgang legend instead of line-end names."
+        "purpose": "Below: Per guild scrolls sideways (min 1120px, pinned guild column 150px); Voortgang legend instead of line-end names. Raid frame in two columns; the Raiders table folds the guild under the name."
       },
       {
         "name": "sections",
         "value": "720px",
-        "purpose": "Page gutters 16px, section gap 32px, winner stacks."
+        "purpose": "Page gutters 16px, section gap 32px, winner stacks. Altijd paraat stacks; Daarna drops the pulls."
       },
       {
         "name": "hero-compact",
-        "value": "900px"
+        "value": "900px",
+        "purpose": "Also: the Hall of fame stage stacks, art as a 280px band (240px under 600px)."
       },
       {
         "name": "hero-art-band",
@@ -419,6 +421,39 @@
       "kill": "hollow node r=4, ink-850 fill, 2px guild ring",
       "lineEnds": "guild name 700 14px guild colour + x/9 mono 500 12px paper-dim (wide); legend on phones",
       "leaderLine": "3px, drawn last; others 2.25px"
+    },
+    "hofStageGround": {
+      "scope": "race",
+      "value": "radial-gradient(65% 55% at 50% 60%, rgba(63,217,164,.2), transparent 70%), radial-gradient(55% 50% at 94% 6%, rgba(150,90,255,.28), transparent 70%), linear-gradient(160deg, #1b1030 0%, #0d1a1c 60%, var(--ink-850) 100%)",
+      "mask": "linear-gradient(#000 80%, transparent)",
+      "unbeaten": "flat var(--ink-800); render as silhouette, filter: brightness(0) invert(.1)",
+      "note": "The hero glow behind an earned trophy only. Web only."
+    },
+    "classColours": {
+      "scope": "race",
+      "kind": "game data, not tokens (like guild colours)",
+      "definedIn": "site/halloffame.js CLASS",
+      "appliedAs": "--cls, only the 3px bar along the foot of a raid-frame cell",
+      "fallback": "#818b98 (ink-300)",
+      "values": {
+        "Death Knight": "#c41e3a",
+        "Demon Hunter": "#a330c9",
+        "Druid": "#ff7c0a",
+        "Evoker": "#33937f",
+        "Hunter": "#aad372",
+        "Mage": "#3fc7eb",
+        "Monk": "#00ff98",
+        "Paladin": "#f48cba",
+        "Priest": "#eef1f5",
+        "Rogue": "#fff468",
+        "Shaman": "#0070dd",
+        "Warlock": "#8788ee",
+        "Warrior": "#c69b6d"
+      },
+      "notes": [
+        "Priest is paper instead of pure white.",
+        "Monk green overlaps jade; accepted because class colour only appears as the foot bar of a named raider cell."
+      ]
     }
   },
   "components": [
@@ -482,7 +517,7 @@
       "name": "Boss Head",
       "kind": "custom",
       "refersTo": "boss-head",
-      "description": "[race] Slanted ink tile with the top of the boss cut-out, or the initial when there is no art.",
+      "description": "[race] Slanted 40px ink tile in Per guild with the top of the boss cut-out, or the initial when there is no art.",
       "html": "<span class=\"ds-bh\"><span class=\"ds-bh__mono\">N</span></span>",
       "css": ".ds-bh{display:inline-grid;place-items:center;width:40px;height:40px;overflow:hidden;background:var(--ink-750);clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);} .ds-bh img{width:100%;height:100%;object-fit:cover;object-position:50% 0} .ds-bh__mono{font-family:var(--f-display);font-size:18px;font-weight:800;color:var(--ink-400)}"
     },
@@ -511,17 +546,33 @@
       "css": ".ds-ps{--guild:#4f9dff;width:230px;font-family:var(--f-display)} .ds-ps__bars{display:flex;align-items:flex-end;gap:1px;height:32px;border-bottom:1px solid var(--ink-600)} .ds-ps__bars i{flex:1;height:40%;background:var(--ink-500)} .ds-ps__bars i.is-best{background:var(--guild)} .ds-ps__cap{display:block;margin-top:5px;font-size:11px;line-height:1.4;color:var(--paper-dim)} .ds-ps__cap b{color:var(--guild);font-weight:600;white-space:nowrap} .ds-ps__src{white-space:nowrap} .ds-ps__src a{color:var(--ink-300);text-decoration:none} .ds-ps__src a:hover{color:var(--jade)} .ds-ps__bars i:nth-child(2){height:55%} .ds-ps__bars i:nth-child(3){height:48%} .ds-ps__bars i.is-best{height:73%} .ds-ps__bars i:nth-child(6){height:60%}"
     },
     {
-      "name": "Fold",
+      "name": "Boss-head Tabs",
+      "kind": "nav",
+      "refersTo": "hof-tab",
+      "description": "[race] Hall of fame tablist: ink-850 tabs with a 76px ink-800 head well, two-line name and a sub line (gold star + mono day, 'telt niet mee', jade CE, '–'); selected tab ink-800 with a 2px jade top edge; scrolls sideways.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\"><span class=\"ds-tab__head\"><b>V</b></span><span class=\"ds-tab__name\">Vorasius</span><span class=\"ds-tab__sub ds-mono\"><svg class=\"ds-star\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.6l1.9 4.2 4.5.4-3.4 3 1 4.5L8 11.4l-4 2.3 1-4.5-3.4-3 4.5-.4z\"/></svg>dag 15</span></button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\"><span class=\"ds-tab__head\"><b>M</b></span><span class=\"ds-tab__name\">Midnight Falls</span><span class=\"ds-tab__sub ds-mono\"><svg class=\"ds-star\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.6l1.9 4.2 4.5.4-3.4 3 1 4.5L8 11.4l-4 2.3 1-4.5-3.4-3 4.5-.4z\"/></svg>dag 128</span></button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\"><span class=\"ds-tab__head\"><b>U</b></span><span class=\"ds-tab__name\">Ula'tek</span><span class=\"ds-tab__sub ds-tab__sub--ce\">CE</span></button></div>",
+      "css": ".ds-tabs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(104px,1fr);gap:4px;overflow-x:auto;font-family:var(--f-display);width:420px} .ds-tab{display:grid;gap:5px;justify-items:start;padding:0 0 10px;border:0;border-top:2px solid transparent;background:var(--ink-850);color:var(--paper-dim);text-align:left;cursor:pointer;font:inherit;transition:background var(--t-fast) var(--ease)} .ds-tab:hover{background:var(--ink-800)} .ds-tab[aria-selected=\"true\"]{border-top-color:var(--jade);background:var(--ink-800)} .ds-tab:focus-visible{outline:2px solid var(--jade);outline-offset:-2px} .ds-tab__head{display:grid;place-items:center;width:100%;height:76px;background:var(--ink-800)} .ds-tab__head b{font-size:28px;font-weight:800;color:var(--ink-500)} .ds-tab__name{padding:0 10px;font-size:12.5px;font-weight:600;line-height:1.25;min-height:2.5em;color:var(--paper)} .ds-tab__sub{display:inline-flex;align-items:center;gap:5px;padding:0 10px;font-size:11px;color:var(--ink-300)} .ds-mono{font-family:var(--f-mono)} .ds-tab__sub--ce{font-weight:700;letter-spacing:.12em;color:var(--jade)} .ds-star{width:11px;height:11px;fill:var(--gold)}"
+    },
+    {
+      "name": "Hall of Fame Stage",
+      "kind": "card",
+      "refersTo": "hof-stage",
+      "description": "[race] The chosen boss: art column in the hero's glow (earned) or flat ink-800 (unbeaten); guild headline behind a slanted guild block; meta led by the gold first-kill pill; the team as a raid frame with class-colour foot bars.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-stage__art\"></div><div class=\"ds-stage__info\"><h3 class=\"ds-stage__guild\"><i></i>Kameraden</h3><p class=\"ds-stage__meta\"><span class=\"ds-pill-first\"><svg class=\"ds-star\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 1.6l1.9 4.2 4.5.4-3.4 3 1 4.5L8 11.4l-4 2.3 1-4.5-3.4-3 4.5-.4z\"/></svg>Eerste kill · dag 128</span><span>Midnight Falls Mythic</span><span class=\"ds-mono ds-paper\">23 jul</span><span>436 pulls</span></p><p class=\"ds-role\">Tanks · 2</p><ul class=\"ds-frame\"><li class=\"ds-cell ds-cell--war\"><a href=\"#\">Furá</a><span>Protection</span></li><li class=\"ds-cell ds-cell--dk\"><a href=\"#\">Filay</a><span>Blood</span></li></ul></div></div>",
+      "css": ".ds-stage{--guild:#f08a3c;display:grid;grid-template-columns:200px 1fr;min-height:300px;background:var(--ink-850);border:1px solid var(--ink-700);font-family:var(--f-display)} .ds-stage__art{background:radial-gradient(65% 55% at 50% 60%,rgba(63,217,164,.2),transparent 70%),radial-gradient(55% 50% at 94% 6%,rgba(150,90,255,.28),transparent 70%),linear-gradient(160deg,#1b1030 0%,#0d1a1c 60%,var(--ink-850) 100%);-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)} .ds-stage__info{display:flex;flex-direction:column;gap:14px;padding:30px 34px 32px} .ds-stage__guild{display:flex;align-items:center;gap:16px;margin:0;font-size:clamp(30px,4vw,52px);font-weight:700;line-height:1.02;letter-spacing:-.02em;color:var(--paper)} .ds-stage__guild i{flex:0 0 22px;height:.9em;background:var(--guild);clip-path:polygon(0 0,100% 0,calc(100% - 6px) 100%,0 100%)} .ds-stage__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0;font-size:15px;color:var(--paper-dim)} .ds-pill-first{display:inline-flex;align-items:center;gap:6px;padding:6px 15px 6px 11px;background:var(--ink-750);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,calc(100% - 6px) 100%,0 100%)} .ds-star{width:14px;height:14px;fill:var(--gold)} .ds-mono{font-family:var(--f-mono)} .ds-paper{color:var(--paper)} .ds-role{margin:0;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-300)} .ds-frame{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:4px} .ds-cell{position:relative;display:grid;gap:1px;padding:7px 10px 10px;background:var(--ink-800);clip-path:polygon(0 0,100% 0,calc(100% - 6px) 100%,0 100%)} .ds-cell::after{content:\"\";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--cls)} .ds-cell--war{--cls:#c69b6d} .ds-cell--dk{--cls:#c41e3a} .ds-cell a{font-size:13.5px;font-weight:600;color:var(--paper);text-decoration:none} .ds-cell a:hover{color:var(--jade);text-decoration:underline} .ds-cell a:focus-visible{outline:2px solid var(--jade);outline-offset:3px} .ds-cell span{font-size:11px;color:var(--ink-300)}"
+    },
+    {
+      "name": "Altijd Paraat Row",
       "kind": "custom",
-      "refersTo": "fold",
-      "description": "[race] A folded section as a quiet row between hairlines, with the one drawn disclosure chevron; not a section head.",
-      "html": "<details class=\"ds-fold\"><summary><span class=\"ds-fold__t\">Hall of fame</span><span class=\"ds-fold__h\">Teams en raiders</span></summary><p class=\"ds-fold__body\">…</p></details>",
-      "css": ".ds-fold{border-top:1px solid var(--ink-700);border-bottom:1px solid var(--ink-700);font-family:var(--f-display)} .ds-fold summary{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:16px 2px;cursor:pointer} .ds-fold summary::-webkit-details-marker{display:none} .ds-fold summary::before{content:\"\";width:7px;height:7px;margin:0 2px;border-right:2px solid var(--jade);border-bottom:2px solid var(--jade);transform:rotate(-45deg);transition:transform var(--t-fast) var(--ease)} .ds-fold[open] summary::before{transform:rotate(45deg)} .ds-fold__t{font-size:16px;font-weight:700;color:var(--paper)} .ds-fold summary:hover .ds-fold__t{color:var(--jade)} .ds-fold__h{font-size:14px;color:var(--ink-300)} .ds-fold__body{padding:0 2px 20px;color:var(--paper-dim);font-size:14px}"
+      "refersTo": "present-ribbon",
+      "description": "[race] Per guild a 40px slanted ink-800 ribbon whose guild-colour accent block carries the count, then a micro cap and the names as running text with · separators.",
+      "html": "<div class=\"ds-pr\"><div class=\"ds-pr__rib\"><span class=\"ds-pr__acc\">4</span><span class=\"ds-pr__name\">Kameraden</span></div><p class=\"ds-pr__txt\"><span class=\"ds-pr__cap\">Bij alle 9 kills</span><span class=\"ds-pr__names\"><span>Diekae</span><span>Marlborook</span><span>Masaia</span><span>Offspek</span></span></p></div>",
+      "css": ".ds-pr{--guild:#f08a3c;display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:start;font-family:var(--f-display)} .ds-pr__rib{display:flex;height:40px;background:var(--ink-800);clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)} .ds-pr__acc{display:grid;place-items:center;flex:0 0 40px;background:var(--guild);color:var(--ink-900);font-family:var(--f-mono);font-size:15px;font-weight:800} .ds-pr__name{display:flex;align-items:center;padding:0 22px 0 12px;font-size:16px;font-weight:600;color:var(--paper)} .ds-pr__txt{display:grid;gap:2px;margin:0;padding-top:2px} .ds-pr__cap{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-300)} .ds-pr__names{font-size:15px;line-height:1.6;color:var(--paper)} .ds-pr__names span{display:inline-block} .ds-pr__names span:not(:last-child)::after{content:\"·\";margin:0 .5em;color:var(--ink-500)}"
     }
   ],
   "narrative": {
     "northStar": "The Raid Poster on the Overlay",
-    "overview": "The bmiest stream overlay's language, grown into a poster. The page opens on the boss the leading guild is fighting right now, cut out and standing in a jade-and-void glow with nothing drawn on it; the question (\"Wie haalt als eerste Cutting Edge?\") is the title, and the standings sit beside it as overlay ribbons with a raid-frame bar per guild. A broadcast bug crowns the page and a kills ticker closes the hero from edge to edge, both taken from the overlay's broadcast grammar. Below the hero the same parts (slanted rank blocks, slanted pills, square dark cells and panels) carry the data: Voortgang, then Per guild (a row per guild, a cell per boss, then its pulls), then the Hall of fame folded away.\n\nEverything is flat near-black ink: no rounded cards, no drop shadows, no glass. Shape comes from slanted cuts on the right edge of every ribbon, pill, bar, rank block and boss head. Colour is scarce and semantic: jade is the race and its live state, gold is the leader, the first kill and the winner, and each guild brings its own colour to its rank block, bar, line, meter and chip. The poster is loud only at the top; the sections below are a dense, honest data surface whose explanation sits in the marks themselves, with one-line captions.\n\nConfirmed rejections (from the direction history): the generic dark data dashboard (\"too generic, AI-looking\") and the sports-broadcast theme laid on top (\"still a dashboard, not WoW\"). More gamer-like is welcome; a dashboard is not.",
+    "overview": "The bmiest stream overlay's language, grown into a poster. The page opens on the boss the leading guild is fighting right now, cut out and standing in a jade-and-void glow with nothing drawn on it; the question (\"Wie haalt als eerste Cutting Edge?\") is the title, and the standings sit beside it as overlay ribbons with a raid-frame bar per guild. A broadcast bug crowns the page and a kills ticker closes the hero from edge to edge, both taken from the overlay's broadcast grammar. Below the hero the same parts (slanted rank blocks, slanted pills, square dark cells and panels) carry the data: Voortgang, then Per guild (a row per guild, a cell per boss, then its pulls), then the Hall of fame as a raid journal (boss heads as tabs, a stage per boss with the race's first kill and its team as a WoW raid frame).\n\nEverything is flat near-black ink: no rounded cards, no drop shadows, no glass. Shape comes from slanted cuts on the right edge of every ribbon, pill, bar, rank block and boss head. Colour is scarce and semantic: jade is the race and its live state, gold is the leader, the first kill and the winner, and each guild brings its own colour to its rank block, bar, line, meter and chip. The poster is loud only at the top; the sections below are a dense, honest data surface whose explanation sits in the marks themselves, with one-line captions.\n\nConfirmed rejections (from the direction history): the generic dark data dashboard (\"too generic, AI-looking\") and the sports-broadcast theme laid on top (\"still a dashboard, not WoW\"). More gamer-like is welcome; a dashboard is not.",
     "keyCharacteristics": [
       "[family] Flat ink scale, Outfit + JetBrains Mono, jade + gold, from the overlay's tokens.css unchanged.",
       "[family] Right-edge slant on ribbons, pills, bars, rank blocks and tiles; square corners everywhere else.",
@@ -534,12 +585,12 @@
     "rules": [
       {
         "name": "The Gold Is Earned Rule",
-        "body": "Gold marks the leader, the race's first kill and the winner. A tag, a hover, a late-data note or a \"progress\" state is never gold.",
+        "body": "Gold marks the leader, the race's first kill and the winner. A tag, a hover, a late-data note or a \"progress\" state is never gold, and a raid that doesn't count earns no gold (its first kill is a grey pill).",
         "section": "colors"
       },
       {
         "name": "The Jade Is the Race Rule",
-        "body": "Jade is the race brand, live state and the CE marker. Guild colours (from guilds.toml) stay clear of jade and gold.",
+        "body": "Jade is the race brand, live state and the CE marker. Guild colours (from guilds.toml) stay clear of jade and gold; class colours are game data confined to the raid-frame foot bar.",
         "section": "colors"
       },
       {
@@ -554,7 +605,7 @@
       },
       {
         "name": "The Poster Voice Rule",
-        "body": "Display and section heads are Outfit 800 uppercase with tight tracking; nothing else on the page is that heavy except the bug, the board and the Per guild rank and count.",
+        "body": "Display and section heads are Outfit 800 uppercase with tight tracking; nothing else on the page is that heavy except the bug, the board, the Per guild rank and count, the Altijd paraat count block and an unbeaten boss's name on the Hall of fame stage.",
         "section": "typography"
       },
       {
@@ -589,15 +640,16 @@
       "Do keep a section caption to one line and put the explanation in the marks.",
       "Do ship every string in Dutch and English (Dutch default); game names are never translated.",
       "Do keep the CSP: script-src 'self', no inline styles; set custom properties with `style.setProperty()` only.",
-      "Do apply the stream-bitrate rules from tokens.css (no gradients, no full-width animation, no pure white) to the overlay; the race page may use the hero glow and the ticker because it is not encoded."
+      "Do apply the stream-bitrate rules from tokens.css (no gradients, no full-width animation, no pure white) to the overlay; the race page may use the hero glow (on the hero and behind an earned Hall of fame stage) and the ticker because it is not encoded."
     ],
     "donts": [
-      "Don't put a coloured side stripe on cards, cells or rows.",
+      "Don't put a coloured side stripe on cards, cells or rows. (The raid frame's class-colour bar runs along a cell's foot, as in the game's own raid frames; it is not a side stripe.)",
       "Don't use text glyphs (★, ✓, ▸, emoji) as icons or disclosure marks.",
       "Don't add drop shadows, rounded cards or blur.",
       "Don't use gold for tags, progress states, hover or lateness.",
       "Don't show LIVE or a live dot unless the data says a guild is raiding now.",
-      "Don't dress a folded or secondary section as a section head.",
+      "Don't dress a subsection as a section head: one step down is headline-sub with the 11px cap.",
+      "Don't use class colours anywhere but the raid-frame foot bar.",
       "Don't add bmiest branding to the race site.",
       "Don't build it as a generic dark dashboard."
     ]

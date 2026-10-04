@@ -28,7 +28,7 @@ tests/
   fixtures/api/              older single responses from the first version (unused but kept)
 scripts/og-image.sh          headless Chrome: site/og.html → site/og.png (run by site.yml)
 site/                        static, no build step, no framework, no CDN scripts
-  index.html                 splash hero (top bar, title, Nu live when someone streams, board, kills ticker), then Voortgang, Per guild, Hall of fame (folded), footer
+  index.html                 splash hero (top bar, title, Nu live when someone streams, board, kills ticker), then Voortgang, Per guild, Hall of fame, footer
   i18n.js                    NL + EN strings and the global `i18n` (loaded before app.js)
   app.js                     loads data/race.json, draws everything (inline SVG)
   og.html, og.css, og.js     the 1200x630 share image page; scripts/og-image.sh screenshots it to og.png
@@ -135,6 +135,18 @@ apart; after a guild switch the latest kill's guild wins. A kill known only from
 `race:data` event *and* from app.js's global `race` at load (race.json can arrive before
 halloffame.js does). Fixture rosters are trimmed by `RecordingHTTP` to the used fields.
 
+On the page it is a raid journal (chosen from four mockups in `.impeccable/mocks/hof/`,
+2026-10-04: variant B): a row of boss heads as tabs (`role="tablist"`, arrow keys, Home/End;
+the race's bosses in tier order, then kills of raids that don't count, without gold), a stage
+for the chosen boss (its render; the guild with the race's first kill and "Eerste kill · dag N";
+that team as a WoW raid frame, a cell per raider with the class colour as a 3px bar; the guilds
+that followed with "+n d"), then "Altijd paraat" (per guild, who was in every Mythic kill of
+their guild: `raider.kills` equals the guild's kill count) and every raider in a table behind
+"Toon alle N raiders". It opens on the CE boss once it fell, else the latest first kill; the
+choice survives data refreshes and NL | EN, and resets when the season changes. Class colours
+are game data (a map in halloffame.js, Priest as paper), only on the raid-frame bar. Each
+season shows its own hall of fame: race.json for the live season, the archive for `?season=`.
+
 ## Live streams
 
 `[streams]` in guilds.toml lists Twitch channels (`twitch`, optional `guild`) and a `game`
@@ -197,7 +209,7 @@ Read `DESIGN.md` before UI work: it records the visual system (tokens, component
   = days with a pull or kill in race.json, shaded; first kills as gold stars, guild names at the line ends; the legend only on phones),
   then **Per guild** (`renderGuildSheets()`, one table row per guild: a cell per boss with the
   kill date or best pull, then the pulls on its current boss as bars with a link to their source),
-  then the Hall of fame folded in a `<details>`. The per-boss table and the current-boss cards
+  then the Hall of fame (see *Hall of fame*). The per-boss table and the current-boss cards
   are gone: the hero board already shows each guild's current boss. On phones the Per guild
   table scrolls sideways with the guild column pinned. The kills ticker spans the full width.
 - "Nu aan het raiden" (`liveState`) is derived in the browser: the last pull on the current
