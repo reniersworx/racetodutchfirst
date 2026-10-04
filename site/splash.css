@@ -91,9 +91,10 @@
 .row__kills small { font-size: 16px; color: var(--ink-300); }
 .row--lead .row__kills { color: var(--gold); }
 .row__fight { display: grid; gap: 6px; min-width: 0; }
-.row__top { display: flex; align-items: center; gap: 10px; min-width: 0; }
+/* The label wraps instead of cutting a number off; the badge drops under it when it has to. */
+.row__top { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; min-width: 0; }
 .row__top .row__live { margin-left: 0; flex: 0 0 auto; }
-.row__label { font-size: 14px; color: var(--paper-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row__label { font-size: 14px; line-height: 1.35; color: var(--paper-dim); }
 .row__hp {
   display: block; height: 10px; background: rgba(255, 255, 255, .08);
   clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
