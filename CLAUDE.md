@@ -27,7 +27,7 @@ tests/
   fixtures/api/              older single responses from the first version (unused but kept)
 scripts/og-image.sh          headless Chrome: site/og.html → site/og.png (run by site.yml)
 site/                        static, no build step, no framework, no CDN scripts
-  index.html                 splash hero (top bar, title, board, kills ticker), then Nu live, Voortgang, Per guild, Hall of fame (folded), footer
+  index.html                 splash hero (top bar, title, Nu live when someone streams, board, kills ticker), then Voortgang, Per guild, Hall of fame (folded), footer
   i18n.js                    NL + EN strings and the global `i18n` (loaded before app.js)
   app.js                     loads data/race.json, draws everything (inline SVG)
   og.html, og.css, og.js     the 1200x630 share image page; scripts/og-image.sh screenshots it to og.png
@@ -139,8 +139,16 @@ halloffame.js does). Fixture rosters are trimmed by `RecordingHTTP` to the used 
 filter (World of Warcraft; removed as a test in PR #9, so every live stream shows). `twitch.py` asks DecAPI (https://decapi.me/twitch/<what>/<login>,
 plain text, no key; the overlay uses it too) per channel: `uptime` ("<login> is offline" or
 "1 hour, 2 minutes, …"), and only for live ones `game`, `title`, `viewercount`. A failure
-makes that channel `live: null` and never stops the run. `site/live.js` shows the "Nu live"
-strip for `shown` channels and hides it once `streams.checkedAt` is over 75 min old.
+makes that channel `live: null` and never stops the run. `site/live.js` draws "Nu live" in the
+hero (`#onAir`) for `shown` channels and hides it once `streams.checkedAt` is over 75 min old:
+at the foot of the boss column on wide screens (ink-900 backing, so no text sits on the art),
+after the tier pills below 1281px. The leader's guild's stream comes first, then most viewers;
+the other live channels are ribbons that switch the player. The player is a click-to-load
+facade: before a click the page only loads Twitch's preview still (static-cdn.jtvnw.net), on
+click Twitch's embed (player.twitch.tv, `parent` = location.hostname). The CSP allows exactly
+those two hosts (img-src, frame-src); without them the page still works, minus the embed. A
+loaded player survives data refreshes and NL | EN redraws (it is only rebuilt when the
+featured channel changes), so a stream never restarts under the viewer.
 Raider.IO's published `raiding/boss-rankings` also carries per-guild `streamers` (count +
 top stream), but only for a realm's top 50 guilds per boss; Lelijkerds and RoyalTeam never
 appear, so it isn't used (see issue #6). Warcraft Logs' API has no stream data.

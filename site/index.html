@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://static-cdn.jtvnw.net; frame-src https://player.twitch.tv; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
 <title>Race to Dutch First</title>
 <meta name="description" content="Welke Nederlandse World of Warcraft-guild haalt als eerste Cutting Edge? De race naar de laatste Mythic-boss, live gevolgd.">
 <meta name="theme-color" content="#0a0b0d">
@@ -47,6 +47,7 @@
     <h1 class="sp__title"><span data-i18n="title.a">Wie haalt als eerste</span> <em data-i18n="title.b">Cutting Edge?</em></h1>
     <p class="sp__lead" data-i18n="lead">De race tussen Nederlandse guilds naar de laatste Mythic-boss van de huidige raid tier, live gevolgd via Raider.IO en Warcraft Logs.</p>
     <div id="tierPills" class="sp__tier"></div>
+    <section id="onAir" class="onair" aria-labelledby="onAirHeading" hidden></section>
     <section class="sp__board" aria-labelledby="ltHeading">
       <h2 id="ltHeading" class="visually-hidden" data-i18n="hero.standings">Klassement</h2>
       <ol id="lowerThirds" class="board"></ol>
@@ -61,7 +62,6 @@
 
 <div class="page">
 
-<section id="liveStrip" class="live-strip" aria-live="polite" hidden></section>
 
   <div id="globalError" class="error-capsule" role="alert" hidden></div>
 
