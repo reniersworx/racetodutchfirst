@@ -576,7 +576,8 @@ function render(data) {
   renderFeed(data);
   renderTimeline(data);
   renderGuildSheets(data);
-  $('#wclNote').textContent = data.sources && data.sources.warcraftlogs ? tr('wcl.on') : tr('wcl.off');
+  $('#wclNote').textContent = isArchive(data) && !(data.sources && data.sources.warcraftlogs) ? tr('wcl.archive')
+    : data.sources && data.sources.warcraftlogs ? tr('wcl.on') : tr('wcl.off');
   renderUpdated();
   // Other scripts draw their own sections from the same data (halloffame.js).
   document.dispatchEvent(new CustomEvent('race:data', { detail: data }));
