@@ -1,7 +1,7 @@
 [project]
 name = "racetodutchfirst"
 version = "0.1.0"
-description = "Race to Dutch First: follows the race between Dutch WoW guilds to Cutting Edge."
+description = "Race to Dutch First: follows the race between Dutch-speaking WoW guilds to Cutting Edge."
 requires-python = ">=3.12"
 dependencies = [
     "httpx>=0.27",
