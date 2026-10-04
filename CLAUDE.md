@@ -34,7 +34,7 @@ site/                        static, no build step, no framework, no CDN scripts
   og.png                     committed fallback share image; CI replaces it in the Pages artifact
   splash.css                 the hero (design language v2: the overlay's language as a raid poster)
   style.css                  the sections below the hero
-  bossart.js                 boss renders per encounter, copied UNCHANGED from the overlay's js/bossart.js (build-bossart.py there)
+  bossart.js                 boss renders per encounter, generated with the overlay's build-bossart.py for every season's raids (see below)
   tokens.css                 copied UNCHANGED from Bmiest/bmiest_wow_streaming_theme css/tokens.css
   data/race.json             sample data; CI regenerates it into the Pages artifact only
 .github/workflows/site.yml   raid evenings every 30 min, else every 2 h, + main pushes + manual: fetch, share image, deploy
@@ -177,7 +177,13 @@ Read `DESIGN.md` before UI work: it records the visual system (tokens, component
   Impeccable provenance). Nothing is drawn on the boss. A council fight shows up to two bodies.
   The art owns the column right of the board; a lone render wider than 2:1 takes the field beside
   the title instead; below 1180px it is a band above the title. Never shown past 2x its own size
-  (`--nat-h`). A boss missing from bossart.js (Nymrissa) leaves the hero without art.
+  (`--nat-h`). A boss missing from bossart.js leaves the hero without art.
+- bossart.js covers both seasons, so the overlay's copy (one tier) is not enough here. Regenerate it with
+  the overlay's script for all of them, then rerun boss-cutouts.py:
+  `build-bossart.py "The Venomous Abyss" "The Tidebound Grotto" "The Voidspire" "The Dreamrift"
+  "March on Quel'Danas" "Sporefall" --out site/bossart.js`, with Vaelgor & Ezzorak and Lightblinded
+  Vanguard at two bodies: add `2735: 2` and `2737: 2` (their journal encounter ids) to LEADS in the
+  overlay's script, which only lists Season 2's councils.
 - Boss heads below the hero (`bossThumb()`): a slanted ink tile with the top of the render, or
   the boss's initial when there is no art, so every head lines up.
 - The top bar is sketch C's broadcast bug: flush blocks, LIVE (only while some guild's

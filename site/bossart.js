@@ -68,6 +68,80 @@ window.BossArt = {
         "name": "Ula'tek",
         "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-140369.jpg"
       }
+    ],
+    "3379": [
+      {
+        "name": "Nymrissa Wavecaller",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-137687.jpg"
+      }
+    ],
+    "3176": [
+      {
+        "name": "Imperator Averzian",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-137457.jpg"
+      }
+    ],
+    "3177": [
+      {
+        "name": "Vorasius",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-131605.jpg"
+      }
+    ],
+    "3179": [
+      {
+        "name": "Fallen-King Salhadaar",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-131634.jpg"
+      }
+    ],
+    "3178": [
+      {
+        "name": "Vaelgor",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-131632.jpg"
+      },
+      {
+        "name": "Ezzorak",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-131633.jpg"
+      }
+    ],
+    "3180": [
+      {
+        "name": "War Chaplain Senn",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-131523.jpg"
+      },
+      {
+        "name": "General Amias Bellamy",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-131501.jpg"
+      }
+    ],
+    "3181": [
+      {
+        "name": "Alleria Windrunner",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-129430.jpg"
+      }
+    ],
+    "3306": [
+      {
+        "name": "Chimaerus",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-136680.jpg"
+      }
+    ],
+    "3182": [
+      {
+        "name": "Belo'ren, Child of Al'ar",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-130007.jpg"
+      }
+    ],
+    "3183": [
+      {
+        "name": "L'ura",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-129561.jpg"
+      }
+    ],
+    "3159": [
+      {
+        "name": "Rotmire",
+        "img": "https://render.worldofwarcraft.com/eu/npcs/zoom/creature-display-139454.jpg"
+      }
     ]
   },
   "byName": {
@@ -78,6 +152,17 @@ window.BossArt = {
     "sszorak": "3420",
     "the twin fangs": "3421",
     "the coiled altar": "3429",
-    "ula'tek": "3492"
+    "ula'tek": "3492",
+    "nymrissa wavecaller": "3379",
+    "imperator averzian": "3176",
+    "vorasius": "3177",
+    "fallen-king salhadaar": "3179",
+    "vaelgor & ezzorak": "3178",
+    "lightblinded vanguard": "3180",
+    "crown of the cosmos": "3181",
+    "chimaerus the undreamt god": "3306",
+    "belo'ren, child of al'ar": "3182",
+    "midnight falls": "3183",
+    "rotmire": "3159"
   }
 };
