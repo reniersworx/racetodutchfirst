@@ -87,7 +87,7 @@
       'aria-selected': String(selected), 'aria-controls': 'hofStage', tabindex: selected ? '0' : '-1', title: b.name,
       'data-key': key(b),
     }, art(b, 'hof-tab__head'), h('span', { class: 'hof-tab__name', text: b.name }),
-      h('span', { class: `hof-tab__sub${b.first && !b.side ? ' mono' : ''}` }, sub));
+      h('span', { class: `hof-tab__sub${b.first && !b.side ? ' mono' : ''}${!b.first && b.isCe ? ' hof-tab__sub--ce' : ''}` }, sub));
     el.addEventListener('click', () => choose(key(b)));
     return el;
   }
@@ -156,18 +156,20 @@
     if (!b.first) {
       box.replaceChildren(h('div', { class: 'hof-stage is-empty' }, art(b, 'hof-stage__art'),
         h('div', { class: 'hof-stage__info' },
-          h('p', { class: 'hof-label hof-label--quiet', text: tr(b.isCe ? 'hof.lastTrophy' : 'hof.toEarn') }),
           h('h3', { class: 'hof-stage__boss' }, h('span', { text: b.name }), b.isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
-          h('p', { class: 'hof-stage__meta', text: tr('hof.notYet') }))));
+          h('p', { class: 'hof-stage__meta' },
+            h('span', { class: 'pill hof-pill hof-pill--quiet', text: tr(b.isCe ? 'hof.lastTrophy' : 'hof.toEarn') }),
+            h('span', { text: tr('hof.notYet') })))));
       return;
     }
     const f = b.first;
     box.replaceChildren(h('div', { class: 'hof-stage' }, art(b, 'hof-stage__art'),
       h('div', { class: 'hof-stage__info' },
-        b.side ? h('p', { class: 'hof-label hof-label--quiet', text: tr('hof.side') })
-          : h('p', { class: 'hof-label' }, star(), h('span', { text: tr('hof.firstDay', { n: raceDay(f.defeatedAt) }) })),
         setGuild(h('h3', { class: 'hof-stage__guild' }, h('i', { 'aria-hidden': 'true' }), h('span', { text: f.guild })), f),
         h('p', { class: 'hof-stage__meta' },
+          // The race's first kill in the world's own marker: a gold slanted pill (grey for a raid that doesn't count).
+          b.side ? h('span', { class: 'pill hof-pill hof-pill--quiet', text: tr('hof.side') })
+            : h('span', { class: 'pill hof-pill hof-pill--first' }, star(), h('span', { text: tr('hof.firstDay', { n: raceDay(f.defeatedAt) }) })),
           h('span', {}, tr('hof.mythic', { boss: b.name }), b.isCe ? h('span', { class: 'ce-tag', text: 'CE' }) : null),
           h('span', { class: 'mono hof-stage__date', text: day(f.defeatedAt), title: dayTime(f.defeatedAt) }),
           f.pullCount ? h('span', { text: pulls(f.pullCount) }) : null),

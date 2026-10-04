@@ -22,9 +22,12 @@
 .hof-tab__head img { width: 100%; height: 140%; max-height: none; object-fit: cover; object-position: 50% 0; }
 .hof-tab__head.hof-art--duo img { width: 48%; }
 .hof-tab__head .hof-art__mono { font-size: 28px; }
-.hof-tab__name { max-width: 100%; padding: 0 10px; font-size: 12.5px; font-weight: 600; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* two lines, so a long boss name still reads when ten tabs share the row */
+.hof-tab__name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; min-height: 2.5em; max-width: 100%; padding: 0 10px;
+  font-size: 12.5px; font-weight: 600; line-height: 1.25; color: var(--paper); overflow: hidden; overflow-wrap: anywhere; }
 .hof-tab__sub { display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; font-size: 11px; color: var(--ink-300); }
 .hof-tab__sub .hof-star { width: 11px; height: 11px; }
+.hof-tab__sub--ce { font-weight: 700; letter-spacing: .12em; color: var(--jade); }
 .hof-tab.is-empty .hof-tab__head img { filter: brightness(0) invert(.12); }
 .hof-tab:hover { background: var(--ink-800); }
 .hof-tab[aria-selected="true"] { border-top-color: var(--jade); background: var(--ink-800); }
@@ -34,13 +37,21 @@
 .hof-box { margin-top: 4px; background: var(--ink-850); border: 1px solid var(--ink-700); }
 .hof-box:focus-visible { outline-offset: 2px; }
 .hof-stage { display: grid; grid-template-columns: minmax(280px, 36%) minmax(0, 1fr); min-height: 460px; }
-.hof-stage__art { padding: 28px 16px 0; background: var(--ink-800);
+/* An earned trophy stands in the hero's glow (jade behind the body, void at the top right);
+   a boss nobody has beaten stays on flat ink. */
+.hof-stage__art { padding: 28px 16px 0;
+  background:
+    radial-gradient(65% 55% at 50% 60%, rgba(63, 217, 164, .2), transparent 70%),
+    radial-gradient(55% 50% at 94% 6%, rgba(150, 90, 255, .28), transparent 70%),
+    linear-gradient(160deg, #1b1030 0%, #0d1a1c 60%, var(--ink-850) 100%);
   -webkit-mask-image: linear-gradient(#000 80%, transparent); mask-image: linear-gradient(#000 80%, transparent); }
 .hof-stage__art img { max-height: 520px; }
+.hof-stage.is-empty .hof-stage__art { background: var(--ink-800); }
 .hof-stage.is-empty .hof-stage__art img { filter: brightness(0) invert(.1); }
 .hof-stage__info { display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 30px 34px 32px; }
-.hof-label { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
-.hof-label--quiet { color: var(--ink-300); }
+.hof-pill { display: inline-flex; align-items: center; gap: 6px; }
+.hof-pill--first { color: var(--gold); }
+.hof-pill--quiet { color: var(--ink-300); }
 .hof-stage__guild { display: flex; align-items: center; gap: 16px; min-width: 0; font-size: clamp(30px, 4vw, 52px); font-weight: 700; line-height: 1.02; letter-spacing: -.02em; color: var(--paper); }
 .hof-stage__guild span { min-width: 0; overflow-wrap: anywhere; }
 .hof-stage__guild i { flex: 0 0 22px; width: 22px; height: .9em; background: var(--guild); clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
@@ -64,7 +75,7 @@
 .hof-after__h { margin-bottom: 8px; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-300); }
 .hof-after ol { list-style: none; display: grid; gap: 6px; }
 .hof-after li { display: grid; grid-template-columns: 14px minmax(150px, 220px) 64px 76px minmax(0, 1fr); align-items: center; gap: 10px; font-size: 13px; }
-.hof-after__n { font-size: 11px; color: var(--ink-400); }
+.hof-after__n { font-size: 11px; color: var(--ink-300); }
 .hof-after__d { font-size: 12px; color: var(--paper-dim); }
 .hof-after__gap { font-size: 12px; color: var(--ink-300); }
 .hof-after__p { color: var(--ink-300); }
@@ -139,6 +150,8 @@
   .hof-stage__info { padding: 8px 16px 20px; }
   .hof-frame__cells { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .hof-table .hof-guild { display: none; }
+  /* the second line (guild · realm) and the heads may wrap, so Kills stays on screen */
+  .hof-table tbody th, .hof-table thead th { white-space: normal; }
   .hof-guild-inline { display: inline; color: var(--paper-dim); }
   .hof-guild-inline::after { content: " · "; color: var(--ink-400); }
   .hof-guild-inline .dot { margin-right: 2px; }
