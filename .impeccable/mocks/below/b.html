@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
-<title>Race to Dutch First</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
+<title>Mockup B · Per guild</title>
 <meta name="description" content="Welke Nederlandse World of Warcraft-guild haalt als eerste Cutting Edge? De race naar de laatste Mythic-boss, live gevolgd.">
 <meta name="theme-color" content="#0a0b0d">
 <meta property="og:type" content="website">
@@ -23,8 +23,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="halloffame.css">
 <link rel="stylesheet" href="splash.css">
+<link rel="stylesheet" href="mock.css">
 </head>
-<body>
+<body data-mock="b">
 
 <header class="sp">
   <div class="sp__top">
@@ -69,26 +70,32 @@
 
 <section class="view" aria-labelledby="timelineHeading">
     <h2 id="timelineHeading" class="view__title" data-i18n="timeline.h">Voortgang</h2>
-    <p class="section-caption" data-i18n="timeline.cap">Trede = Mythic-kill · ster = eerste Nederlandse kill · lichte kolom = raidavond</p>
+    <p class="section-caption" data-i18n="timeline.cap">Mythic-kills door de tijd, vanaf de week van de eerste Mythic-kill. Elke trede is een kill.</p>
     <div id="timeline" class="chart timeline-chart"></div>
     <ul id="timelineLegend" class="legend"></ul>
     <details class="as-table">
-      <summary class="disclose" data-i18n="timeline.asTable">Toon als tabel</summary>
+      <summary data-i18n="timeline.asTable">Toon als tabel</summary>
       <div class="table-wrap"><table id="timelineTable" class="data-table"></table></div>
     </details>
   </section>
 
-<section class="view" aria-labelledby="guildHeading">
-    <h2 id="guildHeading" class="view__title" data-i18n="guild.h">Per guild</h2>
-    <p class="section-caption" data-i18n="guild.cap">Per boss de killdatum of de beste pull; rechts elke pull op de huidige boss.</p>
-    <div class="table-wrap gs-wrap" tabindex="0" role="region" aria-labelledby="guildHeading">
-      <table id="guildSheets" class="gs"></table>
+<section class="view" aria-labelledby="bossHeading">
+    <h2 id="bossHeading" class="view__title" data-i18n="boss.h">Per boss</h2>
+    <p class="section-caption" data-i18n="boss.cap">Een verslagen boss toont de datum en het aantal pulls; een gouden ster markeert de eerste kill van de race. Een balk is de beste pull: hoeveel van de boss er al af was. Grijs is nog niet geprobeerd.</p>
+    <div class="table-wrap table-wrap--scroll" tabindex="0" role="region" aria-labelledby="bossHeading">
+      <table id="bossTable" class="boss-table"></table>
     </div>
+    <div id="bossCards" class="boss-cards"></div>
+  </section>
+
+<section class="view" aria-labelledby="currentHeading">
+    <h2 id="currentHeading" class="view__title" data-i18n="current.h">Huidige boss</h2>
+    <p class="section-caption" data-i18n="current.cap">Hoe dicht zitten ze erbij? Elke staaf is een pull: hoe hoger, hoe meer van de boss eraf. De lijn is de beste pull tot dan toe, de stippellijn bovenaan de kill. Een streep scheidt de raidavonden.</p>
+    <div id="currentBoss" class="curves-grid"></div>
   </section>
 
 <section id="hallOfFame" class="view" aria-labelledby="hofHeading" hidden>
-    <details class="fold">
-    <summary class="fold__summary disclose"><h2 id="hofHeading" class="fold__title" data-i18n="hof.h">Hall of fame</h2><span class="fold__hint" data-i18n="hof.fold">Teams en raiders</span></summary>
+    <h2 id="hofHeading" class="view__title" data-i18n="hof.h">Hall of fame</h2>
     <p class="section-caption" data-i18n="hof.cap">Per verslagen boss het team van elke guild, in de volgorde van hun kill. Bovenaan staat het team van de eerste Nederlandse kill; de andere guilds klap je open. Een naam linkt naar Raider.IO.</p>
     <div id="hofBosses" class="hof-grid"></div>
     <h3 id="hofRaidersHeading" class="hof-subtitle" data-i18n="hof.raiders.h">Raiders</h3>
@@ -97,7 +104,6 @@
       <table id="hofRaiders" class="data-table hof-table"></table>
     </div>
     <div id="hofMore" class="hof-more"></div>
-    </details>
   </section>
 
   <footer class="site-footer">
@@ -112,5 +118,6 @@
 <script src="app.js"></script>
 <script src="halloffame.js"></script>
 <script src="live.js"></script>
+<script src="mock.js"></script>
 </body>
 </html>

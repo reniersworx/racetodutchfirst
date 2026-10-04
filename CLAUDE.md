@@ -27,7 +27,7 @@ tests/
   fixtures/api/              older single responses from the first version (unused but kept)
 scripts/og-image.sh          headless Chrome: site/og.html → site/og.png (run by site.yml)
 site/                        static, no build step, no framework, no CDN scripts
-  index.html                 splash hero (top bar, title, board, kills ticker), then Nu live, Voortgang, Per boss, Huidige boss, Hall of fame, footer
+  index.html                 splash hero (top bar, title, board, kills ticker), then Nu live, Voortgang, Per guild, Hall of fame (folded), footer
   i18n.js                    NL + EN strings and the global `i18n` (loaded before app.js)
   app.js                     loads data/race.json, draws everything (inline SVG)
   og.html, og.css, og.js     the 1200x630 share image page; scripts/og-image.sh screenshots it to og.png
@@ -176,14 +176,19 @@ Read `DESIGN.md` before UI work: it records the visual system (tokens, component
   `liveState` is `live`), the name, and "Dag N" (tier.start is day 1; stops on the winning day).
   NL | EN uses the same flush blocks.
 - Charts draw at the container's measured width and redraw on resize (ResizeObserver).
-  It must work at 360 px: below 600 px the per-boss table is replaced by one card per boss
-  (`#bossCards`, same `bossCell()` markup in a `div`).
+  It must work at 360 px.
+- Below the hero (chosen from three mockups, 2026-10-04: variant B): Voortgang (raid nights
+  = days with a pull or kill in race.json, shaded; first kills as gold stars, guild names at the line ends; the legend only on phones),
+  then **Per guild** (`renderGuildSheets()`, one table row per guild: a cell per boss with the
+  kill date or best pull, then the pulls on its current boss as bars with a link to their source),
+  then the Hall of fame folded in a `<details>`. The per-boss table and the current-boss cards
+  are gone: the hero board already shows each guild's current boss. On phones the Per guild
+  table scrolls sideways with the guild column pinned. The kills ticker spans the full width.
 - "Nu aan het raiden" (`liveState`) is derived in the browser: the last pull on the current
   boss or the latest kill within 60 min of `generatedAt`, *and* race.json itself under 60 min
   old; otherwise "Raidde om 21:57" for 12 h. Badges repaint every 30 s without new data.
 - Voortgang starts in the week of the first Mythic kill (weeks counted from `tier.start`, so
   ticks stay on the reset), not at the tier start.
-- Huidige boss pull charts mark a new raid night where two pulls are more than 6 h apart.
 
 ## Languages
 

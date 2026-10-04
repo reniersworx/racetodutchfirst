@@ -263,14 +263,14 @@ function renderHero(data) {
     const rib = h('div', { class: 'rib' },
       h('div', { class: 'rib__bar' }, h('div', { class: 'rib__in' },
         h('span', { class: 'rib__acc mono', text: String(x.rank), 'aria-label': tr('tile.place', { n: x.rank }) }),
-        url ? h('a', { class: 'rib__val', href: url, rel: 'noopener', text: x.name }) : h('span', { class: 'rib__val', text: x.name }),
-        liveBadge(x, 'row__live'))));
+        url ? h('a', { class: 'rib__val', href: url, rel: 'noopener', text: x.name }) : h('span', { class: 'rib__val', text: x.name }))));
     rib.style.setProperty('--acc', colour(x.colour));
     return setGuild(h('li', { class: `row${isLead ? ' row--lead' : ''}` },
       rib,
       h('span', { class: 'row__kills mono' }, String(x.mythicKills), h('small', { text: `/${total}` })),
       h('div', { class: 'row__fight' },
-        h('span', { class: 'row__label', text: label }),
+        // The raiding badge sits on the label line, so it never squeezes the guild name.
+        h('div', { class: 'row__top' }, h('span', { class: 'row__label', text: label }), liveBadge(x, 'row__live')),
         h('span', { class: 'row__hp', role: 'img', 'aria-label': label }, fill))), x);
   }));
 }
@@ -316,9 +316,16 @@ function timelineStart(data) {
   return tierStart + Math.max(0, Math.floor((lead - tierStart) / week)) * week;
 }
 
-/* Raid nights: Wednesday and Sunday (local time), shaded as columns, the evenings the
- * lines can move. */
-const RAID_DAYS = [3, 0];
+/* Raid nights: the local days on which any guild pulled or killed, from race.json itself
+ * (guilds raid on different evenings), shaded as columns. */
+function raidDays(data) {
+  const key = t => { const d = new Date(t); return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; };
+  const days = new Set(data.guilds.flatMap(g => [
+    ...killsOf(g).map(k => k.at),
+    ...(g.current && Array.isArray(g.current.pulls) ? g.current.pulls.map(p => Date.parse(p.at)) : []),
+  ]).filter(Number.isFinite).map(key));
+  return t => days.has(key(t));
+}
 const STAR = 'M0,-7 L2,-2.2 7,-2 3.2,1.3 4.4,6.5 0,3.6 -4.4,6.5 -3.2,1.3 -7,-2 -2,-2.2Z';
 
 function drawTimeline(el, data) {
@@ -328,6 +335,7 @@ function drawTimeline(el, data) {
   const lead = leaderName(data);
   // Leader drawn last, so it sits on top where lines overlap.
   const order = [...data.guilds].reverse();
+  const isRaidDay = raidDays(data);
 
   chart(el, w => {
     // Wide: guild names at the line ends instead of a legend; narrow: only the count there
@@ -343,7 +351,7 @@ function drawTimeline(el, data) {
     const night = new Date(start);
     night.setHours(0, 0, 0, 0);
     for (; night.getTime() < end; night.setDate(night.getDate() + 1)) {
-      if (!RAID_DAYS.includes(night.getDay())) continue;
+      if (!isRaidDay(night.getTime() + 12 * 3600000)) continue;
       const a = x(Math.max(night.getTime(), start));
       const next = new Date(night);
       next.setDate(next.getDate() + 1);
@@ -459,7 +467,7 @@ function pullStrip(data, g) {
   const src = url ? h('a', { class: 'gs-pulls__src', href: url, rel: 'noopener', text: fromLogs ? 'warcraftlogs' : 'raider.io' }) : null;
   const all = (cur.pulls || []).filter(p => p.percent !== null);
   if (cur.bestPercent === null || !all.length) {
-    return h('td', { class: 'gs-pulls' }, h('span', { class: 'gs-pulls__cap' }, `${cur.name} · ${tr('tile.noPulls')}`, src ? ' · ' : '', src));
+    return h('td', { class: 'gs-pulls' }, h('span', { class: 'gs-pulls__cap' }, `${cur.name} · ${tr('tile.noPulls')}`, srcTag(src)));
   }
   const skip = Math.max(0, all.length - PULL_BARS);
   const best = Math.min(...all.map(p => p.percent));
@@ -470,8 +478,12 @@ function pullStrip(data, g) {
   });
   return setGuild(h('td', { class: 'gs-pulls' },
     h('span', { class: 'gs-bars', role: 'img', 'aria-label': tr('curve.title', { guild: g.name, boss: cur.name, n: cur.pullCount, pct: pct(cur.bestPercent) }) }, ...bars),
-    h('span', { class: 'gs-pulls__cap' }, tr('guild.pullsCap', { boss: cur.name, pulls: pulls(cur.pullCount), pct: pct(cur.bestPercent) }), src ? ' · ' : '', src)), g);
+    h('span', { class: 'gs-pulls__cap' }, `${cur.name} · ${pulls(cur.pullCount)} · `,
+      h('span', { class: 'gs-pulls__best', text: tr('guild.best', { pct: pct(cur.bestPercent) }) }), srcTag(src))), g);
 }
+
+/* " · raider.io" kept in one piece, so the link never wraps onto a line of its own. */
+function srcTag(src) { return src ? h('span', { class: 'gs-pulls__src-wrap' }, ' · ', src) : null; }
 
 function renderGuildSheets(data) {
   const lead = leaderName(data);

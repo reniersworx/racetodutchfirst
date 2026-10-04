@@ -125,6 +125,14 @@ a:hover { text-decoration-color: var(--jade); }
 
 .as-table { margin-top: 14px; font-size: 14px; color: var(--paper-dim); }
 .as-table summary { cursor: pointer; color: var(--jade); width: max-content; }
+/* One drawn disclosure mark for every <details> on the page (no browser triangle). */
+.disclose { list-style: none; display: flex; align-items: center; gap: 10px; }
+.disclose::-webkit-details-marker { display: none; }
+.disclose::before {
+  content: ""; flex: 0 0 auto; width: 7px; height: 7px; margin: 0 2px; border-right: 2px solid var(--jade); border-bottom: 2px solid var(--jade);
+  transform: rotate(-45deg); transition: transform var(--t-fast) var(--ease);
+}
+details[open] > .disclose::before { transform: rotate(45deg); }
 .as-table[open] summary { margin-bottom: 10px; }
 .table-wrap { max-width: 100%; }
 .data-table { border-collapse: collapse; font-size: 13px; }
@@ -191,7 +199,7 @@ a:hover { text-decoration-color: var(--jade); }
 }
 .gs-cell--first .gs-cell__main { color: var(--gold); }
 .gs-cell--first .gs-cell__main::before { background: var(--gold); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 1 7.5 4.3 11 4.7 8.4 7 9.1 10.5 6 8.8 2.9 10.5 3.6 7 1 4.7 4.5 4.3Z'/%3E%3C/svg%3E"); }
-.gs-meter { height: 5px; margin-top: 5px; background: rgba(255, 255, 255, .07); position: relative; }
+.gs-meter { height: 5px; margin-top: 5px; background: var(--ink-700); position: relative; }
 .gs-meter i { position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); background: var(--guild); }
 .gs-cell--none { background: transparent; border-style: dashed; border-color: var(--ink-750); }
 .gs-cell--current { border-color: transparent; box-shadow: inset 0 0 0 1px var(--guild); background: var(--ink-800); }
@@ -202,21 +210,19 @@ a:hover { text-decoration-color: var(--jade); }
 .gs-bars i { flex: 1; min-width: 1px; height: var(--h, 4%); background: var(--ink-500); }
 .gs-bars i.is-best { background: var(--guild); }
 .gs-pulls__cap { display: block; margin-top: 5px; font-size: 11px; line-height: 1.4; color: var(--paper-dim); }
+.gs-pulls__src-wrap { white-space: nowrap; }
+.gs-pulls__best { color: var(--guild); font-weight: 600; white-space: nowrap; }
 .gs-pulls__src { color: var(--ink-300); text-decoration: none; }
 .gs-pulls__src:hover { color: var(--jade); }
 
-/* ---- folded sections (Hall of fame) ------------------------------------------------- */
-.fold__summary { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; cursor: pointer; list-style: none; }
-.fold__summary::-webkit-details-marker { display: none; }
-.fold__summary .view__title { margin-bottom: 0; }
-.fold__hint { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--jade); }
-.fold__hint::after {
-  content: ""; width: 8px; height: 8px; margin-top: -3px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
-  transform: rotate(45deg); transition: transform var(--t-fast) var(--ease);
-}
-.fold[open] .fold__hint::after { transform: rotate(-135deg); margin-top: 4px; }
-.fold__summary:hover .fold__hint { color: var(--paper); }
-.fold[open] > .fold__summary { margin-bottom: 14px; }
+/* ---- folded sections (Hall of fame): a quiet row between hairlines, not a section head --- */
+.fold { border-top: 1px solid var(--ink-700); border-bottom: 1px solid var(--ink-700); }
+.fold__summary { cursor: pointer; padding: 16px 2px; flex-wrap: wrap; }
+.fold__title { font-size: 16px; font-weight: 700; color: var(--paper); }
+.fold__hint { font-size: 14px; color: var(--ink-300); }
+.fold__summary:hover .fold__title { color: var(--jade); }
+.fold[open] > .fold__summary { margin-bottom: 10px; }
+.fold[open] { padding-bottom: 20px; }
 
 /* ---- footer ------------------------------------------------------------------- */
 .site-footer {

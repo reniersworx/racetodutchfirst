@@ -94,13 +94,13 @@ i18n.add({
 
     'feed.h': 'Laatste kills',
     'timeline.h': 'Voortgang',
-    'timeline.cap': 'Mythic-kills door de tijd, vanaf de week van de eerste Mythic-kill. Elke trede is een kill, een gouden ster de eerste Nederlandse kill van die boss. De lichte kolommen zijn raidavonden (woensdag en zondag).',
+    'timeline.cap': 'Trede = Mythic-kill · ster = eerste Nederlandse kill · lichte kolom = raidavond',
     'timeline.asTable': 'Toon als tabel',
     'guild.h': 'Per guild',
-    'guild.cap': 'Elke rij is een guild: per boss de killdatum (een gouden ster is de eerste Nederlandse kill) of hun beste pull, rechts de pulls op hun huidige boss. Hoe hoger een staaf, hoe meer van de boss eraf; de gekleurde is hun beste.',
+    'guild.cap': 'Per boss de killdatum of de beste pull; rechts elke pull op de huidige boss.',
     'guild.th': 'Guild',
     'guild.thPulls': 'Huidige boss',
-    'guild.pullsCap': '{boss} · {pulls} · beste {pct}',
+    'guild.best': 'beste {pct}',
     'hof.fold': 'Teams en raiders',
 
     'footer.loading': 'Data laden…',
@@ -198,13 +198,13 @@ i18n.add({
 
     'feed.h': 'Latest kills',
     'timeline.h': 'Progress',
-    'timeline.cap': 'Mythic kills over time, from the week of the first Mythic kill. Every step is a kill, a gold star the first Dutch kill of that boss. The light columns are raid nights (Wednesday and Sunday).',
+    'timeline.cap': 'Step = Mythic kill · star = first Dutch kill · light column = raid night',
     'timeline.asTable': 'Show as table',
     'guild.h': 'By guild',
-    'guild.cap': 'Every row is a guild: per boss the kill date (a gold star is the first Dutch kill) or their best pull, on the right the pulls on their current boss. The taller a bar, the more of the boss is down; the coloured one is their best.',
+    'guild.cap': 'Per boss the kill date or the best pull; on the right every pull on the current boss.',
     'guild.th': 'Guild',
     'guild.thPulls': 'Current boss',
-    'guild.pullsCap': '{boss} · {pulls} · best {pct}',
+    'guild.best': 'best {pct}',
     'hof.fold': 'Teams and raiders',
 
     'footer.loading': 'Loading data…',
