@@ -101,6 +101,16 @@
 }
 .row__hp i { display: block; height: 100%; width: var(--w, 0%); background: var(--guild, var(--jade)); }
 
+/* ---- season switch ---------------------------------------------------------------------
+   The same flush blocks as NL | EN (.lang-switch), next to it: Season 2 | Season 1, short ids
+   (S2 | S1) on phones. Shown only when race.json lists an archived season. */
+.season-switch__short { display: none; }
+@media (max-width: 600px) {
+  .season-switch__long { display: none; }
+  .season-switch__short { display: inline; }
+}
+@media (max-width: 480px) { .sp__end { flex-wrap: wrap; row-gap: 8px; } .sp__upd { flex: 1 1 100%; } }
+
 /* ---- on air (live.js) ----------------------------------------------------------------
    Only while a listed channel is live: the stream joins the hero. On a wide screen it sits at
    the foot of the boss column, where the art already fades out, level with the board; below

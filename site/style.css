@@ -263,3 +263,7 @@ details[open] > .disclose::before { transform: rotate(45deg); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+/* ---- side raids (a raid that doesn't count, e.g. Sporefall in Season 1) ------------------ */
+.side-raids { display: grid; gap: 4px; padding: 12px 16px; background: var(--ink-800); border: 1px solid var(--ink-700); font-size: 14px; color: var(--paper-dim); }
+.side-raids__h { color: var(--paper); font-weight: 600; }

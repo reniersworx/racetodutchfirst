@@ -225,6 +225,14 @@ committed archive made once with
 
 - race.json and every archive carry `season` (`id`, `label`, `archived`, `end`) and `seasons`
   (the switch list, current first), so the page knows what it shows and what it can switch to.
+- The page (app.js): a Season 2 | Season 1 switch next to NL | EN (`#seasonSwitch`, the same
+  flush blocks; S2 | S1 on phones), hidden unless `seasons` lists an archive. `?season=s1` loads
+  that archive once (race.json first, for the list; an archive is never refreshed). An archive is
+  never live (`liveState` returns null), the update line says when it closed and never turns
+  late, Dag N stops on the win (or the season's end), the title reads "Wie haalde als eerste".
+- `splitSideRaids()` drops `counts: false` raids from `tier.raids` and the guilds' `bosses` right
+  after the fetch, so every chart and table counts only the race; they come back as one line
+  under the winner banner (`#sideRaids`).
 - `race = false` on a raid (Sporefall in Season 1): fetched and shown (`counts: false` in
   `tier.raids` and `hallOfFame.bosses`), but its kills don't count for kills, the current
   boss, the ranking, latestKillAt or the raider ranking. The first raid and the CE boss must count.
